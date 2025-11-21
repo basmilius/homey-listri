@@ -1,3 +1,4 @@
+import { App } from '@basmilius/homey-common';
 import Homey from 'homey';
 import { HomeyAPI, HomeyAPIV3Local } from 'homey-api';
 import { Brain } from './brain';
