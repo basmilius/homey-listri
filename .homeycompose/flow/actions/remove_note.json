@@ -1,0 +1,30 @@
+{
+    "id": "remove_note",
+    "title": {
+        "en": "Remove note",
+        "nl": "Verwijder notitie"
+    },
+    "titleFormatted": {
+        "en": "Remove note [[note]]",
+        "nl": "Verwijder notitie [[note]]"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "note",
+            "title": {
+                "en": "Note",
+                "nl": "Notitie"
+            }
+        }
+    ]
+}

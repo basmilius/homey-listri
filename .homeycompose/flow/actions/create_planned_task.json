@@ -1,0 +1,47 @@
+{
+    "id": "create_planned_task",
+    "title": {
+        "en": "Create planned task",
+        "nl": "Maak geplande taak"
+    },
+    "titleFormatted": {
+        "en": "Create task [[task]] due on [[date]] at [[time]]",
+        "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]]"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+        },
+        {
+            "type": "text",
+            "name": "task",
+            "title": {
+                "en": "Task",
+                "nl": "Taak"
+            }
+        },
+        {
+            "type": "date",
+            "name": "date",
+            "title": {
+                "en": "Date",
+                "nl": "Datum"
+            }
+        },
+        {
+            "type": "time",
+            "name": "time",
+            "required": false,
+            "title": {
+                "en": "Time",
+                "nl": "Tijd"
+            }
+        }
+    ]
+}

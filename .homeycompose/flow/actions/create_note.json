@@ -1,0 +1,30 @@
+{
+    "id": "create_note",
+    "title": {
+        "en": "Create note",
+        "nl": "Maak notitie"
+    },
+    "titleFormatted": {
+        "en": "Create note [[note]]",
+        "nl": "Maak notitie [[note]]"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "note",
+            "title": {
+                "en": "Note",
+                "nl": "Notitie"
+            }
+        }
+    ]
+}

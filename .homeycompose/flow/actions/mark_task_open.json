@@ -1,0 +1,30 @@
+{
+    "id": "mark_task_open",
+    "title": {
+        "en": "Mark task open",
+        "nl": "Marked taak als open"
+    },
+    "titleFormatted": {
+        "en": "Mark task [[task]] as open",
+        "nl": "Markeer taak [[task]] als open"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+        },
+        {
+            "type": "text",
+            "name": "task",
+            "title": {
+                "en": "Task",
+                "nl": "Taak"
+            }
+        }
+    ]
+}

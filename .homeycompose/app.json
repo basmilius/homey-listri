@@ -1,0 +1,33 @@
+{
+    "id": "com.basmilius.listri",
+    "version": "1.0.0",
+    "compatibility": ">=12.4.0",
+    "sdk": 3,
+    "brandColor": "#84cc16",
+    "platforms": [
+        "local"
+    ],
+    "name": {
+        "en": "Listri",
+        "nl": "Listri"
+    },
+    "description": {
+        "en": "Make lists and manage them in your dashboards and flows.",
+        "nl": "Maak verschillende soorten lijsten en beheer ze in je dashboards en flows."
+    },
+    "category": [
+        "tools"
+    ],
+    "permissions": [
+        "homey:manager:api"
+    ],
+    "images": {
+        "small": "/assets/images/small.png",
+        "large": "/assets/images/large.png",
+        "xlarge": "/assets/images/xlarge.png"
+    },
+    "author": {
+        "name": "Bas Milius",
+        "email": "basmilius@hotmail.com"
+    }
+}

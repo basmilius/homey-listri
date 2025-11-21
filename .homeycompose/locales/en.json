@@ -1,0 +1,50 @@
+{
+    "device": {
+        "list": {
+            "pair": {
+                "title": "Create a new list",
+                "subtitle": "Items can be created through widgets or flows.",
+                "submit": "Create list",
+                "name": {
+                    "title": "Name",
+                    "description": "A unique name for your list."
+                },
+                "icon": {
+                    "title": "Icon",
+                    "description": "The icon is displayed only in the list widget."
+                },
+                "color": {
+                    "title": "Color",
+                    "description": "The color is displayed only in the list widget."
+                }
+            },
+            "repair": {
+                "title": "Update list",
+                "subtitle": "Edit the details of your list.",
+                "submit": "Save list"
+            }
+        }
+    },
+    "element": {
+        "search_icon": "Search for an icon..."
+    },
+    "color": {
+        "red": "Red",
+        "orange": "Orange",
+        "amber": "Amber",
+        "yellow": "Yellow",
+        "lime": "Lime",
+        "green": "Green",
+        "emerald": "Emerald",
+        "teal": "Teal",
+        "cyan": "Cyan",
+        "sky": "Sky",
+        "blue": "Blue",
+        "indigo": "Indigo",
+        "violet": "Violet",
+        "purple": "Purple",
+        "fuchsia": "Fuchsia",
+        "pink": "Pink",
+        "rose": "Rose"
+    }
+}

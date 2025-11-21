@@ -1,0 +1,38 @@
+{
+    "id": "create_user_task",
+    "title": {
+        "en": "Create user task",
+        "nl": "Maak taak voor persoon"
+    },
+    "titleFormatted": {
+        "en": "Create task [[task]] for [[person]]",
+        "nl": "Maak taak [[task]] voor [[person]]"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+        },
+        {
+            "type": "autocomplete",
+            "name": "person",
+            "title": {
+                "en": "Person",
+                "nl": "Persoon"
+            }
+        },
+        {
+            "type": "text",
+            "name": "task",
+            "title": {
+                "en": "Task",
+                "nl": "Taak"
+            }
+        }
+    ]
+}

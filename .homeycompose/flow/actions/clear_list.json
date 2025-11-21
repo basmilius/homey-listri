@@ -1,0 +1,22 @@
+{
+    "id": "clear_list",
+    "title": {
+        "en": "Clear",
+        "nl": "Maak leeg"
+    },
+    "titleFormatted": {
+        "en": "Clear",
+        "nl": "Maak leeg"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+        }
+    ]
+}

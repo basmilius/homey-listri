@@ -1,0 +1,106 @@
+:root {
+    --red: #ef4444;
+    --orange: #f97316;
+    --amber: #f59e0b;
+    --yellow: #eab308;
+    --lime: #84cc16;
+    --green: #22c55e;
+    --emerald: #10b981;
+    --teal: #14b8a6;
+    --cyan: #06b6d4;
+    --sky: #0ea5e9;
+    --blue: #3b82f6;
+    --indigo: #6366f1;
+    --violet: #8b5cf6;
+    --purple: #a855f7;
+    --fuchsia: #d946ef;
+    --pink: #ec4899;
+    --rose: #f43f5e;
+}
+
+.listri-icon {
+    --color: #64748b;
+    --icon: '';
+    --icon-secondary: '';
+    --size: 42px;
+
+    display: grid;
+    height: var(--size);
+    width: var(--size);
+    align-items: center;
+    justify-content: center;
+}
+
+.listri-icon::before,
+.listri-icon::after {
+    grid-column: 1;
+    grid-row: 1;
+    color: var(--color);
+    font-family: 'font-awesome', sans-serif;
+    font-size: var(--size);
+}
+
+.listri-icon::before {
+    content: var(--icon);
+}
+
+.listri-icon::after {
+    content: var(--icon-secondary);
+    opacity: .2;
+}
+
+.color-select {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 9px;
+}
+
+.color-select-item {
+    --color: black;
+
+    height: 33px;
+    width: 33px;
+    background: var(--color);
+    border-radius: 99px;
+    cursor: pointer;
+    transition: opacity 120ms cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.color-select-item:hover {
+    opacity: .8;
+}
+
+.color-select-item.active {
+    outline: 3px solid white;
+    outline-offset: -6px;
+}
+
+.icon-select {
+    display: flex;
+    margin-top: 15px;
+    flex-flow: row wrap;
+    gap: 6px;
+}
+
+.icon-select-item {
+    --color: var(--homey-color-mono-70);
+    --size: 24px;
+
+    height: 45px;
+    width: 45px;
+    border: 1px solid transparent;
+    border-radius: var(--homey-border-radius-small);
+    cursor: pointer;
+}
+
+.icon-select-item:hover {
+    background: var(--homey-color-mono-02);
+    border-color: var(--homey-color-mono-05);
+}
+
+.icon-select-item.active {
+    --color: var(--sky);
+
+    background: rgb(from var(--color) r g b / .25);
+    border-color: rgb(from var(--color) r g b / .25);
+}

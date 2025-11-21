@@ -1,0 +1,50 @@
+{
+  "device": {
+    "list": {
+      "pair": {
+        "title": "Maak een nieuwe lijst",
+        "subtitle": "Items kunnen worden aangemaakt via widgets of flows.",
+        "submit": "Maak lijst",
+        "name": {
+          "title": "Naam",
+          "description": "Een unieke naam voor je lijst."
+        },
+        "icon": {
+          "title": "Icoon",
+          "description": "Het icoon wordt alleen getoond in de lijst widget."
+        },
+        "color": {
+          "title": "Kleur",
+          "description": "De kleur wordt alleen getoond in de lijst widget."
+        }
+      },
+      "repair": {
+        "title": "Lijst bewerken",
+        "subtitle": "Bewerk het uiterlijk van je lijst.",
+        "submit": "Lijst opslaan"
+      }
+    }
+  },
+  "element": {
+    "search_icon": "Zoek naar een icoon..."
+  },
+  "color": {
+    "red": "Rood",
+    "orange": "Oranje",
+    "amber": "Amber",
+    "yellow": "Geel",
+    "lime": "Limoen",
+    "green": "Groen",
+    "emerald": "Smaragd",
+    "teal": "Blauwgroen",
+    "cyan": "Cyaan",
+    "sky": "Hemelsblauw",
+    "blue": "Blauw",
+    "indigo": "Indigo",
+    "violet": "Violet",
+    "purple": "Paars",
+    "fuchsia": "Fuchsia",
+    "pink": "Roze",
+    "rose": "Rooskleurig"
+  }
+}

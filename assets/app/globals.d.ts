@@ -1,0 +1,20 @@
+declare namespace Homey {
+    export function __(key: string): string;
+
+    export function setTitle(title: string): void;
+    export function setSubtitle(subtitle: string): void;
+
+    export function emit(event: string, data?: any): Promise<any>;
+
+    export function createDevice(props: {
+        readonly name: string;
+        readonly data: Record<string, any>;
+        readonly store?: Record<string, any>;
+        readonly settings?: Record<string, any>;
+    }): Promise<any>;
+
+    export function done(): void;
+
+    export function hideLoadingOverlay(): void;
+    export function showLoadingOverlay(): void;
+}
