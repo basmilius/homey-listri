@@ -2,7 +2,7 @@
     "id": "mark_task_done",
     "title": {
         "en": "Mark task done",
-        "nl": "Marked taak als voltooid"
+        "nl": "Markeer taak als voltooid"
     },
     "titleFormatted": {
         "en": "Mark task [[task]] as done",

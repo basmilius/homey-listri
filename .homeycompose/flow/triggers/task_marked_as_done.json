@@ -1,0 +1,22 @@
+{
+    "id": "task_marked_as_done",
+    "title": {
+        "en": "A task was marked as done",
+        "nl": "Een taak is als voltooid gemarkeerd"
+    },
+    "titleFormatted": {
+        "en": "A task was marked as done",
+        "nl": "Een taak is als voltooid gemarkeerd"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+        }
+    ]
+}

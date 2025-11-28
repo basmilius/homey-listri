@@ -1,4 +1,5 @@
 import { computed, createApp, defineComponent, ref, unref, watch } from '../../assets/app/vue.js';
+import { ScrollContainer } from '../../assets/app/elements.js';
 
 const formatter = new Intl.DateTimeFormat(navigator.language, {
     month: 'short',
@@ -56,8 +57,7 @@ const ListTaskItem = defineComponent({
     template: `
         <div
             class="list-item list-item-task"
-            :class="{'completed': item.completed, 'open': !item.completed}"
-            @click="onClick">
+            :class="{'completed': item.completed, 'open': !item.completed}">
             <Transition
                 mode="out-in"
                 name="check">
@@ -113,23 +113,14 @@ const ListTaskItem = defineComponent({
             return formatterYear.format(date);
         });
 
-        async function onClick() {
-            if (props.item.completed) {
-                emit('mark-as-open');
-            } else {
-                emit('mark-as-done');
-            }
-        }
-
         return {
-            due,
-            onClick
+            due
         };
     }
 });
 
 const ListItemMount = defineComponent({
-    emits: ['remove'],
+    emits: ['remove', 'tap'],
     slots: ['default'],
 
     template: `
@@ -144,15 +135,16 @@ const ListItemMount = defineComponent({
             }">
             <div
                 class="list-item-mount-body"
-                @pointerdown="onPointerDown"
-                @pointermove="onPointerMove"
-                @pointerup="onPointerUp"
-                @pointercancel="onPointerUp">
+                @touchstart="onTouchStart"
+                @touchmove="onTouchMove"
+                @touchend="onTouchEnd"
+                @touchcancel="onTouchEnd">
                 <slot/>
             </div>
             <div
                 class="list-item-mount-remove"
-                @click="onDeleteClick">
+                @click="onDeleteClick"
+                @touchend.stop.prevent="onDeleteClick">
                 <div class="listri-icon"/>
             </div>
         </div>
@@ -162,7 +154,10 @@ const ListItemMount = defineComponent({
         const isDragging = ref(false);
         const isOpen = ref(false);
         const startX = ref(0);
+        const startY = ref(0);
         const currentX = ref(0);
+        const currentY = ref(0);
+        const isTap = ref(true);
 
         const x = computed(() => {
             if (!isDragging.value) {
@@ -179,38 +174,41 @@ const ListItemMount = defineComponent({
             emit('remove');
         }
 
-        function onPointerDown(evt) {
+        function onTouchStart(evt) {
             if (isOpen.value) {
                 return;
             }
 
-            startX.value = evt.clientX + (isOpen.value ? -90 : 0);
-            currentX.value = evt.clientX;
+            const touch = evt.touches[0];
+            startX.value = touch.clientX;
+            startY.value = touch.clientY;
+            currentX.value = touch.clientX;
+            currentY.value = touch.clientY;
             isDragging.value = true;
-            evt.currentTarget.setPointerCapture(evt.pointerId);
-
-            evt.preventDefault();
-            evt.stopPropagation();
+            isTap.value = true;
         }
 
-        function onPointerMove(evt) {
+        function onTouchMove(evt) {
             if (!isDragging.value) {
                 return;
             }
 
-            currentX.value = evt.clientX;
+            const touch = evt.touches[0];
+            currentX.value = touch.clientX;
+            currentY.value = touch.clientY;
 
-            evt.preventDefault();
-            evt.stopPropagation();
+            // If moved more than 10px in any direction, it's not a tap
+            const deltaX = Math.abs(currentX.value - startX.value);
+            const deltaY = Math.abs(currentY.value - startY.value);
+            if (deltaX > 10 || deltaY > 10) {
+                isTap.value = false;
+            }
         }
 
-        function onPointerUp(evt) {
+        function onTouchEnd(evt) {
             if (isOpen.value) {
                 setTimeout(() => isOpen.value = false, 50);
-
-                evt.preventDefault();
                 evt.stopPropagation();
-
                 return;
             }
 
@@ -220,12 +218,15 @@ const ListItemMount = defineComponent({
 
             isDragging.value = false;
 
-            const delta = startX.value - currentX.value;
-            isOpen.value = delta > 45;
-            evt.currentTarget.releasePointerCapture(evt.pointerId);
+            const deltaX = startX.value - currentX.value;
 
-            evt.preventDefault();
-            evt.stopPropagation();
+            // Check if it was a tap (minimal movement)
+            if (isTap.value) {
+                emit('tap');
+                return;
+            }
+
+            isOpen.value = deltaX > 45;
         }
 
         return {
@@ -234,9 +235,9 @@ const ListItemMount = defineComponent({
             isOpen,
 
             onDeleteClick,
-            onPointerDown,
-            onPointerMove,
-            onPointerUp
+            onTouchStart,
+            onTouchMove,
+            onTouchEnd
         };
     }
 });
@@ -246,7 +247,8 @@ const ListWidget = defineComponent({
         ListItemMount,
         ListEmptyItem,
         ListNoteItem,
-        ListTaskItem
+        ListTaskItem,
+        ScrollContainer
     },
 
     props: ['deviceId'],
@@ -270,29 +272,29 @@ const ListWidget = defineComponent({
             mode="out-in"
             name="check"
             @enter="updateHeight()">
-            <TransitionGroup
+            <ScrollContainer
                 v-if="items.length > 0"
                 class="list-items"
-                mode="out-in"
-                name="items"
-                tag="div"
-                @after-enter="updateHeight()"
-                @after-leave="updateHeight()">
-                <ListItemMount
-                    v-for="item of items"
-                    :key="item.id"
-                    @remove="removeItem(item.id)">
-                    <ListNoteItem
-                        v-if="item.type === 'note'"
-                        :item="item"/>
-                    
-                    <ListTaskItem
-                        v-else-if="item.type === 'task'"
-                        :item="item"
-                        @mark-as-done="markTaskDone(item.id)"
-                        @mark-as-open="markTaskOpen(item.id)"/>
-                </ListItemMount>
-            </TransitionGroup>
+                tag="div">
+                <TransitionGroup
+                    name="items"
+                    @after-enter="updateHeight()"
+                    @after-leave="updateHeight()">
+                    <ListItemMount
+                        v-for="item of items"
+                        :key="item.id"
+                        @remove="removeItem(item.id)"
+                        @tap="onItemTap(item)">
+                        <ListNoteItem
+                            v-if="item.type === 'note'"
+                            :item="item"/>
+                        
+                        <ListTaskItem
+                            v-else-if="item.type === 'task'"
+                            :item="item"/>
+                    </ListItemMount>
+                </TransitionGroup>
+            </ScrollContainer>
             
             <div
                 v-else
@@ -329,6 +331,18 @@ const ListWidget = defineComponent({
             items.value.splice(index, 1);
 
             await Homey.api('DELETE', `/${props.deviceId}/items/${id}`);
+        };
+
+        const onItemTap = item => {
+            if (item.type !== 'task') {
+                return;
+            }
+
+            if (item.completed) {
+                markTaskOpen(item.id);
+            } else {
+                markTaskDone(item.id);
+            }
         };
 
         const updateHeight = () => {
@@ -381,8 +395,7 @@ const ListWidget = defineComponent({
             iconSecondary,
 
             removeItem,
-            markTaskDone,
-            markTaskOpen,
+            onItemTap,
             updateHeight
         };
     }

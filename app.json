@@ -58,6 +58,30 @@
     }
   },
   "flow": {
+    "triggers": [
+      {
+        "id": "task_marked_as_done",
+        "title": {
+          "en": "A task was marked as done",
+          "nl": "Een taak is als voltooid gemarkeerd"
+        },
+        "titleFormatted": {
+          "en": "A task was marked as done",
+          "nl": "Een taak is als voltooid gemarkeerd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          }
+        ]
+      }
+    ],
     "actions": [
       {
         "id": "clear_list",
@@ -230,7 +254,7 @@
         "id": "mark_task_done",
         "title": {
           "en": "Mark task done",
-          "nl": "Marked taak als voltooid"
+          "nl": "Markeer taak als voltooid"
         },
         "titleFormatted": {
           "en": "Mark task [[task]] as done",

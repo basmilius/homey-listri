@@ -1,19 +1,12 @@
 @import "../../assets/app/icons.css";
 @import "../../assets/app/base.css";
 
-.list-widget {
+.list-header {
     position: fixed;
     display: flex;
-    max-height: 600px;
-    width: 100dvw;
-    flex-flow: column;
-    overflow: auto;
-}
-
-.list-header {
-    position: sticky;
-    display: flex;
     top: 0;
+    left: 0;
+    right: 0;
     padding: var(--homey-su-5);
     align-items: center;
     flex-flow: row nowrap;
@@ -30,10 +23,12 @@
 .list-items {
     position: relative;
     display: flex;
+    max-height: 600px;
     padding: var(--homey-su-1);
-    padding-top: 0;
+    padding-top: 64px;
     flex-flow: column nowrap;
     gap: var(--homey-su-1);
+    overflow: auto;
 }
 
 .list-item {
@@ -165,6 +160,10 @@
     --icon-secondary: '';
 }
 
+.homey-dark-mode .list-item-note {
+    color: color-mix(in oklch, var(--amber) 90%, white 75%);
+}
+
 .list-item-mount {
     --x: 0;
 
@@ -173,7 +172,6 @@
 
 .list-item-mount-body {
     position: relative;
-    touch-action: pan-left;
     translate: var(--x) 0;
 }
 
