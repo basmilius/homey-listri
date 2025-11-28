@@ -20,6 +20,19 @@ const formatterTime = new Intl.DateTimeFormat(navigator.language, {
     minute: '2-digit'
 });
 
+const ListEmptyItem = defineComponent({
+    template: `
+        <div class="list-item list-item-empty">
+            <div class="listri-icon list-item-icon"/>
+            <div class="list-item-body">
+                <div class="list-item-content">
+                    {{ t('widget.list.no_items') }}
+                </div>
+            </div>
+        </div>
+    `
+});
+
 const ListNoteItem = defineComponent({
     props: ['item'],
 
@@ -27,7 +40,9 @@ const ListNoteItem = defineComponent({
         <div class="list-item list-item-note">
             <div class="listri-icon list-item-icon"/>
             <div class="list-item-body">
-                <div class="list-item-content">{{ item.content }}</div>
+                <div class="list-item-content">
+                    {{ item.content }}
+                </div>
             </div>
         </div>
     `
@@ -229,6 +244,7 @@ const ListItemMount = defineComponent({
 const ListWidget = defineComponent({
     components: {
         ListItemMount,
+        ListEmptyItem,
         ListNoteItem,
         ListTaskItem
     },
@@ -250,9 +266,14 @@ const ListWidget = defineComponent({
             </div>
         </div>
         
-        <template v-if="items.length > 0">
+        <Transition
+            mode="out-in"
+            name="check"
+            @enter="updateHeight()">
             <TransitionGroup
+                v-if="items.length > 0"
                 class="list-items"
+                mode="out-in"
                 name="items"
                 tag="div"
                 @after-enter="updateHeight()"
@@ -273,14 +294,12 @@ const ListWidget = defineComponent({
                 </ListItemMount>
             </TransitionGroup>
             
-            <!-- TODO(Bas): Decide if we want an always on-screen list item composer. -->
-        </template>
-        
-        <div
-            v-else
-            class="list-no-items">
-            {{ t('widget.list.no_items') }}
-        </div>
+            <div
+                v-else
+                class="list-items">
+                <ListEmptyItem/>
+            </div>
+        </Transition>
     `,
 
     setup(props) {

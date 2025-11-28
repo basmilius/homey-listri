@@ -3,7 +3,7 @@
         "en": "List",
         "nl": "Lijst"
     },
-    "height": 150,
+    "height": 120,
     "devices": {
         "type": "app",
         "singular": true,

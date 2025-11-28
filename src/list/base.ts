@@ -1,6 +1,6 @@
 import { colors, Device, Driver, icons } from '@basmilius/homey-common';
 import Homey from 'homey';
-import type { DateTime } from 'luxon';
+import { DateTime } from 'luxon';
 import { ulid } from 'ulid';
 import type { ListItem, ListItemDaily, ListItemPerson } from './item';
 import { decode, encode } from './item';
@@ -8,11 +8,12 @@ import type { ListLook, ListriApp, Writable } from '../types';
 
 export class ListDevice extends Device<ListriApp> {
 
-    async addItem(item: Omit<ListItem, 'id'>): Promise<void> {
+    async addItem(item: Omit<ListItem, 'id' | 'created'>): Promise<void> {
         const items = await this.getItems();
 
         items.push({
             id: ulid(),
+            created: DateTime.now(),
             ...item
         });
 
@@ -59,7 +60,7 @@ export class ListDevice extends Device<ListriApp> {
 
         return items
             .map(decode)
-            .toSorted((a: ListItem, b: ListItem) => a.completed === b.completed ? a.content.localeCompare(b.content) : a.completed ? 1 : -1);
+            .toSorted((a: ListItem, b: ListItem) => a.completed === b.completed ? (a.created > b.created ? 1 : -1) : a.completed ? 1 : -1);
     }
 
     async getLook(): Promise<ListLook> {

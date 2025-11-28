@@ -14,6 +14,7 @@ export default class ListriApp extends App<ListriApp> {
             this.#api = await HomeyAPI.createAppAPI({
                 homey: this.homey
             });
+            this.#api.isConnected();
 
             this.#registerAutocompleteProviders();
             this.#registerActions();

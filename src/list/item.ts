@@ -3,6 +3,7 @@ import { DateTime } from 'luxon';
 export function decode(encoded: Record<string, any>): ListItem {
     return {
         id: encoded.id,
+        created: DateTime.fromISO(encoded.created),
         completed: encoded.completed,
         type: encoded.type,
         content: encoded.content,
@@ -15,6 +16,7 @@ export function decode(encoded: Record<string, any>): ListItem {
 export function encode(listItem: ListItem): Record<string, any> {
     return {
         id: listItem.id,
+        created: listItem.created.toISO(),
         completed: listItem.completed,
         type: listItem.type,
         content: listItem.content,
@@ -27,6 +29,7 @@ export function encode(listItem: ListItem): Record<string, any> {
 export type ListItem = {
     readonly id: string;
     readonly type: ListItemType;
+    readonly created: DateTime;
     readonly completed: boolean;
     readonly content: string;
     readonly due?: DateTime;
