@@ -1,50 +1,59 @@
 {
-    "id": "com.basmilius.listri",
-    "version": "0.0.0",
-    "compatibility": ">=12.4.0",
-    "sdk": 3,
-    "brandColor": "#84cc16",
-    "platforms": [
-        "local"
+  "id": "com.basmilius.listri",
+  "version": "0.0.1",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "brandColor": "#84cc16",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Listri",
+    "nl": "Listri"
+  },
+  "description": {
+    "en": "Make lists and manage them in your dashboards and flows.",
+    "nl": "Maak verschillende soorten lijsten en beheer ze in je dashboards en flows."
+  },
+  "category": [
+    "tools"
+  ],
+  "tags": {
+    "en": [
+      "list",
+      "grocery list",
+      "tasks"
     ],
-    "name": {
-        "en": "Listri",
-        "nl": "Listri"
-    },
-    "description": {
-        "en": "Make lists and manage them in your dashboards and flows.",
-        "nl": "Maak verschillende soorten lijsten en beheer ze in je dashboards en flows."
-    },
-    "category": [
-        "tools"
-    ],
-    "tags": {
-        "en": ["list", "grocery list", "tasks"],
-        "nl": ["lijst", "boodschappen", "boodschappenlijst", "taken"]
-    },
-    "permissions": [
-        "homey:manager:api"
-    ],
-    "images": {
-        "small": "/assets/images/small.png",
-        "large": "/assets/images/large.png",
-        "xlarge": "/assets/images/xlarge.png"
-    },
-    "author": {
-        "name": "Bas Milius",
-        "email": "bas@mili.us"
-    },
-    "bugs": {
-        "url": "https://github.com/basmilius/homey-listri/issues"
-    },
-    "homepage": "https://bas.dev",
-    "source": "https://github.com/basmilius/homey-listri",
-    "support": "https://github.com/basmilius/homey-listri/issues",
-    "contributing": {
-        "donate": {
-            "githubSponsors": {
-                "username": "basmilius"
-            }
-        }
+    "nl": [
+      "lijst",
+      "boodschappen",
+      "boodschappenlijst",
+      "taken"
+    ]
+  },
+  "permissions": [
+    "homey:manager:api"
+  ],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Bas Milius",
+    "email": "bas@mili.us"
+  },
+  "bugs": {
+    "url": "https://github.com/basmilius/homey-listri/issues"
+  },
+  "homepage": "https://bas.dev",
+  "source": "https://github.com/basmilius/homey-listri",
+  "support": "https://github.com/basmilius/homey-listri/issues",
+  "contributing": {
+    "donate": {
+      "githubSponsors": {
+        "username": "basmilius"
+      }
     }
+  }
 }

@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.basmilius.listri",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "brandColor": "#84cc16",
@@ -19,6 +19,19 @@
   "category": [
     "tools"
   ],
+  "tags": {
+    "en": [
+      "list",
+      "grocery list",
+      "tasks"
+    ],
+    "nl": [
+      "lijst",
+      "boodschappen",
+      "boodschappenlijst",
+      "taken"
+    ]
+  },
   "permissions": [
     "homey:manager:api"
   ],
@@ -29,7 +42,20 @@
   },
   "author": {
     "name": "Bas Milius",
-    "email": "basmilius@hotmail.com"
+    "email": "bas@mili.us"
+  },
+  "bugs": {
+    "url": "https://github.com/basmilius/homey-listri/issues"
+  },
+  "homepage": "https://bas.dev",
+  "source": "https://github.com/basmilius/homey-listri",
+  "support": "https://github.com/basmilius/homey-listri/issues",
+  "contributing": {
+    "donate": {
+      "githubSponsors": {
+        "username": "basmilius"
+      }
+    }
   },
   "flow": {
     "actions": [
