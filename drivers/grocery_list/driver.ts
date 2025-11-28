@@ -1,3 +1,3 @@
-import { BasicListDriver } from '../../src/list';
+import { GroceryListDriver } from '../../src/list';
 
-module.exports = BasicListDriver;
+module.exports = GroceryListDriver;

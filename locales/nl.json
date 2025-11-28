@@ -46,5 +46,11 @@
     "fuchsia": "Fuchsia",
     "pink": "Roze",
     "rose": "Rooskleurig"
+  },
+  "widget": {
+    "list": {
+      "no_items": "Er staan geen items in deze lijst.",
+      "today_at": "Vandaag om"
+    }
   }
 }

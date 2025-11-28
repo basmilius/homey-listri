@@ -1,7 +1,7 @@
 {
-    "id": "create_user_task",
+    "id": "create_person_task",
     "title": {
-        "en": "Create user task",
+        "en": "Create person task",
         "nl": "Maak taak voor persoon"
     },
     "titleFormatted": {

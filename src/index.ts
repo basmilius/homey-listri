@@ -1,28 +1,16 @@
 import { App } from '@basmilius/homey-common';
-import Homey from 'homey';
 import { HomeyAPI, HomeyAPIV3Local } from 'homey-api';
-import { Brain } from './brain';
+import { Actions, AutocompleteProviders } from './flow';
 
-import * as Actions from './flow/action';
-import * as AutocompleteProviders from './flow/autocomplete';
-import * as Conditions from './flow/condition';
-import * as Triggers from './flow/trigger';
-
-export default class ListriApp extends Homey.App {
+export default class ListriApp extends App<ListriApp> {
     get api(): HomeyAPIV3Local {
         return this.#api;
     }
 
-    get brain(): Brain {
-        return this.#brain;
-    }
-
     #api!: HomeyAPIV3Local;
-    #brain!: Brain;
 
     async onInit() {
         try {
-            this.#brain = new Brain(this.homey);
             this.#api = await HomeyAPI.createAppAPI({
                 homey: this.homey
             });
@@ -32,7 +20,7 @@ export default class ListriApp extends Homey.App {
             this.#registerConditions();
             this.#registerTriggers();
 
-            for (const provider of this.brain.registry.autocompleteProviders) {
+            for (const provider of this.registry.autocompleteProviders) {
                 await provider.onInit();
             }
 
@@ -43,18 +31,24 @@ export default class ListriApp extends Homey.App {
     }
 
     #registerActions(): void {
-        this.brain.registry.action(Actions.CreateUserTask);
+        this.registry.action(Actions.ClearList);
+        this.registry.action(Actions.CreateNote);
+        this.registry.action(Actions.CreatePersonTask);
+        this.registry.action(Actions.CreatePlannedTask);
+        this.registry.action(Actions.CreateTask);
+        this.registry.action(Actions.MarkTaskDone);
+        this.registry.action(Actions.MarkTaskOpen);
+        this.registry.action(Actions.RemoveNote);
+        this.registry.action(Actions.RemoveTask);
     }
 
     #registerAutocompleteProviders(): void {
-        this.brain.registry.autocompleteProvider(AutocompleteProviders.Person);
+        this.registry.autocompleteProvider(AutocompleteProviders.Person);
     }
 
     #registerConditions(): void {
-        // this.brain.registry.condition(Conditions.ModeIs);
     }
 
     #registerTriggers(): void {
-        // this.brain.registry.trigger(Triggers.CycleBecomes);
     }
 }

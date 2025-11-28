@@ -63,7 +63,7 @@ const app = createApp({
             await Homey.createDevice({
                 name: form.name,
                 data: {
-                    id: Math.random().toString(36).substring(2, 5).toLowerCase()
+                    id: await Homey.emit('id')
                 },
                 store: {
                     color: form.color,

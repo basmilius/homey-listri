@@ -1,3 +1,3 @@
-import { BasicListDevice } from '../../src/list';
+import { GroceryListDevice } from '../../src/list';
 
-module.exports = BasicListDevice;
+module.exports = GroceryListDevice;

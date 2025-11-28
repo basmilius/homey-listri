@@ -8,10 +8,6 @@ export class BasicListDevice extends ListDevice {
         this.log(`Basic list "${this.getName()}" has been initialized.`);
     }
 
-    async onLookChanged(): Promise<void> {
-        // todo(Bas): Notify widget(s).
-    }
-
 }
 
 export class BasicListDriver extends ListDriver {

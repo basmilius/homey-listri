@@ -1,0 +1,39 @@
+{
+    "name": {
+        "en": "List",
+        "nl": "Lijst"
+    },
+    "height": 150,
+    "devices": {
+        "type": "app",
+        "singular": true,
+        "filter": {}
+    },
+    "settings": [],
+    "api": {
+        "get": {
+            "method": "GET",
+            "path": "/:deviceId"
+        },
+        "getItem": {
+            "method": "GET",
+            "path": "/:deviceId/items/:id"
+        },
+        "getItems": {
+            "method": "GET",
+            "path": "/:deviceId/items"
+        },
+        "markItemAsDone": {
+            "method": "POST",
+            "path": "/:deviceId/items/:id/done"
+        },
+        "markItemAsOpen": {
+            "method": "POST",
+            "path": "/:deviceId/items/:id/open"
+        },
+        "removeItem": {
+            "method": "DELETE",
+            "path": "/:deviceId/items/:id"
+        }
+    }
+}

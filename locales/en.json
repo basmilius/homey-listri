@@ -70,5 +70,11 @@
   },
   "element": {
     "search_icon": "Search for an icon..."
+  },
+  "widget": {
+    "list": {
+      "no_items": "There are no items in this list.",
+      "today_at": "Today at"
+    }
   }
 }

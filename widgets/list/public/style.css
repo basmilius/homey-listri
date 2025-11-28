@@ -1,0 +1,218 @@
+@import "../../assets/app/icons.css";
+@import "../../assets/app/base.css";
+
+.list-widget {
+    position: fixed;
+    display: flex;
+    max-height: 600px;
+    width: 100dvw;
+    flex-flow: column;
+    overflow: auto;
+}
+
+.list-header {
+    position: sticky;
+    display: flex;
+    top: 0;
+    padding: var(--homey-su-5);
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    gap: var(--homey-su-4);
+    background: linear-gradient(to bottom, var(--homey-background-color) 75%, rgb(from var(--homey-background-color) r g b / 0));
+    z-index: 10;
+}
+
+.list-header .listri-icon {
+    --size: 20px;
+}
+
+.list-items {
+    position: relative;
+    display: flex;
+    margin-top: calc(0 - var(--homey-su-2));
+    padding: var(--homey-su-1);
+    flex-flow: column nowrap;
+    gap: var(--homey-su-1);
+}
+
+.list-no-items {
+    display: flex;
+    min-height: 90px;
+    padding: var(--homey-su-4);
+    padding-top: 0;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    color: var(--homey-color-mono-600);
+    font-style: italic;
+    text-align: center;
+}
+
+.list-item {
+    position: relative;
+    display: flex;
+    padding: var(--homey-su-4);
+    align-items: flex-start;
+    flex-flow: row nowrap;
+    gap: var(--homey-su-4);
+    justify-content: flex-start;
+    border-radius: var(--homey-border-radius-small);
+    color: var(--homey-color-mono-800);
+    font-size: 16px;
+    font-weight: 500;
+    transition: 150ms cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: 0;
+}
+
+.list-item-body {
+    display: flex;
+    flex-flow: column;
+    flex-grow: 1;
+    gap: var(--homey-su-2);
+}
+
+.list-item-content {
+    margin-top: -2px;
+    margin-bottom: -2px;
+    line-height: 24px;
+    text-decoration: line-through;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+    transition: 150ms cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.list-item-footer {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--homey-su-4);
+    justify-content: space-between;
+    color: var(--homey-color-mono-600);
+    font-weight: 400;
+}
+
+.list-item-person {
+    display: flex;
+    align-items: center;
+    gap: var(--homey-su-2);
+    justify-content: flex-start;
+    font-size: 15px;
+}
+
+.list-item-person img {
+    height: 18px;
+    width: 18px;
+    border-radius: 99px;
+}
+
+.list-item-date {
+    font-size: 14px;
+}
+
+.list-item-icon {
+    --size: 20px;
+}
+
+.list-item.completed {
+    color: var(--homey-color-mono-500);
+    font-weight: 400;
+}
+
+.list-item.completed .list-item-content {
+    text-decoration-color: rgb(from var(--homey-color-mono-500) r g b / .5);
+}
+
+.list-item .list-item-icon.completed {
+    --color: var(--homey-color-green);
+    --icon: '';
+    --icon-secondary: '';
+}
+
+.list-item .list-item-icon.open {
+    --color: var(--homey-color-mono-500);
+    --icon: '';
+    --icon-secondary: '';
+}
+
+.list-item-task {
+    background: var(--homey-color-mono-025);
+}
+
+.list-item-task:active {
+    background: var(--homey-color-mono-050);
+    scale: .975;
+}
+
+.homey-dark-mode .list-item-task {
+    background: rgb(from var(--homey-color-mono-100) r g b / .5);
+}
+
+.homey-dark-mode .list-item-task:active {
+    background: var(--homey-color-mono-100);
+}
+
+.list-item-note {
+    background: transparent;
+    font-weight: 400;
+}
+
+.list-item-note .list-item-icon {
+    --color: var(--amber);
+    --icon: '';
+    --icon-secondary: '';
+}
+
+.list-item-mount {
+    --x: 0;
+
+    position: relative;
+}
+
+.list-item-mount-body {
+    position: relative;
+    touch-action: pan-left;
+    translate: var(--x) 0;
+}
+
+.list-item-mount-remove {
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: max(0px, -1 * var(--x) - var(--homey-su-1));
+    align-items: center;
+    justify-content: center;
+    background: var(--rose);
+    border-radius: var(--homey-border-radius-small);
+    overflow: hidden;
+    transition: background 150ms cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.list-item-mount-remove:active {
+    background: color-mix(in oklch, var(--rose) 90%, black 10%);
+}
+
+.list-item-mount:not(.is-dragging) .list-item-mount-body {
+    transition: opacity 420ms cubic-bezier(0.55, 0, 0.1, 1),
+                translate 420ms cubic-bezier(0, 0, .2, 1);
+}
+
+.list-item-mount:not(.is-dragging) .list-item-mount-remove {
+    transition: width 420ms cubic-bezier(0, 0, .2, 1);
+}
+
+.list-item-mount.is-open .list-item-mount-body {
+    opacity: .25;
+}
+
+.list-item-mount.is-open .list-item-mount-body .list-item {
+    pointer-events: none;
+}
+
+.list-item-mount-remove .listri-icon {
+    --color: white;
+    --icon: '';
+    --icon-secondary: '';
+    --size: 20px;
+}

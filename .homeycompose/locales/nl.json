@@ -28,6 +28,12 @@
     "element": {
         "search_icon": "Zoek naar een icoon..."
     },
+    "widget": {
+        "list": {
+            "no_items": "Er staan geen items in deze lijst.",
+            "today_at": "Vandaag om"
+        }
+    },
     "color": {
         "red": "Rood",
         "orange": "Oranje",

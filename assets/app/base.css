@@ -18,6 +18,11 @@
     --rose: #f43f5e;
 }
 
+body {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
 .listri-icon {
     --color: #64748b;
     --icon: '';
@@ -38,6 +43,7 @@
     color: var(--color);
     font-family: 'font-awesome', sans-serif;
     font-size: var(--size);
+    translate: 0 calc(var(--size) * -.1);
 }
 
 .listri-icon::before {
@@ -103,4 +109,32 @@
 
     background: rgb(from var(--color) r g b / .25);
     border-color: rgb(from var(--color) r g b / .25);
+}
+
+.check-enter-active,
+.check-leave-active {
+    transition: 150ms cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.check-enter-from,
+.check-leave-to {
+    opacity: 0;
+    scale: .75;
+}
+
+.items-move {
+    transition: transform 420ms cubic-bezier(0.55, 0, 0.1, 1) !important;
+}
+
+.items-enter-active,
+.items-leave-active {
+    transition: opacity 420ms cubic-bezier(0.55, 0, 0.1, 1),
+                transform 420ms cubic-bezier(0.55, 0, 0.1, 1) !important;
+}
+
+.items-enter-from,
+.items-leave-to {
+    opacity: 0;
+    transform: scale(.5);
+    z-index: 1;
 }

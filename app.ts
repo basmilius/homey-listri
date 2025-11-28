@@ -1,3 +1,3 @@
-import App from './src/index.js';
+import App from './src';
 
 module.exports = App;

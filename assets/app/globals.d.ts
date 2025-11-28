@@ -17,4 +17,20 @@ declare namespace Homey {
 
     export function hideLoadingOverlay(): void;
     export function showLoadingOverlay(): void;
+
+    export function getDeviceIds(): string;
+
+    export function ready(props?: {
+        readonly height: number;
+    });
+
+    export function setHeight(height: number): void;
+
+    export function api(
+        method: 'DELETE' | 'GET' | 'POST' | 'PUT',
+        uri: string,
+        body?: object,
+    ): Promise<unknown>;
+
+    export function on(event: string, callback: (...args: any[]) => void): void;
 }

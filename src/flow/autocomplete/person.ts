@@ -1,9 +1,9 @@
+import { autocomplete, FlowAutocompleteProvider } from '@basmilius/homey-common';
 import type { FlowCard } from 'homey';
-import { BaseAutocompleteProvider } from '../base';
-import { autocomplete } from '../decorator';
+import type { ListriApp } from '../../types';
 
-@autocomplete('cycle')
-export default class extends BaseAutocompleteProvider {
+@autocomplete('person')
+export default class extends FlowAutocompleteProvider<ListriApp> {
     async find(query: string): Promise<FlowCard.ArgumentAutocompleteResults> {
         const normalizedQuery = query.trim().toLowerCase();
         const hasQuery = normalizedQuery.length > 0;
