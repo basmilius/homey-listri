@@ -1,6 +1,6 @@
 import { ListDevice, ListDriver } from './base';
 
-export class GroceryListDevice extends ListDevice {
+export class GroceryListDevice extends ListDevice<GroceryListDriver> {
 
     async onInit(): Promise<void> {
         await super.onInit();

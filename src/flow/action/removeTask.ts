@@ -5,7 +5,7 @@ import type { ListriApp } from '../../types';
 @action('remove_task')
 export default class extends FlowActionEntity<ListriApp, Args> {
     async onRun(args: Args): Promise<void> {
-        const id = await args.list.findItemId(args.task);
+        const id = await args.list.findTaskId(args.task);
 
         if (!id) {
             return;

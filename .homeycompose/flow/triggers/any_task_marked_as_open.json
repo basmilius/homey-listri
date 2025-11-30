@@ -1,12 +1,12 @@
 {
-    "id": "task_marked_as_done",
+    "id": "any_task_marked_as_open",
     "title": {
-        "en": "Task was marked as done",
-        "nl": "Taak is als voltooid gemarkeerd"
+        "en": "A task was marked as open",
+        "nl": "Een taak is als niet voltooid gemarkeerd"
     },
     "titleFormatted": {
-        "en": "Task [[task]] was marked as done",
-        "nl": "Taak [[task]] is als voltooid gemarkeerd"
+        "en": "A task was marked as open",
+        "nl": "Een taak is als niet voltooid gemarkeerd"
     },
     "args": [
         {
@@ -17,10 +17,12 @@
                 "nl": "Lijst"
             },
             "filter": "driver_id=list"
-        },
+        }
+    ],
+    "tokens": [
         {
-            "type": "text",
             "name": "task",
+            "type": "string",
             "title": {
                 "en": "Task",
                 "nl": "Taak"

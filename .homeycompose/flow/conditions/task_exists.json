@@ -1,12 +1,12 @@
 {
-    "id": "task_marked_as_done",
+    "id": "task_exists",
     "title": {
-        "en": "Task was marked as done",
-        "nl": "Taak is als voltooid gemarkeerd"
+        "en": "Task exists",
+        "nl": "Taak bestaat"
     },
     "titleFormatted": {
-        "en": "Task [[task]] was marked as done",
-        "nl": "Taak [[task]] is als voltooid gemarkeerd"
+        "en": "Task [[task]] !{{exists|does not exist}}",
+        "nl": "Taak [[task]] !{{bestaat|bestaat niet}}"
     },
     "args": [
         {

@@ -5,7 +5,7 @@ import type { ListriApp } from '../../types';
 @action('remove_note')
 export default class extends FlowActionEntity<ListriApp, Args> {
     async onRun(args: Args): Promise<void> {
-        const id = await args.list.findItemId(args.note);
+        const id = await args.list.findNoteId(args.note);
 
         if (!id) {
             return;

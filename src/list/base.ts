@@ -2,11 +2,12 @@ import { colors, Device, Driver, icons } from '@basmilius/homey-common';
 import Homey from 'homey';
 import { DateTime } from 'luxon';
 import { ulid } from 'ulid';
+import { Triggers } from '../flow';
 import type { ListItem, ListItemDaily, ListItemPerson } from './item';
 import { decode, encode } from './item';
 import type { ListLook, ListriApp, Writable } from '../types';
 
-export class ListDevice extends Device<ListriApp> {
+export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<ListriApp, TDriver> {
 
     async addItem(item: Omit<ListItem, 'id' | 'created'>): Promise<void> {
         const items = await this.getItems();
@@ -43,10 +44,16 @@ export class ListDevice extends Device<ListriApp> {
         await this.setItems([]);
     }
 
-    async findItemId(content: string): Promise<string | null> {
+    async findNoteId(content: string): Promise<string | null> {
         const items = await this.getItems();
 
-        return items.find(item => item.content === content)?.id ?? null;
+        return items.find(item => item.type === 'note' && item.content === content)?.id ?? null;
+    }
+
+    async findTaskId(content: string): Promise<string | null> {
+        const items = await this.getItems();
+
+        return items.find(item => item.type === 'task' && item.content === content)?.id ?? null;
     }
 
     async getItem(id: string): Promise<ListItem | null> {
@@ -84,6 +91,10 @@ export class ListDevice extends Device<ListriApp> {
         (items[itemIndex] as Writable<ListItem>)['completed'] = true;
 
         await this.setItems(items);
+        await Promise.allSettled([
+            this.appDriver.triggerAnyTaskMarkedAsDone(this, items[itemIndex].content),
+            this.appDriver.triggerTaskMarkedAsDone(this, items[itemIndex].content)
+        ]);
 
         return true;
     }
@@ -99,6 +110,10 @@ export class ListDevice extends Device<ListriApp> {
         (items[itemIndex] as Writable<ListItem>)['completed'] = false;
 
         await this.setItems(items);
+        await Promise.allSettled([
+            this.appDriver.triggerAnyTaskMarkedAsOpen(this, items[itemIndex].content),
+            this.appDriver.triggerTaskMarkedAsOpen(this, items[itemIndex].content)
+        ]);
 
         return true;
     }
@@ -152,6 +167,30 @@ export class ListDriver extends Driver<ListriApp> {
             await device.setStoreValue('icon', data.store.icon);
             await device.onLookChanged();
         });
+    }
+
+    async triggerAnyTaskMarkedAsDone(list: ListDevice, task: string): Promise<void> {
+        await this.app.registry
+            .findDeviceTrigger(Triggers.AnyTaskMarkedAsDone)
+            ?.trigger(list, {}, {task});
+    }
+
+    async triggerAnyTaskMarkedAsOpen(list: ListDevice, task: string): Promise<void> {
+        await this.app.registry
+            .findDeviceTrigger(Triggers.AnyTaskMarkedAsOpen)
+            ?.trigger(list, {}, {task});
+    }
+
+    async triggerTaskMarkedAsDone(list: ListDevice, task: string): Promise<void> {
+        await this.app.registry
+            .findDeviceTrigger(Triggers.TaskMarkedAsDone)
+            ?.trigger(list, {task});
+    }
+
+    async triggerTaskMarkedAsOpen(list: ListDevice, task: string): Promise<void> {
+        await this.app.registry
+            .findDeviceTrigger(Triggers.TaskMarkedAsOpen)
+            ?.trigger(list, {task});
     }
 
     async #onPairSession(session: Homey.Driver.PairSession): Promise<void> {

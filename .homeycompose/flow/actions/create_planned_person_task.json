@@ -1,0 +1,55 @@
+{
+    "id": "create_planned_person_task",
+    "title": {
+        "en": "Create planned person task",
+        "nl": "Maak geplande taak voor persoon"
+    },
+    "titleFormatted": {
+        "en": "Create task [[task]] due on [[date]] at [[time]] for [[person]]",
+        "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]] voor [[person]]"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+        },
+        {
+            "type": "text",
+            "name": "task",
+            "title": {
+                "en": "Task",
+                "nl": "Taak"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "person",
+            "title": {
+                "en": "Person",
+                "nl": "Persoon"
+            }
+        },
+        {
+            "type": "date",
+            "name": "date",
+            "title": {
+                "en": "Date",
+                "nl": "Datum"
+            }
+        },
+        {
+            "type": "time",
+            "name": "time",
+            "required": false,
+            "title": {
+                "en": "Time",
+                "nl": "Tijd"
+            }
+        }
+    ]
+}

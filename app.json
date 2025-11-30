@@ -60,7 +60,7 @@
   "flow": {
     "triggers": [
       {
-        "id": "task_marked_as_done",
+        "id": "any_task_marked_as_done",
         "title": {
           "en": "A task was marked as done",
           "nl": "Een taak is als voltooid gemarkeerd"
@@ -78,6 +78,200 @@
               "nl": "Lijst"
             },
             "filter": "driver_id=list"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "task",
+            "type": "string",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          }
+        ]
+      },
+      {
+        "id": "any_task_marked_as_open",
+        "title": {
+          "en": "A task was marked as open",
+          "nl": "Een taak is als niet voltooid gemarkeerd"
+        },
+        "titleFormatted": {
+          "en": "A task was marked as open",
+          "nl": "Een taak is als niet voltooid gemarkeerd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "task",
+            "type": "string",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          }
+        ]
+      },
+      {
+        "id": "task_marked_as_done",
+        "title": {
+          "en": "Task was marked as done",
+          "nl": "Taak is als voltooid gemarkeerd"
+        },
+        "titleFormatted": {
+          "en": "Task [[task]] was marked as done",
+          "nl": "Taak [[task]] is als voltooid gemarkeerd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          }
+        ]
+      },
+      {
+        "id": "task_marked_as_open",
+        "title": {
+          "en": "Task was marked as open",
+          "nl": "Taak is als niet voltooid gemarkeerd"
+        },
+        "titleFormatted": {
+          "en": "Task [[task]] was marked as open",
+          "nl": "Taak [[task]] is als niet voltooid gemarkeerd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "note_exists",
+        "title": {
+          "en": "Note exists",
+          "nl": "Notitie bestaat"
+        },
+        "titleFormatted": {
+          "en": "Note [[note]] !{{exists|does not exist}}",
+          "nl": "Notitie [[note]] !{{bestaat|bestaat niet}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+          },
+          {
+            "type": "text",
+            "name": "note",
+            "title": {
+              "en": "Note",
+              "nl": "Notitie"
+            }
+          }
+        ]
+      },
+      {
+        "id": "task_exists",
+        "title": {
+          "en": "Task exists",
+          "nl": "Taak bestaat"
+        },
+        "titleFormatted": {
+          "en": "Task [[task]] !{{exists|does not exist}}",
+          "nl": "Taak [[task]] !{{bestaat|bestaat niet}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          }
+        ]
+      },
+      {
+        "id": "task_is",
+        "title": {
+          "en": "Task is done",
+          "nl": "Taak is voltooid"
+        },
+        "titleFormatted": {
+          "en": "Task [[task]] is !{{done|open}}",
+          "nl": "Taak [[task]] is !{{voltooid|niet voltooid}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
           }
         ]
       }
@@ -169,6 +363,61 @@
             "title": {
               "en": "Task",
               "nl": "Taak"
+            }
+          }
+        ]
+      },
+      {
+        "id": "create_planned_person_task",
+        "title": {
+          "en": "Create planned person task",
+          "nl": "Maak geplande taak voor persoon"
+        },
+        "titleFormatted": {
+          "en": "Create task [[task]] due on [[date]] at [[time]] for [[person]]",
+          "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]] voor [[person]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "person",
+            "title": {
+              "en": "Person",
+              "nl": "Persoon"
+            }
+          },
+          {
+            "type": "date",
+            "name": "date",
+            "title": {
+              "en": "Date",
+              "nl": "Datum"
+            }
+          },
+          {
+            "type": "time",
+            "name": "time",
+            "required": false,
+            "title": {
+              "en": "Time",
+              "nl": "Tijd"
             }
           }
         ]
@@ -284,11 +533,11 @@
         "id": "mark_task_open",
         "title": {
           "en": "Mark task open",
-          "nl": "Marked taak als open"
+          "nl": "Markeer taak als niet voltooid"
         },
         "titleFormatted": {
           "en": "Mark task [[task]] as open",
-          "nl": "Markeer taak [[task]] als open"
+          "nl": "Markeer taak [[task]] als niet voltooid"
         },
         "args": [
           {

@@ -1,0 +1,30 @@
+{
+    "id": "note_exists",
+    "title": {
+        "en": "Note exists",
+        "nl": "Notitie bestaat"
+    },
+    "titleFormatted": {
+        "en": "Note [[note]] !{{exists|does not exist}}",
+        "nl": "Notitie [[note]] !{{bestaat|bestaat niet}}"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "note",
+            "title": {
+                "en": "Note",
+                "nl": "Notitie"
+            }
+        }
+    ]
+}

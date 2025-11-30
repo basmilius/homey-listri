@@ -1,12 +1,12 @@
 {
-    "id": "task_marked_as_done",
+    "id": "task_marked_as_open",
     "title": {
-        "en": "Task was marked as done",
-        "nl": "Taak is als voltooid gemarkeerd"
+        "en": "Task was marked as open",
+        "nl": "Taak is als niet voltooid gemarkeerd"
     },
     "titleFormatted": {
-        "en": "Task [[task]] was marked as done",
-        "nl": "Taak [[task]] is als voltooid gemarkeerd"
+        "en": "Task [[task]] was marked as open",
+        "nl": "Taak [[task]] is als niet voltooid gemarkeerd"
     },
     "args": [
         {

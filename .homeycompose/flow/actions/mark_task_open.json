@@ -2,11 +2,11 @@
     "id": "mark_task_open",
     "title": {
         "en": "Mark task open",
-        "nl": "Marked taak als open"
+        "nl": "Markeer taak als niet voltooid"
     },
     "titleFormatted": {
         "en": "Mark task [[task]] as open",
-        "nl": "Markeer taak [[task]] als open"
+        "nl": "Markeer taak [[task]] als niet voltooid"
     },
     "args": [
         {

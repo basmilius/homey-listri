@@ -1,8 +1,9 @@
 import { App } from '@basmilius/homey-common';
 import { HomeyAPI, HomeyAPIV3Local } from 'homey-api';
-import { Actions, AutocompleteProviders } from './flow';
+import { Actions, AutocompleteProviders, Conditions, Triggers } from './flow';
 
 export default class ListriApp extends App<ListriApp> {
+
     get api(): HomeyAPIV3Local {
         return this.#api;
     }
@@ -36,6 +37,7 @@ export default class ListriApp extends App<ListriApp> {
         this.registry.action(Actions.CreateNote);
         this.registry.action(Actions.CreatePersonTask);
         this.registry.action(Actions.CreatePlannedTask);
+        this.registry.action(Actions.CreatePlannedPersonTask);
         this.registry.action(Actions.CreateTask);
         this.registry.action(Actions.MarkTaskDone);
         this.registry.action(Actions.MarkTaskOpen);
@@ -48,8 +50,16 @@ export default class ListriApp extends App<ListriApp> {
     }
 
     #registerConditions(): void {
+        this.registry.condition(Conditions.NoteExists);
+        this.registry.condition(Conditions.TaskExists);
+        this.registry.condition(Conditions.TaskIs);
     }
 
     #registerTriggers(): void {
+        this.registry.deviceTrigger(Triggers.AnyTaskMarkedAsDone);
+        this.registry.deviceTrigger(Triggers.AnyTaskMarkedAsOpen);
+        this.registry.deviceTrigger(Triggers.TaskMarkedAsDone);
+        this.registry.deviceTrigger(Triggers.TaskMarkedAsOpen);
     }
+
 }

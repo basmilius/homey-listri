@@ -5,7 +5,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@basmilius/homey-common": "^1.0.2",
+        "@basmilius/homey-common": "^1.0.8",
         "homey-api": "^3.14.21",
         "luxon": "^3.7.2",
         "ulid": "^3.0.1"
