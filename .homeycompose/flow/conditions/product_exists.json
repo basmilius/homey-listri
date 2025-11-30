@@ -1,0 +1,30 @@
+{
+    "id": "product_exists",
+    "title": {
+        "en": "Product exists",
+        "nl": "Product bestaat"
+    },
+    "titleFormatted": {
+        "en": "Product [[product]] !{{exists|does not exist}} on the list",
+        "nl": "Product [[product]] !{{staat|staat niet}} op de lijst"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "product",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        }
+    ]
+}

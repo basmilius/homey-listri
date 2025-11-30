@@ -1,12 +1,12 @@
 {
-    "id": "create_planned_person_task",
+    "id": "add_planned_person_task",
     "title": {
-        "en": "Create planned person task",
-        "nl": "Maak geplande taak voor persoon"
+        "en": "Add planned person task",
+        "nl": "Geplande taak voor persoon toevoegen"
     },
     "titleFormatted": {
-        "en": "Create task [[task]] due on [[date]] at [[time]] for [[person]]",
-        "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]] voor [[person]]"
+        "en": "Add task [[task]] for [[person]] due on [[date]] at [[time]]",
+        "nl": "Taak [[task]] voor [[person]] met deadline op [[date]] om [[time]] toevoegen"
     },
     "args": [
         {

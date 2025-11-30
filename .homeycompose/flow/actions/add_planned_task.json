@@ -1,11 +1,11 @@
 {
-    "id": "create_planned_task",
+    "id": "add_planned_task",
     "title": {
-        "en": "Create planned task",
-        "nl": "Maak geplande taak"
+        "en": "Add planned task",
+        "nl": "Geplande taak toevoegen"
     },
     "titleFormatted": {
-        "en": "Create task [[task]] due on [[date]] at [[time]]",
+        "en": "Add task [[task]] due on [[date]] at [[time]]",
         "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]]"
     },
     "args": [

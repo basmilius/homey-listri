@@ -23,13 +23,13 @@
             "method": "GET",
             "path": "/:deviceId/items"
         },
-        "markItemAsDone": {
+        "markComplete": {
             "method": "POST",
-            "path": "/:deviceId/items/:id/done"
+            "path": "/:deviceId/items/:id/complete"
         },
-        "markItemAsOpen": {
+        "markIncomplete": {
             "method": "POST",
-            "path": "/:deviceId/items/:id/open"
+            "path": "/:deviceId/items/:id/incomplete"
         },
         "removeItem": {
             "method": "DELETE",

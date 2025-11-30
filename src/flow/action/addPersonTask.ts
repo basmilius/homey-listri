@@ -3,7 +3,7 @@ import type { ListDevice } from '../../list';
 import type { ListriApp } from '../../types';
 import { AutocompleteProviders } from '..';
 
-@action('create_person_task')
+@action('add_person_task')
 export default class extends FlowActionEntity<ListriApp, Args> {
     async onInit(): Promise<void> {
         this.registerAutocomplete('person', AutocompleteProviders.Person);

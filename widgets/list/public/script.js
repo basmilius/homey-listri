@@ -49,20 +49,42 @@ const ListNoteItem = defineComponent({
     `
 });
 
-const ListTaskItem = defineComponent({
-    emits: ['mark-as-done', 'mark-as-open'],
+const ListProductItem = defineComponent({
+    props: ['item'],
 
+    template: `
+        <div
+            class="list-item list-item-product"
+            :class="{'complete': item.completed, 'incomplete': !item.completed}">
+            <Transition
+                mode="out-in"
+                name="check">
+                <div v-if="item.completed" class="listri-icon list-item-icon complete"/>
+                <div v-else class="listri-icon list-item-icon incomplete"/>
+            </Transition>
+                
+            <div class="list-item-body">
+                <div class="list-item-content">
+                    <strong v-if="item.quantity > 1">{{ item.quantity }}x </strong>
+                    <span>{{ item.content }}</span>
+                </div>
+            </div>
+        </div>
+    `
+});
+
+const ListTaskItem = defineComponent({
     props: ['item'],
 
     template: `
         <div
             class="list-item list-item-task"
-            :class="{'completed': item.completed, 'open': !item.completed}">
+            :class="{'complete': item.completed, 'incomplete': !item.completed}">
             <Transition
                 mode="out-in"
                 name="check">
-                <div v-if="item.completed" class="listri-icon list-item-icon completed"/>
-                <div v-else class="listri-icon list-item-icon open"/>
+                <div v-if="item.completed" class="listri-icon list-item-icon complete"/>
+                <div v-else class="listri-icon list-item-icon incomplete"/>
             </Transition>
                 
             <div class="list-item-body">
@@ -247,6 +269,7 @@ const ListWidget = defineComponent({
         ListItemMount,
         ListEmptyItem,
         ListNoteItem,
+        ListProductItem,
         ListTaskItem,
         ScrollContainer
     },
@@ -289,6 +312,10 @@ const ListWidget = defineComponent({
                             v-if="item.type === 'note'"
                             :item="item"/>
                         
+                        <ListProductItem
+                            v-else-if="item.type === 'product'"
+                            :item="item"/>
+                        
                         <ListTaskItem
                             v-else-if="item.type === 'task'"
                             :item="item"/>
@@ -312,18 +339,18 @@ const ListWidget = defineComponent({
         const iconPrimary = computed(() => JSON.stringify(unref(look)?.icon));
         const iconSecondary = computed(() => JSON.stringify(unref(look)?.icon + unref(look)?.icon));
 
-        const markTaskDone = async id => {
+        const markComplete = async id => {
             const index = items.value.findIndex(item => item.id === id);
             items.value[index].completed = true;
 
-            await Homey.api('POST', `/${props.deviceId}/items/${id}/done`);
+            await Homey.api('POST', `/${props.deviceId}/items/${id}/complete`);
         };
 
-        const markTaskOpen = async id => {
+        const markIncomplete = async id => {
             const index = items.value.findIndex(item => item.id === id);
             items.value[index].completed = false;
 
-            await Homey.api('POST', `/${props.deviceId}/items/${id}/open`);
+            await Homey.api('POST', `/${props.deviceId}/items/${id}/incomplete`);
         };
 
         const removeItem = async id => {
@@ -333,15 +360,19 @@ const ListWidget = defineComponent({
             await Homey.api('DELETE', `/${props.deviceId}/items/${id}`);
         };
 
-        const onItemTap = item => {
-            if (item.type !== 'task') {
-                return;
-            }
+        const onItemTap = async item => {
+            switch (item.type) {
+                case 'product':
+                case 'task':
+                    if (item.completed) {
+                        await markIncomplete(item.id);
+                    } else {
+                        await markComplete(item.id);
+                    }
+                    break;
 
-            if (item.completed) {
-                markTaskOpen(item.id);
-            } else {
-                markTaskDone(item.id);
+                default:
+                    break;
             }
         };
 

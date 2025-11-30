@@ -1,0 +1,38 @@
+{
+    "id": "add_product_quantity",
+    "title": {
+        "en": "Add product with quantity",
+        "nl": "Product met aantal toevoegen"
+    },
+    "titleFormatted": {
+        "en": "Add product [[product]] with quantity [[quantity]]",
+        "nl": "Product [[product]] toevoegen met aantal [[quantity]]"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "product",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        },
+        {
+            "type": "number",
+            "name": "quantity",
+            "title": {
+                "en": "Quantity",
+                "nl": "Aantal"
+            }
+        }
+    ]
+}

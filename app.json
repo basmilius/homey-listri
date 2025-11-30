@@ -216,6 +216,36 @@
         ]
       },
       {
+        "id": "product_exists",
+        "title": {
+          "en": "Product exists",
+          "nl": "Product bestaat"
+        },
+        "titleFormatted": {
+          "en": "Product [[product]] !{{exists|does not exist}} on the list",
+          "nl": "Product [[product]] !{{staat|staat niet}} op de lijst"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+          },
+          {
+            "type": "text",
+            "name": "product",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          }
+        ]
+      },
+      {
         "id": "task_exists",
         "title": {
           "en": "Task exists",
@@ -278,36 +308,14 @@
     ],
     "actions": [
       {
-        "id": "clear_list",
+        "id": "add_note",
         "title": {
-          "en": "Clear",
-          "nl": "Maak leeg"
+          "en": "Add note",
+          "nl": "Notitie toevoegen"
         },
         "titleFormatted": {
-          "en": "Clear",
-          "nl": "Maak leeg"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "list",
-            "title": {
-              "en": "List",
-              "nl": "Lijst"
-            },
-            "filter": "driver_id=list|grocery_list"
-          }
-        ]
-      },
-      {
-        "id": "create_note",
-        "title": {
-          "en": "Create note",
-          "nl": "Maak notitie"
-        },
-        "titleFormatted": {
-          "en": "Create note [[note]]",
-          "nl": "Maak notitie [[note]]"
+          "en": "Add note [[note]]",
+          "nl": "Notitie toevoegen [[note]]"
         },
         "args": [
           {
@@ -330,14 +338,14 @@
         ]
       },
       {
-        "id": "create_person_task",
+        "id": "add_person_task",
         "title": {
-          "en": "Create person task",
-          "nl": "Maak taak voor persoon"
+          "en": "Add person task",
+          "nl": "Taak voor persoon toevoegen"
         },
         "titleFormatted": {
-          "en": "Create task [[task]] for [[person]]",
-          "nl": "Maak taak [[task]] voor [[person]]"
+          "en": "Add task [[task]] for [[person]]",
+          "nl": "Taak [[task]] voor [[person]] toevoegen"
         },
         "args": [
           {
@@ -368,14 +376,14 @@
         ]
       },
       {
-        "id": "create_planned_person_task",
+        "id": "add_planned_person_task",
         "title": {
-          "en": "Create planned person task",
-          "nl": "Maak geplande taak voor persoon"
+          "en": "Add planned person task",
+          "nl": "Geplande taak voor persoon toevoegen"
         },
         "titleFormatted": {
-          "en": "Create task [[task]] due on [[date]] at [[time]] for [[person]]",
-          "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]] voor [[person]]"
+          "en": "Add task [[task]] for [[person]] due on [[date]] at [[time]]",
+          "nl": "Taak [[task]] voor [[person]] met deadline op [[date]] om [[time]] toevoegen"
         },
         "args": [
           {
@@ -423,13 +431,13 @@
         ]
       },
       {
-        "id": "create_planned_task",
+        "id": "add_planned_task",
         "title": {
-          "en": "Create planned task",
-          "nl": "Maak geplande taak"
+          "en": "Add planned task",
+          "nl": "Geplande taak toevoegen"
         },
         "titleFormatted": {
-          "en": "Create task [[task]] due on [[date]] at [[time]]",
+          "en": "Add task [[task]] due on [[date]] at [[time]]",
           "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]]"
         },
         "args": [
@@ -470,14 +478,82 @@
         ]
       },
       {
-        "id": "create_task",
+        "id": "add_product",
         "title": {
-          "en": "Create task",
-          "nl": "Maak taak"
+          "en": "Add product",
+          "nl": "Product toevoegen"
         },
         "titleFormatted": {
-          "en": "Create task [[task]]",
-          "nl": "Maak taak [[task]]"
+          "en": "Add product [[product]]",
+          "nl": "Product [[product]] toevoegen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          },
+          {
+            "type": "text",
+            "name": "product",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          }
+        ]
+      },
+      {
+        "id": "add_product_quantity",
+        "title": {
+          "en": "Add product with quantity",
+          "nl": "Product met aantal toevoegen"
+        },
+        "titleFormatted": {
+          "en": "Add product [[product]] with quantity [[quantity]]",
+          "nl": "Product [[product]] toevoegen met aantal [[quantity]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          },
+          {
+            "type": "text",
+            "name": "product",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          },
+          {
+            "type": "number",
+            "name": "quantity",
+            "title": {
+              "en": "Quantity",
+              "nl": "Aantal"
+            }
+          }
+        ]
+      },
+      {
+        "id": "add_task",
+        "title": {
+          "en": "Add task",
+          "nl": "Taak toevoegen"
+        },
+        "titleFormatted": {
+          "en": "Add task [[task]]",
+          "nl": "Taak [[task]] toevoegen"
         },
         "args": [
           {
@@ -496,6 +572,28 @@
               "en": "Task",
               "nl": "Taak"
             }
+          }
+        ]
+      },
+      {
+        "id": "clear_list",
+        "title": {
+          "en": "Clear",
+          "nl": "Maak leeg"
+        },
+        "titleFormatted": {
+          "en": "Clear",
+          "nl": "Maak leeg"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
           }
         ]
       },
@@ -590,6 +688,36 @@
         ]
       },
       {
+        "id": "remove_product",
+        "title": {
+          "en": "Remove product",
+          "nl": "Product verwijderen"
+        },
+        "titleFormatted": {
+          "en": "Remove product [[product]]",
+          "nl": "Product [[product]] verwijderen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          },
+          {
+            "type": "text",
+            "name": "product",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          }
+        ]
+      },
+      {
         "id": "remove_task",
         "title": {
           "en": "Remove task",
@@ -615,6 +743,44 @@
             "title": {
               "en": "Task",
               "nl": "Taak"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_product_quantity",
+        "title": {
+          "en": "Set product quantity",
+          "nl": "Stel productaantal in"
+        },
+        "titleFormatted": {
+          "en": "Set quantity of [[product]] to [[quantity]]",
+          "nl": "Stel aantal van [[product]] in op [[quantity]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          },
+          {
+            "type": "text",
+            "name": "product",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          },
+          {
+            "type": "number",
+            "name": "quantity",
+            "title": {
+              "en": "Quantity",
+              "nl": "Aantal"
             }
           }
         ]
@@ -707,13 +873,13 @@
           "method": "GET",
           "path": "/:deviceId/items"
         },
-        "markItemAsDone": {
+        "markComplete": {
           "method": "POST",
-          "path": "/:deviceId/items/:id/done"
+          "path": "/:deviceId/items/:id/complete"
         },
-        "markItemAsOpen": {
+        "markIncomplete": {
           "method": "POST",
-          "path": "/:deviceId/items/:id/open"
+          "path": "/:deviceId/items/:id/incomplete"
         },
         "removeItem": {
           "method": "DELETE",

@@ -95,40 +95,44 @@
     --size: 20px;
 }
 
-.list-item.completed {
+.list-item.complete {
     color: var(--homey-color-mono-500);
     font-weight: 400;
 }
 
-.list-item.completed .list-item-content {
+.list-item.complete .list-item-content {
     text-decoration-color: rgb(from var(--homey-color-mono-500) r g b / .5);
 }
 
-.list-item .list-item-icon.completed {
+.list-item .list-item-icon.complete {
     --color: var(--homey-color-green);
     --icon: '';
     --icon-secondary: '';
 }
 
-.list-item .list-item-icon.open {
+.list-item .list-item-icon.incomplete {
     --color: var(--homey-color-mono-500);
     --icon: '';
     --icon-secondary: '';
 }
 
+.list-item-product,
 .list-item-task {
     background: var(--homey-color-mono-025);
 }
 
+.list-item-product:active,
 .list-item-task:active {
     background: var(--homey-color-mono-050);
     scale: .975;
 }
 
+.homey-dark-mode .list-item-product,
 .homey-dark-mode .list-item-task {
     background: rgb(from var(--homey-color-mono-100) r g b / .5);
 }
 
+.homey-dark-mode .list-item-product:active,
 .homey-dark-mode .list-item-task:active {
     background: var(--homey-color-mono-100);
 }

@@ -2,20 +2,21 @@ import { action, FlowActionEntity } from '@basmilius/homey-common';
 import type { ListDevice } from '../../list';
 import type { ListriApp } from '../../types';
 
-@action('mark_task_done')
+@action('set_product_quantity')
 export default class extends FlowActionEntity<ListriApp, Args> {
     async onRun(args: Args): Promise<void> {
-        const id = await args.list.findTaskId(args.task);
+        const id = await args.list.findProductId(args.product);
 
         if (!id) {
             return;
         }
 
-        await args.list.markComplete(id);
+        await args.list.setQuantity(id, args.quantity);
     }
 }
 
 type Args = {
     readonly list: ListDevice;
-    readonly task: string;
+    readonly product: string;
+    readonly quantity: number;
 };

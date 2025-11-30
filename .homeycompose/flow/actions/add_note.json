@@ -1,12 +1,12 @@
 {
-    "id": "create_note",
+    "id": "add_note",
     "title": {
-        "en": "Create note",
-        "nl": "Maak notitie"
+        "en": "Add note",
+        "nl": "Notitie toevoegen"
     },
     "titleFormatted": {
-        "en": "Create note [[note]]",
-        "nl": "Maak notitie [[note]]"
+        "en": "Add note [[note]]",
+        "nl": "Notitie toevoegen [[note]]"
     },
     "args": [
         {

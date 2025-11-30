@@ -1,12 +1,12 @@
 {
-    "id": "create_person_task",
+    "id": "add_person_task",
     "title": {
-        "en": "Create person task",
-        "nl": "Maak taak voor persoon"
+        "en": "Add person task",
+        "nl": "Taak voor persoon toevoegen"
     },
     "titleFormatted": {
-        "en": "Create task [[task]] for [[person]]",
-        "nl": "Maak taak [[task]] voor [[person]]"
+        "en": "Add task [[task]] for [[person]]",
+        "nl": "Taak [[task]] voor [[person]] toevoegen"
     },
     "args": [
         {

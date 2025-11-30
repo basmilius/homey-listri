@@ -37,24 +37,24 @@ export async function getItems({homey: {app}, params}: WidgetApiRequest<ListriAp
     return await device.getItems();
 }
 
-export async function markItemAsDone({homey: {app}, params}: WidgetApiRequest<ListriApp, never, MarkItemAsDoneParams>): Promise<void> {
+export async function markComplete({homey: {app}, params}: WidgetApiRequest<ListriApp, never, MarkCompleteParams>): Promise<void> {
     const device = await app.getDevice<ListDevice>(params.deviceId);
 
     if (!device) {
         return;
     }
 
-    await device.markAsDone(params.id);
+    await device.markComplete(params.id);
 }
 
-export async function markItemAsOpen({homey: {app}, params}: WidgetApiRequest<ListriApp, never, MarkItemAsOpenParams>): Promise<void> {
+export async function markIncomplete({homey: {app}, params}: WidgetApiRequest<ListriApp, never, MarkIncompleteParams>): Promise<void> {
     const device = await app.getDevice<ListDevice>(params.deviceId);
 
     if (!device) {
         return;
     }
 
-    await device.markAsOpen(params.id);
+    await device.markIncomplete(params.id);
 }
 
 export async function removeItem({homey: {app}, params}: WidgetApiRequest<ListriApp, never, RemoveItemParams>): Promise<void> {
@@ -80,12 +80,12 @@ type GetItemsParams = {
     readonly deviceId: string;
 };
 
-type MarkItemAsDoneParams = {
+type MarkCompleteParams = {
     readonly deviceId: string;
     readonly id: string;
 };
 
-type MarkItemAsOpenParams = {
+type MarkIncompleteParams = {
     readonly deviceId: string;
     readonly id: string;
 };

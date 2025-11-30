@@ -9,7 +9,8 @@ export function decode(encoded: Record<string, any>): ListItem {
         content: encoded.content,
         due: encoded.due ? DateTime.fromISO(encoded.due) : undefined,
         person: encoded.person,
-        daily: encoded.daily
+        daily: encoded.daily,
+        quantity: encoded.quantity
     };
 }
 
@@ -22,7 +23,8 @@ export function encode(listItem: ListItem): Record<string, any> {
         content: listItem.content,
         due: listItem.due?.toISO(),
         person: listItem.person,
-        daily: listItem.daily
+        daily: listItem.daily,
+        quantity: listItem.quantity
     };
 }
 
@@ -35,6 +37,7 @@ export type ListItem = {
     readonly due?: DateTime;
     readonly person?: ListItemPerson;
     readonly daily?: ListItemDaily;
+    readonly quantity?: number;
 };
 
 export type ListItemPerson = {
@@ -55,4 +58,5 @@ export type ListItemDaily =
 export type ListItemType =
     | 'basic'
     | 'note'
+    | 'product'
     | 'task';

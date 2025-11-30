@@ -33,16 +33,20 @@ export default class ListriApp extends App<ListriApp> {
     }
 
     #registerActions(): void {
+        this.registry.action(Actions.AddNote);
+        this.registry.action(Actions.AddPersonTask);
+        this.registry.action(Actions.AddPlannedTask);
+        this.registry.action(Actions.AddPlannedPersonTask);
+        this.registry.action(Actions.AddProduct);
+        this.registry.action(Actions.AddProductQuantity);
+        this.registry.action(Actions.AddTask);
         this.registry.action(Actions.ClearList);
-        this.registry.action(Actions.CreateNote);
-        this.registry.action(Actions.CreatePersonTask);
-        this.registry.action(Actions.CreatePlannedTask);
-        this.registry.action(Actions.CreatePlannedPersonTask);
-        this.registry.action(Actions.CreateTask);
         this.registry.action(Actions.MarkTaskDone);
         this.registry.action(Actions.MarkTaskOpen);
         this.registry.action(Actions.RemoveNote);
+        this.registry.action(Actions.RemoveProduct);
         this.registry.action(Actions.RemoveTask);
+        this.registry.action(Actions.SetProductQuantity);
     }
 
     #registerAutocompleteProviders(): void {
@@ -51,6 +55,7 @@ export default class ListriApp extends App<ListriApp> {
 
     #registerConditions(): void {
         this.registry.condition(Conditions.NoteExists);
+        this.registry.condition(Conditions.ProductExists);
         this.registry.condition(Conditions.TaskExists);
         this.registry.condition(Conditions.TaskIs);
     }

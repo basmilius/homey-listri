@@ -1,0 +1,30 @@
+{
+    "id": "remove_product",
+    "title": {
+        "en": "Remove product",
+        "nl": "Product verwijderen"
+    },
+    "titleFormatted": {
+        "en": "Remove product [[product]]",
+        "nl": "Product [[product]] verwijderen"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "product",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        }
+    ]
+}

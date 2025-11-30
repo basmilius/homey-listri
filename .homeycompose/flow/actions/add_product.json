@@ -1,12 +1,12 @@
 {
-    "id": "create_task",
+    "id": "add_product",
     "title": {
-        "en": "Create task",
-        "nl": "Maak taak"
+        "en": "Add product",
+        "nl": "Product toevoegen"
     },
     "titleFormatted": {
-        "en": "Create task [[task]]",
-        "nl": "Maak taak [[task]]"
+        "en": "Add product [[product]]",
+        "nl": "Product [[product]] toevoegen"
     },
     "args": [
         {
@@ -16,14 +16,14 @@
                 "en": "List",
                 "nl": "Lijst"
             },
-            "filter": "driver_id=list"
+            "filter": "driver_id=grocery_list"
         },
         {
             "type": "text",
-            "name": "task",
+            "name": "product",
             "title": {
-                "en": "Task",
-                "nl": "Taak"
+                "en": "Product",
+                "nl": "Product"
             }
         }
     ]

@@ -29,6 +29,15 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         });
     }
 
+    async addProduct(content: string, quantity: number = 1): Promise<void> {
+        await this.addItem({
+            type: 'product',
+            completed: false,
+            content,
+            quantity
+        });
+    }
+
     async addTask(content: string, daily?: ListItemDaily, due?: DateTime, person?: ListItemPerson): Promise<void> {
         await this.addItem({
             type: 'task',
@@ -48,6 +57,12 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         const items = await this.getItems();
 
         return items.find(item => item.type === 'note' && item.content === content)?.id ?? null;
+    }
+
+    async findProductId(content: string): Promise<string | null> {
+        const items = await this.getItems();
+
+        return items.find(item => item.type === 'product' && item.content === content)?.id ?? null;
     }
 
     async findTaskId(content: string): Promise<string | null> {
@@ -80,7 +95,7 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         };
     }
 
-    async markAsDone(id: string): Promise<boolean> {
+    async markComplete(id: string): Promise<boolean> {
         const items = await this.getItems();
         const itemIndex = items.findIndex(item => item.id === id);
 
@@ -99,7 +114,7 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         return true;
     }
 
-    async markAsOpen(id: string): Promise<boolean> {
+    async markIncomplete(id: string): Promise<boolean> {
         const items = await this.getItems();
         const itemIndex = items.findIndex(item => item.id === id);
 
@@ -136,6 +151,21 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     async setItems(items: ListItem[]): Promise<void> {
         await this.setStoreValue('items', items.map(encode));
         await this.onItemsChanged();
+    }
+
+    async setQuantity(id: string, quantity: number): Promise<boolean> {
+        const items = await this.getItems();
+        const itemIndex = items.findIndex(item => item.id === id);
+
+        if (itemIndex === -1) {
+            return false;
+        }
+
+        (items[itemIndex] as Writable<ListItem>)['quantity'] = quantity;
+
+        await this.setItems(items);
+
+        return true;
     }
 
     async onItemsChanged(): Promise<void> {

@@ -11,7 +11,7 @@ export default class extends FlowActionEntity<ListriApp, Args> {
             return;
         }
 
-        await args.list.markAsOpen(id);
+        await args.list.markIncomplete(id);
     }
 }
 

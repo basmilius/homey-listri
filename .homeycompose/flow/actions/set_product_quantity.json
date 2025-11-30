@@ -1,0 +1,38 @@
+{
+    "id": "set_product_quantity",
+    "title": {
+        "en": "Set product quantity",
+        "nl": "Stel productaantal in"
+    },
+    "titleFormatted": {
+        "en": "Set quantity of [[product]] to [[quantity]]",
+        "nl": "Stel aantal van [[product]] in op [[quantity]]"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "product",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        },
+        {
+            "type": "number",
+            "name": "quantity",
+            "title": {
+                "en": "Quantity",
+                "nl": "Aantal"
+            }
+        }
+    ]
+}
