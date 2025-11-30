@@ -9,6 +9,10 @@ import type { ListLook, ListriApp, Writable } from '../types';
 
 export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<ListriApp, TDriver> {
 
+    #pendingItems: ListItem[] | null = null;
+    #saveTimeout: ReturnType<typeof setTimeout> | null = null;
+    #savePromise: Promise<void> | null = null;
+
     async addItem(item: Omit<ListItem, 'id' | 'created'>): Promise<void> {
         const items = await this.getItems();
 
@@ -78,11 +82,19 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     }
 
     async getItems(): Promise<ListItem[]> {
+        // If we have pending items, use those (they're the most recent state)
+        if (this.#pendingItems !== null) {
+            return this.#sortItems([...this.#pendingItems]);
+        }
+
+        // Wait for any ongoing save to complete before reading
+        if (this.#savePromise) {
+            await this.#savePromise;
+        }
+
         const items = this.getStoreValue('items') ?? [];
 
-        return items
-            .map(decode)
-            .toSorted((a: ListItem, b: ListItem) => a.completed === b.completed ? (a.created > b.created ? 1 : -1) : a.completed ? 1 : -1);
+        return this.#sortItems(items.map(decode));
     }
 
     async getLook(): Promise<ListLook> {
@@ -149,8 +161,8 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     }
 
     async setItems(items: ListItem[]): Promise<void> {
-        await this.setStoreValue('items', items.map(encode));
-        await this.onItemsChanged();
+        this.#pendingItems = items;
+        this.#scheduleSave();
     }
 
     async setQuantity(id: string, quantity: number): Promise<boolean> {
@@ -174,6 +186,54 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
 
     async onLookChanged(): Promise<void> {
         this.homey.api.realtime('list-look-changed', this.id);
+    }
+
+    #scheduleSave(): void {
+        if (this.#saveTimeout) {
+            clearTimeout(this.#saveTimeout);
+        }
+
+        this.#saveTimeout = setTimeout(async () => await this.#performSave(), 210);
+    }
+
+    #sortItems(items: ListItem[]): ListItem[] {
+        // @ts-ignore
+        return items.toSorted((a: ListItem, b: ListItem) =>
+            a.completed === b.completed
+                ? (a.created > b.created ? 1 : -1)
+                : a.completed ? 1 : -1
+        );
+    }
+
+    async #performSave(): Promise<void> {
+        if (this.#savePromise) {
+            return;
+        }
+
+        const itemsToSave = this.#pendingItems;
+
+        if (!itemsToSave) {
+            return;
+        }
+
+        this.#saveTimeout = null;
+        this.#savePromise = this.setStoreValue('items', itemsToSave.map(encode));
+
+        try {
+            await this.#savePromise;
+
+            if (this.#pendingItems === itemsToSave) {
+                this.#pendingItems = null;
+            }
+        } finally {
+            this.#savePromise = null;
+        }
+
+        await this.onItemsChanged();
+
+        if (this.#pendingItems !== null) {
+            this.#scheduleSave();
+        }
     }
 
 }

@@ -5,8 +5,8 @@
         "nl": "Taak bestaat"
     },
     "titleFormatted": {
-        "en": "Task [[task]] !{{exists|does not exist}}",
-        "nl": "Taak [[task]] !{{bestaat|bestaat niet}}"
+        "en": "Task [[task]] !{{exists|does not exist}} on the list",
+        "nl": "Taak [[task]] !{{staat|staat niet}} op de lijst"
     },
     "args": [
         {

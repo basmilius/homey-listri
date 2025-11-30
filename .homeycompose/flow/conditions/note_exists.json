@@ -5,8 +5,8 @@
         "nl": "Notitie bestaat"
     },
     "titleFormatted": {
-        "en": "Note [[note]] !{{exists|does not exist}}",
-        "nl": "Notitie [[note]] !{{bestaat|bestaat niet}}"
+        "en": "Note [[note]] !{{exists|does not exist}} on the list",
+        "nl": "Notitie [[note]] !{{staat|staat niet}} op de lijst"
     },
     "args": [
         {

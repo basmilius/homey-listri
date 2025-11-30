@@ -67,6 +67,16 @@ export async function removeItem({homey: {app}, params}: WidgetApiRequest<Listri
     await device.removeItem(params.id);
 }
 
+export async function setQuantity({homey: {app}, params, body}: WidgetApiRequest<ListriApp, SetQuantityBody, SetQuantityParams>): Promise<void> {
+    const device = await app.getDevice<ListDevice>(params.deviceId);
+
+    if (!device) {
+        return;
+    }
+
+    await device.setQuantity(params.id, body.quantity);
+}
+
 type GetParams = {
     readonly deviceId: string;
 };
@@ -91,6 +101,15 @@ type MarkIncompleteParams = {
 };
 
 type RemoveItemParams = {
+    readonly deviceId: string;
+    readonly id: string;
+};
+
+type SetQuantityBody = {
+    readonly quantity: number;
+};
+
+type SetQuantityParams = {
     readonly deviceId: string;
     readonly id: string;
 };

@@ -50,6 +50,8 @@ const ListNoteItem = defineComponent({
 });
 
 const ListProductItem = defineComponent({
+    emits: ['decrease', 'increase'],
+
     props: ['item'],
 
     template: `
@@ -64,9 +66,33 @@ const ListProductItem = defineComponent({
             </Transition>
                 
             <div class="list-item-body">
+                <div
+                    v-if="item.quantity > 1"
+                    class="list-item-quantity">
+                    {{ item.quantity }}x
+                </div>
+            
                 <div class="list-item-content">
-                    <strong v-if="item.quantity > 1">{{ item.quantity }}x </strong>
                     <span>{{ item.content }}</span>
+                </div>
+                
+                <div
+                    v-if="!item.completed"
+                    class="list-item-buttons">
+                    <button
+                        v-if="item.quantity > 1"
+                        class="list-item-button"
+                        data-interactive
+                        @touchend.stop.prevent="$emit('decrease')">
+                        <div class="listri-icon minus"/>
+                    </button>
+                    
+                    <button
+                        class="list-item-button"
+                        data-interactive
+                        @touchend.stop.prevent="$emit('increase')">
+                        <div class="listri-icon plus"/>
+                    </button>
                 </div>
             </div>
         </div>
@@ -180,6 +206,7 @@ const ListItemMount = defineComponent({
         const currentX = ref(0);
         const currentY = ref(0);
         const isTap = ref(true);
+        const touchedInteractive = ref(false);
 
         const x = computed(() => {
             if (!isDragging.value) {
@@ -208,6 +235,8 @@ const ListItemMount = defineComponent({
             currentY.value = touch.clientY;
             isDragging.value = true;
             isTap.value = true;
+
+            touchedInteractive.value = evt.target.closest('[data-interactive]') !== null;
         }
 
         function onTouchMove(evt) {
@@ -219,9 +248,9 @@ const ListItemMount = defineComponent({
             currentX.value = touch.clientX;
             currentY.value = touch.clientY;
 
-            // If moved more than 10px in any direction, it's not a tap
             const deltaX = Math.abs(currentX.value - startX.value);
             const deltaY = Math.abs(currentY.value - startY.value);
+
             if (deltaX > 10 || deltaY > 10) {
                 isTap.value = false;
             }
@@ -242,8 +271,7 @@ const ListItemMount = defineComponent({
 
             const deltaX = startX.value - currentX.value;
 
-            // Check if it was a tap (minimal movement)
-            if (isTap.value) {
+            if (isTap.value && !touchedInteractive.value) {
                 emit('tap');
                 return;
             }
@@ -289,6 +317,12 @@ const ListWidget = defineComponent({
             <div class="list-name homey-text-bold">
                 {{ look?.name ?? '-' }}
             </div>
+            
+            <button
+                class="list-add"
+                @click="onAddTap">
+                <div class="listri-icon"/>
+            </button>
         </div>
         
         <Transition
@@ -314,7 +348,9 @@ const ListWidget = defineComponent({
                         
                         <ListProductItem
                             v-else-if="item.type === 'product'"
-                            :item="item"/>
+                            :item="item"
+                            @decrease="decreaseQuantity(item.id)"
+                            @increase="increaseQuantity(item.id)"/>
                         
                         <ListTaskItem
                             v-else-if="item.type === 'task'"
@@ -339,6 +375,24 @@ const ListWidget = defineComponent({
         const iconPrimary = computed(() => JSON.stringify(unref(look)?.icon));
         const iconSecondary = computed(() => JSON.stringify(unref(look)?.icon + unref(look)?.icon));
 
+        const decreaseQuantity = async id => {
+            const index = items.value.findIndex(item => item.id === id);
+            items.value[index].quantity--;
+
+            await Homey.api('POST', `/${props.deviceId}/items/${id}/quantity`, {
+                quantity: items.value[index].quantity
+            });
+        };
+
+        const increaseQuantity = async id => {
+            const index = items.value.findIndex(item => item.id === id);
+            items.value[index].quantity++;
+
+            await Homey.api('POST', `/${props.deviceId}/items/${id}/quantity`, {
+                quantity: items.value[index].quantity
+            });
+        };
+
         const markComplete = async id => {
             const index = items.value.findIndex(item => item.id === id);
             items.value[index].completed = true;
@@ -358,6 +412,9 @@ const ListWidget = defineComponent({
             items.value.splice(index, 1);
 
             await Homey.api('DELETE', `/${props.deviceId}/items/${id}`);
+        };
+
+        const onAddTap = async () => {
         };
 
         const onItemTap = async item => {
@@ -425,8 +482,11 @@ const ListWidget = defineComponent({
             iconPrimary,
             iconSecondary,
 
-            removeItem,
+            decreaseQuantity,
+            increaseQuantity,
+            onAddTap,
             onItemTap,
+            removeItem,
             updateHeight
         };
     }
