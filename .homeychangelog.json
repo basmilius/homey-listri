@@ -10,5 +10,8 @@
   },
   "0.0.3": {
     "en": "Grocery list flow cards."
+  },
+  "0.0.4": {
+    "en": "This update adds grocery list products to the list widget."
   }
 }
