@@ -3338,7 +3338,7 @@ var _sfc_main$e = /* @__PURE__ */ nN({
       emit("remove");
     }
     function onTouchStart(evt) {
-      if (isOpen2.value) {
+      if (tw(isOpen2)) {
         return;
       }
       const touch = evt.touches[0];
@@ -3351,7 +3351,7 @@ var _sfc_main$e = /* @__PURE__ */ nN({
       touchedInteractive.value = evt.target.closest("[data-interactive]") !== null;
     }
     function onTouchMove(evt) {
-      if (!isDragging2.value) {
+      if (!tw(isDragging2)) {
         return;
       }
       const touch = evt.touches[0];
@@ -3362,24 +3362,36 @@ var _sfc_main$e = /* @__PURE__ */ nN({
       if (deltaX > 10 || deltaY > 10) {
         isTap.value = false;
       }
+      if (deltaX > deltaY && deltaX > 5) {
+        evt.preventDefault();
+      }
     }
     function onTouchEnd(evt) {
-      if (isOpen2.value) {
+      if (tw(isOpen2)) {
         setTimeout(() => isOpen2.value = false, 50);
         evt.stopPropagation();
         return;
       }
-      if (!isDragging2.value) {
+      if (!tw(isDragging2)) {
         return;
       }
       isDragging2.value = false;
       const deltaX = startX.value - currentX.value;
-      if (isTap.value && !touchedInteractive.value) {
+      if (tw(isTap) && !tw(touchedInteractive)) {
         emit("tap");
         return;
       }
       isOpen2.value = deltaX > 45;
     }
+    re(isOpen2, (open, _2, onCleanup) => {
+      if (!open) {
+        return;
+      }
+      const timeout = setTimeout(() => {
+        isOpen2.value = false;
+      }, 3e3);
+      onCleanup(() => clearTimeout(timeout));
+    });
     return (_ctx, _cache) => {
       return rJ(), r0("div", {
         class: Q([
@@ -3837,45 +3849,37 @@ var _sfc_main$3 = /* @__PURE__ */ nN({
           onEnter: _cache[2] || (_cache[2] = ($event) => updateHeight())
         }, {
           default: nl(() => [
-            items.value.length > 0 ? (rJ(), r1(tw(_sfc_main$j), {
-              key: 0,
-              tag: "div"
-            }, {
+            items.value.length > 0 ? (rJ(), r1(ListItems, { key: 0 }, {
               default: nl(() => [
-                r9(ListItems, null, {
+                r9(sF, {
+                  name: "items",
+                  onAfterEnter: _cache[0] || (_cache[0] = ($event) => updateHeight()),
+                  onAfterLeave: _cache[1] || (_cache[1] = ($event) => updateHeight())
+                }, {
                   default: nl(() => [
-                    r9(sF, {
-                      name: "items",
-                      onAfterEnter: _cache[0] || (_cache[0] = ($event) => updateHeight()),
-                      onAfterLeave: _cache[1] || (_cache[1] = ($event) => updateHeight())
-                    }, {
-                      default: nl(() => [
-                        (rJ(true), r0(rH, null, lm(items.value, (item) => {
-                          return rJ(), r1(ListItemMount, {
-                            key: item.id,
-                            onRemove: ($event) => onItemRemove(item),
-                            onTap: ($event) => onItemTap(item)
-                          }, {
-                            default: nl(() => [
-                              item.type === "note" ? (rJ(), r1(ListItemNote, {
-                                key: 0,
-                                item
-                              }, null, 8, ["item"])) : item.type === "product" ? (rJ(), r1(_sfc_main$8, {
-                                key: 1,
-                                item,
-                                onDecrease: ($event) => decreaseQuantity(item),
-                                onIncrease: ($event) => increaseQuantity(item)
-                              }, null, 8, ["item", "onDecrease", "onIncrease"])) : item.type === "task" ? (rJ(), r1(_sfc_main$4, {
-                                key: 2,
-                                item
-                              }, null, 8, ["item"])) : ir("", true)
-                            ]),
-                            _: 2
-                          }, 1032, ["onRemove", "onTap"]);
-                        }), 128))
-                      ]),
-                      _: 1
-                    })
+                    (rJ(true), r0(rH, null, lm(items.value, (item) => {
+                      return rJ(), r1(ListItemMount, {
+                        key: item.id,
+                        onRemove: ($event) => onItemRemove(item),
+                        onTap: ($event) => onItemTap(item)
+                      }, {
+                        default: nl(() => [
+                          item.type === "note" ? (rJ(), r1(ListItemNote, {
+                            key: 0,
+                            item
+                          }, null, 8, ["item"])) : item.type === "product" ? (rJ(), r1(_sfc_main$8, {
+                            key: 1,
+                            item,
+                            onDecrease: ($event) => decreaseQuantity(item),
+                            onIncrease: ($event) => increaseQuantity(item)
+                          }, null, 8, ["item", "onDecrease", "onIncrease"])) : item.type === "task" ? (rJ(), r1(_sfc_main$4, {
+                            key: 2,
+                            item
+                          }, null, 8, ["item"])) : ir("", true)
+                        ]),
+                        _: 2
+                      }, 1032, ["onRemove", "onTap"]);
+                    }), 128))
                   ]),
                   _: 1
                 })

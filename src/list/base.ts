@@ -8,20 +8,16 @@ import type { ListLook, ListriApp, Writable } from '../types';
 
 export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<ListriApp, TDriver> {
 
-    #pendingItems: ListItem[] | null = null;
-    #saveTimeout: ReturnType<typeof setTimeout> | null = null;
-    #savePromise: Promise<void> | null = null;
+    #items: ListItem[] = [];
 
     async addItem(item: Omit<ListItem, 'id' | 'created'>): Promise<void> {
-        const items = await this.getItems();
-
-        items.push({
+        this.#items.push({
             id: ulid(),
             created: DateTime.now(),
             ...item
         });
 
-        await this.setItems(items);
+        await this.save();
     }
 
     async addNote(content: string): Promise<void> {
@@ -53,47 +49,39 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     }
 
     async clearList(): Promise<void> {
-        await this.setItems([]);
+        this.#items = [];
+
+        await this.save();
     }
 
     async findNoteId(content: string): Promise<string | null> {
-        const items = await this.getItems();
-
-        return items.find(item => item.type === 'note' && item.content === content)?.id ?? null;
+        return this.#items
+            .filter(item => item.type === 'note')
+            .find(item => item.content === content)?.id ?? null;
     }
 
     async findProductId(content: string): Promise<string | null> {
-        const items = await this.getItems();
-
-        return items.find(item => item.type === 'product' && item.content === content)?.id ?? null;
+        return this.#items
+            .filter(item => item.type === 'product')
+            .find(item => item.content === content)?.id ?? null;
     }
 
     async findTaskId(content: string): Promise<string | null> {
-        const items = await this.getItems();
-
-        return items.find(item => item.type === 'task' && item.content === content)?.id ?? null;
+        return this.#items
+            .filter(item => item.type === 'task')
+            .find(item => item.content === content)?.id ?? null;
     }
 
     async getItem(id: string): Promise<ListItem | null> {
-        const items = await this.getItems();
+        return this.#items.find(item => item.id === id) ?? null;
+    }
 
-        return items.find(item => item.id === id) ?? null;
+    async getItemIndex(id: string): Promise<number | null> {
+        return this.#items.findIndex(item => item.id === id);
     }
 
     async getItems(): Promise<ListItem[]> {
-        // If we have pending items, use those (they're the most recent state)
-        if (this.#pendingItems !== null) {
-            return this.#sortItems([...this.#pendingItems]);
-        }
-
-        // Wait for any ongoing save to complete before reading
-        if (this.#savePromise) {
-            await this.#savePromise;
-        }
-
-        const items = this.getStoreValue('items') ?? [];
-
-        return this.#sortItems(items.map(decode));
+        return this.#items;
     }
 
     async getLook(): Promise<ListLook> {
@@ -107,87 +95,85 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     }
 
     async getQuantity(id: string): Promise<number> {
-        const items = await this.getItems();
-        const itemIndex = items.findIndex(item => item.id === id);
+        const item = await this.getItem(id);
 
-        if (itemIndex === -1) {
-            return 0;
-        }
+        return item?.quantity ?? 0;
+    }
 
-        return items[itemIndex].quantity ?? 0;
+    async loadItems(): Promise<void> {
+        this.#items = (this.getStoreValue('items') ?? [])
+            .map(decode);
     }
 
     async markComplete(id: string): Promise<boolean> {
-        const items = await this.getItems();
-        const itemIndex = items.findIndex(item => item.id === id);
+        const index = await this.getItemIndex(id);
 
-        if (itemIndex === -1) {
+        if (index === null) {
             return false;
         }
 
-        (items[itemIndex] as Writable<ListItem>)['completed'] = true;
+        (this.#items[index] as Writable<ListItem>)['completed'] = true;
 
-        await this.setItems(items);
+        await this.save();
+
         await Promise.allSettled([
-            this.appDriver.triggerAnyTaskMarkedAsDone(this, items[itemIndex].content),
-            this.appDriver.triggerTaskMarkedAsDone(this, items[itemIndex].content)
+            this.appDriver.triggerAnyTaskMarkedAsDone(this, this.#items[index].content),
+            this.appDriver.triggerTaskMarkedAsDone(this, this.#items[index].content)
         ]);
 
         return true;
     }
 
     async markIncomplete(id: string): Promise<boolean> {
-        const items = await this.getItems();
-        const itemIndex = items.findIndex(item => item.id === id);
+        const index = await this.getItemIndex(id);
 
-        if (itemIndex === -1) {
+        if (index === null) {
             return false;
         }
 
-        (items[itemIndex] as Writable<ListItem>)['completed'] = false;
+        (this.#items[index] as Writable<ListItem>)['completed'] = false;
 
-        await this.setItems(items);
+        await this.save();
+
         await Promise.allSettled([
-            this.appDriver.triggerAnyTaskMarkedAsOpen(this, items[itemIndex].content),
-            this.appDriver.triggerTaskMarkedAsOpen(this, items[itemIndex].content)
+            this.appDriver.triggerAnyTaskMarkedAsOpen(this, this.#items[index].content),
+            this.appDriver.triggerTaskMarkedAsOpen(this, this.#items[index].content)
         ]);
 
         return true;
     }
 
     async removeItem(id: string): Promise<boolean> {
-        const items = await this.getItems();
-        const itemIndex = items.findIndex(item => item.id === id);
+        const index = await this.getItemIndex(id);
 
-        if (itemIndex === -1) {
+        if (index === null) {
             return false;
         }
 
-        items.splice(itemIndex, 1);
+        this.#items.splice(index, 1);
 
-        await this.setItems(items);
+        await this.save();
 
         return true;
-    }
-
-    async setItems(items: ListItem[]): Promise<void> {
-        this.#pendingItems = items;
-        this.#scheduleSave();
     }
 
     async setQuantity(id: string, quantity: number): Promise<boolean> {
-        const items = await this.getItems();
-        const itemIndex = items.findIndex(item => item.id === id);
+        const index = await this.getItemIndex(id);
 
-        if (itemIndex === -1) {
+        if (index === null) {
             return false;
         }
 
-        (items[itemIndex] as Writable<ListItem>)['quantity'] = quantity;
+        (this.#items[index] as Writable<ListItem>)['quantity'] = quantity;
 
-        await this.setItems(items);
+        await this.save();
 
         return true;
+    }
+
+    async onInit(): Promise<void> {
+        await this.loadItems();
+        await super.onInit();
     }
 
     async onItemsChanged(): Promise<void> {
@@ -198,52 +184,15 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         this.homey.api.realtime('list-look-changed', this.id);
     }
 
-    #scheduleSave(): void {
-        if (this.#saveTimeout) {
-            clearTimeout(this.#saveTimeout);
-        }
-
-        this.#saveTimeout = setTimeout(async () => await this.#performSave(), 210);
-    }
-
-    #sortItems(items: ListItem[]): ListItem[] {
-        // @ts-ignore
-        return items.toSorted((a: ListItem, b: ListItem) =>
+    async save(): Promise<void> {
+        this.#items = this.#items.toSorted((a: ListItem, b: ListItem) => (
             a.completed === b.completed
-                ? (a.created > b.created ? 1 : -1)
+                ? (a.created >= b.created ? 1 : -1)
                 : a.completed ? 1 : -1
-        );
-    }
+        ));
 
-    async #performSave(): Promise<void> {
-        if (this.#savePromise) {
-            return;
-        }
-
-        const itemsToSave = this.#pendingItems;
-
-        if (!itemsToSave) {
-            return;
-        }
-
-        this.#saveTimeout = null;
-        this.#savePromise = this.setStoreValue('items', itemsToSave.map(encode));
-
-        try {
-            await this.#savePromise;
-
-            if (this.#pendingItems === itemsToSave) {
-                this.#pendingItems = null;
-            }
-        } finally {
-            this.#savePromise = null;
-        }
-
+        await this.setStoreValue('items', this.#items.map(encode));
         await this.onItemsChanged();
-
-        if (this.#pendingItems !== null) {
-            this.#scheduleSave();
-        }
     }
 
 }

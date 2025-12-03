@@ -32,7 +32,7 @@
 <script
     lang="ts"
     setup>
-    import { computed, ref, type VNode } from 'vue';
+    import { computed, ref, unref, type VNode, watch } from 'vue';
     import { Icon } from '../components';
 
     const emit = defineEmits<{
@@ -69,7 +69,7 @@
     }
 
     function onTouchStart(evt: TouchEvent): void {
-        if (isOpen.value) {
+        if (unref(isOpen)) {
             return;
         }
 
@@ -85,7 +85,7 @@
     }
 
     function onTouchMove(evt: TouchEvent): void {
-        if (!isDragging.value) {
+        if (!unref(isDragging)) {
             return;
         }
 
@@ -99,16 +99,20 @@
         if (deltaX > 10 || deltaY > 10) {
             isTap.value = false;
         }
+
+        if (deltaX > deltaY && deltaX > 5) {
+            evt.preventDefault();
+        }
     }
 
     function onTouchEnd(evt: TouchEvent): void {
-        if (isOpen.value) {
+        if (unref(isOpen)) {
             setTimeout(() => isOpen.value = false, 50);
             evt.stopPropagation();
             return;
         }
 
-        if (!isDragging.value) {
+        if (!unref(isDragging)) {
             return;
         }
 
@@ -116,13 +120,25 @@
 
         const deltaX = startX.value - currentX.value;
 
-        if (isTap.value && !touchedInteractive.value) {
+        if (unref(isTap) && !unref(touchedInteractive)) {
             emit('tap');
             return;
         }
 
         isOpen.value = deltaX > 45;
     }
+
+    watch(isOpen, (open, _, onCleanup) => {
+        if (!open) {
+            return;
+        }
+
+        const timeout = setTimeout(() => {
+            isOpen.value = false;
+        }, 3000);
+
+        onCleanup(() => clearTimeout(timeout));
+    });
 </script>
 
 <style

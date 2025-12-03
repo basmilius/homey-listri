@@ -13,12 +13,12 @@
 <script
     lang="ts"
     setup>
-    import { onUnmounted, ref, unref } from 'vue';
+    import { type Component, onUnmounted, ref, unref } from 'vue';
 
     const {
         tag = 'div'
     } = defineProps<{
-        readonly tag: string;
+        readonly tag: Component | string;
     }>();
 
     const containerRef = ref<HTMLDivElement | null>(null);

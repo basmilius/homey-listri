@@ -9,36 +9,32 @@
         mode="out-in"
         name="check"
         @enter="updateHeight()">
-        <ScrollContainer
-            v-if="items.length > 0"
-            tag="div">
-            <ListItems>
-                <TransitionGroup
-                    name="items"
-                    @after-enter="updateHeight()"
-                    @after-leave="updateHeight()">
-                    <ListItemMount
-                        v-for="item of items"
-                        :key="item.id"
-                        @remove="onItemRemove(item)"
-                        @tap="onItemTap(item)">
-                        <ListItemNote
-                            v-if="item.type === 'note'"
-                            :item="item"/>
+        <ListItems v-if="items.length > 0">
+            <TransitionGroup
+                name="items"
+                @after-enter="updateHeight()"
+                @after-leave="updateHeight()">
+                <ListItemMount
+                    v-for="item of items"
+                    :key="item.id"
+                    @remove="onItemRemove(item)"
+                    @tap="onItemTap(item)">
+                    <ListItemNote
+                        v-if="item.type === 'note'"
+                        :item="item"/>
 
-                        <ListItemProduct
-                            v-else-if="item.type === 'product'"
-                            :item="item"
-                            @decrease="decreaseQuantity(item)"
-                            @increase="increaseQuantity(item)"/>
+                    <ListItemProduct
+                        v-else-if="item.type === 'product'"
+                        :item="item"
+                        @decrease="decreaseQuantity(item)"
+                        @increase="increaseQuantity(item)"/>
 
-                        <ListItemTask
-                            v-else-if="item.type === 'task'"
-                            :item="item"/>
-                    </ListItemMount>
-                </TransitionGroup>
-            </ListItems>
-        </ScrollContainer>
+                    <ListItemTask
+                        v-else-if="item.type === 'task'"
+                        :item="item"/>
+                </ListItemMount>
+            </TransitionGroup>
+        </ListItems>
 
         <ListItems v-else>
             <ListItemEmpty/>
