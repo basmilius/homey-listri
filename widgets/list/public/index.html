@@ -2,20 +2,19 @@
 <head>
     <link
         rel="stylesheet"
-        href="style.css">
-
-    <script
-        type="module"
-        src="script.js"
-        defer></script>
+        href="../../assets/build/listri-ui.css">
 </head>
 <body class="homey-widget-full">
-<div class="list-widget" id="app"></div>
 
-<script type="text/javascript">
-    function onHomeyReady(Homey) {
-        window.dispatchEvent(new CustomEvent('homeyReady', {detail: Homey}));
-    }
+<div id="app">
+    Loading...
+</div>
+
+<script type="module">
+    import { createListWidget } from '../../assets/build/listri-ui.mjs';
+
+    createListWidget('#app');
 </script>
+
 </body>
 </html>

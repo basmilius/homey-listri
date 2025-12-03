@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-
     <link
         rel="stylesheet"
-        href="details.css">
-
-    <script
-        type="module"
-        src="details.js"
-        defer></script>
+        href="../../../assets/build/listri-ui.css">
 </head>
 <body>
-<div id="app"></div>
+
+<div id="app">
+    Loading...
+</div>
+
+<script type="module">
+    import { createPairView } from '../../../assets/build/listri-ui.mjs';
+
+    createPairView('#app');
+</script>
+
 </body>
 </html>

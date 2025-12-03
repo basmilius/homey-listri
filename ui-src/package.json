@@ -1,0 +1,20 @@
+{
+    "name": "com.basmilius.listri.ui",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite build --watch"
+    },
+    "dependencies": {
+        "pinia": "^3.0.4",
+        "vue": "^3.5.25"
+    },
+    "devDependencies": {
+        "@basmilius/vite-preset": "^2.15.0",
+        "@vitejs/plugin-vue": "^6.0.2",
+        "@vue/tsconfig": "^0.8.1",
+        "sass": "^1.94.2",
+        "vite": "^7.2.6"
+    }
+}

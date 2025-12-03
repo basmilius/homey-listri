@@ -1,4 +1,4 @@
-import { DateTime } from 'luxon';
+import { DateTime } from '@basmilius/homey-common';
 
 export function decode(encoded: Record<string, any>): ListItem {
     return {
@@ -43,7 +43,7 @@ export type ListItem = {
 export type ListItemPerson = {
     readonly id: string;
     readonly name: string;
-    readonly photo?: string;
+    readonly image?: string;
 };
 
 export type ListItemDaily =

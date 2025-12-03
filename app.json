@@ -885,7 +885,7 @@
           "method": "DELETE",
           "path": "/:deviceId/items/:id"
         },
-        "setQuantity": {
+        "updateQuantity": {
           "method": "POST",
           "path": "/:deviceId/items/:id/quantity"
         }

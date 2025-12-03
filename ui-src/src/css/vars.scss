@@ -1,0 +1,32 @@
+:root {
+    --acceleration-curve: cubic-bezier(.4, 0, 1, 1);
+    --deceleration-curve: cubic-bezier(0, 0, .2, 1);
+    --standard-curve: cubic-bezier(.4, 0, .2, 1);
+    --swift-out: cubic-bezier(.55, 0, .1, 1);
+
+    --red: #ef4444;
+    --orange: #f97316;
+    --amber: #f59e0b;
+    --yellow: #eab308;
+    --lime: #84cc16;
+    --green: #22c55e;
+    --emerald: #10b981;
+    --teal: #14b8a6;
+    --cyan: #06b6d4;
+    --sky: #0ea5e9;
+    --blue: #3b82f6;
+    --indigo: #6366f1;
+    --violet: #8b5cf6;
+    --purple: #a855f7;
+    --fuchsia: #d946ef;
+    --pink: #ec4899;
+    --rose: #f43f5e;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'font-awesome';
+    font-style: normal;
+    font-weight: 300;
+    src: url(icons.woff2);
+}

@@ -22,6 +22,6 @@ type Args = {
     readonly person: {
         readonly id: string;
         readonly name: string;
-        readonly photo: string | undefined;
+        readonly image: string | undefined;
     };
 };

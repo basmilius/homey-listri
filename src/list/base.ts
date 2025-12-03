@@ -1,6 +1,5 @@
-import { colors, Device, Driver, icons } from '@basmilius/homey-common';
+import { colors, DateTime, Device, Driver, icons } from '@basmilius/homey-common';
 import Homey from 'homey';
-import { DateTime } from 'luxon';
 import { ulid } from 'ulid';
 import { Triggers } from '../flow';
 import type { ListItem, ListItemDaily, ListItemPerson } from './item';
@@ -105,6 +104,17 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
             color,
             icon
         };
+    }
+
+    async getQuantity(id: string): Promise<number> {
+        const items = await this.getItems();
+        const itemIndex = items.findIndex(item => item.id === id);
+
+        if (itemIndex === -1) {
+            return 0;
+        }
+
+        return items[itemIndex].quantity ?? 0;
     }
 
     async markComplete(id: string): Promise<boolean> {

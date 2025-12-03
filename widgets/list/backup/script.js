@@ -380,7 +380,7 @@ const ListWidget = defineComponent({
             items.value[index].quantity--;
 
             await Homey.api('POST', `/${props.deviceId}/items/${id}/quantity`, {
-                quantity: items.value[index].quantity
+                quantity: -1
             });
         };
 
@@ -389,7 +389,7 @@ const ListWidget = defineComponent({
             items.value[index].quantity++;
 
             await Homey.api('POST', `/${props.deviceId}/items/${id}/quantity`, {
-                quantity: items.value[index].quantity
+                quantity: 1
             });
         };
 

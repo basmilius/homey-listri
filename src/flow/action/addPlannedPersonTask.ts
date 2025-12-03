@@ -1,5 +1,4 @@
-import { action, FlowActionEntity } from '@basmilius/homey-common';
-import { DateTime } from 'luxon';
+import { action, DateTime, FlowActionEntity } from '@basmilius/homey-common';
 import type { ListDevice } from '../../list';
 import type { ListriApp } from '../../types';
 import { AutocompleteProviders } from '..';
@@ -27,6 +26,6 @@ type Args = {
     readonly person: {
         readonly id: string;
         readonly name: string;
-        readonly photo: string | undefined;
+        readonly image: string | undefined;
     };
 };

@@ -26,6 +26,8 @@ export default class ListriApp extends App<ListriApp> {
                 await provider.onInit();
             }
 
+            this.log(await this.homey.api.getLocalUrl());
+
             this.log('Listri has been initialized');
         } catch (err) {
             this.log('Failed to initialize Listri', err);

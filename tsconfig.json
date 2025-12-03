@@ -9,5 +9,8 @@
         ],
         "outDir": ".homeybuild/",
         "resolveJsonModule": true
-    }
+    },
+    "exclude": [
+        "ui-src/**"
+    ]
 }

@@ -67,14 +67,15 @@ export async function removeItem({homey: {app}, params}: WidgetApiRequest<Listri
     await device.removeItem(params.id);
 }
 
-export async function setQuantity({homey: {app}, params, body}: WidgetApiRequest<ListriApp, SetQuantityBody, SetQuantityParams>): Promise<void> {
+export async function updateQuantity({homey: {app}, params, body}: WidgetApiRequest<ListriApp, SetQuantityBody, SetQuantityParams>): Promise<void> {
     const device = await app.getDevice<ListDevice>(params.deviceId);
 
     if (!device) {
         return;
     }
 
-    await device.setQuantity(params.id, body.quantity);
+    const quantity = await device.getQuantity(params.id);
+    await device.setQuantity(params.id, quantity + body.quantity);
 }
 
 type GetParams = {

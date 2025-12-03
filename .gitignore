@@ -2,5 +2,7 @@
 /.homeybuild
 /node_modules
 
+/ui-src/node_modules
+
 !.idea/.name
 !.idea/icon.svg
