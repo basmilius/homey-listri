@@ -13,5 +13,8 @@
   },
   "0.0.4": {
     "en": "This update adds grocery list products to the list widget."
+  },
+  "0.0.5": {
+    "en": "Improved UI."
   }
 }
