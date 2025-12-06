@@ -50,7 +50,21 @@
   "widget": {
     "list": {
       "no_items": "Er staan geen items in deze lijst.",
-      "today_at": "Vandaag om"
+      "today_at": "Vandaag om",
+      "add": {
+        "title": "Item toevoegen",
+        "submit": "Toevoegen",
+        "cancel": "Annuleren",
+        "content": "Content",
+        "due": "Deadline",
+        "person": "Persoon",
+        "anyone": "Iedereen",
+        "type": "Type",
+        "note": "Notitie",
+        "product": "Product",
+        "quantity": "Aantal",
+        "task": "Taak"
+      }
     }
   }
 }
