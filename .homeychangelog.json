@@ -16,5 +16,8 @@
   },
   "0.0.5": {
     "en": "Improved UI."
+  },
+  "0.0.6": {
+    "en": "This update implements adding items from the widget."
   }
 }
