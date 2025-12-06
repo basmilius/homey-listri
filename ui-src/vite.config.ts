@@ -1,5 +1,5 @@
 import { resolve } from 'node:path';
-import { preset } from '@basmilius/vite-preset';
+import { flux, preset } from '@basmilius/vite-preset';
 import { defineConfig, type Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
@@ -9,11 +9,15 @@ export default defineConfig({
             cssModules: {
                 classNames: 'camel',
             },
-            isLibrary: true
+            assetFileNames: '[name].[ext]',
+            fileNames: 'actual',
+            isLibrary: false
         }),
+        flux(),
         vue()
     ] as Plugin[],
     build: {
+        assetsDir: '',
         emptyOutDir: true,
         outDir: '../assets/build',
         target: 'baseline-widely-available',

@@ -5,8 +5,8 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@basmilius/homey-common": "^1.0.12",
-        "homey-api": "^3.14.21",
+        "@basmilius/homey-common": "^1.2.1",
+        "homey-api": "^3.14.22",
         "ulid": "^3.0.2"
     },
     "devDependencies": {

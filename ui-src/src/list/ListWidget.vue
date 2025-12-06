@@ -1,14 +1,15 @@
 <template>
-    <div :class="$style.listWidget">
+    <FluxRoot :class="$style.listWidget">
         <List
             v-if="ready"
             :device-id="deviceId!"/>
-    </div>
+    </FluxRoot>
 </template>
 
 <script
     lang="ts"
     setup>
+    import { FluxRoot } from '@flux-ui/components';
     import { ref } from 'vue';
     import List from './List.vue';
 

@@ -5,8 +5,8 @@
     "": {
       "name": "com.basmilius.listri",
       "dependencies": {
-        "@basmilius/homey-common": "^1.0.12",
-        "homey-api": "^3.14.21",
+        "@basmilius/homey-common": "^1.2.1",
+        "homey-api": "^3.14.22",
         "ulid": "^3.0.2",
       },
       "devDependencies": {
@@ -20,7 +20,7 @@
     },
   },
   "packages": {
-    "@basmilius/homey-common": ["@basmilius/homey-common@1.0.12", "", {}, "sha512-ho/jZ1oU9v63753NCqBoTvyDZXycquiKZuEXvU8eg5GfFId8kodI8gDT1ZvCBanU+HxCpaXhLUBgq3dywgqnHA=="],
+    "@basmilius/homey-common": ["@basmilius/homey-common@1.2.1", "", {}, "sha512-1xNpSDohJtS1gblheiZN9gGJ5QdTUsY0zK2IKCy6a3FjqGpxFZr6IgE5Li22T5FkPbWl8lVme+X0bxA/rMeKOA=="],
 
     "@tsconfig/node22": ["@tsconfig/node22@22.0.5", "", {}, "sha512-hLf2ld+sYN/BtOJjHUWOk568dvjFQkHnLNa6zce25GIH+vxKfvTgm3qpaH6ToF5tu/NN0IH66s+Bb5wElHrLcw=="],
 
@@ -94,7 +94,7 @@
 
     "hasown": ["hasown@2.0.2", "", { "dependencies": { "function-bind": "^1.1.2" } }, "sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ=="],
 
-    "homey-api": ["homey-api@3.14.21", "", { "dependencies": { "engine.io-client": "^3.5.5", "form-data": "^4.0.0", "node-fetch": "^2.6.7", "socket.io-client": "^2.5.0" } }, "sha512-v/Mm/xL0swZAav/JPchXzMGcOjj/+3qvv5o8IodhErpTuR0qPSIs0xvbGOI/4/kTv0cEfJPMUYIiRS5YZF6N4Q=="],
+    "homey-api": ["homey-api@3.14.22", "", { "dependencies": { "engine.io-client": "^3.5.5", "form-data": "^4.0.0", "node-fetch": "^2.6.7", "socket.io-client": "^2.5.0" } }, "sha512-XtfFy3B1QG8Bgz8Fh3Tbk9bp1D8nfb7q8+lh/T1OBAmuifvCeA7nEA7GmS1lreU+SI93C4ec+Yctk9/b88fW7A=="],
 
     "indexof": ["indexof@0.0.1", "", {}, "sha512-i0G7hLJ1z0DE8dsqJa2rycj9dBmNKgXBvotXtZYXakU9oivfB9Uj2ZBC27qqef2U58/ZLwalxa1X/RDCdkHtVg=="],
 

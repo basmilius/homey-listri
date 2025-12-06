@@ -28,6 +28,7 @@
     module>
     .listItemQuantity {
         padding: 0 var(--homey-su-2);
+        align-self: start;
         background: rgb(from var(--homey-color-mono-100) r g b / .5);
         border-radius: 99px;
         font-size: 14px;

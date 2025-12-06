@@ -7,11 +7,14 @@
         "dev": "vite build --watch"
     },
     "dependencies": {
+        "@flux-ui/components": "^3.0.0-next.22",
+        "@fortawesome/pro-regular-svg-icons": "^7.1.0",
         "pinia": "^3.0.4",
         "vue": "^3.5.25"
     },
     "devDependencies": {
-        "@basmilius/vite-preset": "^2.15.0",
+        "@basmilius/vite-preset": "^2.16.0",
+        "@flux-ui/types": "^3.0.0-next.22",
         "@vitejs/plugin-vue": "^6.0.2",
         "@vue/tsconfig": "^0.8.1",
         "sass": "^1.94.2",

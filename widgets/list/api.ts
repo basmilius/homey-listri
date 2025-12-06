@@ -1,6 +1,39 @@
-import type { WidgetApiRequest } from '@basmilius/homey-common';
-import type { ListDevice, ListItem } from '../../src/list';
+import { DateTime, type WidgetApiRequest } from '@basmilius/homey-common';
+import { AutocompleteProviders } from '../../src/flow';
+import type { ListDevice, ListItem, ListItemPerson, ListItemType } from '../../src/list';
 import type { ListLook, ListriApp } from '../../src/types';
+
+export async function addItem({homey: {app}, params, body}: WidgetApiRequest<ListriApp, AddItemBody, AddItemParams>): Promise<boolean> {
+    const device = await app.getDevice<ListDevice>(params.deviceId);
+
+    if (!device) {
+        return false;
+    }
+
+    if (body.content.trim().length === 0) {
+        return false;
+    }
+
+    switch (body.type) {
+        case 'note':
+            await device.addNote(body.content);
+            break;
+
+        case 'product':
+            await device.addProduct(body.content, body.quantity);
+            break;
+
+        case 'task':
+            const personProvider = app.registry.findAutocompleteProvider(AutocompleteProviders.Person);
+            const persons = (await personProvider?.find('') ?? []) as ListItemPerson[];
+            const person = persons.find(person => person.id === body.personId);
+
+            await device.addTask(body.content, undefined, body.due ? DateTime.fromISO(body.due) : undefined, person);
+            break;
+    }
+
+    return true;
+}
 
 export async function get({homey: {app}, params}: WidgetApiRequest<ListriApp, never, GetParams>): Promise<List | null> {
     const device = await app.getDevice<ListDevice>(params.deviceId);
@@ -13,7 +46,8 @@ export async function get({homey: {app}, params}: WidgetApiRequest<ListriApp, ne
 
     return {
         ...look,
-        name: device.getName()
+        name: device.getName(),
+        type: device.driver.id
     };
 }
 
@@ -35,6 +69,12 @@ export async function getItems({homey: {app}, params}: WidgetApiRequest<ListriAp
     }
 
     return await device.getItems();
+}
+
+export async function getPersons({homey: {app}}: WidgetApiRequest<ListriApp>): Promise<ListItemPerson[]> {
+    return await app.registry
+        .findAutocompleteProvider(AutocompleteProviders.Person)!
+        .find('') as ListItemPerson[];
 }
 
 export async function markComplete({homey: {app}, params}: WidgetApiRequest<ListriApp, never, MarkCompleteParams>): Promise<void> {
@@ -78,6 +118,18 @@ export async function updateQuantity({homey: {app}, params, body}: WidgetApiRequ
     await device.setQuantity(params.id, quantity + body.quantity);
 }
 
+type AddItemBody = {
+    readonly type: ListItemType;
+    readonly content: string;
+    readonly personId?: string;
+    readonly due?: string;
+    readonly quantity?: number;
+};
+
+type AddItemParams = {
+    readonly deviceId: string;
+};
+
 type GetParams = {
     readonly deviceId: string;
 };
@@ -117,4 +169,5 @@ type SetQuantityParams = {
 
 type List = ListLook & {
     readonly name: string;
+    readonly type: string;
 };

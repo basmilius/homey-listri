@@ -3,13 +3,19 @@
         v-if="look"
         :color="look.color"
         :icon="look.icon"
-        :name="look.name"/>
+        :name="look.name"
+        @add="onAddTap()"/>
 
     <Transition
         mode="out-in"
         name="check"
         @enter="updateHeight()">
-        <ListItems v-if="items.length > 0">
+        <ListItems v-if="isLoading && items.length === 0">
+            <!-- todo(Bas): implement loading indicator -->
+            <ListItemEmpty/>
+        </ListItems>
+
+        <ListItems v-else-if="items.length > 0">
             <TransitionGroup
                 name="items"
                 @after-enter="updateHeight()"
@@ -17,7 +23,7 @@
                 <ListItemMount
                     v-for="item of items"
                     :key="item.id"
-                    @remove="onItemRemove(item)"
+                    @remove="removeItem(deviceId, item)"
                     @tap="onItemTap(item)">
                     <ListItemNote
                         v-if="item.type === 'note'"
@@ -26,8 +32,8 @@
                     <ListItemProduct
                         v-else-if="item.type === 'product'"
                         :item="item"
-                        @decrease="decreaseQuantity(item)"
-                        @increase="increaseQuantity(item)"/>
+                        @decrease="changeQuantity(deviceId, item, 'decrease')"
+                        @increase="changeQuantity(deviceId, item, 'increase')"/>
 
                     <ListItemTask
                         v-else-if="item.type === 'task'"
@@ -40,15 +46,23 @@
             <ListItemEmpty/>
         </ListItems>
     </Transition>
+
+    <FluxOverlay>
+        <ListAdd
+            v-if="isAdding"
+            :device-id="deviceId"
+            @close="isAdding = false"/>
+    </FluxOverlay>
 </template>
 
 <script
     lang="ts"
     setup>
-    import { ref, watch } from 'vue';
-    import type { ListItem as ListItemData } from '../../../src/list/item.ts';
-    import type { Writable } from '../../../src/types.ts';
-    import { ScrollContainer } from '../components';
+    import { FluxOverlay } from '@flux-ui/components';
+    import { ref, unref, watch } from 'vue';
+    import type { ListItemType } from '../types';
+    import useStore from './store';
+    import ListAdd from './ListAdd.vue';
     import ListHeader from './ListHeader.vue';
     import ListItemEmpty from './ListItemEmpty.vue';
     import ListItemMount from './ListItemMount.vue';
@@ -57,70 +71,34 @@
     import ListItemProduct from './ListItemProduct.vue';
     import ListItemTask from './ListItemTask.vue';
 
-    type Look = {
-        readonly color: string;
-        readonly icon: string;
-        readonly name: string;
-    };
-
     const {
         deviceId
     } = defineProps<{
         readonly deviceId: string;
     }>();
 
-    const isLoading = ref(true);
-    const items = ref<Writable<ListItemData>[]>([]);
-    const look = ref<Look | null>(null);
+    const {
+        isLoading,
+        items,
+        look,
+        changeCompleted,
+        changeQuantity,
+        loadItems,
+        loadLook,
+        removeItem
+    } = useStore();
 
-    async function decreaseQuantity(item: ListItemData): Promise<void> {
-        const index = items.value.findIndex(i => i.id === item.id);
-        items.value[index]!.quantity!--;
+    const isAdding = ref(false);
 
-        await Homey.api('POST', `/${deviceId}/items/${item.id}/quantity`, {
-            quantity: -1
-        });
+    async function onAddTap(): Promise<void> {
+        isAdding.value = true;
     }
 
-    async function increaseQuantity(item: ListItemData): Promise<void> {
-        const index = items.value.findIndex(i => i.id === item.id);
-        items.value[index]!.quantity!++;
-
-        await Homey.api('POST', `/${deviceId}/items/${item.id}/quantity`, {
-            quantity: 1
-        });
-    }
-
-    async function markComplete(item: ListItemData) {
-        const index = items.value.findIndex(i => i.id === item.id);
-        items.value[index]!.completed = true;
-
-        await Homey.api('POST', `/${deviceId}/items/${item.id}/complete`);
-    }
-
-    async function markIncomplete(item: ListItemData) {
-        const index = items.value.findIndex(i => i.id === item.id);
-        items.value[index]!.completed = false;
-
-        await Homey.api('POST', `/${deviceId}/items/${item.id}/incomplete`);
-    }
-
-    async function onItemRemove(item: ListItemData): Promise<void> {
-        const index = items.value.findIndex(i => i.id === item.id);
-        items.value.splice(index, 1);
-
-        await Homey.api('DELETE', `/${deviceId}/items/${item.id}`);
-    }
-
-    async function onItemTap(item: ListItemData): Promise<void> {
+    async function onItemTap(item: ListItemType): Promise<void> {
         switch (item.type) {
             case 'product':
             case 'task':
-                if (item.completed) {
-                    await markIncomplete(item);
-                } else {
-                    await markComplete(item);
-                }
+                await changeCompleted(deviceId, item, !item.completed);
                 break;
 
             default:
@@ -128,44 +106,21 @@
         }
     }
 
-    function updateHeight(): void {
+    async function updateHeight(): Promise<void> {
         const list = document.querySelector('#app')!;
         const {height} = list.getBoundingClientRect();
-        Homey.setHeight(height);
+        Homey.setHeight(unref(isAdding) ? Math.max(420, height) : height);
     }
 
-    async function updateItems(): Promise<void> {
-        items.value = await Homey.api('GET', `/${deviceId}/items`) as ListItemData[];
-    }
+    Homey.on('list-items-changed', async did => did === deviceId && await loadItems(deviceId));
+    Homey.on('list-look-changed', async did => did === deviceId && await loadLook(deviceId));
 
-    async function updateLook(): Promise<void> {
-        look.value = await Homey.api('GET', `/${deviceId}`) as Look;
-    }
-
-    Homey.on('list-items-changed', async did => {
-        if (did !== deviceId) {
-            return;
-        }
-
-        await updateItems();
-    });
-
-    Homey.on('list-look-changed', async did => {
-        if (did !== deviceId) {
-            return;
-        }
-
-        await updateLook();
-    });
-
-    watch(items, updateHeight, {flush: 'post'});
+    watch([isAdding, items], async () => {
+        await updateHeight();
+    }, {flush: 'post'});
 
     watch(() => deviceId, async () => {
-        isLoading.value = true;
-
-        await updateLook();
-        await updateItems();
-
-        isLoading.value = false;
+        await loadLook(deviceId);
+        await loadItems(deviceId);
     }, {immediate: true});
 </script>

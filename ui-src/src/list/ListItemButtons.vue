@@ -19,7 +19,7 @@
     module>
     .listItemButtons {
         display: flex;
-        margin-right: -7px;
+        margin-right: -9px;
         flex-flow: row nowrap;
         gap: var(--homey-su-1);
     }

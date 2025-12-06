@@ -56,7 +56,6 @@ export type ListItemDaily =
     | 'sunday';
 
 export type ListItemType =
-    | 'basic'
     | 'note'
     | 'product'
     | 'task';

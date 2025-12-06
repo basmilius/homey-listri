@@ -5,13 +5,17 @@
         :icon="item.completed ? '' : ''"
         :item="item"
         direction="horizontal">
-        <ListItemQuantity
-            v-if="item.quantity && item.quantity > 1"
-            :quantity="item.quantity"/>
-
-        <ListItemContent grow>
+        <ListItemContent>
             {{ item.content }}
         </ListItemContent>
+
+        <Transition name="check">
+            <ListItemQuantity
+                v-if="item.quantity && item.quantity > 1"
+                :quantity="item.quantity"/>
+        </Transition>
+
+        <FluxSpacer/>
 
         <Transition name="check">
             <ListItemButtons v-if="!item.completed">
@@ -31,7 +35,8 @@
 <script
     lang="ts"
     setup>
-    import type { ListItem as ListItemData } from '../../../src/list/item.ts';
+    import { FluxSpacer } from '@flux-ui/components';
+    import type { ListItemType } from '../types';
     import ListItem from './ListItem.vue';
     import ListItemButton from './ListItemButton.vue';
     import ListItemButtons from './ListItemButtons.vue';
@@ -44,7 +49,7 @@
     }>();
 
     defineProps<{
-        readonly item: ListItemData;
+        readonly item: ListItemType;
     }>();
 
     function decrease(): void {

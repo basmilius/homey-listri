@@ -11,6 +11,10 @@
     },
     "settings": [],
     "api": {
+        "addItem": {
+            "method": "POST",
+            "path": "/:deviceId/items"
+        },
         "get": {
             "method": "GET",
             "path": "/:deviceId"
@@ -22,6 +26,10 @@
         "getItems": {
             "method": "GET",
             "path": "/:deviceId/items"
+        },
+        "getPersons": {
+            "method": "GET",
+            "path": "/:deviceId/persons"
         },
         "markComplete": {
             "method": "POST",

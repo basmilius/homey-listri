@@ -37,14 +37,14 @@
     module>
     .listItemButton {
         display: flex;
-        margin: -8px 0;
+        margin: -9px 0;
         height: 36px;
         width: 36px;
         align-items: center;
         justify-content: center;
         background: rgb(from var(--homey-color-mono-100) r g b / .5);
         border: 0;
-        border-radius: 99px;
+        border-radius: var(--homey-border-radius-small);
 
         &:active {
             background: var(--homey-color-mono-100);
@@ -57,10 +57,10 @@
     }
 
     :global(.homey-dark-mode) .listItemButton {
-        background: var(--homey-color-mono-200);
+        background: rgb(from var(--homey-color-mono-200) r g b / .5);
 
         &:active {
-            background: var(--homey-color-mono-100);
+            background: var(--homey-color-mono-200);
         }
     }
 </style>

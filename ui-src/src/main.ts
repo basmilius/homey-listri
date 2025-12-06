@@ -1,10 +1,16 @@
 // @ts-ignore
 import './css/index.scss';
+
+import { fluxRegisterIcons } from '@flux-ui/components';
 import { createPinia } from 'pinia';
 import { type App, type Component, createApp } from 'vue';
 import ListWidget from './list/ListWidget.vue';
 import PairView from './pair/PairView.vue';
 import RepairView from './repair/RepairView.vue';
+
+import * as icons from './icons';
+
+fluxRegisterIcons(icons);
 
 export * from './components';
 export * from './composables';

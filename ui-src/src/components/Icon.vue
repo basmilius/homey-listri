@@ -1,6 +1,6 @@
 <template>
     <div
-        :class="$style.icon"
+        :class="$style.uiIcon"
         data-icon
         :style="{
             '--icon': JSON.stringify(icon),
@@ -19,7 +19,7 @@
 <style
     lang="scss"
     module>
-    .icon {
+    .uiIcon {
         --color: #64748b;
         --icon: '';
         --icon-secondary: '';
@@ -32,21 +32,21 @@
         justify-content: center;
     }
 
-    .icon::before,
-    .icon::after {
+    .uiIcon::before,
+    .uiIcon::after {
         grid-column: 1;
         grid-row: 1;
         color: var(--color);
         font-family: 'font-awesome', sans-serif;
         font-size: var(--size);
-        translate: 0 calc(var(--size) * -.1);
+        line-height: var(--size);
     }
 
-    .icon::before {
+    .uiIcon::before {
         content: var(--icon);
     }
 
-    .icon::after {
+    .uiIcon::after {
         content: var(--icon-secondary);
         opacity: .2;
     }
