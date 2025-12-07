@@ -25,5 +25,8 @@
   },
   "0.0.8": {
     "en": "This update syncs the dutch translations."
+  },
+  "0.0.9": {
+    "en": "This update adds the ability to categorize products in the grocery list and adds a flow card to remove all completed items."
   }
 }
