@@ -18,7 +18,9 @@ export default defineConfig({
     ] as Plugin[],
     build: {
         assetsDir: '',
+        cssMinify: true,
         emptyOutDir: true,
+        minify: true,
         outDir: '../assets/build',
         target: 'baseline-widely-available',
         lib: {

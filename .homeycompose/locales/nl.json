@@ -32,6 +32,7 @@
         "list": {
             "no_items": "Er staan geen items in deze lijst.",
             "today_at": "Vandaag om",
+            "other": "Overig",
             "add": {
                 "title": "Item toevoegen",
                 "submit": "Toevoegen",

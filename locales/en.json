@@ -87,8 +87,10 @@
         "product": "Product",
         "task": "Task",
         "due": "Due",
-        "quantity": "Quantity"
-      }
+        "quantity": "Quantity",
+        "other": "Other"
+      },
+      "other": "Other"
     }
   }
 }

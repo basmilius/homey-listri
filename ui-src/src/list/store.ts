@@ -1,4 +1,4 @@
-import { readonly, ref, unref } from 'vue';
+import { computed, readonly, ref, unref } from 'vue';
 import type { ListItemType, ListLookType, PersonType, Writable } from '../types';
 import { defineStore } from '../util';
 
@@ -7,6 +7,18 @@ export default defineStore('list', () => {
     const items = ref<Writable<ListItemType>[]>([]);
     const look = ref<ListLookType | null>(null);
     const persons = ref<PersonType[]>([]);
+
+    const categorizedItems = computed(() => {
+        const grouped = Object.groupBy(unref(items), item => item.category ?? '__other__');
+        const sortedEntries = Object.entries(grouped).sort(([a], [b]) => {
+            if (a === '__other__') return 1;
+            if (b === '__other__') return -1;
+            return a.localeCompare(b);
+        });
+        return Object.fromEntries(sortedEntries);
+    });
+
+    const hasItems = computed(() => unref(items).length > 0);
 
     async function changeCompleted(deviceId: string, item: ListItemType, completed: boolean): Promise<void> {
         const index = unref(items).findIndex(i => i.id === item.id);
@@ -75,6 +87,9 @@ export default defineStore('list', () => {
         items: readonly(items),
         look: readonly(look),
         persons: readonly(persons),
+
+        categorizedItems,
+        hasItems,
 
         changeCompleted,
         changeQuantity,

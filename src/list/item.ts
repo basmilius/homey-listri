@@ -2,10 +2,11 @@ import { DateTime } from '@basmilius/homey-common';
 
 export function decode(encoded: Record<string, any>): ListItem {
     return {
+        type: encoded.type,
         id: encoded.id,
         created: DateTime.fromISO(encoded.created),
         completed: encoded.completed,
-        type: encoded.type,
+        category: encoded.category,
         content: encoded.content,
         due: encoded.due ? DateTime.fromISO(encoded.due) : undefined,
         person: encoded.person,
@@ -16,10 +17,11 @@ export function decode(encoded: Record<string, any>): ListItem {
 
 export function encode(listItem: ListItem): Record<string, any> {
     return {
+        type: listItem.type,
         id: listItem.id,
         created: listItem.created.toISO(),
         completed: listItem.completed,
-        type: listItem.type,
+        category: listItem.category,
         content: listItem.content,
         due: listItem.due?.toISO(),
         person: listItem.person,
@@ -31,6 +33,7 @@ export function encode(listItem: ListItem): Record<string, any> {
 export type ListItem = {
     readonly id: string;
     readonly type: ListItemType;
+    readonly category?: string;
     readonly created: DateTime;
     readonly completed: boolean;
     readonly content: string;

@@ -143,6 +143,11 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         return true;
     }
 
+    async removeCompletedItems(): Promise<void> {
+        this.#items = this.#items.filter(item => !item.completed);
+        await this.save();
+    }
+
     async removeItem(id: string): Promise<boolean> {
         const index = await this.getItemIndex(id);
 
@@ -151,6 +156,20 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         }
 
         this.#items.splice(index, 1);
+
+        await this.save();
+
+        return true;
+    }
+
+    async setCategory(id: string, category?: string): Promise<boolean> {
+        const index = await this.getItemIndex(id);
+
+        if (index === null) {
+            return false;
+        }
+
+        (this.#items[index] as Writable<ListItem>)['category'] = category;
 
         await this.save();
 

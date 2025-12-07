@@ -66,6 +66,7 @@
                             @click="close()"/>
 
                         <FluxPrimaryButton
+                            :disabled="!canAdd"
                             :label="t('widget.list.add.submit')"
                             style="flex-grow: 1"
                             @click="save()"/>
@@ -112,6 +113,8 @@
         quantity: 1
     });
 
+    const canAdd = computed(() => form.content.trim().length > 2);
+
     const personOptions = computed<FluxFormSelectOption[]>(() => [
         {value: null, label: t('widget.list.add.anyone')},
         ...unref(persons).map<FluxFormSelectOption>(p => ({
@@ -132,6 +135,7 @@
 
             case 'grocery_list':
                 types.push({value: 'product', label: t('widget.list.add.product')});
+                types.push({value: 'note', label: t('widget.list.add.note')});
                 break;
         }
 

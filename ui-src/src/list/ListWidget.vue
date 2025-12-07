@@ -32,7 +32,7 @@
     .listWidget {
         position: relative;
         display: flex;
-        max-height: 600px;
+        max-height: 720px;
         flex-flow: column;
     }
 </style>

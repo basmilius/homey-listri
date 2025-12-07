@@ -10,35 +10,46 @@
         mode="out-in"
         name="check"
         @enter="updateHeight()">
-        <ListItems v-if="isLoading && items.length === 0">
-            <!-- todo(Bas): implement loading indicator -->
-            <ListItemEmpty/>
+        <ListItems v-if="isLoading && !hasItems">
+            <FluxSpinner/>
         </ListItems>
 
-        <ListItems v-else-if="items.length > 0">
+        <ListItems v-else-if="hasItems">
             <TransitionGroup
                 name="items"
                 @after-enter="updateHeight()"
                 @after-leave="updateHeight()">
-                <ListItemMount
-                    v-for="item of items"
-                    :key="item.id"
-                    @remove="removeItem(deviceId, item)"
-                    @tap="onItemTap(item)">
-                    <ListItemNote
-                        v-if="item.type === 'note'"
-                        :item="item"/>
+                <template
+                    v-for="(items, category, index) of categorizedItems"
+                    :key="category">
+                    <ListItemCategory
+                        v-if="category !== '__other__'"
+                        :name="category as string"/>
 
-                    <ListItemProduct
-                        v-else-if="item.type === 'product'"
-                        :item="item"
-                        @decrease="changeQuantity(deviceId, item, 'decrease')"
-                        @increase="changeQuantity(deviceId, item, 'increase')"/>
+                    <ListItemCategory
+                        v-else-if="index > 0"
+                        :name="t('widget.list.other')"/>
 
-                    <ListItemTask
-                        v-else-if="item.type === 'task'"
-                        :item="item"/>
-                </ListItemMount>
+                    <ListItemMount
+                        v-for="item of items"
+                        :key="item.id"
+                        @remove="removeItem(deviceId, item)"
+                        @tap="onItemTap(item)">
+                        <ListItemNote
+                            v-if="item.type === 'note'"
+                            :item="item"/>
+
+                        <ListItemProduct
+                            v-else-if="item.type === 'product'"
+                            :item="item"
+                            @decrease="changeQuantity(deviceId, item, 'decrease')"
+                            @increase="changeQuantity(deviceId, item, 'increase')"/>
+
+                        <ListItemTask
+                            v-else-if="item.type === 'task'"
+                            :item="item"/>
+                    </ListItemMount>
+                </template>
             </TransitionGroup>
         </ListItems>
 
@@ -58,12 +69,14 @@
 <script
     lang="ts"
     setup>
-    import { FluxOverlay } from '@flux-ui/components';
+    import { FluxOverlay, FluxSpinner } from '@flux-ui/components';
     import { ref, unref, watch } from 'vue';
+    import { useTranslate } from '../composables';
     import type { ListItemType } from '../types';
     import useStore from './store';
     import ListAdd from './ListAdd.vue';
     import ListHeader from './ListHeader.vue';
+    import ListItemCategory from './ListItemCategory.vue';
     import ListItemEmpty from './ListItemEmpty.vue';
     import ListItemMount from './ListItemMount.vue';
     import ListItems from './ListItems.vue';
@@ -77,9 +90,11 @@
         readonly deviceId: string;
     }>();
 
+    const t = useTranslate();
     const {
+        categorizedItems,
+        hasItems,
         isLoading,
-        items,
         look,
         changeCompleted,
         changeQuantity,
@@ -115,7 +130,7 @@
     Homey.on('list-items-changed', async did => did === deviceId && await loadItems(deviceId));
     Homey.on('list-look-changed', async did => did === deviceId && await loadLook(deviceId));
 
-    watch([isAdding, items], async () => {
+    watch([isAdding, categorizedItems], async () => {
         await updateHeight();
     }, {flush: 'post'});
 

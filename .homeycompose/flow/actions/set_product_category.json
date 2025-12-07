@@ -1,0 +1,38 @@
+{
+    "id": "set_product_category",
+    "title": {
+        "en": "Set product category",
+        "nl": "Stel categorie in"
+    },
+    "titleFormatted": {
+        "en": "Set category of [[product]] to [[category]]",
+        "nl": "Stel categorie van [[product]] in op [[category]]"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "product",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        },
+        {
+            "type": "text",
+            "name": "category",
+            "title": {
+                "en": "Category",
+                "nl": "Categorie"
+            }
+        }
+    ]
+}
