@@ -60,14 +60,368 @@
   "flow": {
     "triggers": [
       {
-        "id": "any_task_marked_as_done",
+        "id": "note_created",
         "title": {
-          "en": "A task was marked as done",
-          "nl": "Een taak is als voltooid gemarkeerd"
+          "en": "A note is created",
+          "nl": "Er is een notitie aangemaakt"
         },
         "titleFormatted": {
-          "en": "A task was marked as done",
-          "nl": "Een taak is als voltooid gemarkeerd"
+          "en": "A note is created",
+          "nl": "Er is een notitie aangemaakt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "note",
+            "type": "string",
+            "title": {
+              "en": "Note",
+              "nl": "Notitie"
+            }
+          }
+        ]
+      },
+      {
+        "id": "note_removed",
+        "title": {
+          "en": "A note is removed",
+          "nl": "Er is een notitie verwijderd"
+        },
+        "titleFormatted": {
+          "en": "A note is removed",
+          "nl": "Er is een notitie verwijderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "note",
+            "type": "string",
+            "title": {
+              "en": "Note",
+              "nl": "Notitie"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product_checked",
+        "title": {
+          "en": "Product was checked",
+          "nl": "Product is aangevinkt"
+        },
+        "titleFormatted": {
+          "en": "Product [[product]] was checked",
+          "nl": "Product [[product]] is aangevinkt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          },
+          {
+            "type": "text",
+            "name": "product",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product_checked_any",
+        "title": {
+          "en": "A product was checked",
+          "nl": "Een product is aangevinkt"
+        },
+        "titleFormatted": {
+          "en": "A product was checked",
+          "nl": "Een product is aangevinkt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "product",
+            "type": "string",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          },
+          {
+            "name": "quantity",
+            "type": "number",
+            "title": {
+              "en": "Quantity",
+              "nl": "Aantal"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product_created",
+        "title": {
+          "en": "A product is added",
+          "nl": "Er is een product toegevoegd"
+        },
+        "titleFormatted": {
+          "en": "A product is added",
+          "nl": "Er is een product toegevoegd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "product",
+            "type": "string",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          },
+          {
+            "name": "quantity",
+            "type": "number",
+            "title": {
+              "en": "Quantity",
+              "nl": "Aantal"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product_quantity_changed",
+        "title": {
+          "en": "The quantity of a product was changed",
+          "nl": "Het aantal van een product is gewijzigd"
+        },
+        "titleFormatted": {
+          "en": "The quantity of [[product]] was changed",
+          "nl": "Het aantal van [[product]] is gewijzigd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          },
+          {
+            "type": "text",
+            "name": "product",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "quantity",
+            "type": "number",
+            "title": {
+              "en": "Quantity",
+              "nl": "Aantal"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product_removed",
+        "title": {
+          "en": "A product is removed",
+          "nl": "Er is een product verwijderd"
+        },
+        "titleFormatted": {
+          "en": "A product is removed",
+          "nl": "Er is een product verwijderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "product",
+            "type": "string",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          },
+          {
+            "name": "quantity",
+            "type": "number",
+            "title": {
+              "en": "Quantity",
+              "nl": "Aantal"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product_unchecked",
+        "title": {
+          "en": "Product was unchecked",
+          "nl": "Product is uitgevinkt"
+        },
+        "titleFormatted": {
+          "en": "Product [[product]] was unchecked",
+          "nl": "Product [[product]] is uitgevinkt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          },
+          {
+            "type": "text",
+            "name": "product",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product_unchecked_any",
+        "title": {
+          "en": "A product was unchecked",
+          "nl": "Een product is uitgevinkt"
+        },
+        "titleFormatted": {
+          "en": "A product was unchecked",
+          "nl": "Een product is uitgevinkt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "product",
+            "type": "string",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          },
+          {
+            "name": "quantity",
+            "type": "number",
+            "title": {
+              "en": "Quantity",
+              "nl": "Aantal"
+            }
+          }
+        ]
+      },
+      {
+        "id": "task_checked",
+        "title": {
+          "en": "Task was checked",
+          "nl": "Taak is aangevinkt"
+        },
+        "titleFormatted": {
+          "en": "Task [[task]] was checked",
+          "nl": "Taak [[task]] is aangevinkt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          }
+        ]
+      },
+      {
+        "id": "task_checked_any",
+        "title": {
+          "en": "A task was checked",
+          "nl": "Een taak is aangevinkt"
+        },
+        "titleFormatted": {
+          "en": "A task was checked",
+          "nl": "Een taak is aangevinkt"
         },
         "args": [
           {
@@ -92,14 +446,62 @@
         ]
       },
       {
-        "id": "any_task_marked_as_open",
+        "id": "task_created",
         "title": {
-          "en": "A task was marked as open",
-          "nl": "Een taak is als niet voltooid gemarkeerd"
+          "en": "A task is created",
+          "nl": "Er is een taak aangemaakt"
         },
         "titleFormatted": {
-          "en": "A task was marked as open",
-          "nl": "Een taak is als niet voltooid gemarkeerd"
+          "en": "A task is created",
+          "nl": "Er is een taak aangemaakt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "task",
+            "type": "string",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          },
+          {
+            "name": "person",
+            "type": "string",
+            "title": {
+              "en": "Person",
+              "nl": "Persoon"
+            }
+          },
+          {
+            "name": "due",
+            "type": "string",
+            "title": {
+              "en": "Due",
+              "nl": "Vervaldatum"
+            }
+          }
+        ]
+      },
+      {
+        "id": "task_removed",
+        "title": {
+          "en": "A task is removed",
+          "nl": "Er is een taak verwijderd"
+        },
+        "titleFormatted": {
+          "en": "A task is removed",
+          "nl": "Er is een taak verwijderd"
         },
         "args": [
           {
@@ -124,14 +526,14 @@
         ]
       },
       {
-        "id": "task_marked_as_done",
+        "id": "task_unchecked",
         "title": {
-          "en": "Task was marked as done",
-          "nl": "Taak is als voltooid gemarkeerd"
+          "en": "Task was checked",
+          "nl": "Taak is uitgevinkt"
         },
         "titleFormatted": {
-          "en": "Task [[task]] was marked as done",
-          "nl": "Taak [[task]] is als voltooid gemarkeerd"
+          "en": "Task [[task]] was checked",
+          "nl": "Taak [[task]] is uitgevinkt"
         },
         "args": [
           {
@@ -154,14 +556,14 @@
         ]
       },
       {
-        "id": "task_marked_as_open",
+        "id": "task_unchecked_any",
         "title": {
-          "en": "Task was marked as open",
-          "nl": "Taak is als niet voltooid gemarkeerd"
+          "en": "A task was unchecked",
+          "nl": "Een taak is uitgevinkt"
         },
         "titleFormatted": {
-          "en": "Task [[task]] was marked as open",
-          "nl": "Taak [[task]] is als niet voltooid gemarkeerd"
+          "en": "A task was unchecked",
+          "nl": "Een taak is uitgevinkt"
         },
         "args": [
           {
@@ -172,10 +574,12 @@
               "nl": "Lijst"
             },
             "filter": "driver_id=list"
-          },
+          }
+        ],
+        "tokens": [
           {
-            "type": "text",
             "name": "task",
+            "type": "string",
             "title": {
               "en": "Task",
               "nl": "Taak"
@@ -246,6 +650,74 @@
         ]
       },
       {
+        "id": "product_has_quantity",
+        "title": {
+          "en": "Product has quantity",
+          "nl": "Product heeft aantal"
+        },
+        "titleFormatted": {
+          "en": "Product [[product]] has quantity [[quantity]]",
+          "nl": "Product [[product]] heeft aantal [[quantity]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+          },
+          {
+            "type": "text",
+            "name": "product",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          },
+          {
+            "type": "number",
+            "name": "quantity",
+            "title": {
+              "en": "Quantity",
+              "nl": "Aantal"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product_is_checked",
+        "title": {
+          "en": "Product is checked",
+          "nl": "Product is aangevinkt"
+        },
+        "titleFormatted": {
+          "en": "Task [[product]] is !{{checked|un}}",
+          "nl": "Taak [[product]] is !{{aangevinkt|uitgevinkt}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "product",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          }
+        ]
+      },
+      {
         "id": "task_exists",
         "title": {
           "en": "Task exists",
@@ -276,14 +748,14 @@
         ]
       },
       {
-        "id": "task_is",
+        "id": "task_is_checked",
         "title": {
-          "en": "Task is done",
-          "nl": "Taak is voltooid"
+          "en": "Task is checked",
+          "nl": "Taak is aangevinkt"
         },
         "titleFormatted": {
-          "en": "Task [[task]] is !{{done|open}}",
-          "nl": "Taak [[task]] is !{{voltooid|niet voltooid}}"
+          "en": "Task [[task]] is !{{checked|unchecked}}",
+          "nl": "Taak [[task]] is !{{aangevinkt|uitgevinkt}}"
         },
         "args": [
           {
@@ -576,6 +1048,66 @@
         ]
       },
       {
+        "id": "check_product",
+        "title": {
+          "en": "Check product",
+          "nl": "Vink product aan"
+        },
+        "titleFormatted": {
+          "en": "Check product [[product]]",
+          "nl": "Vink product [[product]] aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          },
+          {
+            "type": "text",
+            "name": "product",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          }
+        ]
+      },
+      {
+        "id": "check_task",
+        "title": {
+          "en": "Check task",
+          "nl": "Vink taak aan"
+        },
+        "titleFormatted": {
+          "en": "Check task [[task]]",
+          "nl": "Vink taak [[task]] aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          }
+        ]
+      },
+      {
         "id": "clear_list",
         "title": {
           "en": "Clear",
@@ -598,74 +1130,14 @@
         ]
       },
       {
-        "id": "mark_task_done",
+        "id": "remove_checked",
         "title": {
-          "en": "Mark task done",
-          "nl": "Markeer taak als voltooid"
+          "en": "Remove checked",
+          "nl": "Verwijder afgevinkte items"
         },
         "titleFormatted": {
-          "en": "Mark task [[task]] as done",
-          "nl": "Markeer taak [[task]] als voltooid"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "list",
-            "title": {
-              "en": "List",
-              "nl": "Lijst"
-            },
-            "filter": "driver_id=list"
-          },
-          {
-            "type": "text",
-            "name": "task",
-            "title": {
-              "en": "Task",
-              "nl": "Taak"
-            }
-          }
-        ]
-      },
-      {
-        "id": "mark_task_open",
-        "title": {
-          "en": "Mark task open",
-          "nl": "Markeer taak als niet voltooid"
-        },
-        "titleFormatted": {
-          "en": "Mark task [[task]] as open",
-          "nl": "Markeer taak [[task]] als niet voltooid"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "list",
-            "title": {
-              "en": "List",
-              "nl": "Lijst"
-            },
-            "filter": "driver_id=list"
-          },
-          {
-            "type": "text",
-            "name": "task",
-            "title": {
-              "en": "Task",
-              "nl": "Taak"
-            }
-          }
-        ]
-      },
-      {
-        "id": "remove_completed",
-        "title": {
-          "en": "Remove completed",
-          "nl": "Verwijder voltooide items"
-        },
-        "titleFormatted": {
-          "en": "Remove completed",
-          "nl": "Verwijder voltooide items"
+          "en": "Remove checked",
+          "nl": "Verwijder afgevinkte items"
         },
         "args": [
           {
@@ -844,6 +1316,66 @@
             }
           }
         ]
+      },
+      {
+        "id": "uncheck_product",
+        "title": {
+          "en": "Uncheck product",
+          "nl": "Vink product uit"
+        },
+        "titleFormatted": {
+          "en": "Uncheck product [[product]]",
+          "nl": "Vink product [[product]] uit"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+          },
+          {
+            "type": "text",
+            "name": "product",
+            "title": {
+              "en": "Product",
+              "nl": "Product"
+            }
+          }
+        ]
+      },
+      {
+        "id": "uncheck_task",
+        "title": {
+          "en": "Uncheck task",
+          "nl": "Vink taak uit"
+        },
+        "titleFormatted": {
+          "en": "Uncheck task [[task]]",
+          "nl": "Vink taak [[task]] uit"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          }
+        ]
       }
     ]
   },
@@ -941,13 +1473,13 @@
           "method": "GET",
           "path": "/:deviceId/persons"
         },
-        "markComplete": {
+        "markChecked": {
           "method": "POST",
-          "path": "/:deviceId/items/:id/complete"
+          "path": "/:deviceId/items/:id/checked"
         },
-        "markIncomplete": {
+        "markUnchecked": {
           "method": "POST",
-          "path": "/:deviceId/items/:id/incomplete"
+          "path": "/:deviceId/items/:id/unchecked"
         },
         "removeItem": {
           "method": "DELETE",

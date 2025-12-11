@@ -5,7 +5,6 @@ export { decode, encode } from './item';
 
 export type {
     ListItem,
-    ListItemDaily,
     ListItemPerson,
     ListItemType
 } from './item';

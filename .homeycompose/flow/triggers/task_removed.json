@@ -1,0 +1,32 @@
+{
+    "id": "task_removed",
+    "title": {
+        "en": "A task is removed",
+        "nl": "Er is een taak verwijderd"
+    },
+    "titleFormatted": {
+        "en": "A task is removed",
+        "nl": "Er is een taak verwijderd"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+        }
+    ],
+    "tokens": [
+        {
+            "name": "task",
+            "type": "string",
+            "title": {
+                "en": "Task",
+                "nl": "Taak"
+            }
+        }
+    ]
+}

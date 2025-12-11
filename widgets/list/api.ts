@@ -1,6 +1,6 @@
 import { DateTime, type WidgetApiRequest } from '@basmilius/homey-common';
 import { AutocompleteProviders } from '../../src/flow';
-import type { ListDevice, ListItem, ListItemPerson, ListItemType } from '../../src/list';
+import { BasicListDevice, GroceryListDevice, type ListDevice, type ListItem, type ListItemPerson, type ListItemType } from '../../src/list';
 import type { ListLook, ListriApp } from '../../src/types';
 
 export async function addItem({homey: {app}, params, body}: WidgetApiRequest<ListriApp, AddItemBody, AddItemParams>): Promise<boolean> {
@@ -14,25 +14,29 @@ export async function addItem({homey: {app}, params, body}: WidgetApiRequest<Lis
         return false;
     }
 
-    switch (body.type) {
-        case 'note':
-            await device.addNote(body.content);
-            break;
+    if (body.type === 'note') {
+        await device.addNote(body.content);
 
-        case 'product':
-            await device.addProduct(body.content, body.quantity);
-            break;
-
-        case 'task':
-            const personProvider = app.registry.findAutocompleteProvider(AutocompleteProviders.Person);
-            const persons = (await personProvider?.find('') ?? []) as ListItemPerson[];
-            const person = persons.find(person => person.id === body.personId);
-
-            await device.addTask(body.content, undefined, body.due ? DateTime.fromISO(body.due) : undefined, person);
-            break;
+        return true;
     }
 
-    return true;
+    if (body.type === 'product' && device instanceof GroceryListDevice) {
+        await device.addProduct(body.content, body.quantity);
+
+        return true;
+    }
+
+    if (body.type === 'task' && device instanceof BasicListDevice) {
+        const personProvider = app.registry.findAutocompleteProvider(AutocompleteProviders.Person);
+        const persons = (await personProvider?.find('') ?? []) as ListItemPerson[];
+        const person = persons.find(person => person.id === body.personId);
+
+        await device.addTask(body.content, body.due ? DateTime.fromISO(body.due) : undefined, person);
+
+        return true;
+    }
+
+    return false;
 }
 
 export async function get({homey: {app}, params}: WidgetApiRequest<ListriApp, never, GetParams>): Promise<List | null> {
@@ -58,7 +62,7 @@ export async function getItem({homey: {app}, params}: WidgetApiRequest<ListriApp
         return null;
     }
 
-    return await device.getItem(params.id);
+    return await device.find(params.id);
 }
 
 export async function getItems({homey: {app}, params}: WidgetApiRequest<ListriApp, never, GetItemsParams>): Promise<ListItem[]> {
@@ -68,7 +72,7 @@ export async function getItems({homey: {app}, params}: WidgetApiRequest<ListriAp
         return [];
     }
 
-    return await device.getItems();
+    return device.items;
 }
 
 export async function getPersons({homey: {app}}: WidgetApiRequest<ListriApp>): Promise<ListItemPerson[]> {
@@ -77,24 +81,24 @@ export async function getPersons({homey: {app}}: WidgetApiRequest<ListriApp>): P
         .find('') as ListItemPerson[];
 }
 
-export async function markComplete({homey: {app}, params}: WidgetApiRequest<ListriApp, never, MarkCompleteParams>): Promise<void> {
+export async function markChecked({homey: {app}, params}: WidgetApiRequest<ListriApp, never, MarkCompleteParams>): Promise<boolean> {
     const device = await app.getDevice<ListDevice>(params.deviceId);
 
     if (!device) {
-        return;
+        return false;
     }
 
-    await device.markComplete(params.id);
+    return await device.check(params.id);
 }
 
-export async function markIncomplete({homey: {app}, params}: WidgetApiRequest<ListriApp, never, MarkIncompleteParams>): Promise<void> {
+export async function markUnchecked({homey: {app}, params}: WidgetApiRequest<ListriApp, never, MarkIncompleteParams>): Promise<boolean> {
     const device = await app.getDevice<ListDevice>(params.deviceId);
 
     if (!device) {
-        return;
+        return false;
     }
 
-    await device.markIncomplete(params.id);
+    return await device.check(params.id, false);
 }
 
 export async function removeItem({homey: {app}, params}: WidgetApiRequest<ListriApp, never, RemoveItemParams>): Promise<void> {
@@ -104,18 +108,39 @@ export async function removeItem({homey: {app}, params}: WidgetApiRequest<Listri
         return;
     }
 
-    await device.removeItem(params.id);
+    const item = await device.find(params.id);
+
+    if (item?.type === 'note') {
+        await device.removeNote(item.content);
+        return;
+    }
+
+    if (item?.type === 'product' && device instanceof GroceryListDevice) {
+        await device.removeProduct(item.content);
+        return;
+    }
+
+    if (item?.type === 'task' && device instanceof BasicListDevice) {
+        await device.removeTask(item.content);
+        return;
+    }
 }
 
 export async function updateQuantity({homey: {app}, params, body}: WidgetApiRequest<ListriApp, SetQuantityBody, SetQuantityParams>): Promise<void> {
     const device = await app.getDevice<ListDevice>(params.deviceId);
 
-    if (!device) {
+    if (!device || !(device instanceof GroceryListDevice)) {
         return;
     }
 
-    const quantity = await device.getQuantity(params.id);
-    await device.setQuantity(params.id, quantity + body.quantity);
+    const product = await device.find(params.id);
+
+    if (!product || product.type !== 'product') {
+        return;
+    }
+
+    const quantity = await device.getProductQuantity(product.content);
+    await device.setProductQuantity(product.content, quantity + body.quantity);
 }
 
 type AddItemBody = {

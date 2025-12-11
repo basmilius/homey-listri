@@ -1,0 +1,32 @@
+{
+    "id": "note_created",
+    "title": {
+        "en": "A note is created",
+        "nl": "Er is een notitie aangemaakt"
+    },
+    "titleFormatted": {
+        "en": "A note is created",
+        "nl": "Er is een notitie aangemaakt"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+        }
+    ],
+    "tokens": [
+        {
+            "name": "note",
+            "type": "string",
+            "title": {
+                "en": "Note",
+                "nl": "Notitie"
+            }
+        }
+    ]
+}

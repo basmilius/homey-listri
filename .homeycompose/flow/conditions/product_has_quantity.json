@@ -1,0 +1,38 @@
+{
+    "id": "product_has_quantity",
+    "title": {
+        "en": "Product has quantity",
+        "nl": "Product heeft aantal"
+    },
+    "titleFormatted": {
+        "en": "Product [[product]] has quantity [[quantity]]",
+        "nl": "Product [[product]] heeft aantal [[quantity]]"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "product",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        },
+        {
+            "type": "number",
+            "name": "quantity",
+            "title": {
+                "en": "Quantity",
+                "nl": "Aantal"
+            }
+        }
+    ]
+}

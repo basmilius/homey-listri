@@ -1,0 +1,30 @@
+{
+    "id": "product_unchecked",
+    "title": {
+        "en": "Product was unchecked",
+        "nl": "Product is uitgevinkt"
+    },
+    "titleFormatted": {
+        "en": "Product [[product]] was unchecked",
+        "nl": "Product [[product]] is uitgevinkt"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "product",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        }
+    ]
+}

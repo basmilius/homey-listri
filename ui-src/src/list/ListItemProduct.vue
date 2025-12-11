@@ -2,7 +2,7 @@
     <ListItem
         completable
         tappable
-        :icon="item.completed ? '' : ''"
+        :icon="item.checked ? '' : ''"
         :item="item"
         direction="horizontal">
         <ListItemContent>
@@ -18,7 +18,7 @@
         <FluxSpacer/>
 
         <Transition name="check">
-            <ListItemButtons v-if="!item.completed">
+            <ListItemButtons v-if="!item.checked">
                 <ListItemButton
                     v-if="item.quantity && item.quantity > 1"
                     icon=""
@@ -36,7 +36,7 @@
     lang="ts"
     setup>
     import { FluxSpacer } from '@flux-ui/components';
-    import type { ListItemType } from '../types';
+    import type { ProductListItemType } from '../types';
     import ListItem from './ListItem.vue';
     import ListItemButton from './ListItemButton.vue';
     import ListItemButtons from './ListItemButtons.vue';
@@ -49,7 +49,7 @@
     }>();
 
     defineProps<{
-        readonly item: ListItemType;
+        readonly item: ProductListItemType;
     }>();
 
     function decrease(): void {

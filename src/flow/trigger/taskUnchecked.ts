@@ -1,8 +1,9 @@
-import { condition, FlowConditionEntity } from '@basmilius/homey-common';
+import { FlowDeviceTriggerEntity, trigger } from '@basmilius/homey-common';
+import type { ListDevice } from '../../list';
 import type { ListriApp } from '../../types';
 
-@condition('task_is')
-export default class extends FlowConditionEntity<ListriApp, Args, State> {
+@trigger('task_unchecked')
+export default class extends FlowDeviceTriggerEntity<ListriApp, ListDevice, Args, State> {
     async onRun(args: Args, state: State): Promise<boolean> {
         return args.task === state.task;
     }

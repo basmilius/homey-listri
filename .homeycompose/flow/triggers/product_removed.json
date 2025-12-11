@@ -1,0 +1,40 @@
+{
+    "id": "product_removed",
+    "title": {
+        "en": "A product is removed",
+        "nl": "Er is een product verwijderd"
+    },
+    "titleFormatted": {
+        "en": "A product is removed",
+        "nl": "Er is een product verwijderd"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+        }
+    ],
+    "tokens": [
+        {
+            "name": "product",
+            "type": "string",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        },
+        {
+            "name": "quantity",
+            "type": "number",
+            "title": {
+                "en": "Quantity",
+                "nl": "Aantal"
+            }
+        }
+    ]
+}

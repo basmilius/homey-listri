@@ -1,0 +1,30 @@
+{
+    "id": "uncheck_product",
+    "title": {
+        "en": "Uncheck product",
+        "nl": "Vink product uit"
+    },
+    "titleFormatted": {
+        "en": "Uncheck product [[product]]",
+        "nl": "Vink product [[product]] uit"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "product",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        }
+    ]
+}

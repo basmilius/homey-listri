@@ -1,0 +1,30 @@
+{
+    "id": "product_checked",
+    "title": {
+        "en": "Product was checked",
+        "nl": "Product is aangevinkt"
+    },
+    "titleFormatted": {
+        "en": "Product [[product]] was checked",
+        "nl": "Product [[product]] is aangevinkt"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "product",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        }
+    ]
+}

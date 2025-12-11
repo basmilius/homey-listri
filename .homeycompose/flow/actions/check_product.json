@@ -1,0 +1,30 @@
+{
+    "id": "check_product",
+    "title": {
+        "en": "Check product",
+        "nl": "Vink product aan"
+    },
+    "titleFormatted": {
+        "en": "Check product [[product]]",
+        "nl": "Vink product [[product]] aan"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "product",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        }
+    ]
+}

@@ -1,12 +1,12 @@
 {
-    "id": "mark_task_done",
+    "id": "check_task",
     "title": {
-        "en": "Mark task done",
-        "nl": "Markeer taak als voltooid"
+        "en": "Check task",
+        "nl": "Vink taak aan"
     },
     "titleFormatted": {
-        "en": "Mark task [[task]] as done",
-        "nl": "Markeer taak [[task]] als voltooid"
+        "en": "Check task [[task]]",
+        "nl": "Vink taak [[task]] aan"
     },
     "args": [
         {

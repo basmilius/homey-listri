@@ -1,12 +1,12 @@
 {
-    "id": "task_marked_as_open",
+    "id": "uncheck_task",
     "title": {
-        "en": "Task was marked as open",
-        "nl": "Taak is als niet voltooid gemarkeerd"
+        "en": "Uncheck task",
+        "nl": "Vink taak uit"
     },
     "titleFormatted": {
-        "en": "Task [[task]] was marked as open",
-        "nl": "Taak [[task]] is als niet voltooid gemarkeerd"
+        "en": "Uncheck task [[task]]",
+        "nl": "Vink taak [[task]] uit"
     },
     "args": [
         {

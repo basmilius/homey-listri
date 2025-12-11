@@ -1,12 +1,12 @@
 {
-    "id": "any_task_marked_as_open",
+    "id": "note_removed",
     "title": {
-        "en": "A task was marked as open",
-        "nl": "Een taak is als niet voltooid gemarkeerd"
+        "en": "A note is removed",
+        "nl": "Er is een notitie verwijderd"
     },
     "titleFormatted": {
-        "en": "A task was marked as open",
-        "nl": "Een taak is als niet voltooid gemarkeerd"
+        "en": "A note is removed",
+        "nl": "Er is een notitie verwijderd"
     },
     "args": [
         {
@@ -16,16 +16,16 @@
                 "en": "List",
                 "nl": "Lijst"
             },
-            "filter": "driver_id=list"
+            "filter": "driver_id=list|grocery_list"
         }
     ],
     "tokens": [
         {
-            "name": "task",
+            "name": "note",
             "type": "string",
             "title": {
-                "en": "Task",
-                "nl": "Taak"
+                "en": "Note",
+                "nl": "Notitie"
             }
         }
     ]

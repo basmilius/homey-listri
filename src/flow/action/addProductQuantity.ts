@@ -1,5 +1,5 @@
 import { action, FlowActionEntity } from '@basmilius/homey-common';
-import type { ListDevice } from '../../list';
+import type { GroceryListDevice } from '../../list';
 import type { ListriApp } from '../../types';
 
 @action('add_product_quantity')
@@ -10,7 +10,7 @@ export default class extends FlowActionEntity<ListriApp, Args> {
 }
 
 type Args = {
-    readonly list: ListDevice;
+    readonly list: GroceryListDevice;
     readonly product: string;
     readonly quantity: number;
 };

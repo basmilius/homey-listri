@@ -2,86 +2,141 @@ import { colors, DateTime, Device, Driver, icons } from '@basmilius/homey-common
 import Homey from 'homey';
 import { ulid } from 'ulid';
 import { Triggers } from '../flow';
-import type { ListItem, ListItemDaily, ListItemPerson } from './item';
-import { decode, encode } from './item';
 import type { ListLook, ListriApp, Writable } from '../types';
+import type { ListItem, NoteListItem } from './item';
+import { decode, encode } from './item';
 
 export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<ListriApp, TDriver> {
 
+    get items(): ListItem[] {
+        return this.#items;
+    }
+
+    get notes(): NoteListItem[] {
+        return this.#items.filter(item => item.type === 'note');
+    }
+
     #items: ListItem[] = [];
 
-    async addItem(item: Omit<ListItem, 'id' | 'created'>): Promise<void> {
-        this.#items.push({
+    async add<TItem extends ListItem>(item: Omit<TItem, 'id' | 'created'>): Promise<ListItem> {
+        const listItem: TItem = {
             id: ulid(),
             created: DateTime.now(),
             ...item
-        });
+        } as TItem;
 
-        await this.save();
+        this.#items.push(listItem);
+
+        await this.#save();
+
+        return listItem;
     }
 
-    async addNote(content: string): Promise<void> {
-        await this.addItem({
-            type: 'note',
-            completed: false,
-            content
-        });
-    }
-
-    async addProduct(content: string, quantity: number = 1): Promise<void> {
-        await this.addItem({
-            type: 'product',
-            completed: false,
-            content,
-            quantity
-        });
-    }
-
-    async addTask(content: string, daily?: ListItemDaily, due?: DateTime, person?: ListItemPerson): Promise<void> {
-        await this.addItem({
-            type: 'task',
-            completed: false,
-            content,
-            daily,
-            due,
-            person
-        });
-    }
-
-    async clearList(): Promise<void> {
+    async clear(): Promise<void> {
         this.#items = [];
 
-        await this.save();
+        await this.#save();
     }
 
-    async findNoteId(content: string): Promise<string | null> {
-        return this.#items
-            .filter(item => item.type === 'note')
-            .find(item => item.content === content)?.id ?? null;
+    async load(): Promise<void> {
+        this.#items = (this.getStoreValue('items') ?? [])
+            .map(decode);
     }
 
-    async findProductId(content: string): Promise<string | null> {
-        return this.#items
-            .filter(item => item.type === 'product')
-            .find(item => item.content === content)?.id ?? null;
-    }
-
-    async findTaskId(content: string): Promise<string | null> {
-        return this.#items
-            .filter(item => item.type === 'task')
-            .find(item => item.content === content)?.id ?? null;
-    }
-
-    async getItem(id: string): Promise<ListItem | null> {
+    async find(id: string): Promise<ListItem | null> {
         return this.#items.find(item => item.id === id) ?? null;
     }
 
-    async getItemIndex(id: string): Promise<number | null> {
+    async findByContent(content: string): Promise<ListItem | null> {
+        return this.#items.find(item => item.content === content) ?? null;
+    }
+
+    async findIndex(id: string): Promise<number | null> {
         return this.#items.findIndex(item => item.id === id);
     }
 
-    async getItems(): Promise<ListItem[]> {
-        return this.#items;
+    async check(id: string, checked: boolean = true): Promise<boolean> {
+        const index = await this.findIndex(id);
+
+        if (index === null) {
+            return false;
+        }
+
+        const item = this.#items[index] as Writable<ListItem>;
+
+        if ('checked' in item) {
+            return await this.set(item, 'checked', checked);
+        }
+
+        return false;
+    }
+
+    async remove(id: string): Promise<boolean> {
+        const index = await this.findIndex(id);
+
+        if (index === null) {
+            return false;
+        }
+
+        this.#items.splice(index, 1);
+
+        await this.#save();
+
+        return true;
+    }
+
+    async removeChecked(): Promise<void> {
+        this.#items = this.#items.filter(item => !('checked' in item) || !item.checked);
+        await this.#save();
+    }
+
+    async set<TItem extends ListItem>(item: TItem, field: keyof TItem, value: unknown): Promise<boolean> {
+        const index = await this.findIndex(item.id);
+
+        if (index === null) {
+            return false;
+        }
+
+        (this.#items[index] as any)[field] = value;
+
+        await this.#save();
+
+        return true;
+    }
+
+    async addNote(content: string): Promise<void> {
+        await this.add<NoteListItem>({
+            type: 'note',
+            content
+        });
+
+        await this.appDriver.triggerNoteCreated(this, content);
+    }
+
+    async findNote(content: string): Promise<NoteListItem | null> {
+        return this.notes.find(item => item.content === content) ?? null;
+    }
+
+    async findNoteId(content: string): Promise<string | null> {
+        return this.notes.find(item => item.content === content)?.id ?? null;
+    }
+
+    async removeNote(content: string): Promise<boolean> {
+        const note = await this.findByContent(content);
+
+        if (!note || note.type !== 'note') {
+            return false;
+        }
+
+        const result = await this.remove(note.id);
+
+        if (!result) {
+            return false;
+        }
+
+        await this.appDriver.triggerNoteRemoved(this, note.content);
+
+        return true;
     }
 
     async getLook(): Promise<ListLook> {
@@ -94,121 +149,33 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         };
     }
 
-    async getQuantity(id: string): Promise<number> {
-        const item = await this.getItem(id);
-
-        return item?.quantity ?? 0;
-    }
-
-    async loadItems(): Promise<void> {
-        this.#items = (this.getStoreValue('items') ?? [])
-            .map(decode);
-    }
-
-    async markComplete(id: string): Promise<boolean> {
-        const index = await this.getItemIndex(id);
-
-        if (index === null) {
-            return false;
-        }
-
-        (this.#items[index] as Writable<ListItem>)['completed'] = true;
-
-        await this.save();
-
-        await Promise.allSettled([
-            this.appDriver.triggerAnyTaskMarkedAsDone(this, this.#items[index].content),
-            this.appDriver.triggerTaskMarkedAsDone(this, this.#items[index].content)
-        ]);
-
-        return true;
-    }
-
-    async markIncomplete(id: string): Promise<boolean> {
-        const index = await this.getItemIndex(id);
-
-        if (index === null) {
-            return false;
-        }
-
-        (this.#items[index] as Writable<ListItem>)['completed'] = false;
-
-        await this.save();
-
-        await Promise.allSettled([
-            this.appDriver.triggerAnyTaskMarkedAsOpen(this, this.#items[index].content),
-            this.appDriver.triggerTaskMarkedAsOpen(this, this.#items[index].content)
-        ]);
-
-        return true;
-    }
-
-    async removeCompletedItems(): Promise<void> {
-        this.#items = this.#items.filter(item => !item.completed);
-        await this.save();
-    }
-
-    async removeItem(id: string): Promise<boolean> {
-        const index = await this.getItemIndex(id);
-
-        if (index === null) {
-            return false;
-        }
-
-        this.#items.splice(index, 1);
-
-        await this.save();
-
-        return true;
-    }
-
-    async setCategory(id: string, category?: string): Promise<boolean> {
-        const index = await this.getItemIndex(id);
-
-        if (index === null) {
-            return false;
-        }
-
-        (this.#items[index] as Writable<ListItem>)['category'] = category;
-
-        await this.save();
-
-        return true;
-    }
-
-    async setQuantity(id: string, quantity: number): Promise<boolean> {
-        const index = await this.getItemIndex(id);
-
-        if (index === null) {
-            return false;
-        }
-
-        (this.#items[index] as Writable<ListItem>)['quantity'] = quantity;
-
-        await this.save();
-
-        return true;
-    }
-
     async onInit(): Promise<void> {
-        await this.loadItems();
+        await this.load();
         await super.onInit();
     }
 
     async onItemsChanged(): Promise<void> {
-        this.homey.api.realtime('list-items-changed', this.id);
+        this.homey.api.realtime('list-items-changed', {
+            id: this.id,
+            items: this.#items
+        });
     }
 
     async onLookChanged(): Promise<void> {
         this.homey.api.realtime('list-look-changed', this.id);
     }
 
-    async save(): Promise<void> {
-        this.#items = this.#items.toSorted((a: ListItem, b: ListItem) => (
-            a.completed === b.completed
-                ? (a.created >= b.created ? 1 : -1)
-                : a.completed ? 1 : -1
-        ));
+    async #save(): Promise<void> {
+        this.#items = this.#items.toSorted((a: ListItem, b: ListItem) => {
+            const aChecked = 'checked' in a ? a.checked : false;
+            const bChecked = 'checked' in b ? b.checked : false;
+
+            if (aChecked !== bChecked) {
+                return aChecked ? 1 : -1;
+            }
+
+            return a.created >= b.created ? 1 : -1;
+        });
 
         await this.setStoreValue('items', this.#items.map(encode));
         await this.onItemsChanged();
@@ -237,28 +204,16 @@ export class ListDriver extends Driver<ListriApp> {
         });
     }
 
-    async triggerAnyTaskMarkedAsDone(list: ListDevice, task: string): Promise<void> {
+    async triggerNoteCreated(list: ListDevice, note: string): Promise<void> {
         await this.app.registry
-            .findDeviceTrigger(Triggers.AnyTaskMarkedAsDone)
-            ?.trigger(list, {}, {task});
+            .findDeviceTrigger(Triggers.NoteCreated)
+            ?.trigger(list, {note}, {note});
     }
 
-    async triggerAnyTaskMarkedAsOpen(list: ListDevice, task: string): Promise<void> {
+    async triggerNoteRemoved(list: ListDevice, note: string): Promise<void> {
         await this.app.registry
-            .findDeviceTrigger(Triggers.AnyTaskMarkedAsOpen)
-            ?.trigger(list, {}, {task});
-    }
-
-    async triggerTaskMarkedAsDone(list: ListDevice, task: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.TaskMarkedAsDone)
-            ?.trigger(list, {task});
-    }
-
-    async triggerTaskMarkedAsOpen(list: ListDevice, task: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.TaskMarkedAsOpen)
-            ?.trigger(list, {task});
+            .findDeviceTrigger(Triggers.NoteRemoved)
+            ?.trigger(list, {note}, {note});
     }
 
     async #onPairSession(session: Homey.Driver.PairSession): Promise<void> {

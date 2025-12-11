@@ -1,12 +1,12 @@
 {
-    "id": "remove_completed",
+    "id": "remove_checked",
     "title": {
-        "en": "Remove completed",
-        "nl": "Verwijder voltooide items"
+        "en": "Remove checked",
+        "nl": "Verwijder afgevinkte items"
     },
     "titleFormatted": {
-        "en": "Remove completed",
-        "nl": "Verwijder voltooide items"
+        "en": "Remove checked",
+        "nl": "Verwijder afgevinkte items"
     },
     "args": [
         {

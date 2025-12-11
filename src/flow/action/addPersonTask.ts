@@ -1,5 +1,5 @@
 import { action, FlowActionEntity } from '@basmilius/homey-common';
-import type { ListDevice } from '../../list';
+import type { BasicListDevice } from '../../list';
 import type { ListriApp } from '../../types';
 import { AutocompleteProviders } from '..';
 
@@ -12,12 +12,12 @@ export default class extends FlowActionEntity<ListriApp, Args> {
     }
 
     async onRun(args: Args): Promise<void> {
-        await args.list.addTask(args.task, undefined, undefined, args.person);
+        await args.list.addTask(args.task, undefined, args.person);
     }
 }
 
 type Args = {
-    readonly list: ListDevice;
+    readonly list: BasicListDevice;
     readonly task: string;
     readonly person: {
         readonly id: string;

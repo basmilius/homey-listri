@@ -1,15 +1,15 @@
 import { condition, FlowConditionEntity } from '@basmilius/homey-common';
-import type { ListDevice } from '../../list';
+import type { BasicListDevice } from '../../list';
 import type { ListriApp } from '../../types';
 
-@condition('task_exists')
+@condition('product_exists')
 export default class extends FlowConditionEntity<ListriApp, Args> {
     async onRun(args: Args): Promise<boolean> {
-        return await args.list.findTaskId(args.task) !== null;
+        return await args.list.findTask(args.product) !== null;
     }
 }
 
 type Args = {
-    readonly list: ListDevice;
-    readonly task: string;
+    readonly list: BasicListDevice;
+    readonly product: string;
 };

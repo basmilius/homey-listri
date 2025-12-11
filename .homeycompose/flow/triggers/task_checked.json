@@ -1,12 +1,12 @@
 {
-    "id": "any_task_marked_as_done",
+    "id": "task_checked",
     "title": {
-        "en": "A task was marked as done",
-        "nl": "Een taak is als voltooid gemarkeerd"
+        "en": "Task was checked",
+        "nl": "Taak is aangevinkt"
     },
     "titleFormatted": {
-        "en": "A task was marked as done",
-        "nl": "Een taak is als voltooid gemarkeerd"
+        "en": "Task [[task]] was checked",
+        "nl": "Taak [[task]] is aangevinkt"
     },
     "args": [
         {
@@ -17,12 +17,10 @@
                 "nl": "Lijst"
             },
             "filter": "driver_id=list"
-        }
-    ],
-    "tokens": [
+        },
         {
+            "type": "text",
             "name": "task",
-            "type": "string",
             "title": {
                 "en": "Task",
                 "nl": "Taak"

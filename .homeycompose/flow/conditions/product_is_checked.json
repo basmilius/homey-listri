@@ -1,12 +1,12 @@
 {
-    "id": "mark_task_open",
+    "id": "product_is_checked",
     "title": {
-        "en": "Mark task open",
-        "nl": "Markeer taak als niet voltooid"
+        "en": "Product is checked",
+        "nl": "Product is aangevinkt"
     },
     "titleFormatted": {
-        "en": "Mark task [[task]] as open",
-        "nl": "Markeer taak [[task]] als niet voltooid"
+        "en": "Task [[product]] is !{{checked|un}}",
+        "nl": "Taak [[product]] is !{{aangevinkt|uitgevinkt}}"
     },
     "args": [
         {
@@ -20,10 +20,10 @@
         },
         {
             "type": "text",
-            "name": "task",
+            "name": "product",
             "title": {
-                "en": "Task",
-                "nl": "Taak"
+                "en": "Product",
+                "nl": "Product"
             }
         }
     ]

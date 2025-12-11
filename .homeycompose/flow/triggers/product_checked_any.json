@@ -1,0 +1,40 @@
+{
+    "id": "product_checked_any",
+    "title": {
+        "en": "A product was checked",
+        "nl": "Een product is aangevinkt"
+    },
+    "titleFormatted": {
+        "en": "A product was checked",
+        "nl": "Een product is aangevinkt"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+        }
+    ],
+    "tokens": [
+        {
+            "name": "product",
+            "type": "string",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        },
+        {
+            "name": "quantity",
+            "type": "number",
+            "title": {
+                "en": "Quantity",
+                "nl": "Aantal"
+            }
+        }
+    ]
+}

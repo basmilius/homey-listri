@@ -33,6 +33,7 @@
                     <ListItemMount
                         v-for="item of items"
                         :key="item.id"
+                        @long-press="onItemTap(item)"
                         @remove="removeItem(deviceId, item)"
                         @tap="onItemTap(item)">
                         <ListItemNote
@@ -96,11 +97,12 @@
         hasItems,
         isLoading,
         look,
-        changeCompleted,
+        changeChecked,
         changeQuantity,
         loadItems,
         loadLook,
-        removeItem
+        removeItem,
+        setItems
     } = useStore();
 
     const isAdding = ref(false);
@@ -113,7 +115,7 @@
         switch (item.type) {
             case 'product':
             case 'task':
-                await changeCompleted(deviceId, item, !item.completed);
+                await changeChecked(deviceId, item, !item.checked);
                 break;
 
             default:
@@ -127,8 +129,15 @@
         Homey.setHeight(unref(isAdding) ? Math.max(420, height) : height);
     }
 
-    Homey.on('list-items-changed', async did => did === deviceId && await loadItems(deviceId));
-    Homey.on('list-look-changed', async did => did === deviceId && await loadLook(deviceId));
+    Homey.on('list-items-changed', async ({id, items}) => {
+        if (id !== deviceId) {
+            return;
+        }
+
+        await setItems(items);
+    });
+
+    Homey.on('list-look-changed', async listDeviceId => listDeviceId === deviceId && await loadLook(deviceId));
 
     watch([isAdding, categorizedItems], async () => {
         await updateHeight();

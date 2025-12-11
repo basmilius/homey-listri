@@ -36,8 +36,15 @@
     import { Icon } from '../components';
 
     const emit = defineEmits<{
+        readonly longPress: [];
         readonly remove: [];
         readonly tap: [];
+    }>();
+
+    const {
+        longPressDuration = 500
+    } = defineProps<{
+        readonly longPressDuration?: number;
     }>();
 
     defineSlots<{
@@ -52,6 +59,8 @@
     const currentY = ref(0);
     const isTap = ref(true);
     const touchedInteractive = ref(false);
+    const longPressTimer = ref<ReturnType<typeof setTimeout> | null>(null);
+    const didLongPress = ref(false);
 
     const x = computed(() => {
         if (!isDragging.value) {
@@ -62,6 +71,14 @@
 
         return -Math.max(0, Math.min(90, delta));
     });
+
+    function clearLongPressTimer(): void {
+        if (unref(longPressTimer)) {
+            clearTimeout(unref(longPressTimer)!);
+
+            longPressTimer.value = null;
+        }
+    }
 
     function onDeleteClick(): void {
         isOpen.value = false;
@@ -80,8 +97,21 @@
         currentY.value = touch.clientY;
         isDragging.value = true;
         isTap.value = true;
+        didLongPress.value = false;
 
         touchedInteractive.value = (evt.target as HTMLElement).closest('[data-interactive]') !== null;
+
+        clearLongPressTimer();
+
+        longPressTimer.value = setTimeout(() => {
+            if (!(unref(isTap) && !unref(touchedInteractive))) {
+                return;
+            }
+
+            didLongPress.value = true;
+
+            emit('longPress');
+        }, longPressDuration);
     }
 
     function onTouchMove(evt: TouchEvent): void {
@@ -98,6 +128,7 @@
 
         if (deltaX > 10 || deltaY > 10) {
             isTap.value = false;
+            clearLongPressTimer();
         }
 
         if (deltaX > deltaY && deltaX > 5) {
@@ -106,6 +137,8 @@
     }
 
     function onTouchEnd(evt: TouchEvent): void {
+        clearLongPressTimer();
+
         if (unref(isOpen)) {
             setTimeout(() => isOpen.value = false, 50);
             evt.stopPropagation();
@@ -120,7 +153,7 @@
 
         const deltaX = startX.value - currentX.value;
 
-        if (unref(isTap) && !unref(touchedInteractive)) {
+        if (unref(isTap) && !unref(touchedInteractive) && !unref(didLongPress)) {
             emit('tap');
             return;
         }

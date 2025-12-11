@@ -31,13 +31,13 @@
             "method": "GET",
             "path": "/:deviceId/persons"
         },
-        "markComplete": {
+        "markChecked": {
             "method": "POST",
-            "path": "/:deviceId/items/:id/complete"
+            "path": "/:deviceId/items/:id/checked"
         },
-        "markIncomplete": {
+        "markUnchecked": {
             "method": "POST",
-            "path": "/:deviceId/items/:id/incomplete"
+            "path": "/:deviceId/items/:id/unchecked"
         },
         "removeItem": {
             "method": "DELETE",

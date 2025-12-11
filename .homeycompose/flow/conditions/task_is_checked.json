@@ -1,12 +1,12 @@
 {
-    "id": "task_is",
+    "id": "task_is_checked",
     "title": {
-        "en": "Task is done",
-        "nl": "Taak is voltooid"
+        "en": "Task is checked",
+        "nl": "Taak is aangevinkt"
     },
     "titleFormatted": {
-        "en": "Task [[task]] is !{{done|open}}",
-        "nl": "Taak [[task]] is !{{voltooid|niet voltooid}}"
+        "en": "Task [[task]] is !{{checked|unchecked}}",
+        "nl": "Taak [[task]] is !{{aangevinkt|uitgevinkt}}"
     },
     "args": [
         {

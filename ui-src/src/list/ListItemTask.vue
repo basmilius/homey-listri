@@ -2,7 +2,7 @@
     <ListItem
         completable
         tappable
-        :icon="item.completed ? '' : ''"
+        :icon="item.checked ? '' : ''"
         :item="item">
         <ListItemContent>
             {{ item.content }}
@@ -24,7 +24,7 @@
 <script
     lang="ts"
     setup>
-    import type { ListItem as ListItemData } from '../../../src/list/item.ts';
+    import type { TaskListItemType } from '../types';
     import ListItem from './ListItem.vue';
     import ListItemContent from './ListItemContent.vue';
     import ListItemFooter from './ListItemFooter.vue';
@@ -32,6 +32,6 @@
     import ListItemDate from './ListItemDate.vue';
 
     defineProps<{
-        readonly item: ListItemData;
+        readonly item: TaskListItemType;
     }>();
 </script>

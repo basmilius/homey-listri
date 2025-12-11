@@ -1,0 +1,32 @@
+{
+    "id": "task_unchecked_any",
+    "title": {
+        "en": "A task was unchecked",
+        "nl": "Een taak is uitgevinkt"
+    },
+    "titleFormatted": {
+        "en": "A task was unchecked",
+        "nl": "Een taak is uitgevinkt"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+        }
+    ],
+    "tokens": [
+        {
+            "name": "task",
+            "type": "string",
+            "title": {
+                "en": "Task",
+                "nl": "Taak"
+            }
+        }
+    ]
+}

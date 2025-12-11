@@ -1,5 +1,5 @@
 import { computed, readonly, ref, unref } from 'vue';
-import type { ListItemType, ListLookType, PersonType, Writable } from '../types';
+import { type ListItemType, type ListLookType, type PersonType, type ProductListItemType, type TaskListItemType, type Writable } from '../types';
 import { defineStore } from '../util';
 
 export default defineStore('list', () => {
@@ -9,7 +9,7 @@ export default defineStore('list', () => {
     const persons = ref<PersonType[]>([]);
 
     const categorizedItems = computed(() => {
-        const grouped = Object.groupBy(unref(items), item => item.category ?? '__other__');
+        const grouped = Object.groupBy(unref(items), item => (item as any).category ?? '__other__');
         const sortedEntries = Object.entries(grouped).sort(([a], [b]) => {
             if (a === '__other__') return 1;
             if (b === '__other__') return -1;
@@ -20,30 +20,30 @@ export default defineStore('list', () => {
 
     const hasItems = computed(() => unref(items).length > 0);
 
-    async function changeCompleted(deviceId: string, item: ListItemType, completed: boolean): Promise<void> {
+    async function changeChecked(deviceId: string, item: ProductListItemType | TaskListItemType, checked: boolean): Promise<void> {
         const index = unref(items).findIndex(i => i.id === item.id);
 
         if (index === -1) {
             return;
         }
 
-        items.value[index]!.completed = completed;
+        (items.value[index] as ProductListItemType | TaskListItemType).checked = checked;
 
-        if (completed) {
-            await Homey.api('POST', `/${deviceId}/items/${item.id}/complete`);
+        if (checked) {
+            await Homey.api('POST', `/${deviceId}/items/${item.id}/checked`);
         } else {
-            await Homey.api('POST', `/${deviceId}/items/${item.id}/incomplete`);
+            await Homey.api('POST', `/${deviceId}/items/${item.id}/unchecked`);
         }
     }
 
-    async function changeQuantity(deviceId: string, item: ListItemType, change: 'decrease' | 'increase'): Promise<void> {
+    async function changeQuantity(deviceId: string, item: ProductListItemType, change: 'decrease' | 'increase'): Promise<void> {
         const index = unref(items).findIndex(i => i.id === item.id);
 
         if (index === -1 || item.quantity === undefined) {
             return;
         }
 
-        items.value[index]!.quantity = change === 'increase'
+        (items.value[index] as ProductListItemType).quantity = change === 'increase'
             ? item.quantity + 1
             : item.quantity - 1;
 
@@ -54,7 +54,11 @@ export default defineStore('list', () => {
 
     async function loadItems(deviceId: string): Promise<void> {
         isLoading.value = true;
-        items.value = await Homey.api('GET', `/${deviceId}/items`) as ListItemType[];
+
+        await setItems(
+            await Homey.api('GET', `/${deviceId}/items`) as ListItemType[]
+        );
+
         isLoading.value = false;
     }
 
@@ -82,6 +86,10 @@ export default defineStore('list', () => {
         await Homey.api('DELETE', `/${deviceId}/items/${item.id}`);
     }
 
+    async function setItems(newItems: ListItemType[]): Promise<void> {
+        items.value = newItems;
+    }
+
     return {
         isLoading: readonly(isLoading),
         items: readonly(items),
@@ -91,11 +99,12 @@ export default defineStore('list', () => {
         categorizedItems,
         hasItems,
 
-        changeCompleted,
+        changeChecked,
         changeQuantity,
         loadItems,
         loadLook,
         loadPersons,
-        removeItem
+        removeItem,
+        setItems
     };
 });

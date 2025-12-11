@@ -1,4 +1,11 @@
-export type { ListItem as ListItemType, ListItemPerson as PersonType } from '../../src/list/item';
+export type {
+    ListItem as ListItemType,
+    ListItemPerson as PersonType,
+    NoteListItem as NoteListItemType,
+    ProductListItem as ProductListItemType,
+    TaskListItem as TaskListItemType
+} from '../../src/list/item';
+
 export type { Writable } from '../../src/types';
 
 export type ListLookType = {

@@ -1,0 +1,40 @@
+{
+    "id": "product_quantity_changed",
+    "title": {
+        "en": "The quantity of a product was changed",
+        "nl": "Het aantal van een product is gewijzigd"
+    },
+    "titleFormatted": {
+        "en": "The quantity of [[product]] was changed",
+        "nl": "Het aantal van [[product]] is gewijzigd"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=grocery_list"
+        },
+        {
+            "type": "text",
+            "name": "product",
+            "title": {
+                "en": "Product",
+                "nl": "Product"
+            }
+        }
+    ],
+    "tokens": [
+        {
+            "name": "quantity",
+            "type": "number",
+            "title": {
+                "en": "Quantity",
+                "nl": "Aantal"
+            }
+        }
+    ]
+}
