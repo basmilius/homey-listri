@@ -28,5 +28,8 @@
   },
   "0.0.9": {
     "en": "This update adds the ability to categorize products in the grocery list and adds a flow card to remove all completed items."
+  },
+  "0.0.10": {
+    "en": "This update finalizes the project structure and represents the mvp version."
   }
 }
