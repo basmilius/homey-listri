@@ -1,7 +1,27 @@
 export {
     faAngleDown,
+    faBottleBaby,
+    faBottleDroplet,
+    faBowlSpoon,
+    faBreadLoaf,
     faCalendar,
+    faCanFood,
+    faCapsules,
+    faCarrot,
+    faCheeseSwiss,
+    faCookie,
+    faCupStraw,
+    faFish,
+    faLeaf,
     faMinus,
+    faOliveBranch,
+    faPawSimple,
     faPlus,
-    faTrash
+    faPumpSoap,
+    faSalad,
+    faSnowflake,
+    faSprayCanSparkles,
+    faSteak,
+    faTrash,
+    faWheat
 } from '@fortawesome/pro-regular-svg-icons';

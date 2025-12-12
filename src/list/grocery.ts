@@ -37,10 +37,11 @@ export class GroceryListDevice extends ListDevice<GroceryListDriver> {
         return true;
     }
 
-    async addProduct(content: string, quantity: number = 1): Promise<void> {
+    async addProduct(content: string, quantity: number = 1, category?: string): Promise<void> {
         await this.add<ProductListItem>({
             type: 'product',
             checked: false,
+            category,
             content,
             quantity
         });
@@ -57,9 +58,9 @@ export class GroceryListDevice extends ListDevice<GroceryListDriver> {
     }
 
     async removeProduct(content: string): Promise<boolean> {
-        const product = await this.findByContent(content);
+        const product = await this.findProduct(content);
 
-        if (!product || product.type !== 'product') {
+        if (!product) {
             return false;
         }
 
@@ -75,43 +76,51 @@ export class GroceryListDevice extends ListDevice<GroceryListDriver> {
     }
 
     async getProductCategory(content: string): Promise<string | undefined> {
-        const product = await this.findByContent(content);
+        const product = await this.findProduct(content);
 
-        if (!product || product.type !== 'product') {
+        if (!product) {
             return undefined;
         }
 
         return product.category;
     }
 
-    async getProductQuantity(content: string): Promise<number> {
-        const product = await this.findByContent(content);
-
-        if (!product || product.type !== 'product') {
-            return 0;
-        }
-
-        return product.quantity;
-    }
-
     async setProductCategory(content: string, category?: string): Promise<boolean> {
-        const product = await this.findByContent(content);
+        const product = await this.findProduct(content);
 
-        if (!product || product.type !== 'product') {
+        if (!product) {
             return false;
         }
 
         return await this.set(product, 'category', category);
     }
 
-    async setProductQuantity(content: string, quantity: number): Promise<boolean> {
-        const product = await this.findByContent(content);
+    async getProductQuantity(content: string): Promise<number> {
+        const product = await this.findProduct(content);
 
-        if (!product || product.type !== 'product') {
+        if (!product) {
+            return 0;
+        }
+
+        return product.quantity;
+    }
+
+    async setProductQuantity(content: string, quantity: number): Promise<boolean> {
+        const product = await this.findProduct(content);
+
+        if (!product) {
             return false;
         }
 
-        return await this.set(product, 'quantity', quantity);
+        const result = await this.set(product, 'quantity', quantity);
+
+        if (!result) {
+            return false;
+        }
+
+        await this.appDriver.triggerProductQuantityChanged(this, product.content, quantity);
+
+        return true;
     }
 
 }

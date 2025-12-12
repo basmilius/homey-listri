@@ -1,8 +1,9 @@
 import { computed, readonly, ref, unref } from 'vue';
-import { type ListItemType, type ListLookType, type PersonType, type ProductListItemType, type TaskListItemType, type Writable } from '../types';
+import type { ListItemCategoryType, ListItemType, ListLookType, PersonType, ProductListItemType, TaskListItemType, Writable } from '../types';
 import { defineStore } from '../util';
 
 export default defineStore('list', () => {
+    const categories = ref<ListItemCategoryType<any>[]>([]);
     const isLoading = ref(true);
     const items = ref<Writable<ListItemType>[]>([]);
     const look = ref<ListLookType | null>(null);
@@ -15,6 +16,7 @@ export default defineStore('list', () => {
             if (b === '__other__') return -1;
             return a.localeCompare(b);
         });
+
         return Object.fromEntries(sortedEntries);
     });
 
@@ -50,6 +52,12 @@ export default defineStore('list', () => {
         await Homey.api('POST', `/${deviceId}/items/${item.id}/quantity`, {
             quantity: change === 'increase' ? 1 : -1
         });
+    }
+
+    async function loadCategories(deviceId: string): Promise<void> {
+        isLoading.value = true;
+        categories.value = await Homey.api('GET', `/${deviceId}/categories`) as ListItemCategoryType<any>[];
+        isLoading.value = false;
     }
 
     async function loadItems(deviceId: string): Promise<void> {
@@ -91,6 +99,7 @@ export default defineStore('list', () => {
     }
 
     return {
+        categories: readonly(categories),
         isLoading: readonly(isLoading),
         items: readonly(items),
         look: readonly(look),
@@ -101,6 +110,7 @@ export default defineStore('list', () => {
 
         changeChecked,
         changeQuantity,
+        loadCategories,
         loadItems,
         loadLook,
         loadPersons,

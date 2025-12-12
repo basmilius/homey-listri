@@ -1,6 +1,8 @@
 export type {
     ListItem as ListItemType,
+    ListItemCategory as ListItemCategoryType,
     ListItemPerson as PersonType,
+    ListItemType as ListItemTypeField,
     NoteListItem as NoteListItemType,
     ProductListItem as ProductListItemType,
     TaskListItem as TaskListItemType

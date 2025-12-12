@@ -1,6 +1,7 @@
 import { DateTime, type WidgetApiRequest } from '@basmilius/homey-common';
 import { AutocompleteProviders } from '../../src/flow';
-import { BasicListDevice, GroceryListDevice, type ListDevice, type ListItem, type ListItemPerson, type ListItemType } from '../../src/list';
+import type { ListDevice, ListItem, ListItemCategory, ListItemPerson, ListItemType } from '../../src/list';
+import { BasicListDevice, GROCERY_LIST_CATEGORIES, GroceryListDevice } from '../../src/list';
 import type { ListLook, ListriApp } from '../../src/types';
 
 export async function addItem({homey: {app}, params, body}: WidgetApiRequest<ListriApp, AddItemBody, AddItemParams>): Promise<boolean> {
@@ -21,7 +22,7 @@ export async function addItem({homey: {app}, params, body}: WidgetApiRequest<Lis
     }
 
     if (body.type === 'product' && device instanceof GroceryListDevice) {
-        await device.addProduct(body.content, body.quantity);
+        await device.addProduct(body.content, body.quantity, body.category);
 
         return true;
     }
@@ -53,6 +54,10 @@ export async function get({homey: {app}, params}: WidgetApiRequest<ListriApp, ne
         name: device.getName(),
         type: device.driver.id
     };
+}
+
+export async function getCategories(): Promise<readonly ListItemCategory<any>[]> {
+    return GROCERY_LIST_CATEGORIES;
 }
 
 export async function getItem({homey: {app}, params}: WidgetApiRequest<ListriApp, never, GetItemParams>): Promise<ListItem | null> {
@@ -145,6 +150,7 @@ export async function updateQuantity({homey: {app}, params, body}: WidgetApiRequ
 
 type AddItemBody = {
     readonly type: ListItemType;
+    readonly category?: string;
     readonly content: string;
     readonly personId?: string;
     readonly due?: string;

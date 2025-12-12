@@ -73,6 +73,29 @@ export function encode(listItem: ListItem): Record<string, any> {
     }
 }
 
+export const GROCERY_LIST_CATEGORIES: readonly ListItemCategory<GroceryListCategory>[] = [
+    {icon: 'carrot', category: 'fruits_vegetables', iconUnicode: ''},
+    {icon: 'bread-loaf', category: 'bakery', iconUnicode: ''},
+    {icon: 'salad', category: 'deli', iconUnicode: ''},
+    {icon: 'steak', category: 'meat', iconUnicode: ''},
+    {icon: 'fish', category: 'fish_seafood', iconUnicode: ''},
+    {icon: 'cheese-swiss', category: 'dairy_eggs', iconUnicode: ''},
+    {icon: 'bowl-spoon', category: 'breakfast_cereals', iconUnicode: ''},
+    {icon: 'wheat', category: 'pasta_rice_grains', iconUnicode: ''},
+    {icon: 'can-food', category: 'canned_jarred', iconUnicode: ''},
+    {icon: 'bottle-droplet', category: 'sauces_condiments', iconUnicode: ''},
+    {icon: 'leaf', category: 'herbs_spices', iconUnicode: ''},
+    {icon: 'olive-branch', category: 'oils_vinegars', iconUnicode: ''},
+    {icon: 'cookie', category: 'snacks_sweets', iconUnicode: ''},
+    {icon: 'cup-straw', category: 'beverages', iconUnicode: ''},
+    {icon: 'snowflake', category: 'frozen', iconUnicode: ''},
+    {icon: 'capsules', category: 'health_vitamins', iconUnicode: ''},
+    {icon: 'pump-soap', category: 'personal_care', iconUnicode: ''},
+    {icon: 'bottle-baby', category: 'baby_products', iconUnicode: ''},
+    {icon: 'paw-simple', category: 'pet_supplies', iconUnicode: ''},
+    {icon: 'spray-can-sparkles', category: 'household', iconUnicode: ''}
+] as const;
+
 export type GenericListItem = {
     readonly id: string;
     readonly type: ListItemType;
@@ -105,6 +128,12 @@ export type ListItem =
     | ProductListItem
     | TaskListItem;
 
+export type ListItemCategory<TCategory> = {
+    readonly category: TCategory;
+    readonly icon: string;
+    readonly iconUnicode: string;
+};
+
 export type ListItemPerson = {
     readonly id: string;
     readonly name: string;
@@ -115,3 +144,25 @@ export type ListItemType =
     | 'note'
     | 'product'
     | 'task';
+
+export type GroceryListCategory =
+    | 'fruits_vegetables'
+    | 'bakery'
+    | 'deli'
+    | 'meat'
+    | 'fish_seafood'
+    | 'dairy_eggs'
+    | 'breakfast_cereals'
+    | 'pasta_rice_grains'
+    | 'canned_jarred'
+    | 'sauces_condiments'
+    | 'herbs_spices'
+    | 'oils_vinegars'
+    | 'snacks_sweets'
+    | 'beverages'
+    | 'frozen'
+    | 'health_vitamins'
+    | 'personal_care'
+    | 'baby_products'
+    | 'pet_supplies'
+    | 'household';

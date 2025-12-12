@@ -27,7 +27,7 @@
             }
         },
         {
-            "type": "text",
+            "type": "autocomplete",
             "name": "category",
             "title": {
                 "en": "Category",

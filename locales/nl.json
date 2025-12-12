@@ -52,7 +52,11 @@
       "no_items": "Er staan geen items in deze lijst.",
       "today_at": "Vandaag om",
       "add": {
-        "title": "Item toevoegen",
+        "title": {
+          "note": "Notitie toevoegen",
+          "product": "Product toevoegen",
+          "task": "Taak toevoegen"
+        },
         "submit": "Toevoegen",
         "cancel": "Annuleren",
         "content": "Content",
@@ -64,9 +68,34 @@
         "product": "Product",
         "quantity": "Aantal",
         "task": "Taak",
-        "other": "Overig"
+        "other": "Overig",
+        "category": "Categorie"
       },
       "other": "Overig"
+    }
+  },
+  "grocery": {
+    "category": {
+      "fruits_vegetables": "Groenten & Fruit",
+      "bakery": "Bakkerij",
+      "dairy_eggs": "Zuivel & Eieren",
+      "meat": "Vlees",
+      "fish_seafood": "Vis & Zeevruchten",
+      "deli": "Delicatessen",
+      "frozen": "Diepvries",
+      "beverages": "Dranken",
+      "snacks_sweets": "Snacks & Snoep",
+      "breakfast_cereals": "Ontbijt & Granen",
+      "pasta_rice_grains": "Pasta, Rijst & Granen",
+      "canned_jarred": "Conserven & Potjes",
+      "sauces_condiments": "Sauzen & Kruiden",
+      "herbs_spices": "Kruiden & Specerijen",
+      "oils_vinegars": "Oliën & Azijn",
+      "household": "Huishouden",
+      "personal_care": "Persoonlijke Verzorging",
+      "pet_supplies": "Huisdieren",
+      "baby_products": "Babyproducten",
+      "health_vitamins": "Gezondheid & Vitamines"
     }
   }
 }

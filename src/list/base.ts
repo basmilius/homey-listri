@@ -8,6 +8,19 @@ import { decode, encode } from './item';
 
 export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<ListriApp, TDriver> {
 
+    get categorizedItems(): Record<string, ListItem[]> {
+        const grouped = Object.groupBy(this.items, item => (item as any).category ?? '__other__') as Record<string, ListItem[]>;
+
+        const sortedEntries = Object.entries<ListItem[]>(grouped).sort(([a], [b]) => {
+            if (a === '__other__') return 1;
+            if (b === '__other__') return -1;
+
+            return a.localeCompare(b);
+        });
+
+        return Object.fromEntries(sortedEntries);
+    }
+
     get items(): ListItem[] {
         return this.#items;
     }
@@ -45,10 +58,6 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
 
     async find(id: string): Promise<ListItem | null> {
         return this.#items.find(item => item.id === id) ?? null;
-    }
-
-    async findByContent(content: string): Promise<ListItem | null> {
-        return this.#items.find(item => item.content === content) ?? null;
     }
 
     async findIndex(id: string): Promise<number | null> {
@@ -122,9 +131,9 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     }
 
     async removeNote(content: string): Promise<boolean> {
-        const note = await this.findByContent(content);
+        const note = await this.findNote(content);
 
-        if (!note || note.type !== 'note') {
+        if (!note) {
             return false;
         }
 

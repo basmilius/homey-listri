@@ -59,9 +59,9 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
     }
 
     async removeTask(content: string): Promise<boolean> {
-        const task = await this.findByContent(content);
+        const task = await this.findTask(content);
 
-        if (!task || task.type !== 'task') {
+        if (!task) {
             return false;
         }
 

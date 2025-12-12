@@ -5,8 +5,8 @@
         "nl": "Product is aangevinkt"
     },
     "titleFormatted": {
-        "en": "Task [[product]] is !{{checked|un}}",
-        "nl": "Taak [[product]] is !{{aangevinkt|uitgevinkt}}"
+        "en": "Product [[product]] is !{{checked|un}}",
+        "nl": "Product [[product]] is !{{aangevinkt|uitgevinkt}}"
     },
     "args": [
         {
@@ -16,7 +16,7 @@
                 "en": "List",
                 "nl": "Lijst"
             },
-            "filter": "driver_id=list"
+            "filter": "driver_id=grocery_list"
         },
         {
             "type": "text",

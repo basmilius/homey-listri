@@ -1,21 +1,21 @@
 <template>
     <FluxPane style="max-height: calc(100dvh - 30px); width: calc(100dvw - 30px); overflow-x: hidden">
-        <FluxPaneHeader :title="t('widget.list.add.title')"/>
+        <FluxPaneHeader :title="title"/>
 
         <FluxPaneBody>
             <FluxForm>
                 <FluxFormColumn>
-                    <FluxFormField
-                        v-if="typeOptions.length > 1"
-                        :label="t('widget.list.add.type')">
-                        <FluxFormSelect
-                            v-model="form.type"
-                            :options="typeOptions"/>
-                    </FluxFormField>
-
-                    <template v-if="form.type === 'product'">
+                    <template v-if="type === 'product'">
                         <FluxFormField :label="t('widget.list.add.product')">
                             <FluxFormInput v-model="form.content"/>
+                        </FluxFormField>
+
+                        <FluxFormField
+                            is-optional
+                            :label="t('widget.list.add.category')">
+                            <FluxFormSelect
+                                v-model="form.category"
+                                :options="categoryOptions"/>
                         </FluxFormField>
 
                         <FluxFormField :label="t('widget.list.add.quantity')">
@@ -36,7 +36,7 @@
                     </FluxFormField>
 
                     <FluxFormField
-                        v-if="form.type === 'task'"
+                        v-if="type === 'task'"
                         is-optional
                         :label="t('widget.list.add.person')">
                         <FluxFormSelect
@@ -45,7 +45,7 @@
                     </FluxFormField>
 
                     <FluxFormField
-                        v-if="form.type === 'task'"
+                        v-if="type === 'task'"
                         is-optional
                         :label="t('widget.list.add.due')">
                         <FluxFormInputGroup>
@@ -82,8 +82,9 @@
     setup>
     import { FluxButtonStack, FluxForm, FluxFormColumn, FluxFormField, FluxFormInput, FluxFormInputGroup, FluxFormSelect, FluxFormTextArea, FluxPane, FluxPaneBody, FluxPaneHeader, FluxPrimaryButton, FluxQuantitySelector, FluxSecondaryButton } from '@flux-ui/components';
     import type { FluxFormSelectOption } from '@flux-ui/types';
-    import { computed, onMounted, reactive, unref, watch } from 'vue';
+    import { computed, onMounted, reactive, unref } from 'vue';
     import { useTranslate } from '../composables';
+    import type { ListItemTypeField } from '../types';
     import useStore from './store';
 
     const emit = defineEmits<{
@@ -91,22 +92,25 @@
     }>();
 
     const {
-        deviceId
+        deviceId,
+        type
     } = defineProps<{
         readonly deviceId: string;
+        readonly type: ListItemTypeField;
     }>();
 
     const t = useTranslate();
     const {
-        look,
+        categories,
         persons,
 
+        loadCategories,
         loadItems,
         loadPersons
     } = useStore();
 
     const form = reactive({
-        type: 'note',
+        category: '',
         content: '',
         person: null,
         due: null,
@@ -114,6 +118,12 @@
     });
 
     const canAdd = computed(() => form.content.trim().length > 2);
+
+    const categoryOptions = computed<FluxFormSelectOption[]>(() => unref(categories).map<FluxFormSelectOption>(c => ({
+        label: t(`grocery.category.${c.category}`),
+        icon: c.icon as any,
+        value: c.category
+    })));
 
     const personOptions = computed<FluxFormSelectOption[]>(() => [
         {value: null, label: t('widget.list.add.anyone')},
@@ -124,26 +134,24 @@
         }))
     ]);
 
-    const typeOptions = computed<FluxFormSelectOption[]>(() => {
-        const types: FluxFormSelectOption[] = [];
+    const title = computed(() => {
+        switch (type) {
+            case 'note':
+                return t('widget.list.add.title.note');
 
-        switch (unref(look)?.type) {
-            case 'list':
-                types.push({value: 'task', label: t('widget.list.add.task')});
-                types.push({value: 'note', label: t('widget.list.add.note')});
-                break;
+            case 'product':
+                return t('widget.list.add.title.product');
 
-            case 'grocery_list':
-                types.push({value: 'product', label: t('widget.list.add.product')});
-                types.push({value: 'note', label: t('widget.list.add.note')});
-                break;
+            case 'task':
+                return t('widget.list.add.title.task');
         }
-
-        return types;
     });
 
     onMounted(async () => {
-        await loadPersons(deviceId);
+        await Promise.allSettled([
+            loadCategories(deviceId),
+            loadPersons(deviceId)
+        ]);
     });
 
     async function close(): Promise<void> {
@@ -152,7 +160,8 @@
 
     async function save(): Promise<void> {
         await Homey.api('POST', `/${deviceId}/items`, {
-            type: form.type,
+            type: type,
+            category: form.category,
             content: form.content,
             personId: form.person,
             due: form.due,
@@ -162,14 +171,4 @@
         await loadItems(deviceId);
         await close();
     }
-
-    watch([look, typeOptions], ([_, options]) => {
-        form.type = (options[0]?.value as string) ?? '-';
-    }, {immediate: true});
 </script>
-
-<style
-    lang="scss"
-    module>
-
-</style>

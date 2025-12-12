@@ -1,6 +1,6 @@
 <template>
     <div
-        :aria-checked="'checked' in item! && item?.checked ? 'true' : 'false'"
+        :aria-checked="item ? 'checked' in item && item.checked ? 'true' : 'false' : undefined"
         :class="[
             direction === 'horizontal' ? $style.listItemHorizontal : $style.listItemVertical,
             completable && $style.isCompletable,

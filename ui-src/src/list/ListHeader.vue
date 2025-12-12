@@ -15,10 +15,18 @@
 
         <button
             :class="$style.listHeaderAdd"
+            @click="onAddNoteTap()">
+            <Icon
+                :class="$style.listHeaderAddIcon"
+                icon=""/>
+        </button>
+
+        <button
+            :class="$style.listHeaderAdd"
             @click="onAddTap()">
             <Icon
                 :class="$style.listHeaderAddIcon"
-                icon="+"/>
+                icon=""/>
         </button>
     </div>
 </template>
@@ -30,6 +38,7 @@
 
     const emit = defineEmits<{
         add: [];
+        addNote: [];
     }>();
 
     defineProps<{
@@ -40,6 +49,10 @@
 
     function onAddTap(): void {
         emit('add');
+    }
+
+    function onAddNoteTap(): void {
+        emit('addNote');
     }
 </script>
 

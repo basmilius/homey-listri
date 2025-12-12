@@ -4,15 +4,14 @@
         :color="look.color"
         :icon="look.icon"
         :name="look.name"
-        @add="onAddTap()"/>
+        @add="onAddTap()"
+        @addNote="onAddNoteTap()"/>
 
     <Transition
         mode="out-in"
         name="check"
         @enter="updateHeight()">
-        <ListItems v-if="isLoading && !hasItems">
-            <FluxSpinner/>
-        </ListItems>
+        <ListLoading v-if="isLoading && !hasItems"/>
 
         <ListItems v-else-if="hasItems">
             <TransitionGroup
@@ -24,7 +23,8 @@
                     :key="category">
                     <ListItemCategory
                         v-if="category !== '__other__'"
-                        :name="category as string"/>
+                        :icon="categories.find(c => c.category === category)?.icon"
+                        :name="t(`grocery.category.${category}`)"/>
 
                     <ListItemCategory
                         v-else-if="index > 0"
@@ -38,17 +38,17 @@
                         @tap="onItemTap(item)">
                         <ListItemNote
                             v-if="item.type === 'note'"
-                            :item="item"/>
+                            :item="item as NoteListItemType"/>
 
                         <ListItemProduct
                             v-else-if="item.type === 'product'"
-                            :item="item"
-                            @decrease="changeQuantity(deviceId, item, 'decrease')"
-                            @increase="changeQuantity(deviceId, item, 'increase')"/>
+                            :item="item as ProductListItemType"
+                            @decrease="changeQuantity(deviceId, item as ProductListItemType, 'decrease')"
+                            @increase="changeQuantity(deviceId, item as ProductListItemType, 'increase')"/>
 
                         <ListItemTask
                             v-else-if="item.type === 'task'"
-                            :item="item"/>
+                            :item="item as TaskListItemType"/>
                     </ListItemMount>
                 </template>
             </TransitionGroup>
@@ -61,22 +61,24 @@
 
     <FluxOverlay>
         <ListAdd
-            v-if="isAdding"
+            v-if="addingType"
             :device-id="deviceId"
-            @close="isAdding = false"/>
+            :type="addingType"
+            @close="addingType = null"/>
     </FluxOverlay>
 </template>
 
 <script
     lang="ts"
     setup>
-    import { FluxOverlay, FluxSpinner } from '@flux-ui/components';
+    import { FluxOverlay } from '@flux-ui/components';
     import { ref, unref, watch } from 'vue';
     import { useTranslate } from '../composables';
-    import type { ListItemType } from '../types';
+    import type { ListItemType, ListItemTypeField, NoteListItemType, ProductListItemType, TaskListItemType } from '../types';
     import useStore from './store';
     import ListAdd from './ListAdd.vue';
     import ListHeader from './ListHeader.vue';
+    import ListLoading from './ListLoading.vue';
     import ListItemCategory from './ListItemCategory.vue';
     import ListItemEmpty from './ListItemEmpty.vue';
     import ListItemMount from './ListItemMount.vue';
@@ -93,22 +95,36 @@
 
     const t = useTranslate();
     const {
+        categories,
         categorizedItems,
         hasItems,
         isLoading,
         look,
         changeChecked,
         changeQuantity,
+        loadCategories,
         loadItems,
         loadLook,
         removeItem,
         setItems
     } = useStore();
 
-    const isAdding = ref(false);
+    const addingType = ref<ListItemTypeField | null>(null);
 
     async function onAddTap(): Promise<void> {
-        isAdding.value = true;
+        switch (unref(look)?.type) {
+            case 'grocery_list':
+                addingType.value = 'product';
+                break;
+
+            case 'list':
+                addingType.value = 'task';
+                break;
+        }
+    }
+
+    async function onAddNoteTap(): Promise<void> {
+        addingType.value = 'note';
     }
 
     async function onItemTap(item: ListItemType): Promise<void> {
@@ -126,7 +142,7 @@
     async function updateHeight(): Promise<void> {
         const list = document.querySelector('#app')!;
         const {height} = list.getBoundingClientRect();
-        Homey.setHeight(unref(isAdding) ? Math.max(420, height) : height);
+        Homey.setHeight(unref(addingType) ? Math.max(420, height) : height);
     }
 
     Homey.on('list-items-changed', async ({id, items}) => {
@@ -139,12 +155,15 @@
 
     Homey.on('list-look-changed', async listDeviceId => listDeviceId === deviceId && await loadLook(deviceId));
 
-    watch([isAdding, categorizedItems], async () => {
+    watch([addingType, categorizedItems], async () => {
         await updateHeight();
     }, {flush: 'post'});
 
     watch(() => deviceId, async () => {
-        await loadLook(deviceId);
-        await loadItems(deviceId);
+        await Promise.allSettled([
+            loadCategories(deviceId),
+            loadLook(deviceId),
+            loadItems(deviceId)
+        ]);
     }, {immediate: true});
 </script>

@@ -1,7 +1,8 @@
 <template>
     <ListItem
         :class="$style.listItemNote"
-        icon="">
+        icon=""
+        :item="item">
         <ListItemContent>
             {{ item.content }}
         </ListItemContent>
@@ -11,16 +12,13 @@
 <script
     lang="ts"
     setup>
-    import type { ListItem as ListItemData } from '../../../src/list/item.ts';
-    import { useTranslate } from '../composables';
+    import type { NoteListItemType } from '../types';
     import ListItem from './ListItem.vue';
     import ListItemContent from './ListItemContent.vue';
 
     defineProps<{
-        readonly item: ListItemData;
+        readonly item: NoteListItemType;
     }>();
-
-    const t = useTranslate();
 </script>
 
 <style

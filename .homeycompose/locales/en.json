@@ -34,9 +34,14 @@
             "today_at": "Today at",
             "other": "Other",
             "add": {
-                "title": "Add item",
+                "title": {
+                    "note": "Add note",
+                    "product": "Add product",
+                    "task": "Add task"
+                },
                 "submit": "Add",
                 "cancel": "Cancel",
+                "category": "Category",
                 "content": "Content",
                 "due": "Due",
                 "person": "Person",
@@ -47,6 +52,30 @@
                 "quantity": "Quantity",
                 "task": "Task"
             }
+        }
+    },
+    "grocery": {
+        "category": {
+            "fruits_vegetables": "Fruits & Vegetables",
+            "bakery": "Bakery",
+            "dairy_eggs": "Dairy & Eggs",
+            "meat": "Meat",
+            "fish_seafood": "Fish & Seafood",
+            "deli": "Deli & Prepared Foods",
+            "frozen": "Frozen Foods",
+            "beverages": "Beverages",
+            "snacks_sweets": "Snacks & Sweets",
+            "breakfast_cereals": "Breakfast & Cereals",
+            "pasta_rice_grains": "Pasta, Rice & Grains",
+            "canned_jarred": "Canned & Jarred Goods",
+            "sauces_condiments": "Sauces & Condiments",
+            "herbs_spices": "Herbs & Spices",
+            "oils_vinegars": "Oils & Vinegars",
+            "household": "Household",
+            "personal_care": "Personal Care",
+            "pet_supplies": "Pet Supplies",
+            "baby_products": "Baby Products",
+            "health_vitamins": "Health & Vitamins"
         }
     },
     "color": {
