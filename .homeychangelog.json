@@ -31,5 +31,8 @@
   },
   "0.0.10": {
     "en": "This update finalizes the project structure and represents the mvp version."
+  },
+  "0.0.11": {
+    "en": "This update fixes some small issues in the widget and changes the brand color."
   }
 }

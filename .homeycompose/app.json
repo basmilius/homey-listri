@@ -1,6 +1,6 @@
 {
   "id": "com.basmilius.listri",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "brandColor": "#0891b2",
