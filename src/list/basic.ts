@@ -101,7 +101,7 @@ export class BasicListDriver extends ListDriver {
     async triggerTaskCreated(list: ListDevice, task: string, person?: string, due?: string): Promise<void> {
         await this.app.registry
             .findDeviceTrigger(Triggers.TaskCreated)
-            ?.trigger(list, {task}, {task, person, due});
+            ?.trigger(list, {task}, {task, person: person ?? '', due: due ?? ''});
     }
 
     async triggerTaskRemoved(list: ListDevice, task: string): Promise<void> {

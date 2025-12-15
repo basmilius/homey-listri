@@ -37,5 +37,9 @@ export function createRepairView(selector: string): void {
 }
 
 (window as any).onHomeyReady = function () {
+    if (document.documentElement.classList.contains('homey-dark-mode')) {
+        document.documentElement.setAttribute('dark', 'dark');
+    }
+
     window.dispatchEvent(new CustomEvent('homeyReady'));
 };

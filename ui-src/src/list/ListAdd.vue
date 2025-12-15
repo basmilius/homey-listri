@@ -168,7 +168,6 @@
             quantity: form.quantity
         });
 
-        await loadItems(deviceId);
         await close();
     }
 </script>

@@ -3,7 +3,7 @@
   "version": "0.0.10",
   "compatibility": ">=12.4.0",
   "sdk": 3,
-  "brandColor": "#84cc16",
+  "brandColor": "#0891b2",
   "platforms": [
     "local"
   ],

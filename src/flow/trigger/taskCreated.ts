@@ -15,6 +15,6 @@ type State = {
 
 type Tokens = {
     readonly task: string;
-    readonly due?: string;
-    readonly person?: string;
+    readonly due: string;
+    readonly person: string;
 };
