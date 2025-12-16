@@ -12,8 +12,8 @@
     "nl": "Lijsten"
   },
   "description": {
-    "en": "Make lists and manage them in your dashboards and flows.",
-    "nl": "Maak verschillende soorten lijsten en beheer ze in je dashboards en flows."
+    "en": "Create and manage shopping lists, tasks, and notes—right from your dashboard.",
+    "nl": "Maak en beheer boodschappenlijstjes, taken en notities—rechtstreeks vanuit je dashboard."
   },
   "category": [
     "tools"
@@ -21,11 +21,13 @@
   "tags": {
     "en": [
       "list",
+      "notes",
       "grocery list",
       "tasks"
     ],
     "nl": [
       "lijst",
+      "notities",
       "boodschappen",
       "boodschappenlijst",
       "taken"
