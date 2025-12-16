@@ -1,0 +1,3 @@
+Lijsten is een Homey-app die draait om een dashboard-widget waarmee je je lijsten direct vanaf je startscherm kunt bekijken en beheren. Maak boodschappenlijstjes, takenlijsten of simpele notities—alles blijft in één oogopslag zichtbaar zonder dat je een aparte app hoeft te openen.
+
+De app ondersteunt meerdere lijsten met eigen iconen en kleuren, categorieën, hoeveelheden, deadlines en personen. Je kunt items afvinken, notities toevoegen en alles beheren met veeggebaren. Lijsten werkt ook samen met Homey-flows, zodat je automatisch items kunt toevoegen of verwijderen op basis van gebeurtenissen in je slimme huis.
