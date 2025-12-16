@@ -50,6 +50,21 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
         await this.appDriver.triggerTaskCreated(this, content, person?.name, due?.toISO() ?? undefined);
     }
 
+    async editTask(id: string, content: string, due?: DateTime, person?: ListItemPerson): Promise<boolean> {
+        const item = await this.find(id);
+
+        if (!item || item.type !== 'task') {
+            return false;
+        }
+
+        // todo(Bas): Maybe add a trigger card here for when a task is changed.
+        await this.set(item, 'content', content);
+        await this.set(item, 'due', due);
+        await this.set(item, 'person', person);
+
+        return true;
+    }
+
     async findTask(content: string): Promise<TaskListItem | null> {
         return this.tasks.find(item => item.content === content) ?? null;
     }

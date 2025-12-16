@@ -22,13 +22,7 @@ export async function addItem({homey: {app}, params, body}: WidgetApiRequest<Lis
     }
 
     if (body.type === 'product' && device instanceof GroceryListDevice) {
-        let category = body.category;
-
-        if (category && category.trim().length === 0) {
-            category = undefined;
-        }
-
-        await device.addProduct(body.content, body.quantity, category);
+        await device.addProduct(body.content, body.quantity, body.category);
 
         return true;
     }
@@ -59,33 +53,27 @@ export async function editItem({homey: {app}, params, body}: WidgetApiRequest<Li
         return false;
     }
 
-    // if (item.type === 'note') {
-    //     await device.addNote(body.content);
-    //
-    //     return true;
-    // }
-    //
-    // if (item.type === 'product' && device instanceof GroceryListDevice) {
-    //     let category = body.category;
-    //
-    //     if (category && category.trim().length === 0) {
-    //         category = undefined;
-    //     }
-    //
-    //     await device.addProduct(body.content, body.quantity, category);
-    //
-    //     return true;
-    // }
-    //
-    // if (item.type === 'task' && device instanceof BasicListDevice) {
-    //     const personProvider = app.registry.findAutocompleteProvider(AutocompleteProviders.Person);
-    //     const persons = (await personProvider?.find('') ?? []) as ListItemPerson[];
-    //     const person = persons.find(person => person.id === body.personId);
-    //
-    //     await device.addTask(body.content, body.due ? DateTime.fromISO(body.due) : undefined, person);
-    //
-    //     return true;
-    // }
+    if (item.type === 'note') {
+        await device.editNote(item.id, body.content);
+
+        return true;
+    }
+
+    if (item.type === 'product' && device instanceof GroceryListDevice) {
+        await device.editProduct(item.id, body.content, body.quantity, body.category);
+
+        return true;
+    }
+
+    if (item.type === 'task' && device instanceof BasicListDevice) {
+        const personProvider = app.registry.findAutocompleteProvider(AutocompleteProviders.Person);
+        const persons = (await personProvider?.find('') ?? []) as ListItemPerson[];
+        const person = persons.find(person => person.id === body.personId);
+
+        await device.editTask(item.id, body.content, body.due ? DateTime.fromISO(body.due) : undefined, person);
+
+        return true;
+    }
 
     return false;
 }

@@ -14148,11 +14148,11 @@ var A6 = /* @__PURE__ */ He(C6, [["__cssModules", E6]]), F6 = /* @__PURE__ */ W(
     }
     async function A() {
       const F = document.querySelector("#app"), { height: D } = F.getBoundingClientRect();
-      Homey.setHeight(c(g) ? Math.max(420, D) : D);
+      Homey.setHeight(c(g) || c(b) ? Math.max(420, D) : D);
     }
     return Homey.on("list-items-changed", async ({ id: F, items: D }) => {
       F === t.deviceId && await h(D);
-    }), Homey.on("list-look-changed", async (F) => F === t.deviceId && await f(t.deviceId)), Oe([g, s], async () => {
+    }), Homey.on("list-look-changed", async (F) => F === t.deviceId && await f(t.deviceId)), Oe([g, b, s], async () => {
       await A();
     }, { flush: "post" }), Oe(() => t.deviceId, async () => {
       await Promise.allSettled([

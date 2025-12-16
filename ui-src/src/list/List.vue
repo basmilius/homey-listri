@@ -154,7 +154,7 @@
     async function updateHeight(): Promise<void> {
         const list = document.querySelector('#app')!;
         const {height} = list.getBoundingClientRect();
-        Homey.setHeight(unref(addingType) ? Math.max(420, height) : height);
+        Homey.setHeight(unref(addingType) || unref(editingItem) ? Math.max(420, height) : height);
     }
 
     Homey.on('list-items-changed', async ({id, items}) => {
@@ -167,7 +167,7 @@
 
     Homey.on('list-look-changed', async listDeviceId => listDeviceId === deviceId && await loadLook(deviceId));
 
-    watch([addingType, categorizedItems], async () => {
+    watch([addingType, editingItem, categorizedItems], async () => {
         await updateHeight();
     }, {flush: 'post'});
 

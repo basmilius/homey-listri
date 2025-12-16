@@ -122,6 +122,19 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         await this.appDriver.triggerNoteCreated(this, content);
     }
 
+    async editNote(id: string, content: string): Promise<boolean> {
+        const item = await this.find(id);
+
+        if (!item || item.type !== 'note') {
+            return false;
+        }
+
+        // todo(Bas): Maybe add a trigger card here for when a note is changed.
+        await this.set(item, 'content', content);
+
+        return true;
+    }
+
     async findNote(content: string): Promise<NoteListItem | null> {
         return this.notes.find(item => item.content === content) ?? null;
     }

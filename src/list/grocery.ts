@@ -38,6 +38,10 @@ export class GroceryListDevice extends ListDevice<GroceryListDriver> {
     }
 
     async addProduct(content: string, quantity: number = 1, category?: string): Promise<void> {
+        if (category && category.trim().length === 0) {
+            category = undefined;
+        }
+
         await this.add<ProductListItem>({
             type: 'product',
             checked: false,
@@ -47,6 +51,25 @@ export class GroceryListDevice extends ListDevice<GroceryListDriver> {
         });
 
         await this.appDriver.triggerProductCreated(this, content, quantity);
+    }
+
+    async editProduct(id: string, content: string, quantity: number = 1, category?: string): Promise<boolean> {
+        const item = await this.find(id);
+
+        if (!item || item.type !== 'product') {
+            return false;
+        }
+
+        if (category && category.trim().length === 0) {
+            category = undefined;
+        }
+
+        // todo(Bas): Maybe add a trigger card here for when a product is changed.
+        await this.set(item, 'content', content);
+        await this.set(item, 'quantity', quantity);
+        await this.set(item, 'category', category);
+
+        return true;
     }
 
     async findProduct(content: string): Promise<ProductListItem | null> {
