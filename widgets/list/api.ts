@@ -22,7 +22,13 @@ export async function addItem({homey: {app}, params, body}: WidgetApiRequest<Lis
     }
 
     if (body.type === 'product' && device instanceof GroceryListDevice) {
-        await device.addProduct(body.content, body.quantity, body.category);
+        let category = body.category;
+
+        if (category && category.trim().length === 0) {
+            category = undefined;
+        }
+
+        await device.addProduct(body.content, body.quantity, category);
 
         return true;
     }
@@ -36,6 +42,50 @@ export async function addItem({homey: {app}, params, body}: WidgetApiRequest<Lis
 
         return true;
     }
+
+    return false;
+}
+
+export async function editItem({homey: {app}, params, body}: WidgetApiRequest<ListriApp, EditItemBody, EditItemParams>): Promise<boolean> {
+    const device = await app.getDevice<ListDevice>(params.deviceId);
+
+    if (!device || body.content.trim().length === 0) {
+        return false;
+    }
+
+    const item = await device.find(params.id);
+
+    if (!item) {
+        return false;
+    }
+
+    // if (item.type === 'note') {
+    //     await device.addNote(body.content);
+    //
+    //     return true;
+    // }
+    //
+    // if (item.type === 'product' && device instanceof GroceryListDevice) {
+    //     let category = body.category;
+    //
+    //     if (category && category.trim().length === 0) {
+    //         category = undefined;
+    //     }
+    //
+    //     await device.addProduct(body.content, body.quantity, category);
+    //
+    //     return true;
+    // }
+    //
+    // if (item.type === 'task' && device instanceof BasicListDevice) {
+    //     const personProvider = app.registry.findAutocompleteProvider(AutocompleteProviders.Person);
+    //     const persons = (await personProvider?.find('') ?? []) as ListItemPerson[];
+    //     const person = persons.find(person => person.id === body.personId);
+    //
+    //     await device.addTask(body.content, body.due ? DateTime.fromISO(body.due) : undefined, person);
+    //
+    //     return true;
+    // }
 
     return false;
 }
@@ -159,6 +209,19 @@ type AddItemBody = {
 
 type AddItemParams = {
     readonly deviceId: string;
+};
+
+type EditItemBody = {
+    readonly category?: string;
+    readonly content: string;
+    readonly personId?: string;
+    readonly due?: string;
+    readonly quantity?: number;
+};
+
+type EditItemParams = {
+    readonly deviceId: string;
+    readonly id: string;
 };
 
 type GetParams = {

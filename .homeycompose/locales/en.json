@@ -39,7 +39,8 @@
                     "product": "Add product",
                     "task": "Add task"
                 },
-                "submit": "Add",
+                "add": "Add",
+                "save": "Save",
                 "cancel": "Cancel",
                 "category": "Category",
                 "content": "Content",

@@ -93,7 +93,9 @@
         "due": "Due",
         "quantity": "Quantity",
         "other": "Other",
-        "category": "Category"
+        "category": "Category",
+        "add": "Add",
+        "save": "Save"
       },
       "other": "Other"
     }

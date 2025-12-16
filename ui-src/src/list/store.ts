@@ -10,11 +10,15 @@ export default defineStore('list', () => {
     const persons = ref<PersonType[]>([]);
 
     const categorizedItems = computed(() => {
-        const grouped = Object.groupBy(unref(items), item => (item as any).category ?? '__other__');
+        const grouped = Object.groupBy(unref(items), item => (item as any).category || '__other__');
         const sortedEntries = Object.entries(grouped).sort(([a], [b]) => {
             if (a === '__other__') return 1;
             if (b === '__other__') return -1;
-            return a.localeCompare(b);
+
+            const ai = unref(categories).findIndex(c => c.category === a);
+            const bi = unref(categories).findIndex(c => c.category === b);
+
+            return ai - bi;
         });
 
         return Object.fromEntries(sortedEntries);

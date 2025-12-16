@@ -69,7 +69,9 @@
         "quantity": "Aantal",
         "task": "Taak",
         "other": "Overig",
-        "category": "Categorie"
+        "category": "Categorie",
+        "add": "Toevoegen",
+        "save": "Opslaan"
       },
       "other": "Overig"
     }

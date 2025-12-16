@@ -2,6 +2,7 @@
     <div
         :class="[
             $style.listItemMount,
+            isDestructive && $style.isDestructive,
             isDragging && $style.isDragging,
             isOpen && $style.isOpen
         ]"
@@ -42,7 +43,7 @@
     }>();
 
     const {
-        longPressDuration = 500
+        longPressDuration = 300
     } = defineProps<{
         readonly longPressDuration?: number;
     }>();
@@ -62,14 +63,36 @@
     const longPressTimer = ref<ReturnType<typeof setTimeout> | null>(null);
     const didLongPress = ref(false);
 
+    const isDestructive = computed(() => {
+        if (!isDragging.value) {
+            return false;
+        }
+
+        const delta = startX.value - currentX.value;
+        return delta > 180;
+    });
+
     const x = computed(() => {
         if (!isDragging.value) {
             return isOpen.value ? -90 : 0;
         }
 
         const delta = startX.value - currentX.value;
+        const threshold = 90;
+        const rubberBandFactor = 0.3;
 
-        return -Math.max(0, Math.min(90, delta));
+        if (delta <= 0) {
+            return 0;
+        }
+
+        if (delta <= threshold) {
+            return -delta;
+        }
+
+        const overscroll = delta - threshold;
+        const rubberBanded = threshold + overscroll * rubberBandFactor;
+
+        return -rubberBanded;
     });
 
     function clearLongPressTimer(): void {
@@ -158,6 +181,11 @@
             return;
         }
 
+        if (deltaX > 180) {
+            emit('remove');
+            return;
+        }
+
         isOpen.value = deltaX > 45;
     }
 
@@ -217,6 +245,10 @@
 
     .listItemMount.isOpen .listItemMountBody {
         opacity: .25;
+    }
+
+    .listItemMount.isDestructive .listItemMountBody {
+        filter: sepia(1) hue-rotate(-50deg) saturate(3);
     }
 
     .listItemMount.isOpen .listItemMountBody > * {

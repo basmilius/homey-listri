@@ -39,7 +39,8 @@
                     "product": "Product toevoegen",
                     "task": "Taak toevoegen"
                 },
-                "submit": "Toevoegen",
+                "add": "Toevoegen",
+                "save": "Opslaan",
                 "cancel": "Annuleren",
                 "category": "Categorie",
                 "content": "Content",

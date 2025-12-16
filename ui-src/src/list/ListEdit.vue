@@ -6,9 +6,9 @@
         v-model:due="form.due"
         v-model:quantity="form.quantity"
         :device-id="deviceId"
-        :save-label="t('widget.list.add.add')"
+        :save-label="t('widget.list.add.save')"
         :title="title"
-        :type="type"
+        :type="item.type"
         @close="close()"
         @save="save()"/>
 </template>
@@ -16,9 +16,9 @@
 <script
     lang="ts"
     setup>
-    import { computed, reactive } from 'vue';
+    import { computed, reactive, watch } from 'vue';
     import { useTranslate } from '../composables';
-    import type { ListItemTypeField } from '../types';
+    import type { ListItemType } from '../types';
     import ListForm from './ListForm.vue';
 
     const emit = defineEmits<{
@@ -27,10 +27,10 @@
 
     const {
         deviceId,
-        type
+        item
     } = defineProps<{
         readonly deviceId: string;
-        readonly type: ListItemTypeField;
+        readonly item: ListItemType;
     }>();
 
     const t = useTranslate();
@@ -44,7 +44,7 @@
     });
 
     const title = computed(() => {
-        switch (type) {
+        switch (item.type) {
             case 'note':
                 return t('widget.list.add.title.note');
 
@@ -61,8 +61,7 @@
     }
 
     async function save(): Promise<void> {
-        await Homey.api('POST', `/${deviceId}/items`, {
-            type: type,
+        await Homey.api('POST', `/${deviceId}/items/${item.id}`, {
             category: form.category,
             content: form.content,
             personId: form.person,
@@ -72,4 +71,13 @@
 
         await close();
     }
+
+    watch(() => item, item => {
+        // todo: improve typing here...
+        form.category = (item as any).category;
+        form.content = (item as any).content;
+        form.person = (item as any).person?.id;
+        form.due = (item as any).due?.toISO();
+        form.quantity = (item as any).quantity;
+    }, {immediate: true});
 </script>

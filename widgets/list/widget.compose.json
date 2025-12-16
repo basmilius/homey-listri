@@ -35,6 +35,10 @@
             "method": "GET",
             "path": "/:deviceId/persons"
         },
+        "editItem": {
+            "method": "POST",
+            "path": "/:deviceId/items/:id"
+        },
         "markChecked": {
             "method": "POST",
             "path": "/:deviceId/items/:id/checked"

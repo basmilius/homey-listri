@@ -5,7 +5,7 @@
     "": {
       "name": "com.basmilius.listri",
       "dependencies": {
-        "@basmilius/homey-common": "^1.3.0",
+        "@basmilius/homey-common": "^1.9.0",
         "homey-api": "^3.14.22",
         "ulid": "^3.0.2",
       },
@@ -14,13 +14,13 @@
         "@types/bun": "^1.3.4",
         "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.12",
         "@types/luxon": "^3.7.1",
-        "@types/node": "^24.10.2",
+        "@types/node": "^25.0.2",
         "typescript": "^5.9.3",
       },
     },
   },
   "packages": {
-    "@basmilius/homey-common": ["@basmilius/homey-common@1.3.0", "", {}, "sha512-xZDPIFdqxrk2dDYb03vKCbKgZEItjSWzYQuyNYSpzG3R9liH7X49Io9imwY79ytcrf2gcJKTDPBlgCUh4DBJpQ=="],
+    "@basmilius/homey-common": ["@basmilius/homey-common@1.9.0", "", {}, "sha512-219p6S6KtUe8LXhUi0iIFMcyHXt+sRok0FEjdBeQlgoeG0DNe13M5NEjzBoZCGspGI5pAhnmVWx/FnAGEcGkhQ=="],
 
     "@tsconfig/node22": ["@tsconfig/node22@22.0.5", "", {}, "sha512-hLf2ld+sYN/BtOJjHUWOk568dvjFQkHnLNa6zce25GIH+vxKfvTgm3qpaH6ToF5tu/NN0IH66s+Bb5wElHrLcw=="],
 
@@ -30,7 +30,7 @@
 
     "@types/luxon": ["@types/luxon@3.7.1", "", {}, "sha512-H3iskjFIAn5SlJU7OuxUmTEpebK6TKB8rxZShDslBMZJ5u9S//KM1sbdAisiSrqwLQncVjnpi2OK2J51h+4lsg=="],
 
-    "@types/node": ["@types/node@24.10.2", "", { "dependencies": { "undici-types": "~7.16.0" } }, "sha512-WOhQTZ4G8xZ1tjJTvKOpyEVSGgOTvJAfDK3FNFgELyaTpzhdgHVHeqW8V+UJvzF5BT+/B54T/1S2K6gd9c7bbA=="],
+    "@types/node": ["@types/node@25.0.2", "", { "dependencies": { "undici-types": "~7.16.0" } }, "sha512-gWEkeiyYE4vqjON/+Obqcoeffmk0NF15WSBwSs7zwVA2bAbTaE0SJ7P0WNGoJn8uE7fiaV5a7dKYIJriEqOrmA=="],
 
     "after": ["after@0.8.2", "", {}, "sha512-QbJ0NTQ/I9DI3uSJA4cbexiwQeRAfjPScqIbSjUDd9TOrcg6pTkdgziesOqxBMBzit8vFCTwrP27t13vFOORRA=="],
 
@@ -139,5 +139,7 @@
     "yeast": ["yeast@0.1.2", "", {}, "sha512-8HFIh676uyGYP6wP13R/j6OJ/1HwJ46snpvzE7aHAN3Ryqh2yX6Xox2B4CUmTwwOIzlG3Bs7ocsP5dZH/R1Qbg=="],
 
     "@types/homey/@types/node": ["@types/node@14.18.63", "", {}, "sha512-fAtCfv4jJg+ExtXhvCkCqUKZ+4ok/JQk01qDKhL5BDDoS3AxKXhV5/MAVUZyQnSEd2GT92fkgZl0pz0Q0AzcIQ=="],
+
+    "bun-types/@types/node": ["@types/node@24.10.2", "", { "dependencies": { "undici-types": "~7.16.0" } }, "sha512-WOhQTZ4G8xZ1tjJTvKOpyEVSGgOTvJAfDK3FNFgELyaTpzhdgHVHeqW8V+UJvzF5BT+/B54T/1S2K6gd9c7bbA=="],
   }
 }

@@ -33,7 +33,7 @@
                     <ListItemMount
                         v-for="item of items"
                         :key="item.id"
-                        @long-press="onItemTap(item)"
+                        @long-press="onItemEdit(item)"
                         @remove="removeItem(deviceId, item)"
                         @tap="onItemTap(item)">
                         <ListItemNote
@@ -65,6 +65,12 @@
             :device-id="deviceId"
             :type="addingType"
             @close="addingType = null"/>
+
+        <ListEdit
+            v-else-if="editingItem"
+            :device-id="deviceId"
+            :item="editingItem"
+            @close="editingItem = null"/>
     </FluxOverlay>
 </template>
 
@@ -77,6 +83,7 @@
     import type { ListItemType, ListItemTypeField, NoteListItemType, ProductListItemType, TaskListItemType } from '../types';
     import useStore from './store';
     import ListAdd from './ListAdd.vue';
+    import ListEdit from './ListEdit.vue';
     import ListHeader from './ListHeader.vue';
     import ListLoading from './ListLoading.vue';
     import ListItemCategory from './ListItemCategory.vue';
@@ -110,6 +117,7 @@
     } = useStore();
 
     const addingType = ref<ListItemTypeField | null>(null);
+    const editingItem = ref<ListItemType | null>(null);
 
     async function onAddTap(): Promise<void> {
         switch (unref(look)?.type) {
@@ -125,6 +133,10 @@
 
     async function onAddNoteTap(): Promise<void> {
         addingType.value = 'note';
+    }
+
+    async function onItemEdit(item: ListItemType): Promise<void> {
+        editingItem.value = item;
     }
 
     async function onItemTap(item: ListItemType): Promise<void> {
