@@ -49,5 +49,8 @@
   },
   "0.1.0": {
     "en": "This update introduces editing list items from the widget and adds a swipe to remove feature."
+  },
+  "0.1.1": {
+    "en": "Add readme."
   }
 }
