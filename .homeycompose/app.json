@@ -51,6 +51,7 @@
   "homepage": "https://bas.dev",
   "source": "https://github.com/basmilius/homey-listri",
   "support": "https://github.com/basmilius/homey-listri/issues",
+  "homeyCommunityTopicId": 147274,
   "contributing": {
     "donate": {
       "githubSponsors": {
