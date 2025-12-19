@@ -64,6 +64,70 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         return this.#items.findIndex(item => item.id === id);
     }
 
+    async getContents(items: 'all' | 'open' | 'checked'): Promise<string> {
+        const strings: string[] = [];
+
+        for (const item of this.items) {
+            if ('checked' in item) {
+                if (items === 'checked' && !item.checked) {
+                    continue;
+                }
+
+                if (items === 'open' && item.checked) {
+                    continue;
+                }
+            }
+
+            switch (item.type) {
+                case 'note':
+                    strings.push(`- 📝 ${item.content}`);
+                    break;
+
+                case 'product':
+                    strings.push(`- ${item.checked ? '✅ ' : ''} ${item.quantity}x ${item.content}`);
+                    break;
+
+                case 'task':
+                    strings.push(`- ${item.checked ? '✅ ' : ''} ${item.content}${item.person ? ` (${item.person.name})` : ''}${item.due ? ` (${item.due.toSQL()})` : ''}`);
+                    break;
+            }
+        }
+
+        return strings.join('\n');
+    }
+
+    async getContentsMarkdown(items: 'all' | 'open' | 'checked'): Promise<string> {
+        const strings: string[] = [];
+
+        for (const item of this.items) {
+            if ('checked' in item) {
+                if (items === 'checked' && !item.checked) {
+                    continue;
+                }
+
+                if (items === 'open' && item.checked) {
+                    continue;
+                }
+            }
+
+            switch (item.type) {
+                case 'note':
+                    strings.push(`- 📝 ${item.content}`);
+                    break;
+
+                case 'product':
+                    strings.push(`- ${item.checked ? '[x]' : '[ ]'} ${item.quantity}x ${item.content}`);
+                    break;
+
+                case 'task':
+                    strings.push(`- ${item.checked ? '[x]' : '[ ]'} ${item.content}${item.person ? ` (${item.person.name})` : ''}${item.due ? ` (${item.due.toSQL()})` : ''}`);
+                    break;
+            }
+        }
+
+        return strings.join('\n');
+    }
+
     async check(id: string, checked: boolean = true): Promise<boolean> {
         const index = await this.findIndex(id);
 

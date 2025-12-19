@@ -1,0 +1,63 @@
+{
+    "id": "get_contents_markdown",
+    "title": {
+        "en": "Get items as markdown",
+        "nl": "Haal items op als markdown"
+    },
+    "titleFormatted": {
+        "en": "Get [[items]] as markdown",
+        "nl": "Haal [[items]] op als markdown"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+        },
+        {
+            "type": "dropdown",
+            "name": "items",
+            "title": {
+                "en": "Items",
+                "nl": "Items"
+            },
+            "values": [
+                {
+                    "id": "all",
+                    "title": {
+                        "en": "All items",
+                        "nl": "Alle items"
+                    }
+                },
+                {
+                    "id": "open",
+                    "title": {
+                        "en": "Unchecked items",
+                        "nl": "Uitgevinkte items"
+                    }
+                },
+                {
+                    "id": "checked",
+                    "title": {
+                        "en": "Checked items",
+                        "nl": "Aangevinkte items"
+                    }
+                }
+            ]
+        }
+    ],
+    "tokens": [
+        {
+            "name": "content",
+            "type": "string",
+            "title": {
+                "en": "Content",
+                "nl": "Inhoud"
+            }
+        }
+    ]
+}

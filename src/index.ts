@@ -43,6 +43,8 @@ export default class ListriApp extends App<ListriApp> {
         this.registry.action(Actions.ClearList);
         this.registry.action(Actions.CheckProduct);
         this.registry.action(Actions.CheckTask);
+        this.registry.action(Actions.GetContents);
+        this.registry.action(Actions.GetContentsMarkdown);
         this.registry.action(Actions.RemoveChecked);
         this.registry.action(Actions.RemoveNote);
         this.registry.action(Actions.RemoveProduct);

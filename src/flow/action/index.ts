@@ -8,6 +8,8 @@ export { default as AddTask } from './addTask';
 export { default as CheckProduct } from './checkProduct';
 export { default as CheckTask } from './checkTask';
 export { default as ClearList } from './clearList';
+export { default as GetContents } from './getContents';
+export { default as GetContentsMarkdown } from './getContentsMarkdown';
 export { default as RemoveChecked } from './removeChecked';
 export { default as RemoveNote } from './removeNote';
 export { default as RemoveProduct } from './removeProduct';
