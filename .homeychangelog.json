@@ -58,5 +58,8 @@
   },
   "1.0.1": {
     "en": "Add Homey Community topic id."
+  },
+  "1.1.0": {
+    "en": "This update adds two new flow cards to get the contents of a list. The contents can be retrieved in either plain text or markdown."
   }
 }
