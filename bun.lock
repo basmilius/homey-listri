@@ -5,7 +5,7 @@
     "": {
       "name": "com.basmilius.listri",
       "dependencies": {
-        "@basmilius/homey-common": "^1.15.0",
+        "@basmilius/homey-common": "^1.16.0",
         "homey-api": "^3.16.0",
         "ulid": "^3.0.2",
       },
@@ -20,7 +20,7 @@
     },
   },
   "packages": {
-    "@basmilius/homey-common": ["@basmilius/homey-common@1.15.0", "", {}, "sha512-iwbaaE7Z9/AaDxJ2Hv2QiCOa6KURy7Fqxzl2D4/NQ0tRErXnmonDlspjOeRDVD0C2PYjn/piV51mLqUb7n0sbQ=="],
+    "@basmilius/homey-common": ["@basmilius/homey-common@1.16.0", "", {}, "sha512-cizvXR0whlpy+XorEWkoe+kcCwDQyRYM7/eZRVXLSoUBTIyDe8bJ+Dct+OUqPNrxulNFxFKRXyzszUXdXck+2A=="],
 
     "@tsconfig/node22": ["@tsconfig/node22@22.0.5", "", {}, "sha512-hLf2ld+sYN/BtOJjHUWOk568dvjFQkHnLNa6zce25GIH+vxKfvTgm3qpaH6ToF5tu/NN0IH66s+Bb5wElHrLcw=="],
 
