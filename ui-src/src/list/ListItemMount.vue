@@ -149,12 +149,12 @@
         const deltaX = Math.abs(currentX.value - startX.value);
         const deltaY = Math.abs(currentY.value - startY.value);
 
-        if (deltaX > 10 || deltaY > 10) {
+        if (deltaX > 5 || deltaY > 5) {
             isTap.value = false;
             clearLongPressTimer();
         }
 
-        if (deltaX > deltaY && deltaX > 5) {
+        if (deltaX > deltaY && deltaX > 10) {
             evt.preventDefault();
         }
     }
@@ -186,7 +186,7 @@
             return;
         }
 
-        isOpen.value = deltaX > 45;
+        isOpen.value = deltaX > 60;
     }
 
     watch(isOpen, (open, _, onCleanup) => {

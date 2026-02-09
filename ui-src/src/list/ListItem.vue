@@ -12,6 +12,7 @@
             <Icon
                 :key="icon"
                 :class="$style.listItemIcon"
+                :data-interactive="completable ? true : undefined"
                 :icon="icon"/>
         </Transition>
 
@@ -78,6 +79,12 @@
     .listItemIcon {
         --color: var(--homey-color-mono-500);
         --size: 20px;
+        cursor: pointer;
+    }
+
+    .listItemIcon[data-interactive] {
+        padding: var(--homey-su-2);
+        margin: calc(-1 * var(--homey-su-2));
     }
 
     .listItemHorizontal {
