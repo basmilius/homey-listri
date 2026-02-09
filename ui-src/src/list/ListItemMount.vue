@@ -21,6 +21,7 @@
 
         <div
             :class="$style.listItemMountRemove"
+            data-delete-button
             @click="onDeleteClick()"
             @touchend.stop.prevent="onDeleteClick()">
             <Icon
@@ -163,8 +164,15 @@
         clearLongPressTimer();
 
         if (unref(isOpen)) {
-            setTimeout(() => isOpen.value = false, 50);
-            evt.stopPropagation();
+            // Check if the touch target is the delete button or its child
+            const target = evt.target as HTMLElement;
+            const isDeleteButton = target.closest('[data-delete-button]') !== null;
+            
+            // Don't close if user is tapping the delete button
+            if (!isDeleteButton) {
+                setTimeout(() => isOpen.value = false, 50);
+                evt.stopPropagation();
+            }
             return;
         }
 
