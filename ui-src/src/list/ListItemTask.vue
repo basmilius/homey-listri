@@ -1,6 +1,7 @@
 <template>
     <ListItem
         completable
+        tappable
         :icon="item.checked ? '' : ''"
         :item="item">
         <ListItemContent>
