@@ -168,11 +168,15 @@
             const target = evt.target as HTMLElement;
             const isDeleteButton = target.closest('[data-delete-button]') !== null;
             
-            // Don't close if user is tapping the delete button
-            if (!isDeleteButton) {
-                setTimeout(() => isOpen.value = false, 50);
-                evt.stopPropagation();
+            if (isDeleteButton) {
+                // Delete button has its own event handler with .stop.prevent
+                // Let it handle the event
+                return;
             }
+            
+            // Close the swipe if user tapped elsewhere
+            setTimeout(() => isOpen.value = false, 50);
+            evt.stopPropagation();
             return;
         }
 
