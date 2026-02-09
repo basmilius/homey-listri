@@ -79,12 +79,12 @@
     .listItemIcon {
         --color: var(--homey-color-mono-500);
         --size: 20px;
-        cursor: pointer;
     }
 
     .listItemIcon[data-interactive] {
         padding: var(--homey-su-2);
         margin: calc(-1 * var(--homey-su-2));
+        cursor: pointer;
     }
 
     .listItemHorizontal {
