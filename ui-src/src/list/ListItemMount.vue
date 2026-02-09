@@ -149,7 +149,7 @@
         const deltaX = Math.abs(currentX.value - startX.value);
         const deltaY = Math.abs(currentY.value - startY.value);
 
-        if (deltaX > 5 || deltaY > 5) {
+        if (deltaX > 15 || deltaY > 15) {
             isTap.value = false;
             clearLongPressTimer();
         }
