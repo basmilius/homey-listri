@@ -13,17 +13,16 @@ export default class extends FlowActionEntity<ListriApp, Args> {
 
     async onRun(args: Args): Promise<void> {
         // Get the target device from the list or grocery_list drivers
-        const listDriver = this.app.homey.drivers.getDriver('list');
-        const groceryListDriver = this.app.homey.drivers.getDriver('grocery_list');
-        
         let targetList: ListDevice | null = null;
         
         try {
+            const listDriver = this.app.homey.drivers.getDriver('list');
             targetList = listDriver.getDevice({ id: args.target_list.id }) as ListDevice;
-        } catch {
+        } catch (listError) {
             try {
+                const groceryListDriver = this.app.homey.drivers.getDriver('grocery_list');
                 targetList = groceryListDriver.getDevice({ id: args.target_list.id }) as ListDevice;
-            } catch {
+            } catch (groceryError) {
                 throw new Error(`Target list with id ${args.target_list.id} not found`);
             }
         }
