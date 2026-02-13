@@ -12,20 +12,20 @@ export default class extends FlowActionEntity<ListriApp, Args> {
     }
 
     async onRun(args: Args): Promise<void> {
-        // Get the target device from the driver
-        const drivers = this.app.homey.drivers.getDrivers();
+        // Get the target device from the list or grocery_list drivers
+        const listDriver = this.app.homey.drivers.getDriver('list');
+        const groceryListDriver = this.app.homey.drivers.getDriver('grocery_list');
+        
         let targetList: ListDevice | null = null;
         
-        for (const driver of Object.values(drivers)) {
-            const device = driver.getDevice({ id: args.target_list.id });
-            if (device) {
-                targetList = device as ListDevice;
-                break;
+        try {
+            targetList = listDriver.getDevice({ id: args.target_list.id }) as ListDevice;
+        } catch {
+            try {
+                targetList = groceryListDriver.getDevice({ id: args.target_list.id }) as ListDevice;
+            } catch {
+                throw new Error(`Target list with id ${args.target_list.id} not found`);
             }
-        }
-        
-        if (!targetList) {
-            throw new Error(`Target list with id ${args.target_list.id} not found`);
         }
         
         await args.list.moveUncheckedItems(targetList);
