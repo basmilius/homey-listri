@@ -1,0 +1,31 @@
+{
+    "id": "move_unchecked",
+    "title": {
+        "en": "Move unchecked items to another list",
+        "nl": "Verplaats niet-afgevinkte items naar een andere lijst"
+    },
+    "hint": {
+        "en": "Move all unchecked items from the source list to the target list",
+        "nl": "Verplaats alle niet-afgevinkte items van de bronlijst naar de doellijst"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "source_list",
+            "title": {
+                "en": "Source list",
+                "nl": "Bronlijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+        },
+        {
+            "type": "device",
+            "name": "target_list",
+            "title": {
+                "en": "Target list",
+                "nl": "Doellijst"
+            },
+            "filter": "driver_id=list|grocery_list"
+        }
+    ]
+}
