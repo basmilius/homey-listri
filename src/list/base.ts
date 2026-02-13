@@ -164,7 +164,7 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     }
 
     async moveUncheckedItems(targetList: ListDevice): Promise<void> {
-        const uncheckedItems = this.#items.filter(item => 'checked' in item && !item.checked);
+        const uncheckedItems = this.#items.filter(item => 'checked' in item && item.checked === false);
         const itemIds: string[] = [];
         
         // First, add all items to the target list
