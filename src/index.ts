@@ -58,6 +58,7 @@ export default class ListriApp extends App<ListriApp> {
 
     #registerAutocompleteProviders(): void {
         this.registry.autocompleteProvider(AutocompleteProviders.Category);
+        this.registry.autocompleteProvider(AutocompleteProviders.List);
         this.registry.autocompleteProvider(AutocompleteProviders.Person);
     }
 

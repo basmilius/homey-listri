@@ -1274,7 +1274,7 @@
         "args": [
           {
             "type": "device",
-            "name": "source_list",
+            "name": "list",
             "title": {
               "en": "Source list",
               "nl": "Bronlijst"
@@ -1282,13 +1282,12 @@
             "filter": "driver_id=list|grocery_list"
           },
           {
-            "type": "device",
+            "type": "autocomplete",
             "name": "target_list",
             "title": {
               "en": "Target list",
               "nl": "Doellijst"
-            },
-            "filter": "driver_id=list|grocery_list"
+            }
           }
         ]
       },
