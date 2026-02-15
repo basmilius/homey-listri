@@ -50,7 +50,6 @@
   "widget": {
     "list": {
       "no_items": "Er staan geen items in deze lijst.",
-      "today": "Vandaag",
       "today_at": "Vandaag om",
       "add": {
         "title": {

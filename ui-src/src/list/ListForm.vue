@@ -53,6 +53,8 @@
                                 v-model="dueDate"
                                 type="date"/>
 
+                            <FluxSeparator direction="vertical"/>
+
                             <FluxFormInput
                                 v-model="dueTime"
                                 type="time"
@@ -85,9 +87,9 @@
 <script
     lang="ts"
     setup>
-    import { FluxButtonStack, FluxForm, FluxFormColumn, FluxFormField, FluxFormInput, FluxFormInputGroup, FluxFormSelect, FluxFormTextArea, FluxPane, FluxPaneBody, FluxPaneHeader, FluxPrimaryButton, FluxQuantitySelector, FluxSecondaryButton } from '@flux-ui/components';
+    import { FluxButtonStack, FluxForm, FluxFormColumn, FluxFormField, FluxFormInput, FluxFormInputGroup, FluxFormSelect, FluxFormTextArea, FluxPane, FluxPaneBody, FluxPaneHeader, FluxPrimaryButton, FluxQuantitySelector, FluxSecondaryButton, FluxSeparator } from '@flux-ui/components';
     import type { FluxFormSelectOption } from '@flux-ui/types';
-    import { computed, onMounted, ref, unref, watch } from 'vue';
+    import { computed, nextTick, onMounted, ref, unref, watch } from 'vue';
     import { useTranslate } from '../composables';
     import type { ListItemTypeField } from '../types';
     import useStore from './store';
@@ -170,7 +172,9 @@
             due.value = null;
         }
         
-        isUpdatingDue = false;
+        nextTick(() => {
+            isUpdatingDue = false;
+        });
     });
 
     onMounted(async () => {
