@@ -121,13 +121,17 @@ export default class ListriApp extends App<ListriApp> {
                 const tasks = device.items.filter(item => item.type === 'task') as TaskListItem[];
 
                 for (const task of tasks) {
+                    const uniqueKey = `${device.id}-${task.id}`;
+                    
                     // Skip tasks without deadline or already checked
                     if (!task.due || task.checked) {
+                        // Clear notification if the task is completed or deadline removed
+                        if (this.#notifiedDeadlines.has(uniqueKey)) {
+                            this.#notifiedDeadlines.delete(uniqueKey);
+                        }
                         continue;
                     }
 
-                    const uniqueKey = `${device.id}-${task.id}`;
-                    
                     // Check if the deadline is reached (due date is in the past or is now)
                     if (task.due <= now && !this.#notifiedDeadlines.has(uniqueKey)) {
                         // Mark as notified
@@ -143,11 +147,6 @@ export default class ListriApp extends App<ListriApp> {
                             });
 
                         this.log(`Task deadline due: ${task.content} in list ${device.getName()}`);
-                    }
-
-                    // Clear notification if the task is completed
-                    if (task.checked && this.#notifiedDeadlines.has(uniqueKey)) {
-                        this.#notifiedDeadlines.delete(uniqueKey);
                     }
                 }
             }
