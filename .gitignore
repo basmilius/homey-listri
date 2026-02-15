@@ -1,6 +1,7 @@
 /.idea/*
 /.homeybuild
 /node_modules
+package-lock.json
 
 /ui-src/node_modules
 
