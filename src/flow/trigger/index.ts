@@ -10,6 +10,7 @@ export { default as ProductUncheckedAny } from './productUncheckedAny';
 export { default as TaskChecked } from './taskChecked';
 export { default as TaskCheckedAny } from './taskCheckedAny';
 export { default as TaskCreated } from './taskCreated';
+export { default as TaskDueDatePassed } from './taskDueDatePassed';
 export { default as TaskRemoved } from './taskRemoved';
 export { default as TaskUnchecked } from './taskUnchecked';
 export { default as TaskUncheckedAny } from './taskUncheckedAny';

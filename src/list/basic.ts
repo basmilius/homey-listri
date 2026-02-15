@@ -18,7 +18,9 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
             return false;
         }
 
+        // Clear triggered state when task is checked
         if (checked) {
+            this.appDriver.clearTriggeredTask(this, item.id);
             await Promise.allSettled([
                 this.appDriver.triggerTaskChecked(this, item.content),
                 this.appDriver.triggerTaskCheckedAny(this, item.content)
@@ -88,6 +90,8 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
             return false;
         }
 
+        // Clear triggered state when task is removed
+        this.appDriver.clearTriggeredTask(this, task.id);
         await this.appDriver.triggerTaskRemoved(this, task.content);
 
         return true;
@@ -97,10 +101,77 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
 
 export class BasicListDriver extends ListDriver {
 
+    #dueDateCheckInterval?: NodeJS.Timeout;
+    #triggeredTasks: Set<string> = new Set();
+
     async onInit(): Promise<void> {
         await super.onInit();
 
+        // Check for due dates every minute
+        this.#startDueDateCheck();
+
         this.log('Basic list driver has been initialized.');
+    }
+
+    async onUninit(): Promise<void> {
+        if (this.#dueDateCheckInterval) {
+            this.homey.clearInterval(this.#dueDateCheckInterval);
+        }
+        await super.onUninit();
+    }
+
+    #startDueDateCheck(): void {
+        // Check immediately on start
+        this.#checkDueDates().catch(err => this.error('Due date check failed:', err));
+
+        // Then check every minute
+        this.#dueDateCheckInterval = this.homey.setInterval(() => {
+            this.#checkDueDates().catch(err => this.error('Due date check failed:', err));
+        }, 60 * 1000);
+    }
+
+    async #checkDueDates(): Promise<void> {
+        const now = DateTime.now();
+        const devices = this.getDevices() as BasicListDevice[];
+
+        for (const device of devices) {
+            for (const task of device.tasks) {
+                // Skip if task is already checked
+                if (task.checked) {
+                    continue;
+                }
+
+                // Get the due date/time for this task
+                const due = dueDateTime(task.dueDate, task.dueTime);
+                
+                if (!due) {
+                    continue;
+                }
+
+                // Check if due date has passed
+                if (due < now) {
+                    // Create a unique key for this task to avoid duplicate triggers
+                    const taskKey = `${device.getData().id}-${task.id}`;
+                    
+                    if (!this.#triggeredTasks.has(taskKey)) {
+                        this.#triggeredTasks.add(taskKey);
+                        try {
+                            // due is guaranteed to be defined here, toISO() returns string (empty string fallback for safety)
+                            await this.triggerTaskDueDatePassed(device, task.content, task.person?.name, due.toISO() ?? '');
+                        } catch (err) {
+                            this.error(`Failed to trigger due date passed for task "${task.content}":`, err);
+                            // Remove from triggered set so we can retry later
+                            this.#triggeredTasks.delete(taskKey);
+                        }
+                    }
+                } else {
+                    // If the due date hasn't passed yet, remove it from triggered set
+                    // (in case the due date was changed)
+                    const taskKey = `${device.getData().id}-${task.id}`;
+                    this.#triggeredTasks.delete(taskKey);
+                }
+            }
+        }
     }
 
     async triggerTaskCheckedAny(list: ListDevice, task: string): Promise<void> {
@@ -137,6 +208,17 @@ export class BasicListDriver extends ListDriver {
         await this.app.registry
             .findDeviceTrigger(Triggers.TaskUncheckedAny)
             ?.trigger(list, {task}, {task});
+    }
+
+    async triggerTaskDueDatePassed(list: ListDevice, task: string, person?: string, due?: string): Promise<void> {
+        await this.app.registry
+            .findDeviceTrigger(Triggers.TaskDueDatePassed)
+            ?.trigger(list, {task}, {task, person: person ?? '', due: due ?? ''});
+    }
+
+    clearTriggeredTask(list: ListDevice, taskId: string): void {
+        const taskKey = `${list.getData().id}-${taskId}`;
+        this.#triggeredTasks.delete(taskKey);
     }
 
 }

@@ -84,6 +84,7 @@ export default class ListriApp extends App<ListriApp> {
         this.registry.deviceTrigger(Triggers.TaskChecked);
         this.registry.deviceTrigger(Triggers.TaskCheckedAny);
         this.registry.deviceTrigger(Triggers.TaskCreated);
+        this.registry.deviceTrigger(Triggers.TaskDueDatePassed);
         this.registry.deviceTrigger(Triggers.TaskRemoved);
         this.registry.deviceTrigger(Triggers.TaskUnchecked);
         this.registry.deviceTrigger(Triggers.TaskUncheckedAny);
