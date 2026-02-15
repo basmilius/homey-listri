@@ -96,25 +96,33 @@ export default class ListriApp extends App<ListriApp> {
 
     async onUninit(): Promise<void> {
         if (this.#deadlineCheckInterval) {
-            clearInterval(this.#deadlineCheckInterval);
+            clearTimeout(this.#deadlineCheckInterval);
         }
     }
 
     #startDeadlineChecker(): void {
         // Check every minute for due tasks
-        this.#deadlineCheckInterval = setInterval(async () => {
-            await this.#checkDeadlines();
-        }, 60000); // 60 seconds
+        const scheduleNextCheck = () => {
+            this.#deadlineCheckInterval = setTimeout(async () => {
+                await this.#checkDeadlines();
+                scheduleNextCheck();
+            }, 60000); // 60 seconds
+        };
 
-        // Also run immediately on startup
-        this.#checkDeadlines().catch(err => {
-            this.log('Failed to check deadlines on startup', err);
-        });
+        // Run immediately on startup
+        this.#checkDeadlines()
+            .catch(err => {
+                this.log('Failed to check deadlines on startup', err);
+            })
+            .finally(() => {
+                scheduleNextCheck();
+            });
     }
 
     async #checkDeadlines(): Promise<void> {
         try {
             const now = DateTime.now();
+            const oneHourAgo = now.minus({ hours: 1 });
             const devices = this.homey.drivers.getDriver('list').getDevices() as BasicListDevice[];
 
             for (const device of devices) {
@@ -132,19 +140,24 @@ export default class ListriApp extends App<ListriApp> {
                         continue;
                     }
 
-                    // Check if the deadline is reached (due date is in the past or is now)
-                    if (task.due <= now && !this.#notifiedDeadlines.has(uniqueKey)) {
+                    // Check if the deadline is reached (within the last hour to avoid old tasks)
+                    // and not yet notified
+                    if (task.due <= now && task.due >= oneHourAgo && !this.#notifiedDeadlines.has(uniqueKey)) {
                         // Mark as notified
                         this.#notifiedDeadlines.add(uniqueKey);
+
+                        // Prepare trigger data
+                        const triggerState = { task: task.content };
+                        const triggerTokens = {
+                            task: task.content,
+                            person: task.person?.name ?? '',
+                            due: task.due.toISO() ?? ''
+                        };
 
                         // Trigger the flow card
                         await this.registry
                             .findDeviceTrigger(Triggers.TaskDeadlineDue)
-                            ?.trigger(device, {task: task.content}, {
-                                task: task.content,
-                                person: task.person?.name ?? '',
-                                due: task.due.toISO() ?? ''
-                            });
+                            ?.trigger(device, triggerState, triggerTokens);
 
                         this.log(`Task deadline due: ${task.content} in list ${device.getName()}`);
                     }
