@@ -50,12 +50,17 @@
                         :label="t('widget.list.add.due')">
                         <FluxFormInputGroup>
                             <FluxFormInput
-                                v-model="due"
-                                type="datetime-local"/>
+                                v-model="dueDate"
+                                type="date"/>
+
+                            <FluxFormInput
+                                v-model="dueTime"
+                                type="time"
+                                style="max-width: 120px"/>
 
                             <FluxSecondaryButton
                                 icon-leading="trash"
-                                @click="due = null"/>
+                                @click="clearDue()"/>
                         </FluxFormInputGroup>
                     </FluxFormField>
 
@@ -82,7 +87,7 @@
     setup>
     import { FluxButtonStack, FluxForm, FluxFormColumn, FluxFormField, FluxFormInput, FluxFormInputGroup, FluxFormSelect, FluxFormTextArea, FluxPane, FluxPaneBody, FluxPaneHeader, FluxPrimaryButton, FluxQuantitySelector, FluxSecondaryButton } from '@flux-ui/components';
     import type { FluxFormSelectOption } from '@flux-ui/types';
-    import { computed, onMounted, unref } from 'vue';
+    import { computed, onMounted, ref, unref, watch } from 'vue';
     import { useTranslate } from '../composables';
     import type { ListItemTypeField } from '../types';
     import useStore from './store';
@@ -97,6 +102,9 @@
     const person = defineModel<string | null>('person', {default: null});
     const due = defineModel<string | null>('due', {default: null});
     const quantity = defineModel<number>('quantity', {default: 1});
+
+    const dueDate = ref<string>('');
+    const dueTime = ref<string>('');
 
     const {
         deviceId
@@ -133,6 +141,28 @@
         }))
     ]);
 
+    // Initialize date and time from due prop
+    watch(() => due.value, (newDue) => {
+        if (newDue) {
+            const parts = newDue.split('T');
+            dueDate.value = parts[0] || '';
+            dueTime.value = parts[1] || '';
+        }
+    }, { immediate: true });
+
+    // Combine date and time into due prop
+    watch([dueDate, dueTime], ([date, time]) => {
+        if (date) {
+            if (time) {
+                due.value = `${date}T${time}`;
+            } else {
+                due.value = `${date}T00:00`;
+            }
+        } else {
+            due.value = null;
+        }
+    });
+
     onMounted(async () => {
         await Promise.allSettled([
             loadCategories(deviceId),
@@ -146,5 +176,11 @@
 
     async function save(): Promise<void> {
         emit('save');
+    }
+
+    function clearDue(): void {
+        dueDate.value = '';
+        dueTime.value = '';
+        due.value = null;
     }
 </script>
