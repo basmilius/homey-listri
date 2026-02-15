@@ -8,12 +8,6 @@ export class GroceryListDevice extends ListDevice<GroceryListDriver> {
         return this.items.filter(item => item.type === 'product');
     }
 
-    async onInit(): Promise<void> {
-        await super.onInit();
-
-        this.log(`Grocery list "${this.getName()}" has been initialized.`);
-    }
-
     async check(id: string, checked: boolean = true): Promise<boolean> {
         const item = await this.find(id);
         const result = await super.check(id, checked);

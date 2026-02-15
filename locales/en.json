@@ -97,7 +97,15 @@
         "add": "Add",
         "save": "Save"
       },
-      "other": "Other"
+      "other": "Other",
+      "edit": {
+        "title": {
+          "note": "Edit note",
+          "product": "Edit product",
+          "task": "Edit task"
+        }
+      },
+      "today": "Today"
     }
   },
   "grocery": {

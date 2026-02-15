@@ -8,15 +8,16 @@
             {{ item.content }}
         </ListItemContent>
 
-        <ListItemFooter v-if="item.due || item.person">
+        <ListItemFooter v-if="item.dueDate || item.person">
             <ListItemPerson
                 v-if="item.person"
                 :image="item.person.image"
                 :name="item.person.name"/>
 
             <ListItemDate
-                v-if="item.due"
-                :due="item.due as unknown as string"/>
+                v-if="item.dueDate"
+                :date="item.dueDate"
+                :time="item.dueTime"/>
         </ListItemFooter>
     </ListItem>
 </template>

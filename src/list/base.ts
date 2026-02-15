@@ -4,7 +4,7 @@ import { ulid } from 'ulid';
 import { Triggers } from '../flow';
 import type { ListLook, ListriApp, Writable } from '../types';
 import type { ListItem, NoteListItem } from './item';
-import { decode, encode } from './item';
+import { decode, dueDateTime, encode } from './item';
 
 export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<ListriApp, TDriver> {
 
@@ -88,7 +88,9 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
                     break;
 
                 case 'task':
-                    strings.push(`- ${item.checked ? '✅ ' : ''} ${item.content}${item.person ? ` (${item.person.name})` : ''}${item.due ? ` (${item.due.toSQL()})` : ''}`);
+                    const due = dueDateTime(item.dueDate, item.dueTime);
+
+                    strings.push(`- ${item.checked ? '✅ ' : ''} ${item.content}${item.person ? ` (${item.person.name})` : ''}${due ? ` (${due.toSQL()})` : ''}`);
                     break;
             }
         }
@@ -120,7 +122,9 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
                     break;
 
                 case 'task':
-                    strings.push(`- ${item.checked ? '[x]' : '[ ]'} ${item.content}${item.person ? ` (${item.person.name})` : ''}${item.due ? ` (${item.due.toSQL()})` : ''}`);
+                    const due = dueDateTime(item.dueDate, item.dueTime);
+
+                    strings.push(`- ${item.checked ? '[x]' : '[ ]'} ${item.content}${item.person ? ` (${item.person.name})` : ''}${due ? ` (${due.toSQL()})` : ''}`);
                     break;
             }
         }
@@ -238,6 +242,9 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     async onInit(): Promise<void> {
         await this.load();
         await super.onInit();
+        await this.#save();
+
+        this.log('List initialized.');
     }
 
     async onItemsChanged(): Promise<void> {
@@ -258,6 +265,23 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
 
             if (aChecked !== bChecked) {
                 return aChecked ? 1 : -1;
+            }
+
+            if (!aChecked && !bChecked) {
+                const aDue = dueDateTime((a as any).dueDate, (a as any).dueTime);
+                const bDue = dueDateTime((b as any).dueDate, (b as any).dueTime);
+
+                if (aDue && bDue) {
+                    return aDue.toMillis() - bDue.toMillis();
+                }
+
+                if (aDue && !bDue) {
+                    return -1;
+                }
+
+                if (!aDue && bDue) {
+                    return 1;
+                }
             }
 
             return a.created >= b.created ? 1 : -1;

@@ -1,4 +1,4 @@
-import { DateTime, type WidgetApiRequest } from '@basmilius/homey-common';
+import type { WidgetApiRequest } from '@basmilius/homey-common';
 import { AutocompleteProviders } from '../../src/flow';
 import type { ListDevice, ListItem, ListItemCategory, ListItemPerson, ListItemType } from '../../src/list';
 import { BasicListDevice, GROCERY_LIST_CATEGORIES, GroceryListDevice } from '../../src/list';
@@ -32,7 +32,7 @@ export async function addItem({homey: {app}, params, body}: WidgetApiRequest<Lis
         const persons = (await personProvider?.find('') ?? []) as ListItemPerson[];
         const person = persons.find(person => person.id === body.personId);
 
-        await device.addTask(body.content, body.due ? DateTime.fromISO(body.due) : undefined, person);
+        await device.addTask(body.content, body.dueDate, body.dueTime, person);
 
         return true;
     }
@@ -70,7 +70,7 @@ export async function editItem({homey: {app}, params, body}: WidgetApiRequest<Li
         const persons = (await personProvider?.find('') ?? []) as ListItemPerson[];
         const person = persons.find(person => person.id === body.personId);
 
-        await device.editTask(item.id, body.content, body.due ? DateTime.fromISO(body.due) : undefined, person);
+        await device.editTask(item.id, body.content, body.dueDate, body.dueTime, person);
 
         return true;
     }
@@ -191,7 +191,8 @@ type AddItemBody = {
     readonly category?: string;
     readonly content: string;
     readonly personId?: string;
-    readonly due?: string;
+    readonly dueDate?: string;
+    readonly dueTime?: string;
     readonly quantity?: number;
 };
 
@@ -203,7 +204,8 @@ type EditItemBody = {
     readonly category?: string;
     readonly content: string;
     readonly personId?: string;
-    readonly due?: string;
+    readonly dueDate?: string;
+    readonly dueTime?: string;
     readonly quantity?: number;
 };
 

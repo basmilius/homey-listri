@@ -31,6 +31,7 @@
     "widget": {
         "list": {
             "no_items": "Er staan geen items in deze lijst.",
+            "today": "Vandaag",
             "today_at": "Vandaag om",
             "other": "Overig",
             "add": {
@@ -52,6 +53,13 @@
                 "product": "Product",
                 "quantity": "Aantal",
                 "task": "Taak"
+            },
+            "edit": {
+                "title": {
+                    "note": "Notitie bewerken",
+                    "product": "Product bewerken",
+                    "task": "Taak bewerken"
+                }
             }
         }
     },

@@ -12,7 +12,7 @@ export default class extends FlowActionEntity<ListriApp, Args> {
     }
 
     async onRun(args: Args): Promise<void> {
-        await args.list.addTask(args.task, undefined, args.person);
+        await args.list.addTask(args.task, undefined, undefined, args.person);
     }
 }
 

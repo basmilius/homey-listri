@@ -5,9 +5,7 @@ import type { ListriApp } from '../../types';
 @action('add_planned_task')
 export default class extends FlowActionEntity<ListriApp, Args> {
     async onRun(args: Args): Promise<void> {
-        const due = DateTime.fromFormat(`${args.date} ${args.time ?? '00:00'}`, 'dd-MM-yyyy HH:mm', {zone: this.homey.clock.getTimezone()});
-
-        await args.list.addTask(args.task, due);
+        await args.list.addTask(args.task, args.date, args.time);
     }
 }
 

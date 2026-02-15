@@ -31,6 +31,7 @@
     "widget": {
         "list": {
             "no_items": "There are no items in this list.",
+            "today": "Today",
             "today_at": "Today at",
             "other": "Other",
             "add": {
@@ -52,6 +53,13 @@
                 "product": "Product",
                 "quantity": "Quantity",
                 "task": "Task"
+            },
+            "edit": {
+                "title": {
+                    "note": "Edit note",
+                    "product": "Edit product",
+                    "task": "Edit task"
+                }
             }
         }
     },

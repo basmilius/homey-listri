@@ -9,12 +9,14 @@
     "dependencies": {
         "@flux-ui/components": "link:@flux-ui/components",
         "@fortawesome/pro-regular-svg-icons": "^7.1.0",
+        "luxon": "^3.7.2",
         "pinia": "^3.0.4",
         "vue": "^3.5.25"
     },
     "devDependencies": {
         "@basmilius/vite-preset": "^2.19.0",
         "@flux-ui/types": "link:@flux-ui/types",
+        "@types/luxon": "^3.7.1",
         "@vitejs/plugin-vue": "^6.0.3",
         "@vue/tsconfig": "^0.8.1",
         "sass": "^1.97.0",

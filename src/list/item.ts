@@ -1,11 +1,6 @@
 import { DateTime } from '@basmilius/homey-common';
 
 export function decode(encoded: Record<string, any>): ListItem {
-    // todo(Bas): remove in v1.0.
-    if ('completed' in encoded) {
-        encoded.checked = encoded.completed;
-    }
-
     switch (encoded.type as ListItemType) {
         case 'note':
             return {
@@ -27,13 +22,18 @@ export function decode(encoded: Record<string, any>): ListItem {
             } satisfies ProductListItem;
 
         case 'task':
+            const due = encoded.due
+                ? DateTime.fromISO(encoded.due)
+                : undefined;
+
             return {
                 id: encoded.id,
                 type: 'task',
                 created: DateTime.fromISO(encoded.created),
                 checked: encoded.checked === true,
                 content: encoded.content,
-                due: encoded.due ? DateTime.fromISO(encoded.due) : undefined,
+                dueDate: encoded.dueDate ?? due?.toISODate() ?? undefined,
+                dueTime: encoded.dueTime ?? due?.toISOTime()?.substring(0, 8) ?? undefined,
                 person: encoded.person
             } satisfies TaskListItem;
     }
@@ -67,10 +67,23 @@ export function encode(listItem: ListItem): Record<string, any> {
                 created: listItem.created.toISO(),
                 checked: listItem.checked,
                 content: listItem.content,
-                due: listItem.due?.toISO(),
+                dueDate: listItem.dueDate,
+                dueTime: listItem.dueTime,
                 person: listItem.person
             };
     }
+}
+
+export function dueDateTime(date?: string, time?: string): DateTime | undefined {
+    if (date) {
+        if (time) {
+            return DateTime.fromFormat(`${date} ${time}`, 'yyyy-MM-dd HH:mm:ss');
+        }
+
+        return DateTime.fromFormat(date, 'yyyy-MM-dd').endOf('day');
+    }
+
+    return undefined;
 }
 
 export const GROCERY_LIST_CATEGORIES: readonly ListItemCategory<GroceryListCategory>[] = [
@@ -119,7 +132,8 @@ export type TaskListItem = GenericListItem & {
     readonly type: 'task';
     checked: boolean;
     content: string;
-    due?: DateTime;
+    dueDate?: string;
+    dueTime?: string;
     person?: ListItemPerson;
 };
 

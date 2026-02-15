@@ -3,7 +3,8 @@
         v-model:category="form.category"
         v-model:content="form.content"
         v-model:person="form.person"
-        v-model:due="form.due"
+        v-model:due-date="form.dueDate"
+        v-model:due-time="form.dueTime"
         v-model:quantity="form.quantity"
         :device-id="deviceId"
         :save-label="t('widget.list.add.save')"
@@ -39,20 +40,21 @@
         category: '',
         content: '',
         person: null,
-        due: null,
+        dueDate: null,
+        dueTime: null,
         quantity: 1
     });
 
     const title = computed(() => {
         switch (item.type) {
             case 'note':
-                return t('widget.list.add.title.note');
+                return t('widget.list.edit.title.note');
 
             case 'product':
-                return t('widget.list.add.title.product');
+                return t('widget.list.edit.title.product');
 
             case 'task':
-                return t('widget.list.add.title.task');
+                return t('widget.list.edit.title.task');
         }
     });
 
@@ -65,7 +67,8 @@
             category: form.category,
             content: form.content,
             personId: form.person,
-            due: form.due,
+            dueDate: form.dueDate,
+            dueTime: form.dueTime,
             quantity: form.quantity
         });
 
@@ -73,11 +76,11 @@
     }
 
     watch(() => item, item => {
-        // todo: improve typing here...
         form.category = (item as any).category;
         form.content = (item as any).content;
         form.person = (item as any).person?.id;
-        form.due = (item as any).due?.toISO();
+        form.dueDate = (item as any).dueDate;
+        form.dueTime = (item as any).dueTime;
         form.quantity = (item as any).quantity;
     }, {immediate: true});
 </script>

@@ -7,51 +7,57 @@
 <script
     lang="ts"
     setup>
+    import { DateTime } from 'luxon';
     import { computed } from 'vue';
 
     const {
-        due
+        date,
+        time
     } = defineProps<{
-        readonly due: string;
+        readonly date: string;
+        readonly time?: string;
     }>();
 
     const formatter = new Intl.DateTimeFormat(navigator.language, {
         month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
+        day: 'numeric'
     });
 
     const formatterYear = new Intl.DateTimeFormat(navigator.language, {
         year: 'numeric',
         month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    });
-
-    const formatterTime = new Intl.DateTimeFormat(navigator.language, {
-        hour: '2-digit',
-        minute: '2-digit'
+        day: 'numeric'
     });
 
     const value = computed(() => {
-        if (!due) {
-            return null;
+        const now = DateTime.now();
+
+        if (time) {
+            const _date = DateTime.fromFormat(`${date} ${time}`, 'yyyy-MM-dd HH:mm:ss');
+            const _time = _date.toFormat('HH:mm');
+
+            if (now.toISODate() === _date.toISODate()) {
+                return `${Homey.__('widget.list.today_at')} ${_time}`;
+            }
+
+            if (now.year === _date.year) {
+                return `${formatter.format(_date.toJSDate())} ${_time}`;
+            }
+
+            return `${formatterYear.format(_date.toJSDate())} ${_time}`;
+        } else {
+            const _date = DateTime.fromFormat(date, 'yyyy-MM-dd');
+
+            if (now.toISODate() === _date.toISODate()) {
+                return Homey.__('widget.list.today');
+            }
+
+            if (now.year === _date.year) {
+                return formatter.format(_date.toJSDate());
+            }
+
+            return formatterYear.format(_date.toJSDate());
         }
-
-        const date = new Date(due);
-        const now = new Date();
-
-        if (now.toDateString() === date.toDateString()) {
-            return `${Homey.__('widget.list.today_at')} ${formatterTime.format(date)}`;
-        }
-
-        if (now.getFullYear() === date.getFullYear()) {
-            return formatter.format(date);
-        }
-
-        return formatterYear.format(date);
     });
 </script>
 

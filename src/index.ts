@@ -1,4 +1,4 @@
-import { App } from '@basmilius/homey-common';
+import { App, Luxon } from '@basmilius/homey-common';
 import { HomeyAPI, HomeyAPIV3Local } from 'homey-api';
 import { Actions, AutocompleteProviders, Conditions, Triggers } from './flow';
 
@@ -16,6 +16,8 @@ export default class ListriApp extends App<ListriApp> {
                 homey: this.homey
             });
             this.#api.isConnected();
+
+            Luxon.defaultZone = this.homey.clock.getTimezone();
 
             this.#registerAutocompleteProviders();
             this.#registerActions();

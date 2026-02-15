@@ -73,7 +73,15 @@
         "add": "Toevoegen",
         "save": "Opslaan"
       },
-      "other": "Overig"
+      "other": "Overig",
+      "edit": {
+        "title": {
+          "note": "Notitie bewerken",
+          "product": "Product bewerken",
+          "task": "Taak bewerken"
+        }
+      },
+      "today": "Vandaag"
     }
   },
   "grocery": {

@@ -3,7 +3,8 @@
         v-model:category="form.category"
         v-model:content="form.content"
         v-model:person="form.person"
-        v-model:due="form.due"
+        v-model:due-date="form.dueDate"
+        v-model:due-time="form.dueTime"
         v-model:quantity="form.quantity"
         :device-id="deviceId"
         :save-label="t('widget.list.add.add')"
@@ -39,7 +40,8 @@
         category: '',
         content: '',
         person: null,
-        due: null,
+        dueDate: null,
+        dueTime: null,
         quantity: 1
     });
 
@@ -66,7 +68,8 @@
             category: form.category,
             content: form.content,
             personId: form.person,
-            due: form.due,
+            dueDate: form.dueDate,
+            dueTime: form.dueTime,
             quantity: form.quantity
         });
 

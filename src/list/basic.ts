@@ -1,18 +1,13 @@
-import type { DateTime } from '@basmilius/homey-common';
+import { DateTime } from '@basmilius/homey-common';
 import { Triggers } from '../flow';
 import { ListDevice, ListDriver } from './base';
 import type { ListItemPerson, TaskListItem } from './item';
+import { dueDateTime } from './item';
 
 export class BasicListDevice extends ListDevice<BasicListDriver> {
 
     get tasks(): TaskListItem[] {
         return this.items.filter(item => item.type === 'task');
-    }
-
-    async onInit(): Promise<void> {
-        await super.onInit();
-
-        this.log(`Basic list "${this.getName()}" has been initialized.`);
     }
 
     async check(id: string, checked: boolean = true): Promise<boolean> {
@@ -38,28 +33,35 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
         return true;
     }
 
-    async addTask(content: string, due?: DateTime, person?: ListItemPerson): Promise<void> {
+    async addTask(content: string, dueDate?: string, dueTime?: string, person?: ListItemPerson): Promise<void> {
+        const due = dueDateTime(dueDate, dueTime);
+
         await this.add<TaskListItem>({
             type: 'task',
             checked: false,
             content,
-            due,
+            dueDate: due?.toFormat('yyyy-MM-dd'),
+            dueTime: dueTime ? due?.toFormat('HH:mm:ss') : undefined,
             person
         });
 
         await this.appDriver.triggerTaskCreated(this, content, person?.name, due?.toISO() ?? undefined);
     }
 
-    async editTask(id: string, content: string, due?: DateTime, person?: ListItemPerson): Promise<boolean> {
+    async editTask(id: string, content: string, dueDate?: string, dueTime?: string, person?: ListItemPerson): Promise<boolean> {
         const item = await this.find(id);
 
         if (!item || item.type !== 'task') {
             return false;
         }
 
+        const _date = dueDate ? DateTime.fromISO(dueDate) : undefined;
+        const _time = dueTime ? DateTime.fromISO(dueTime) : undefined;
+
         // todo(Bas): Maybe add a trigger card here for when a task is changed.
         await this.set(item, 'content', content);
-        await this.set(item, 'due', due);
+        await this.set(item, 'dueDate', _date?.toFormat('yyyy-MM-dd'));
+        await this.set(item, 'dueTime', _time?.toFormat('HH:mm:ss'));
         await this.set(item, 'person', person);
 
         return true;

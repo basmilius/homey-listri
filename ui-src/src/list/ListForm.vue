@@ -50,12 +50,18 @@
                         :label="t('widget.list.add.due')">
                         <FluxFormInputGroup>
                             <FluxFormInput
-                                v-model="due"
-                                type="datetime-local"/>
+                                v-model="dueDate"
+                                type="date"/>
+
+                            <FluxSeparator direction="vertical"/>
+
+                            <FluxFormInput
+                                v-model="dueTime"
+                                type="time"/>
 
                             <FluxSecondaryButton
                                 icon-leading="trash"
-                                @click="due = null"/>
+                                @click="clearDue()"/>
                         </FluxFormInputGroup>
                     </FluxFormField>
 
@@ -80,7 +86,7 @@
 <script
     lang="ts"
     setup>
-    import { FluxButtonStack, FluxForm, FluxFormColumn, FluxFormField, FluxFormInput, FluxFormInputGroup, FluxFormSelect, FluxFormTextArea, FluxPane, FluxPaneBody, FluxPaneHeader, FluxPrimaryButton, FluxQuantitySelector, FluxSecondaryButton } from '@flux-ui/components';
+    import { FluxButtonStack, FluxForm, FluxFormColumn, FluxFormField, FluxFormInput, FluxFormInputGroup, FluxFormSelect, FluxFormTextArea, FluxPane, FluxPaneBody, FluxPaneHeader, FluxPrimaryButton, FluxQuantitySelector, FluxSecondaryButton, FluxSeparator } from '@flux-ui/components';
     import type { FluxFormSelectOption } from '@flux-ui/types';
     import { computed, onMounted, unref } from 'vue';
     import { useTranslate } from '../composables';
@@ -95,7 +101,8 @@
     const category = defineModel<string>('category', {default: ''});
     const content = defineModel<string>('content', {default: ''});
     const person = defineModel<string | null>('person', {default: null});
-    const due = defineModel<string | null>('due', {default: null});
+    const dueDate = defineModel<string | null>('dueDate', {default: null});
+    const dueTime = defineModel<string | null>('dueTime', {default: null});
     const quantity = defineModel<number>('quantity', {default: 1});
 
     const {
@@ -139,6 +146,11 @@
             loadPersons(deviceId)
         ]);
     });
+
+    function clearDue(): void {
+        dueDate.value = null;
+        dueTime.value = null;
+    }
 
     async function close(): Promise<void> {
         emit('close');
