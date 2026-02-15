@@ -107,7 +107,7 @@ export class BasicListDriver extends ListDriver {
     async onInit(): Promise<void> {
         await super.onInit();
 
-        // Check for due dates every 5 minutes
+        // Check for due dates every minute
         this.#startDueDateCheck();
 
         this.log('Basic list driver has been initialized.');
