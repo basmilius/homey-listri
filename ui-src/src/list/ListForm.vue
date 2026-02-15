@@ -149,9 +149,19 @@
         if (isUpdatingDue) return;
         
         if (newDue) {
-            const parts = newDue.split('T');
-            dueDate.value = parts[0] || '';
-            dueTime.value = parts[1] || '';
+            // Parse ISO datetime string (e.g., "2026-02-15T14:30:00.000Z" or "2026-02-15T14:30")
+            const dateObj = new Date(newDue);
+            
+            // Extract date in YYYY-MM-DD format
+            const year = dateObj.getFullYear();
+            const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+            const day = String(dateObj.getDate()).padStart(2, '0');
+            dueDate.value = `${year}-${month}-${day}`;
+            
+            // Extract time in HH:mm format
+            const hours = String(dateObj.getHours()).padStart(2, '0');
+            const minutes = String(dateObj.getMinutes()).padStart(2, '0');
+            dueTime.value = `${hours}:${minutes}`;
         } else {
             dueDate.value = '';
             dueTime.value = '';
