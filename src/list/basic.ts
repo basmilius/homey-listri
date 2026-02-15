@@ -122,11 +122,11 @@ export class BasicListDriver extends ListDriver {
 
     #startDueDateCheck(): void {
         // Check immediately on start
-        this.#checkDueDates();
+        this.#checkDueDates().catch(err => this.error('Due date check failed:', err));
 
         // Then check every 5 minutes
         this.#dueDateCheckInterval = setInterval(() => {
-            this.#checkDueDates();
+            this.#checkDueDates().catch(err => this.error('Due date check failed:', err));
         }, 5 * 60 * 1000);
     }
 
@@ -155,7 +155,14 @@ export class BasicListDriver extends ListDriver {
                     
                     if (!this.#triggeredTasks.has(taskKey)) {
                         this.#triggeredTasks.add(taskKey);
-                        await this.triggerTaskDueDatePassed(device, task.content, task.person?.name, due.toISO() ?? '');
+                        try {
+                            // due is guaranteed to be defined here, toISO() returns string (empty string fallback for safety)
+                            await this.triggerTaskDueDatePassed(device, task.content, task.person?.name, due.toISO() ?? '');
+                        } catch (err) {
+                            this.error(`Failed to trigger due date passed for task "${task.content}":`, err);
+                            // Remove from triggered set so we can retry later
+                            this.#triggeredTasks.delete(taskKey);
+                        }
                     }
                 } else {
                     // If the due date hasn't passed yet, remove it from triggered set
