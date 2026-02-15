@@ -74,13 +74,24 @@ export function encode(listItem: ListItem): Record<string, any> {
     }
 }
 
+/**
+ * Configurable time for when date-only tasks (without a specific time) should be considered expired.
+ * Set to 'endOf' to expire at 23:59:59, or specify a time like '18:00:00' for a specific end-of-day time.
+ */
+export const DATE_ONLY_TASK_EXPIRY_TIME: 'endOf' | string = 'endOf';
+
 export function dueDateTime(date?: string, time?: string): DateTime | undefined {
     if (date) {
         if (time) {
             return DateTime.fromFormat(`${date} ${time}`, 'yyyy-MM-dd HH:mm:ss');
         }
 
-        return DateTime.fromFormat(date, 'yyyy-MM-dd').endOf('day');
+        // Apply configurable end-of-day time for date-only tasks
+        if (DATE_ONLY_TASK_EXPIRY_TIME === 'endOf') {
+            return DateTime.fromFormat(date, 'yyyy-MM-dd').endOf('day');
+        } else {
+            return DateTime.fromFormat(`${date} ${DATE_ONLY_TASK_EXPIRY_TIME}`, 'yyyy-MM-dd HH:mm:ss');
+        }
     }
 
     return undefined;
