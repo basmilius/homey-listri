@@ -74,6 +74,7 @@
   "widget": {
     "list": {
       "no_items": "There are no items in this list.",
+      "today": "Today",
       "today_at": "Today at",
       "add": {
         "title": {

@@ -22,12 +22,23 @@
         minute: '2-digit'
     });
 
+    const formatterDateOnly = new Intl.DateTimeFormat(navigator.language, {
+        month: 'short',
+        day: 'numeric'
+    });
+
     const formatterYear = new Intl.DateTimeFormat(navigator.language, {
         year: 'numeric',
         month: 'short',
         day: 'numeric',
         hour: '2-digit',
         minute: '2-digit'
+    });
+
+    const formatterYearDateOnly = new Intl.DateTimeFormat(navigator.language, {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
     });
 
     const formatterTime = new Intl.DateTimeFormat(navigator.language, {
@@ -42,16 +53,20 @@
 
         const date = new Date(due);
         const now = new Date();
+        const hasTime = date.getHours() !== 0 || date.getMinutes() !== 0;
 
         if (now.toDateString() === date.toDateString()) {
-            return `${Homey.__('widget.list.today_at')} ${formatterTime.format(date)}`;
+            if (hasTime) {
+                return `${Homey.__('widget.list.today_at')} ${formatterTime.format(date)}`;
+            }
+            return Homey.__('widget.list.today');
         }
 
         if (now.getFullYear() === date.getFullYear()) {
-            return formatter.format(date);
+            return hasTime ? formatter.format(date) : formatterDateOnly.format(date);
         }
 
-        return formatterYear.format(date);
+        return hasTime ? formatterYear.format(date) : formatterYearDateOnly.format(date);
     });
 </script>
 

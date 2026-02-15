@@ -260,6 +260,27 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
                 return aChecked ? 1 : -1;
             }
 
+            // For unchecked items, sort by deadline first (if available)
+            if (!aChecked && !bChecked) {
+                const aDue = 'due' in a ? a.due : undefined;
+                const bDue = 'due' in b ? b.due : undefined;
+
+                // Both have deadlines: sort by deadline (earliest first)
+                if (aDue && bDue) {
+                    return aDue.valueOf() - bDue.valueOf();
+                }
+
+                // Only one has a deadline: items with deadlines come first
+                if (aDue && !bDue) {
+                    return -1;
+                }
+
+                if (!aDue && bDue) {
+                    return 1;
+                }
+            }
+
+            // For items without deadlines or checked items, sort by creation date
             return a.created >= b.created ? 1 : -1;
         });
 
