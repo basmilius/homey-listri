@@ -115,7 +115,7 @@ export class BasicListDriver extends ListDriver {
 
     async onUninit(): Promise<void> {
         if (this.#dueDateCheckInterval) {
-            clearInterval(this.#dueDateCheckInterval);
+            this.homey.clearInterval(this.#dueDateCheckInterval);
         }
         await super.onUninit();
     }
@@ -124,10 +124,10 @@ export class BasicListDriver extends ListDriver {
         // Check immediately on start
         this.#checkDueDates().catch(err => this.error('Due date check failed:', err));
 
-        // Then check every 5 minutes
-        this.#dueDateCheckInterval = setInterval(() => {
+        // Then check every minute
+        this.#dueDateCheckInterval = this.homey.setInterval(() => {
             this.#checkDueDates().catch(err => this.error('Due date check failed:', err));
-        }, 5 * 60 * 1000);
+        }, 1 * 60 * 1000);
     }
 
     async #checkDueDates(): Promise<void> {
