@@ -66,8 +66,6 @@
                         </FluxFormInputGroup>
                     </FluxFormField>
 
-                    {{ {due, dueDate, dueTime} }}
-
                     <FluxButtonStack style="width: 100%">
                         <FluxSecondaryButton
                             :label="t('widget.list.add.cancel')"
