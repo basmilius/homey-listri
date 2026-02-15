@@ -13,3 +13,4 @@ export { default as TaskCreated } from './taskCreated';
 export { default as TaskRemoved } from './taskRemoved';
 export { default as TaskUnchecked } from './taskUnchecked';
 export { default as TaskUncheckedAny } from './taskUncheckedAny';
+export { default as TaskDeadlineDue } from './taskDeadlineDue';

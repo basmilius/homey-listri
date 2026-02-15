@@ -1,6 +1,8 @@
-import { App } from '@basmilius/homey-common';
+import { App, DateTime } from '@basmilius/homey-common';
 import { HomeyAPI, HomeyAPIV3Local } from 'homey-api';
 import { Actions, AutocompleteProviders, Conditions, Triggers } from './flow';
+import type { BasicListDevice } from './list';
+import type { TaskListItem } from './list/item';
 
 export default class ListriApp extends App<ListriApp> {
 
@@ -9,6 +11,8 @@ export default class ListriApp extends App<ListriApp> {
     }
 
     #api!: HomeyAPIV3Local;
+    #deadlineCheckInterval?: NodeJS.Timeout;
+    #notifiedDeadlines: Set<string> = new Set();
 
     async onInit() {
         try {
@@ -25,6 +29,8 @@ export default class ListriApp extends App<ListriApp> {
             for (const provider of this.registry.autocompleteProviders) {
                 await provider.onInit();
             }
+
+            this.#startDeadlineChecker();
 
             this.log('Listri has been initialized');
         } catch (err) {
@@ -85,6 +91,69 @@ export default class ListriApp extends App<ListriApp> {
         this.registry.deviceTrigger(Triggers.TaskRemoved);
         this.registry.deviceTrigger(Triggers.TaskUnchecked);
         this.registry.deviceTrigger(Triggers.TaskUncheckedAny);
+        this.registry.deviceTrigger(Triggers.TaskDeadlineDue);
+    }
+
+    async onUninit(): Promise<void> {
+        if (this.#deadlineCheckInterval) {
+            clearInterval(this.#deadlineCheckInterval);
+        }
+    }
+
+    #startDeadlineChecker(): void {
+        // Check every minute for due tasks
+        this.#deadlineCheckInterval = setInterval(async () => {
+            await this.#checkDeadlines();
+        }, 60000); // 60 seconds
+
+        // Also run immediately on startup
+        this.#checkDeadlines().catch(err => {
+            this.log('Failed to check deadlines on startup', err);
+        });
+    }
+
+    async #checkDeadlines(): Promise<void> {
+        try {
+            const now = DateTime.now();
+            const devices = this.homey.drivers.getDriver('list').getDevices() as BasicListDevice[];
+
+            for (const device of devices) {
+                const tasks = device.items.filter(item => item.type === 'task') as TaskListItem[];
+
+                for (const task of tasks) {
+                    // Skip tasks without deadline or already checked
+                    if (!task.due || task.checked) {
+                        continue;
+                    }
+
+                    const uniqueKey = `${device.id}-${task.id}`;
+                    
+                    // Check if the deadline is reached (due date is in the past or is now)
+                    if (task.due <= now && !this.#notifiedDeadlines.has(uniqueKey)) {
+                        // Mark as notified
+                        this.#notifiedDeadlines.add(uniqueKey);
+
+                        // Trigger the flow card
+                        await this.registry
+                            .findDeviceTrigger(Triggers.TaskDeadlineDue)
+                            ?.trigger(device, {task: task.content}, {
+                                task: task.content,
+                                person: task.person?.name ?? '',
+                                due: task.due.toISO() ?? ''
+                            });
+
+                        this.log(`Task deadline due: ${task.content} in list ${device.getName()}`);
+                    }
+
+                    // Clear notification if the task is completed
+                    if (task.checked && this.#notifiedDeadlines.has(uniqueKey)) {
+                        this.#notifiedDeadlines.delete(uniqueKey);
+                    }
+                }
+            }
+        } catch (err) {
+            this.log('Failed to check deadlines', err);
+        }
     }
 
 }

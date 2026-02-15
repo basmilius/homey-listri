@@ -500,6 +500,54 @@
         ]
       },
       {
+        "id": "task_deadline_due",
+        "title": {
+          "en": "A task deadline is due",
+          "nl": "Een taak vervaldatum is bereikt"
+        },
+        "titleFormatted": {
+          "en": "A task deadline is due",
+          "nl": "Een taak vervaldatum is bereikt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "task",
+            "type": "string",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          },
+          {
+            "name": "person",
+            "type": "string",
+            "title": {
+              "en": "Person",
+              "nl": "Persoon"
+            }
+          },
+          {
+            "name": "due",
+            "type": "string",
+            "title": {
+              "en": "Due",
+              "nl": "Vervaldatum"
+            }
+          }
+        ]
+      },
+      {
         "id": "task_removed",
         "title": {
           "en": "A task is removed",
