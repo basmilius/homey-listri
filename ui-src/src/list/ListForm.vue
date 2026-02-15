@@ -152,6 +152,14 @@
             // Parse ISO datetime string (e.g., "2026-02-15T14:30:00.000Z" or "2026-02-15T14:30")
             const dateObj = new Date(newDue);
             
+            // Validate the date object
+            if (isNaN(dateObj.getTime())) {
+                console.warn('Invalid due date:', newDue);
+                dueDate.value = '';
+                dueTime.value = '';
+                return;
+            }
+            
             // Extract date in YYYY-MM-DD format
             const year = dateObj.getFullYear();
             const month = String(dateObj.getMonth() + 1).padStart(2, '0');
