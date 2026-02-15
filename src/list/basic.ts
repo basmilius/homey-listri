@@ -127,7 +127,7 @@ export class BasicListDriver extends ListDriver {
         // Then check every minute
         this.#dueDateCheckInterval = this.homey.setInterval(() => {
             this.#checkDueDates().catch(err => this.error('Due date check failed:', err));
-        }, 1 * 60 * 1000);
+        }, 60 * 1000);
     }
 
     async #checkDueDates(): Promise<void> {
