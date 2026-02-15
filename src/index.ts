@@ -104,8 +104,13 @@ export default class ListriApp extends App<ListriApp> {
         // Check every minute for due tasks
         const scheduleNextCheck = () => {
             this.#deadlineCheckInterval = setTimeout(async () => {
-                await this.#checkDeadlines();
-                scheduleNextCheck();
+                try {
+                    await this.#checkDeadlines();
+                } catch (err) {
+                    this.log('Error in deadline checker', err);
+                } finally {
+                    scheduleNextCheck();
+                }
             }, 60000); // 60 seconds
         };
 
@@ -122,7 +127,6 @@ export default class ListriApp extends App<ListriApp> {
     async #checkDeadlines(): Promise<void> {
         try {
             const now = DateTime.now();
-            const oneHourAgo = now.minus({ hours: 1 });
             const devices = this.homey.drivers.getDriver('list').getDevices() as BasicListDevice[];
 
             for (const device of devices) {
@@ -140,9 +144,9 @@ export default class ListriApp extends App<ListriApp> {
                         continue;
                     }
 
-                    // Check if the deadline is reached (within the last hour to avoid old tasks)
-                    // and not yet notified
-                    if (task.due <= now && task.due >= oneHourAgo && !this.#notifiedDeadlines.has(uniqueKey)) {
+                    // Check if the deadline is reached (due date is in the past or is now)
+                    // and not yet notified. The notification tracking prevents duplicates.
+                    if (task.due <= now && !this.#notifiedDeadlines.has(uniqueKey)) {
                         // Mark as notified
                         this.#notifiedDeadlines.add(uniqueKey);
 
@@ -151,7 +155,7 @@ export default class ListriApp extends App<ListriApp> {
                         const triggerTokens = {
                             task: task.content,
                             person: task.person?.name ?? '',
-                            due: task.due.toISO() ?? ''
+                            due: task.due.toISO() || ''
                         };
 
                         // Trigger the flow card
