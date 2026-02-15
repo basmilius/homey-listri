@@ -97,7 +97,8 @@
         "add": "Add",
         "save": "Save"
       },
-      "other": "Other"
+      "other": "Other",
+      "today": "Today"
     }
   },
   "grocery": {

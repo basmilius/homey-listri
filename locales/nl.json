@@ -73,7 +73,8 @@
         "add": "Toevoegen",
         "save": "Opslaan"
       },
-      "other": "Overig"
+      "other": "Overig",
+      "today": "Vandaag"
     }
   },
   "grocery": {

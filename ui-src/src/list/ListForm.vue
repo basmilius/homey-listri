@@ -66,6 +66,8 @@
                         </FluxFormInputGroup>
                     </FluxFormField>
 
+                    {{ {due, dueDate, dueTime} }}
+
                     <FluxButtonStack style="width: 100%">
                         <FluxSecondaryButton
                             :label="t('widget.list.add.cancel')"
@@ -144,57 +146,6 @@
         }))
     ]);
 
-    // Initialize date and time from due prop
-    watch(() => due.value, (newDue) => {
-        if (isUpdatingDue) return;
-        
-        if (newDue) {
-            // Parse ISO datetime string (e.g., "2026-02-15T14:30:00.000Z" or "2026-02-15T14:30")
-            const dateObj = new Date(newDue);
-            
-            // Validate the date object
-            if (isNaN(dateObj.getTime())) {
-                console.warn('Invalid due date:', newDue);
-                dueDate.value = '';
-                dueTime.value = '';
-                return;
-            }
-            
-            // Extract date in YYYY-MM-DD format
-            const year = dateObj.getFullYear();
-            const month = String(dateObj.getMonth() + 1).padStart(2, '0');
-            const day = String(dateObj.getDate()).padStart(2, '0');
-            dueDate.value = `${year}-${month}-${day}`;
-            
-            // Extract time in HH:mm format
-            const hours = String(dateObj.getHours()).padStart(2, '0');
-            const minutes = String(dateObj.getMinutes()).padStart(2, '0');
-            dueTime.value = `${hours}:${minutes}`;
-        } else {
-            dueDate.value = '';
-            dueTime.value = '';
-        }
-    }, { immediate: true });
-
-    // Combine date and time into due prop
-    watch([dueDate, dueTime], ([date, time]) => {
-        isUpdatingDue = true;
-        
-        if (date) {
-            if (time) {
-                due.value = `${date}T${time}`;
-            } else {
-                due.value = `${date}T00:00`;
-            }
-        } else {
-            due.value = null;
-        }
-        
-        nextTick(() => {
-            isUpdatingDue = false;
-        });
-    });
-
     onMounted(async () => {
         await Promise.allSettled([
             loadCategories(deviceId),
@@ -215,4 +166,56 @@
         dueTime.value = '';
         due.value = null;
     }
+
+    watch(() => due.value, (newDue) => {
+        if (isUpdatingDue) {
+            return;
+        }
+
+        if (newDue) {
+            const dateObj = new Date(newDue);
+
+            const year = dateObj.getFullYear();
+            const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+            const day = String(dateObj.getDate()).padStart(2, '0');
+            dueDate.value = `${year}-${month}-${day}`;
+
+            const hours = String(dateObj.getHours()).padStart(2, '0');
+            const minutes = String(dateObj.getMinutes()).padStart(2, '0');
+            dueTime.value = `${hours}:${minutes}`;
+        } else {
+            dueDate.value = '';
+            dueTime.value = '';
+        }
+    }, {immediate: true});
+
+    watch([dueDate, dueTime], ([date, time]) => {
+        isUpdatingDue = true;
+
+        if (date) {
+            const _date = new Date(date);
+            const year = _date.getFullYear();
+            const month = String(_date.getMonth() + 1).padStart(2, '0');
+            const day = String(_date.getDate()).padStart(2, '0');
+
+            const offset = -_date.getTimezoneOffset();
+            const offsetHours = String(Math.floor(Math.abs(offset) / 60)).padStart(2, '0');
+            const offsetMinutes = String(Math.abs(offset) % 60).padStart(2, '0');
+            const offsetSign = offset >= 0 ? '+' : '-';
+
+            if (time) {
+                const _time = new Date(time);
+                const hours = String(_time.getHours()).padStart(2, '0');
+                const minutes = String(_time.getMinutes()).padStart(2, '0');
+
+                due.value = `${year}-${month}-${day}T${hours}:${minutes}:00${offsetSign}${offsetHours}:${offsetMinutes}`;
+            } else {
+                due.value = `${year}-${month}-${day}T00:00${offsetSign}${offsetHours}:${offsetMinutes}`;
+            }
+        } else {
+            due.value = null;
+        }
+
+        nextTick(() => isUpdatingDue = false);
+    });
 </script>

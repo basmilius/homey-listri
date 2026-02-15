@@ -73,11 +73,10 @@
     }
 
     watch(() => item, item => {
-        // todo: improve typing here...
         form.category = (item as any).category;
         form.content = (item as any).content;
         form.person = (item as any).person?.id;
-        form.due = (item as any).due?.toISO();
+        form.due = (item as any).due;
         form.quantity = (item as any).quantity;
     }, {immediate: true});
 </script>

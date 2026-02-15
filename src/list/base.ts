@@ -238,6 +238,7 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     async onInit(): Promise<void> {
         await this.load();
         await super.onInit();
+        this.log('Initialized.');
     }
 
     async onItemsChanged(): Promise<void> {

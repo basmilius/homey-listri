@@ -9,12 +9,6 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
         return this.items.filter(item => item.type === 'task');
     }
 
-    async onInit(): Promise<void> {
-        await super.onInit();
-
-        this.log(`Basic list "${this.getName()}" has been initialized.`);
-    }
-
     async check(id: string, checked: boolean = true): Promise<boolean> {
         const item = await this.find(id);
         const result = await super.check(id, checked);
