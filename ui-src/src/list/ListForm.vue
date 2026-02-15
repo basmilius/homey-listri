@@ -105,6 +105,7 @@
 
     const dueDate = ref<string>('');
     const dueTime = ref<string>('');
+    let isUpdatingDue = false;
 
     const {
         deviceId
@@ -143,15 +144,22 @@
 
     // Initialize date and time from due prop
     watch(() => due.value, (newDue) => {
+        if (isUpdatingDue) return;
+        
         if (newDue) {
             const parts = newDue.split('T');
             dueDate.value = parts[0] || '';
             dueTime.value = parts[1] || '';
+        } else {
+            dueDate.value = '';
+            dueTime.value = '';
         }
     }, { immediate: true });
 
     // Combine date and time into due prop
     watch([dueDate, dueTime], ([date, time]) => {
+        isUpdatingDue = true;
+        
         if (date) {
             if (time) {
                 due.value = `${date}T${time}`;
@@ -161,6 +169,8 @@
         } else {
             due.value = null;
         }
+        
+        isUpdatingDue = false;
     });
 
     onMounted(async () => {
