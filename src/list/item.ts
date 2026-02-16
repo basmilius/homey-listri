@@ -82,7 +82,16 @@ export const DATE_ONLY_TASK_EXPIRY_MODE: 'endOf' | string = 'endOf';
 
 export function dueDateTime(date?: string, time?: string): DateTime | undefined {
     if (date) {
+        if (!DateTime.fromFormat(date, 'yyyy-MM-dd').isValid) {
+            const reversed = DateTime.fromFormat(date, 'dd-MM-yyyy');
+            date = reversed.toFormat('yyyy-MM-dd');
+        }
+
         if (time) {
+            if (time.length === 5) {
+                time += ':00';
+            }
+
             return DateTime.fromFormat(`${date} ${time}`, 'yyyy-MM-dd HH:mm:ss');
         }
 

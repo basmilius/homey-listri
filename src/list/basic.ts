@@ -107,7 +107,6 @@ export class BasicListDriver extends ListDriver {
     async onInit(): Promise<void> {
         await super.onInit();
 
-        // Check for due dates every minute
         this.#startDueDateCheck();
 
         this.log('Basic list driver has been initialized.');
@@ -117,20 +116,19 @@ export class BasicListDriver extends ListDriver {
         if (this.#dueDateCheckInterval) {
             this.homey.clearInterval(this.#dueDateCheckInterval);
         }
+
         await super.onUninit();
     }
 
     #startDueDateCheck(): void {
-        // Check immediately on start
-        this.#checkDueDates().catch(err => this.error('Due date check failed:', err));
-
-        // Then check every minute
         this.#dueDateCheckInterval = this.homey.setInterval(() => {
             this.#checkDueDates().catch(err => this.error('Due date check failed:', err));
-        }, 60 * 1000);
+        }, 15 * 1000);
     }
 
     async #checkDueDates(): Promise<void> {
+        this.log('Checking due dates...');
+
         const now = DateTime.now();
         const devices = this.getDevices() as BasicListDevice[];
 
@@ -155,6 +153,7 @@ export class BasicListDriver extends ListDriver {
                     
                     if (!this.#triggeredTasks.has(taskKey)) {
                         this.#triggeredTasks.add(taskKey);
+
                         try {
                             // due is guaranteed to be defined here, toISO() returns string (empty string fallback for safety)
                             await this.triggerTaskDueDatePassed(device, task.content, task.person?.name, due.toISO() ?? '');
