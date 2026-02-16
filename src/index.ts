@@ -24,9 +24,9 @@ export default class ListriApp extends App<ListriApp> {
             this.#registerConditions();
             this.#registerTriggers();
 
-            for (const provider of this.registry.autocompleteProviders) {
-                await provider.onInit();
-            }
+            await Promise.allSettled(
+                this.registry.autocompleteProviders.map(provider => provider.onInit())
+            );
 
             this.log('Listri has been initialized');
         } catch (err) {
