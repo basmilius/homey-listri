@@ -67,5 +67,8 @@
   },
   "1.2.0": {
     "en": "This update makes it possible to create tasks with a due date without time. It improves sorting in lists, so that items with due dates are sorted properly. And finally adds a new \"A task due date has passed\" flow card."
+  },
+  "1.2.1": {
+    "en": "Fixed an issue with due dates from flow cards."
   }
 }
