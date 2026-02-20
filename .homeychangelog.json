@@ -70,5 +70,8 @@
   },
   "1.2.1": {
     "en": "Fixed an issue with due dates from flow cards."
+  },
+  "1.2.2": {
+    "en": "Update dependencies."
   }
 }
