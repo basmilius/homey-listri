@@ -167,6 +167,23 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         await this.#save();
     }
 
+    async moveUncheckedItems(targetList: ListDevice): Promise<void> {
+        const uncheckedItems = this.#items.filter(item => 'checked' in item && item.checked === false);
+        const itemIds: string[] = [];
+        
+        // First, add all items to the target list
+        for (const item of uncheckedItems) {
+            const { id, created, ...itemData } = item;
+            await targetList.add(itemData);
+            itemIds.push(item.id);
+        }
+        
+        // Only remove from source after all items are successfully added
+        for (const itemId of itemIds) {
+            await this.remove(itemId);
+        }
+    }
+
     async set<TItem extends ListItem>(item: TItem, field: keyof TItem, value: unknown): Promise<boolean> {
         const index = await this.findIndex(item.id);
 
