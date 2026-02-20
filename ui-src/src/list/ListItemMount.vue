@@ -155,7 +155,7 @@
             clearLongPressTimer();
         }
 
-        if (deltaX > deltaY && deltaX > 5) {
+        if (deltaX > deltaY && deltaX > 15) {
             evt.preventDefault();
         }
     }
