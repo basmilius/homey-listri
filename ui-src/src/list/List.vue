@@ -95,9 +95,13 @@
     import ListItemTask from './ListItemTask.vue';
 
     const {
-        deviceId
+        deviceId,
+        dynamicHeight,
+        fixedHeight
     } = defineProps<{
         readonly deviceId: string;
+        readonly dynamicHeight: boolean;
+        readonly fixedHeight: number;
     }>();
 
     const t = useTranslate();
@@ -152,6 +156,11 @@
     }
 
     async function updateHeight(): Promise<void> {
+        if (!dynamicHeight) {
+            Homey.setHeight(Math.max(120, fixedHeight));
+            return;
+        }
+
         const list = document.querySelector('#app')!;
         const {height} = list.getBoundingClientRect();
         Homey.setHeight(unref(addingType) || unref(editingItem) ? Math.max(420, height) : height);
