@@ -20,6 +20,8 @@ declare namespace Homey {
 
     export function getDeviceIds(): string;
 
+    export function getSetting(key: string): string | number | boolean | null;
+
     export function ready(props?: {
         readonly height: number;
     });
