@@ -2,15 +2,57 @@ import { computed, readonly, ref, unref } from 'vue';
 import type { ListItemCategoryType, ListItemType, ListLookType, PersonType, ProductListItemType, TaskListItemType, Writable } from '../types';
 import { defineStore } from '../util';
 
+export type FilterDateType = 'all' | 'today' | 'future';
+
 export default defineStore('list', () => {
     const categories = ref<ListItemCategoryType<any>[]>([]);
+    const filterDate = ref<FilterDateType>('all');
+    const filterPerson = ref<string>('');
     const isLoading = ref(true);
     const items = ref<Writable<ListItemType>[]>([]);
     const look = ref<ListLookType | null>(null);
     const persons = ref<PersonType[]>([]);
 
+    const filteredItems = computed(() => {
+        const personFilter = unref(filterPerson).trim().toLowerCase();
+        const dateFilter = unref(filterDate);
+
+        if (!personFilter && dateFilter === 'all') {
+            return unref(items);
+        }
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        return unref(items).filter(item => {
+            if (item.type !== 'task') {
+                return true;
+            }
+
+            if (personFilter && (!item.person || !item.person.name.toLowerCase().includes(personFilter))) {
+                return false;
+            }
+
+            if (dateFilter === 'today') {
+                if (!item.dueDate) return false;
+                const due = new Date(item.dueDate);
+                due.setHours(0, 0, 0, 0);
+                return due.getTime() === today.getTime();
+            }
+
+            if (dateFilter === 'future') {
+                if (!item.dueDate) return false;
+                const due = new Date(item.dueDate);
+                due.setHours(0, 0, 0, 0);
+                return due.getTime() >= today.getTime();
+            }
+
+            return true;
+        });
+    });
+
     const categorizedItems = computed(() => {
-        const grouped = Object.groupBy(unref(items), item => (item as any).category || '__other__');
+        const grouped = Object.groupBy(unref(filteredItems), item => (item as any).category || '__other__');
         const sortedEntries = Object.entries(grouped).sort(([a], [b]) => {
             if (a === '__other__') return 1;
             if (b === '__other__') return -1;
@@ -24,7 +66,7 @@ export default defineStore('list', () => {
         return Object.fromEntries(sortedEntries);
     });
 
-    const hasItems = computed(() => unref(items).length > 0);
+    const hasItems = computed(() => unref(filteredItems).length > 0);
 
     async function changeChecked(deviceId: string, item: ProductListItemType | TaskListItemType, checked: boolean): Promise<void> {
         const index = unref(items).findIndex(i => i.id === item.id);
@@ -102,8 +144,15 @@ export default defineStore('list', () => {
         items.value = newItems;
     }
 
+    async function setFilters(person: string, date: FilterDateType): Promise<void> {
+        filterPerson.value = person;
+        filterDate.value = date;
+    }
+
     return {
         categories: readonly(categories),
+        filterDate: readonly(filterDate),
+        filterPerson: readonly(filterPerson),
         isLoading: readonly(isLoading),
         items: readonly(items),
         look: readonly(look),
@@ -119,6 +168,7 @@ export default defineStore('list', () => {
         loadLook,
         loadPersons,
         removeItem,
+        setFilters,
         setItems
     };
 });

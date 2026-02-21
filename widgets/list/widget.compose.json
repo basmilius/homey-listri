@@ -9,7 +9,49 @@
         "singular": true,
         "filter": {}
     },
-    "settings": [],
+    "settings": [
+        {
+            "id": "filterPerson",
+            "type": "text",
+            "label": {
+                "en": "Person (leave empty for all)",
+                "nl": "Persoon (leeg voor iedereen)"
+            },
+            "value": ""
+        },
+        {
+            "id": "filterDate",
+            "type": "dropdown",
+            "label": {
+                "en": "Due date",
+                "nl": "Vervaldatum"
+            },
+            "value": "all",
+            "values": [
+                {
+                    "id": "all",
+                    "label": {
+                        "en": "All",
+                        "nl": "Alles"
+                    }
+                },
+                {
+                    "id": "today",
+                    "label": {
+                        "en": "Today",
+                        "nl": "Vandaag"
+                    }
+                },
+                {
+                    "id": "future",
+                    "label": {
+                        "en": "Future",
+                        "nl": "Toekomst"
+                    }
+                }
+            ]
+        }
+    ],
     "api": {
         "addItem": {
             "method": "POST",
