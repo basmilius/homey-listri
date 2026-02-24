@@ -13772,7 +13772,7 @@ var ST = /* @__PURE__ */ je(vT, [["__cssModules", wT]]), TT = /* @__PURE__ */ H(
       const w = D.touches[0];
       o.value = w.clientX, l.value = w.clientY;
       const E = Math.abs(o.value - r.value), U = Math.abs(l.value - a.value);
-      (E > 10 || U > 10) && (u.value = !1, k()), E > U && E > 5 && D.preventDefault();
+      (E > 10 || U > 10) && (u.value = !1, k()), E > U && E > 15 && D.preventDefault();
     }
     function T(D) {
       if (k(), d(i)) {
