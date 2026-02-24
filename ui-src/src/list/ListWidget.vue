@@ -22,10 +22,11 @@
 
     window.addEventListener('homeyReady', () => {
         const deviceIds = Homey.getDeviceIds();
+        const settings = Homey.getSettings();
 
         deviceId.value = deviceIds[0] ?? null;
-        dynamicHeight.value = Homey.getSetting('dynamicHeight') ?? true;
-        fixedHeight.value = Homey.getSetting('fixedHeight') ?? 400;
+        dynamicHeight.value = settings.dynamicHeight as boolean ?? true;
+        fixedHeight.value = settings.fixedHeight as number ?? 400;
         ready.value = true;
 
         Homey.ready();
