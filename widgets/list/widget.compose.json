@@ -9,7 +9,27 @@
         "singular": true,
         "filter": {}
     },
-    "settings": [],
+    "settings": [
+        {
+            "id": "dynamicHeight",
+            "type": "checkbox",
+            "label": {
+                "en": "Dynamic height",
+                "nl": "Dynamische hoogte"
+            },
+            "value": true
+        },
+        {
+            "id": "fixedHeight",
+            "type": "number",
+            "label": {
+                "en": "Fixed height",
+                "nl": "Vaste hoogte"
+            },
+            "value": 400,
+            "min": 120
+        }
+    ],
     "api": {
         "addItem": {
             "method": "POST",
