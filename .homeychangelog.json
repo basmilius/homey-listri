@@ -73,5 +73,9 @@
   },
   "1.2.2": {
     "en": "Update dependencies."
+  },
+  "1.3.0": {
+    "en": "This update adds new settings to set a fixed height for the list widget.",
+    "nl": "Deze update voegt nieuwe instellingen toe om een vaste hoogte voor de lijst widget in te stellen."
   }
 }
