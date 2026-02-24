@@ -22,7 +22,8 @@
 
     function applySettings(): void {
         const settings = Homey.getSettings();
-        const person = (settings.filterPerson as string) ?? '';
+        const personSetting = settings.filterPerson as { id: string; name: string; image?: string } | null | undefined;
+        const person = personSetting?.id ?? '';
         const date = ((settings.filterDate as string) ?? 'all') as FilterDateType;
         setFilters(person, date);
     }

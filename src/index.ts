@@ -23,6 +23,7 @@ export default class ListriApp extends App<ListriApp> {
             this.#registerActions();
             this.#registerConditions();
             this.#registerTriggers();
+            this.#registerWidgets();
 
             await Promise.allSettled(
                 this.registry.autocompleteProviders.map(provider => provider.onInit())
@@ -60,6 +61,24 @@ export default class ListriApp extends App<ListriApp> {
     #registerAutocompleteProviders(): void {
         this.registry.autocompleteProvider(AutocompleteProviders.Category);
         this.registry.autocompleteProvider(AutocompleteProviders.Person);
+    }
+
+    #registerWidgets(): void {
+        const widget = this.homey.dashboards.getWidget('list');
+
+        widget.registerSettingAutocompleteListener('filterPerson', async (query: string) => {
+            const normalizedQuery = query.trim().toLowerCase();
+            const users = Object.values(await this.#api.users.getUsers());
+
+            return users
+                .filter(user => !normalizedQuery || user.name?.toLowerCase().includes(normalizedQuery))
+                .map(user => ({
+                    id: user.id,
+                    name: user.name ?? user.id,
+                    image: user.avatar ?? undefined
+                }))
+                .sort((a, b) => a.name.localeCompare(b.name));
+        });
     }
 
     #registerConditions(): void {

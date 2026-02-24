@@ -14,7 +14,7 @@ export default defineStore('list', () => {
     const persons = ref<PersonType[]>([]);
 
     const filteredItems = computed(() => {
-        const personFilter = unref(filterPerson).trim().toLowerCase();
+        const personFilter = unref(filterPerson).trim();
         const dateFilter = unref(filterDate);
 
         if (!personFilter && dateFilter === 'all') {
@@ -29,7 +29,7 @@ export default defineStore('list', () => {
                 return true;
             }
 
-            if (personFilter && (!item.person || !item.person.name.toLowerCase().includes(personFilter))) {
+            if (personFilter && item.person?.id !== personFilter) {
                 return false;
             }
 

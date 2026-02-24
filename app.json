@@ -1634,12 +1634,11 @@
             "settings": [
                 {
                     "id": "filterPerson",
-                    "type": "text",
+                    "type": "autocomplete",
                     "label": {
-                        "en": "Person (leave empty for all)",
-                        "nl": "Persoon (leeg voor iedereen)"
-                    },
-                    "value": ""
+                        "en": "Person",
+                        "nl": "Persoon"
+                    }
                 },
                 {
                     "id": "filterDate",
