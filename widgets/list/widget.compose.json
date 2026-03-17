@@ -28,6 +28,36 @@
             },
             "value": 400,
             "min": 120
+        },
+        {
+            "id": "defaultTypeFilter",
+            "type": "dropdown",
+            "label": {
+                "en": "Default type filter",
+                "nl": "Standaard type filter"
+            },
+            "value": "all",
+            "values": [
+                {"id": "all", "label": {"en": "All", "nl": "Alles"}},
+                {"id": "note", "label": {"en": "Notes", "nl": "Notities"}},
+                {"id": "product", "label": {"en": "Products", "nl": "Producten"}},
+                {"id": "task", "label": {"en": "Tasks", "nl": "Taken"}}
+            ]
+        },
+        {
+            "id": "defaultDateFilter",
+            "type": "dropdown",
+            "label": {
+                "en": "Default date filter",
+                "nl": "Standaard datum filter"
+            },
+            "value": "all",
+            "values": [
+                {"id": "all", "label": {"en": "All", "nl": "Alles"}},
+                {"id": "overdue", "label": {"en": "Overdue", "nl": "Verlopen"}},
+                {"id": "upcoming", "label": {"en": "Upcoming", "nl": "Aankomend"}},
+                {"id": "no_date", "label": {"en": "No date", "nl": "Geen datum"}}
+            ]
         }
     ],
     "api": {
