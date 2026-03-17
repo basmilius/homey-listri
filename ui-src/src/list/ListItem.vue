@@ -6,7 +6,22 @@
             completable && $style.isCompletable,
             tappable && $style.isTappable
         ]">
+        <div
+            v-if="completable"
+            :class="$style.listItemCheckable"
+            data-checkable>
+            <Transition
+                mode="out-in"
+                name="check">
+                <Icon
+                    :key="icon"
+                    :class="$style.listItemIcon"
+                    :icon="icon"/>
+            </Transition>
+        </div>
+
         <Transition
+            v-else
             mode="out-in"
             name="check">
             <Icon
@@ -62,7 +77,7 @@
         transition: 150ms var(--swift-out);
         z-index: 0;
 
-        &.isTappable:not(:has([data-interactive]:active)):active {
+        &.isTappable:has([data-checkable]:active) {
             background: var(--homey-color-mono-050);
             scale: .975;
         }
@@ -73,6 +88,15 @@
         flex-flow: column;
         flex-grow: 1;
         gap: var(--homey-su-2);
+    }
+
+    .listItemCheckable {
+        display: flex;
+        margin: calc(-1 * var(--homey-su-4));
+        margin-right: 0;
+        padding: var(--homey-su-4);
+        align-items: flex-start;
+        cursor: pointer;
     }
 
     .listItemIcon {
@@ -112,7 +136,7 @@
     :global(.homey-dark-mode) .listItem {
         background: rgb(from var(--homey-color-mono-100) r g b / .5);
 
-        &.isTappable:not(:has([data-interactive]:active)):active {
+        &.isTappable:has([data-checkable]:active) {
             background: var(--homey-color-mono-100);
         }
     }
