@@ -35,13 +35,13 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
         return true;
     }
 
-    async addTask(content: string, dueDate?: string, dueTime?: string, person?: ListItemPerson): Promise<void> {
+    async addTask(content: string, dueDate?: string, dueTime?: string, person?: ListItemPerson): Promise<boolean> {
         // Prevent infinite loops in flows: if an unchecked task with this content
         // already exists, don't add it again (and don't fire the trigger).
         const existing = await this.findTask(content);
 
         if (existing !== null && !existing.checked) {
-            return;
+            return false;
         }
 
         const due = dueDateTime(dueDate, dueTime);
@@ -56,6 +56,8 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
         });
 
         await this.appDriver.triggerTaskCreated(this, content, person?.name, due?.toISO() ?? undefined);
+
+        return true;
     }
 
     async editTask(id: string, content: string, dueDate?: string, dueTime?: string, person?: ListItemPerson): Promise<boolean> {

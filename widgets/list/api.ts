@@ -32,9 +32,7 @@ export async function addItem({homey: {app}, params, body}: WidgetApiRequest<Lis
         const persons = (await personProvider?.find('') ?? []) as ListItemPerson[];
         const person = persons.find(person => person.id === body.personId);
 
-        await device.addTask(body.content, body.dueDate, body.dueTime, person);
-
-        return true;
+        return await device.addTask(body.content, body.dueDate, body.dueTime, person);
     }
 
     return false;
