@@ -54,6 +54,22 @@
                 "quantity": "Aantal",
                 "task": "Taak"
             },
+            "filter": {
+                "title": "Filter",
+                "type": "Type",
+                "date": "Datum",
+                "person": "Persoon",
+                "all": "Alles",
+                "notes": "Notities",
+                "products": "Producten",
+                "tasks": "Taken",
+                "overdue": "Verlopen",
+                "upcoming": "Aankomend",
+                "no_date": "Geen datum",
+                "anyone": "Iedereen",
+                "no_results": "Geen items gevonden voor de huidige filters.",
+                "clear": "Filters wissen"
+            },
             "edit": {
                 "title": {
                     "note": "Notitie bewerken",

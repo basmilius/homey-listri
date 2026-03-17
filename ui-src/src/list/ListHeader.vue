@@ -15,6 +15,15 @@
 
         <button
             :class="$style.listHeaderAdd"
+            @click="onFilterTap()">
+            <Icon
+                :class="$style.listHeaderAddIcon"
+                :icon="'\uf0b0'"
+                :style="hasActiveFilters ? {'--color': color} : undefined"/>
+        </button>
+
+        <button
+            :class="$style.listHeaderAdd"
             @click="onAddNoteTap()">
             <Icon
                 :class="$style.listHeaderAddIcon"
@@ -39,10 +48,12 @@
     const emit = defineEmits<{
         add: [];
         addNote: [];
+        filter: [];
     }>();
 
     defineProps<{
         readonly color: string;
+        readonly hasActiveFilters: boolean;
         readonly icon: string;
         readonly name: string;
     }>();
@@ -53,6 +64,10 @@
 
     function onAddNoteTap(): void {
         emit('addNote');
+    }
+
+    function onFilterTap(): void {
+        emit('filter');
     }
 </script>
 
