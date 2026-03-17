@@ -61,7 +61,8 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     }
 
     async findIndex(id: string): Promise<number | null> {
-        return this.#items.findIndex(item => item.id === id);
+        const index = this.#items.findIndex(item => item.id === id);
+        return index === -1 ? null : index;
     }
 
     async getContents(items: 'all' | 'open' | 'checked'): Promise<string> {
@@ -175,6 +176,22 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         }
 
         (this.#items[index] as any)[field] = value;
+
+        await this.#save();
+
+        return true;
+    }
+
+    async update<TItem extends ListItem>(item: TItem, fields: Partial<Record<keyof TItem, unknown>>): Promise<boolean> {
+        const index = await this.findIndex(item.id);
+
+        if (index === null) {
+            return false;
+        }
+
+        for (const [field, value] of Object.entries(fields)) {
+            (this.#items[index] as any)[field] = value;
+        }
 
         await this.#save();
 

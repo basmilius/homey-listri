@@ -84,6 +84,11 @@ export function dueDateTime(date?: string, time?: string): DateTime | undefined 
     if (date) {
         if (!DateTime.fromFormat(date, 'yyyy-MM-dd').isValid) {
             const reversed = DateTime.fromFormat(date, 'dd-MM-yyyy');
+
+            if (!reversed.isValid) {
+                return undefined;
+            }
+
             date = reversed.toFormat('yyyy-MM-dd');
         }
 

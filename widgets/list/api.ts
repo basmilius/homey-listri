@@ -183,7 +183,13 @@ export async function updateQuantity({homey: {app}, params, body}: WidgetApiRequ
     }
 
     const quantity = await device.getProductQuantity(product.content);
-    await device.setProductQuantity(product.content, quantity + body.quantity);
+    const newQuantity = quantity + body.quantity;
+
+    if (newQuantity < 1) {
+        return;
+    }
+
+    await device.setProductQuantity(product.content, newQuantity);
 }
 
 type AddItemBody = {

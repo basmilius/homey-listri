@@ -59,9 +59,11 @@ export class GroceryListDevice extends ListDevice<GroceryListDriver> {
         }
 
         // todo(Bas): Maybe add a trigger card here for when a product is changed.
-        await this.set(item, 'content', content);
-        await this.set(item, 'quantity', quantity);
-        await this.set(item, 'category', category);
+        await this.update(item, {
+            content,
+            quantity,
+            category
+        });
 
         return true;
     }

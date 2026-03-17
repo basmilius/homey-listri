@@ -4,7 +4,8 @@ import { defineStore } from '../util';
 
 export default defineStore('list', () => {
     const categories = ref<ListItemCategoryType<any>[]>([]);
-    const isLoading = ref(true);
+    const loadingCount = ref(0);
+    const isLoading = computed(() => loadingCount.value > 0);
     const items = ref<Writable<ListItemType>[]>([]);
     const look = ref<ListLookType | null>(null);
     const persons = ref<PersonType[]>([]);
@@ -49,6 +50,10 @@ export default defineStore('list', () => {
             return;
         }
 
+        if (change === 'decrease' && item.quantity <= 1) {
+            return;
+        }
+
         (items.value[index] as ProductListItemType).quantity = change === 'increase'
             ? item.quantity + 1
             : item.quantity - 1;
@@ -59,31 +64,41 @@ export default defineStore('list', () => {
     }
 
     async function loadCategories(deviceId: string): Promise<void> {
-        isLoading.value = true;
-        categories.value = await Homey.api('GET', `/${deviceId}/categories`) as ListItemCategoryType<any>[];
-        isLoading.value = false;
+        loadingCount.value++;
+        try {
+            categories.value = await Homey.api('GET', `/${deviceId}/categories`) as ListItemCategoryType<any>[];
+        } finally {
+            loadingCount.value--;
+        }
     }
 
     async function loadItems(deviceId: string): Promise<void> {
-        isLoading.value = true;
-
-        await setItems(
-            await Homey.api('GET', `/${deviceId}/items`) as ListItemType[]
-        );
-
-        isLoading.value = false;
+        loadingCount.value++;
+        try {
+            await setItems(
+                await Homey.api('GET', `/${deviceId}/items`) as ListItemType[]
+            );
+        } finally {
+            loadingCount.value--;
+        }
     }
 
     async function loadLook(deviceId: string): Promise<void> {
-        isLoading.value = true;
-        look.value = await Homey.api('GET', `/${deviceId}`) as ListLookType;
-        isLoading.value = false;
+        loadingCount.value++;
+        try {
+            look.value = await Homey.api('GET', `/${deviceId}`) as ListLookType;
+        } finally {
+            loadingCount.value--;
+        }
     }
 
     async function loadPersons(deviceId: string): Promise<void> {
-        isLoading.value = true;
-        persons.value = await Homey.api('GET', `/${deviceId}/persons`) as PersonType[];
-        isLoading.value = false;
+        loadingCount.value++;
+        try {
+            persons.value = await Homey.api('GET', `/${deviceId}/persons`) as PersonType[];
+        } finally {
+            loadingCount.value--;
+        }
     }
 
     async function removeItem(deviceId: string, item: ListItemType): Promise<void> {
@@ -104,7 +119,7 @@ export default defineStore('list', () => {
 
     return {
         categories: readonly(categories),
-        isLoading: readonly(isLoading),
+        isLoading,
         items: readonly(items),
         look: readonly(look),
         persons: readonly(persons),
