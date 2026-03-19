@@ -1,4 +1,5 @@
-import { colors, DateTime, Device, Driver, icons } from '@basmilius/homey-common';
+import { DateTime, Device, Driver } from '@basmilius/homey-common';
+import { colors, icons } from '@basmilius/homey-common/data';
 import Homey from 'homey';
 import { ulid } from 'ulid';
 import { Triggers } from '../flow';
