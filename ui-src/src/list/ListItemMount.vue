@@ -60,7 +60,9 @@
     const currentX = ref(0);
     const currentY = ref(0);
     const isTap = ref(true);
+    const touchedCheckable = ref(false);
     const touchedInteractive = ref(false);
+    const lockedDirection = ref<'horizontal' | 'vertical' | null>(null);
     const longPressTimer = ref<ReturnType<typeof setTimeout> | null>(null);
     const didLongPress = ref(false);
 
@@ -122,8 +124,11 @@
         isDragging.value = true;
         isTap.value = true;
         didLongPress.value = false;
+        lockedDirection.value = null;
 
-        touchedInteractive.value = (evt.target as HTMLElement).closest('[data-interactive]') !== null;
+        const target = evt.target as HTMLElement;
+        touchedCheckable.value = target.closest('[data-checkable]') !== null;
+        touchedInteractive.value = target.closest('[data-interactive]') !== null;
 
         clearLongPressTimer();
 
@@ -150,12 +155,26 @@
         const deltaX = Math.abs(currentX.value - startX.value);
         const deltaY = Math.abs(currentY.value - startY.value);
 
-        if (deltaX > 10 || deltaY > 10) {
+        // Lock direction once sufficient movement is detected.
+        if (!unref(lockedDirection) && (deltaX > 15 || deltaY > 15)) {
+            lockedDirection.value = deltaX > deltaY ? 'horizontal' : 'vertical';
+        }
+
+        if (deltaX > 20 || deltaY > 20) {
             isTap.value = false;
             clearLongPressTimer();
         }
 
-        if (deltaX > deltaY && deltaX > 15) {
+        // For vertical scrolling, release touch handling and let the
+        // browser handle the scroll natively.
+        if (unref(lockedDirection) === 'vertical') {
+            isDragging.value = false;
+            clearLongPressTimer();
+            return;
+        }
+
+        // For horizontal swiping, prevent native scroll.
+        if (unref(lockedDirection) === 'horizontal') {
             evt.preventDefault();
         }
     }
@@ -188,7 +207,7 @@
 
         const deltaX = startX.value - currentX.value;
 
-        if (unref(isTap) && !unref(touchedInteractive) && !unref(didLongPress)) {
+        if (unref(isTap) && !unref(touchedInteractive) && !unref(didLongPress) && unref(touchedCheckable)) {
             emit('tap');
             return;
         }
@@ -198,7 +217,7 @@
             return;
         }
 
-        isOpen.value = deltaX > 45;
+        isOpen.value = deltaX > 70;
     }
 
     watch(isOpen, (open, _, onCleanup) => {
