@@ -83,5 +83,9 @@
     },
     "1.3.2": {
         "en": "Update dependencies."
+    },
+    "1.3.3": {
+        "en": "Improved trigger logic. Update dependencies.",
+        "nl": "Verbeterde trigger logica. Update dependencies."
     }
 }

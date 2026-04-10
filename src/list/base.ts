@@ -316,15 +316,11 @@ export class ListDriver extends Driver<ListriApp> {
     }
 
     async triggerNoteCreated(list: ListDevice, note: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.NoteCreated)
-            ?.trigger(list, {note}, {note});
+        await this.app.registry.fireDeviceTrigger(Triggers.NoteCreated, list, {note}, {note});
     }
 
     async triggerNoteRemoved(list: ListDevice, note: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.NoteRemoved)
-            ?.trigger(list, {note}, {note});
+        await this.app.registry.fireDeviceTrigger(Triggers.NoteRemoved, list, {note}, {note});
     }
 
     async #onPairSession(session: Homey.Driver.PairSession): Promise<void> {

@@ -151,45 +151,31 @@ export class GroceryListDriver extends ListDriver {
     }
 
     async triggerProductCheckedAny(list: ListDevice, product: string, quantity: number): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.ProductCheckedAny)
-            ?.trigger(list, {product, quantity}, {product, quantity});
+        await this.app.registry.fireDeviceTrigger(Triggers.ProductCheckedAny, list, {product, quantity}, {product, quantity});
     }
 
     async triggerProductChecked(list: ListDevice, product: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.ProductChecked)
-            ?.trigger(list, {product});
+        await this.app.registry.fireDeviceTrigger(Triggers.ProductChecked, list, {product});
     }
 
     async triggerProductCreated(list: ListDevice, product: string, quantity: number): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.ProductCreated)
-            ?.trigger(list, {product, quantity}, {product, quantity});
+        await this.app.registry.fireDeviceTrigger(Triggers.ProductCreated, list, {product, quantity}, {product, quantity});
     }
 
     async triggerProductQuantityChanged(list: ListDevice, product: string, quantity: number): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.ProductQuantityChanged)
-            ?.trigger(list, {product, quantity}, {quantity});
+        await this.app.registry.fireDeviceTrigger(Triggers.ProductQuantityChanged, list, {product, quantity}, {quantity});
     }
 
     async triggerProductRemoved(list: ListDevice, product: string, quantity: number): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.ProductRemoved)
-            ?.trigger(list, {product, quantity}, {product, quantity});
+        await this.app.registry.fireDeviceTrigger(Triggers.ProductRemoved, list, {product, quantity}, {product, quantity});
     }
 
     async triggerProductUnchecked(list: ListDevice, product: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.ProductUnchecked)
-            ?.trigger(list, {product});
+        await this.app.registry.fireDeviceTrigger(Triggers.ProductUnchecked, list, {product});
     }
 
     async triggerProductUncheckedAny(list: ListDevice, product: string, quantity: number): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.ProductUncheckedAny)
-            ?.trigger(list, {product, quantity}, {product, quantity});
+        await this.app.registry.fireDeviceTrigger(Triggers.ProductUncheckedAny, list, {product, quantity}, {product, quantity});
     }
 
 }

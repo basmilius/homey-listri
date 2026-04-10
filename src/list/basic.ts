@@ -174,45 +174,31 @@ export class BasicListDriver extends ListDriver {
     }
 
     async triggerTaskCheckedAny(list: ListDevice, task: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.TaskCheckedAny)
-            ?.trigger(list, {task}, {task});
+        await this.app.registry.fireDeviceTrigger(Triggers.TaskCheckedAny, list, {task}, {task});
     }
 
     async triggerTaskChecked(list: ListDevice, task: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.TaskChecked)
-            ?.trigger(list, {task});
+        await this.app.registry.fireDeviceTrigger(Triggers.TaskChecked, list, {task});
     }
 
     async triggerTaskCreated(list: ListDevice, task: string, person?: string, due?: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.TaskCreated)
-            ?.trigger(list, {task}, {task, person: person ?? '', due: due ?? ''});
+        await this.app.registry.fireDeviceTrigger(Triggers.TaskCreated, list, {task}, {task, person: person ?? '', due: due ?? ''});
     }
 
     async triggerTaskRemoved(list: ListDevice, task: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.TaskRemoved)
-            ?.trigger(list, {task}, {task});
+        await this.app.registry.fireDeviceTrigger(Triggers.TaskRemoved, list, {task}, {task});
     }
 
     async triggerTaskUnchecked(list: ListDevice, task: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.TaskUnchecked)
-            ?.trigger(list, {task});
+        await this.app.registry.fireDeviceTrigger(Triggers.TaskUnchecked, list, {task});
     }
 
     async triggerTaskUncheckedAny(list: ListDevice, task: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.TaskUncheckedAny)
-            ?.trigger(list, {task}, {task});
+        await this.app.registry.fireDeviceTrigger(Triggers.TaskUncheckedAny, list, {task}, {task});
     }
 
     async triggerTaskDueDatePassed(list: ListDevice, task: string, person?: string, due?: string): Promise<void> {
-        await this.app.registry
-            .findDeviceTrigger(Triggers.TaskDueDatePassed)
-            ?.trigger(list, {task}, {task, person: person ?? '', due: due ?? ''});
+        await this.app.registry.fireDeviceTrigger(Triggers.TaskDueDatePassed, list, {task}, {task, person: person ?? '', due: due ?? ''});
     }
 
     clearTriggeredTask(list: ListDevice, taskId: string): void {
