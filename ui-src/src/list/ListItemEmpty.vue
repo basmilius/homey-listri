@@ -3,7 +3,7 @@
         :class="$style.listItemEmpty"
         icon="">
         <ListItemContent>
-            {{ t('widget.list.no_items') }}
+            {{ filtered ? t('widget.list.filter.no_results') : t('widget.list.no_items') }}
         </ListItemContent>
     </ListItem>
 </template>
@@ -14,6 +14,10 @@
     import { useTranslate } from '../composables';
     import ListItem from './ListItem.vue';
     import ListItemContent from './ListItemContent.vue';
+
+    defineProps<{
+        readonly filtered?: boolean;
+    }>();
 
     const t = useTranslate();
 </script>

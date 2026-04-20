@@ -32,6 +32,18 @@ body {
     z-index: 1;
 }
 
+.filter-slide-enter-active,
+.filter-slide-leave-active {
+    transition: 200ms cubic-bezier(0.55, 0, 0.1, 1);
+    transition-property: opacity, transform;
+}
+
+.filter-slide-enter-from,
+.filter-slide-leave-to {
+    opacity: 0;
+    transform: translateY(-8px);
+}
+
 .overlay-enter-active,
 .overlay-leave-active,
 .overlay-enter-active > div,

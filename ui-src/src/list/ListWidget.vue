@@ -2,6 +2,8 @@
     <FluxRoot :class="[$style.listWidget, !dynamicHeight && $style.listWidgetFixed]">
         <List
             v-if="ready"
+            :default-date-filter="defaultDateFilter"
+            :default-type-filter="defaultTypeFilter"
             :device-id="deviceId!"
             :dynamic-height="dynamicHeight"
             :fixed-height="fixedHeight"/>
@@ -15,6 +17,8 @@
     import { ref } from 'vue';
     import List from './List.vue';
 
+    const defaultDateFilter = ref('all');
+    const defaultTypeFilter = ref('all');
     const deviceId = ref<string | null>(null);
     const dynamicHeight = ref(true);
     const fixedHeight = ref(400);
@@ -24,6 +28,8 @@
         const deviceIds = Homey.getDeviceIds();
         const settings = Homey.getSettings();
 
+        defaultDateFilter.value = settings.defaultDateFilter as string ?? 'all';
+        defaultTypeFilter.value = settings.defaultTypeFilter as string ?? 'all';
         deviceId.value = deviceIds[0] ?? null;
         dynamicHeight.value = settings.dynamicHeight as boolean ?? true;
         fixedHeight.value = settings.fixedHeight as number ?? 400;
