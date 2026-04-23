@@ -5,13 +5,13 @@ import type { ListriApp } from '../../types';
 @condition('task_is_checked')
 export default class extends FlowConditionEntity<ListriApp, Args> {
     async onRun(args: Args): Promise<boolean> {
-        const product = await args.list.findTask(args.product);
+        const task = await args.list.findTask(args.task);
 
-        return product?.checked === true;
+        return task?.checked === true;
     }
 }
 
 type Args = {
     readonly list: BasicListDevice;
-    readonly product: string;
+    readonly task: string;
 };

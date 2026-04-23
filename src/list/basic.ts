@@ -35,7 +35,15 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
         return true;
     }
 
-    async addTask(content: string, dueDate?: string, dueTime?: string, person?: ListItemPerson): Promise<void> {
+    async addTask(content: string, dueDate?: string, dueTime?: string, person?: ListItemPerson): Promise<boolean> {
+        // Prevent infinite loops in flows: if an unchecked task with this content
+        // already exists, don't add it again (and don't fire the trigger).
+        const existing = await this.findTask(content);
+
+        if (existing !== null && !existing.checked) {
+            return false;
+        }
+
         const due = dueDateTime(dueDate, dueTime);
 
         await this.add<TaskListItem>({
@@ -48,6 +56,8 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
         });
 
         await this.appDriver.triggerTaskCreated(this, content, person?.name, due?.toISO() ?? undefined);
+
+        return true;
     }
 
     async editTask(id: string, content: string, dueDate?: string, dueTime?: string, person?: ListItemPerson): Promise<boolean> {
@@ -61,10 +71,12 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
         const _time = dueTime ? DateTime.fromISO(dueTime) : undefined;
 
         // todo(Bas): Maybe add a trigger card here for when a task is changed.
-        await this.set(item, 'content', content);
-        await this.set(item, 'dueDate', _date?.toFormat('yyyy-MM-dd'));
-        await this.set(item, 'dueTime', _time?.toFormat('HH:mm:ss'));
-        await this.set(item, 'person', person);
+        await this.update(item, {
+            content,
+            dueDate: _date?.toFormat('yyyy-MM-dd'),
+            dueTime: _time?.toFormat('HH:mm:ss'),
+            person
+        });
 
         return true;
     }

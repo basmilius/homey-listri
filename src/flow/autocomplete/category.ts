@@ -3,7 +3,7 @@ import type { FlowCard } from 'homey';
 import type { ListriApp } from '../../types';
 import { GROCERY_LIST_CATEGORIES } from '../../list';
 
-@autocomplete('person')
+@autocomplete('category')
 export default class extends FlowAutocompleteProvider<ListriApp> {
     async find(query: string): Promise<FlowCard.ArgumentAutocompleteResults> {
         const normalizedQuery = query.trim().toLowerCase();

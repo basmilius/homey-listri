@@ -32,9 +32,7 @@ export async function addItem({homey: {app}, params, body}: WidgetApiRequest<Lis
         const persons = (await personProvider?.find('') ?? []) as ListItemPerson[];
         const person = persons.find(person => person.id === body.personId);
 
-        await device.addTask(body.content, body.dueDate, body.dueTime, person);
-
-        return true;
+        return await device.addTask(body.content, body.dueDate, body.dueTime, person);
     }
 
     return false;
@@ -183,7 +181,13 @@ export async function updateQuantity({homey: {app}, params, body}: WidgetApiRequ
     }
 
     const quantity = await device.getProductQuantity(product.content);
-    await device.setProductQuantity(product.content, quantity + body.quantity);
+    const newQuantity = quantity + body.quantity;
+
+    if (newQuantity < 1) {
+        return;
+    }
+
+    await device.setProductQuantity(product.content, newQuantity);
 }
 
 type AddItemBody = {
