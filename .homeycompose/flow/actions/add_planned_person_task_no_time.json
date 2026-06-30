@@ -1,12 +1,12 @@
 {
-    "id": "add_planned_task",
+    "id": "add_planned_person_task_no_time",
     "title": {
-        "en": "Add planned task",
-        "nl": "Geplande taak toevoegen"
+        "en": "Add planned person task without time",
+        "nl": "Geplande taak zonder tijd voor persoon toevoegen"
     },
     "titleFormatted": {
-        "en": "Add task [[task]] due on [[date]] at [[time]]",
-        "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]]"
+        "en": "Add task [[task]] for [[person]] due on [[date]]",
+        "nl": "Taak [[task]] voor [[person]] met deadline op [[date]] toevoegen"
     },
     "args": [
         {
@@ -27,19 +27,19 @@
             }
         },
         {
+            "type": "autocomplete",
+            "name": "person",
+            "title": {
+                "en": "Person",
+                "nl": "Persoon"
+            }
+        },
+        {
             "type": "date",
             "name": "date",
             "title": {
                 "en": "Date",
                 "nl": "Datum"
-            }
-        },
-        {
-            "type": "time",
-            "name": "time",
-            "title": {
-                "en": "Time",
-                "nl": "Tijd"
             }
         }
     ]

@@ -1,0 +1,39 @@
+{
+    "id": "add_planned_task_in_days_no_time",
+    "title": {
+        "en": "Add planned task in given days without time",
+        "nl": "Geplande taak in opgegeven dagen zonder tijd toevoegen"
+    },
+    "titleFormatted": {
+        "en": "Add task [[task]] due in [[days]] days",
+        "nl": "Maak taak [[task]] met deadline over [[days]] dagen"
+    },
+    "args": [
+        {
+            "type": "device",
+            "name": "list",
+            "title": {
+                "en": "List",
+                "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+        },
+        {
+            "type": "text",
+            "name": "task",
+            "title": {
+                "en": "Task",
+                "nl": "Taak"
+            }
+        },
+        {
+            "type": "number",
+            "name": "days",
+            "min": 0,
+            "title": {
+                "en": "Days",
+                "nl": "Dagen"
+            }
+        }
+    ]
+}

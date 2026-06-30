@@ -948,10 +948,157 @@
           {
             "type": "time",
             "name": "time",
-            "required": false,
             "title": {
               "en": "Time",
               "nl": "Tijd"
+            }
+          }
+        ]
+      },
+      {
+        "id": "add_planned_person_task_in_days",
+        "title": {
+          "en": "Add planned person task in given days",
+          "nl": "Geplande taak in opgegeven dagen voor persoon toevoegen"
+        },
+        "titleFormatted": {
+          "en": "Add task [[task]] for [[person]] due in [[days]] days at [[time]]",
+          "nl": "Taak [[task]] voor [[person]] met deadline over [[days]] dagen om [[time]] toevoegen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "person",
+            "title": {
+              "en": "Person",
+              "nl": "Persoon"
+            }
+          },
+          {
+            "type": "number",
+            "name": "days",
+            "min": 0,
+            "title": {
+              "en": "Days",
+              "nl": "Dagen"
+            }
+          },
+          {
+            "type": "time",
+            "name": "time",
+            "title": {
+              "en": "Time",
+              "nl": "Tijd"
+            }
+          }
+        ]
+      },
+      {
+        "id": "add_planned_person_task_in_days_no_time",
+        "title": {
+          "en": "Add planned person task in given days without time",
+          "nl": "Geplande taak in opgegeven dagen voor persoon zonder tijd toevoegen"
+        },
+        "titleFormatted": {
+          "en": "Add task [[task]] for [[person]] due in [[days]] days",
+          "nl": "Taak [[task]] voor [[person]] met deadline over [[days]] dagen toevoegen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "person",
+            "title": {
+              "en": "Person",
+              "nl": "Persoon"
+            }
+          },
+          {
+            "type": "number",
+            "name": "days",
+            "min": 0,
+            "title": {
+              "en": "Days",
+              "nl": "Dagen"
+            }
+          }
+        ]
+      },
+      {
+        "id": "add_planned_person_task_no_time",
+        "title": {
+          "en": "Add planned person task without time",
+          "nl": "Geplande taak zonder tijd voor persoon toevoegen"
+        },
+        "titleFormatted": {
+          "en": "Add task [[task]] for [[person]] due on [[date]]",
+          "nl": "Taak [[task]] voor [[person]] met deadline op [[date]] toevoegen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "person",
+            "title": {
+              "en": "Person",
+              "nl": "Persoon"
+            }
+          },
+          {
+            "type": "date",
+            "name": "date",
+            "title": {
+              "en": "Date",
+              "nl": "Datum"
             }
           }
         ]
@@ -995,10 +1142,133 @@
           {
             "type": "time",
             "name": "time",
-            "required": false,
             "title": {
               "en": "Time",
               "nl": "Tijd"
+            }
+          }
+        ]
+      },
+      {
+        "id": "add_planned_task_in_days",
+        "title": {
+          "en": "Add planned task in given days",
+          "nl": "Geplande taak in opgegeven dagen toevoegen"
+        },
+        "titleFormatted": {
+          "en": "Add task [[task]] due in [[days]] days at [[time]]",
+          "nl": "Maak taak [[task]] met deadline over [[days]] dagen om [[time]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          },
+          {
+            "type": "number",
+            "name": "days",
+            "min": 0,
+            "title": {
+              "en": "Days",
+              "nl": "Dagen"
+            }
+          },
+          {
+            "type": "time",
+            "name": "time",
+            "title": {
+              "en": "Time",
+              "nl": "Tijd"
+            }
+          }
+        ]
+      },
+      {
+        "id": "add_planned_task_in_days_no_time",
+        "title": {
+          "en": "Add planned task in given days without time",
+          "nl": "Geplande taak in opgegeven dagen zonder tijd toevoegen"
+        },
+        "titleFormatted": {
+          "en": "Add task [[task]] due in [[days]] days",
+          "nl": "Maak taak [[task]] met deadline over [[days]] dagen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          },
+          {
+            "type": "number",
+            "name": "days",
+            "min": 0,
+            "title": {
+              "en": "Days",
+              "nl": "Dagen"
+            }
+          }
+        ]
+      },
+      {
+        "id": "add_planned_task_no_time",
+        "title": {
+          "en": "Add planned task without time",
+          "nl": "Geplande taak zonder tijd toevoegen"
+        },
+        "titleFormatted": {
+          "en": "Add task [[task]] due on [[date]]",
+          "nl": "Maak taak [[task]] met deadline op [[date]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
+          },
+          {
+            "type": "text",
+            "name": "task",
+            "title": {
+              "en": "Task",
+              "nl": "Taak"
+            }
+          },
+          {
+            "type": "date",
+            "name": "date",
+            "title": {
+              "en": "Date",
+              "nl": "Datum"
             }
           }
         ]
@@ -1098,6 +1368,28 @@
               "en": "Task",
               "nl": "Taak"
             }
+          }
+        ]
+      },
+      {
+        "id": "check_due_tasks",
+        "title": {
+          "en": "Check due tasks",
+          "nl": "Vink verlopen taken aan"
+        },
+        "titleFormatted": {
+          "en": "Check due tasks",
+          "nl": "Vink verlopen taken aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "list",
+            "title": {
+              "en": "List",
+              "nl": "Lijst"
+            },
+            "filter": "driver_id=list"
           }
         ]
       },

@@ -1,12 +1,12 @@
 {
-    "id": "add_planned_task",
+    "id": "add_planned_task_in_days",
     "title": {
-        "en": "Add planned task",
-        "nl": "Geplande taak toevoegen"
+        "en": "Add planned task in given days",
+        "nl": "Geplande taak in opgegeven dagen toevoegen"
     },
     "titleFormatted": {
-        "en": "Add task [[task]] due on [[date]] at [[time]]",
-        "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]]"
+        "en": "Add task [[task]] due in [[days]] days at [[time]]",
+        "nl": "Maak taak [[task]] met deadline over [[days]] dagen om [[time]]"
     },
     "args": [
         {
@@ -27,11 +27,12 @@
             }
         },
         {
-            "type": "date",
-            "name": "date",
+            "type": "number",
+            "name": "days",
+            "min": 0,
             "title": {
-                "en": "Date",
-                "nl": "Datum"
+                "en": "Days",
+                "nl": "Dagen"
             }
         },
         {
