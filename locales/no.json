@@ -66,16 +66,17 @@
         "type": "Type",
         "date": "Dato",
         "person": "Person",
-        "all": "Alle",
         "notes": "Notater",
         "products": "Produkter",
         "tasks": "Oppgaver",
-        "overdue": "Forfalt",
         "upcoming": "Kommende",
         "no_date": "Ingen dato",
         "anyone": "Hvem som helst",
         "no_results": "Ingen elementer samsvarer med de gjeldende filtrene.",
-        "clear": "Tøm filtre"
+        "clear": "Fjern filtre",
+        "all_types": "Alle",
+        "all_dates": "Alle",
+        "due_by_today": "I dag eller tidligere"
       }
     }
   },

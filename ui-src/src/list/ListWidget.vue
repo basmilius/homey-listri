@@ -15,10 +15,11 @@
     setup>
     import { FluxRoot } from '@flux-ui/components';
     import { ref } from 'vue';
+    import { type ListDateFilter, type ListTypeFilter, toDateFilter, toTypeFilter } from './store';
     import List from './List.vue';
 
-    const defaultDateFilter = ref('all');
-    const defaultTypeFilter = ref('all');
+    const defaultDateFilter = ref<ListDateFilter>('all');
+    const defaultTypeFilter = ref<ListTypeFilter>('all');
     const deviceId = ref<string | null>(null);
     const dynamicHeight = ref(true);
     const fixedHeight = ref(400);
@@ -28,8 +29,8 @@
         const deviceIds = Homey.getDeviceIds();
         const settings = Homey.getSettings();
 
-        defaultDateFilter.value = settings.defaultDateFilter as string ?? 'all';
-        defaultTypeFilter.value = settings.defaultTypeFilter as string ?? 'all';
+        defaultDateFilter.value = toDateFilter(settings.defaultDateFilter);
+        defaultTypeFilter.value = toTypeFilter(settings.defaultTypeFilter);
         deviceId.value = deviceIds[0] ?? null;
         dynamicHeight.value = settings.dynamicHeight as boolean ?? true;
         fixedHeight.value = settings.fixedHeight as number ?? 400;

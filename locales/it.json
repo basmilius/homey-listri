@@ -66,16 +66,17 @@
         "type": "Tipo",
         "date": "Data",
         "person": "Persona",
-        "all": "Tutti",
         "notes": "Note",
         "products": "Prodotti",
         "tasks": "Attività",
-        "overdue": "Scadute",
         "upcoming": "Prossime",
         "no_date": "Senza data",
         "anyone": "Chiunque",
         "no_results": "Nessun elemento corrisponde ai filtri attuali.",
-        "clear": "Cancella filtri"
+        "clear": "Cancella filtri",
+        "all_types": "Tutti",
+        "all_dates": "Tutte",
+        "due_by_today": "Oggi o prima"
       }
     }
   },

@@ -66,16 +66,17 @@
         "type": "Tipo",
         "date": "Fecha",
         "person": "Persona",
-        "all": "Todos",
         "notes": "Notas",
         "products": "Productos",
         "tasks": "Tareas",
-        "overdue": "Vencidas",
         "upcoming": "Próximas",
         "no_date": "Sin fecha",
         "anyone": "Cualquiera",
         "no_results": "Ningún elemento coincide con los filtros actuales.",
-        "clear": "Borrar filtros"
+        "clear": "Borrar filtros",
+        "all_types": "Todos",
+        "all_dates": "Todas",
+        "due_by_today": "Hoy o antes"
       }
     }
   },

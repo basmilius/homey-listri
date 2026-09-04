@@ -111,16 +111,17 @@
         "type": "Type",
         "date": "Date",
         "person": "Person",
-        "all": "All",
         "notes": "Notes",
         "products": "Products",
         "tasks": "Tasks",
-        "overdue": "Overdue",
         "upcoming": "Upcoming",
         "no_date": "No date",
         "anyone": "Anyone",
         "no_results": "No items match the current filters.",
-        "clear": "Clear filters"
+        "clear": "Clear filters",
+        "all_types": "All",
+        "all_dates": "All",
+        "due_by_today": "Due today or earlier"
       }
     }
   },

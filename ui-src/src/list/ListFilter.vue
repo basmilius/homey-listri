@@ -1,11 +1,17 @@
 <template>
     <div :class="$style.listFilter">
         <div :class="$style.listFilterGroup">
-            <span :class="$style.listFilterLabel">{{ t('widget.list.filter.type') }}</span>
-            <div :class="$style.listFilterChips">
+            <span
+                id="list-filter-type"
+                :class="$style.listFilterLabel">{{ t('widget.list.filter.type') }}</span>
+            <div
+                aria-labelledby="list-filter-type"
+                :class="$style.listFilterChips"
+                role="group">
                 <button
                     v-for="option of typeOptions"
                     :key="option.value"
+                    :aria-pressed="filters.type === option.value"
                     :class="[$style.listFilterChip, filters.type === option.value && $style.isActive]"
                     :style="filters.type === option.value ? {'--chip-color': look?.color} : undefined"
                     @click="setFilter('type', option.value)">
@@ -14,12 +20,20 @@
             </div>
         </div>
 
-        <div :class="$style.listFilterGroup">
-            <span :class="$style.listFilterLabel">{{ t('widget.list.filter.date') }}</span>
-            <div :class="$style.listFilterChips">
+        <div
+            v-if="canFilterByTaskFields"
+            :class="$style.listFilterGroup">
+            <span
+                id="list-filter-date"
+                :class="$style.listFilterLabel">{{ t('widget.list.filter.date') }}</span>
+            <div
+                aria-labelledby="list-filter-date"
+                :class="$style.listFilterChips"
+                role="group">
                 <button
                     v-for="option of dateOptions"
                     :key="option.value"
+                    :aria-pressed="filters.date === option.value"
                     :class="[$style.listFilterChip, filters.date === option.value && $style.isActive]"
                     :style="filters.date === option.value ? {'--chip-color': look?.color} : undefined"
                     @click="setFilter('date', option.value)">
@@ -29,11 +43,17 @@
         </div>
 
         <div
-            v-if="persons.length > 0"
+            v-if="canFilterByTaskFields && persons.length > 0"
             :class="$style.listFilterGroup">
-            <span :class="$style.listFilterLabel">{{ t('widget.list.filter.person') }}</span>
-            <div :class="$style.listFilterChips">
+            <span
+                id="list-filter-person"
+                :class="$style.listFilterLabel">{{ t('widget.list.filter.person') }}</span>
+            <div
+                aria-labelledby="list-filter-person"
+                :class="$style.listFilterChips"
+                role="group">
                 <button
+                    :aria-pressed="filters.personId === null"
                     :class="[$style.listFilterChip, filters.personId === null && $style.isActive]"
                     :style="filters.personId === null ? {'--chip-color': look?.color} : undefined"
                     @click="setFilter('personId', null)">
@@ -42,6 +62,7 @@
                 <button
                     v-for="person of persons"
                     :key="person.id"
+                    :aria-pressed="filters.personId === person.id"
                     :class="[$style.listFilterChip, filters.personId === person.id && $style.isActive]"
                     :style="filters.personId === person.id ? {'--chip-color': look?.color} : undefined"
                     @click="setFilter('personId', person.id)">
@@ -62,12 +83,21 @@
 <script
     lang="ts"
     setup>
-    import type { ListDateFilter, ListTypeFilter } from './store';
+    import { computed, unref } from 'vue';
     import { useTranslate } from '../composables';
+    import type { ListDateFilter, ListTypeFilter } from './store';
     import useStore from './store';
 
-    const t = useTranslate();
+    const TYPE_FILTER_LABELS: Record<ListTypeFilter, string> = {
+        all: 'widget.list.filter.all_types',
+        note: 'widget.list.filter.notes',
+        product: 'widget.list.filter.products',
+        task: 'widget.list.filter.tasks'
+    };
+
     const {
+        availableTypeFilters,
+        canFilterByTaskFields,
         filters,
         look,
         persons,
@@ -76,19 +106,19 @@
         setFilter
     } = useStore();
 
-    const typeOptions: {value: ListTypeFilter; label: string}[] = [
-        {value: 'all', label: t('widget.list.filter.all')},
-        {value: 'note', label: t('widget.list.filter.notes')},
-        {value: 'product', label: t('widget.list.filter.products')},
-        {value: 'task', label: t('widget.list.filter.tasks')}
-    ];
+    const t = useTranslate();
 
     const dateOptions: {value: ListDateFilter; label: string}[] = [
-        {value: 'all', label: t('widget.list.filter.all')},
-        {value: 'overdue', label: t('widget.list.filter.overdue')},
+        {value: 'all', label: t('widget.list.filter.all_dates')},
+        {value: 'due_by_today', label: t('widget.list.filter.due_by_today')},
         {value: 'upcoming', label: t('widget.list.filter.upcoming')},
         {value: 'no_date', label: t('widget.list.filter.no_date')}
     ];
+
+    const typeOptions = computed<{value: ListTypeFilter; label: string}[]>(() => unref(availableTypeFilters).map(value => ({
+        value,
+        label: t(TYPE_FILTER_LABELS[value])
+    })));
 </script>
 
 <style
@@ -96,7 +126,7 @@
     module>
     .listFilter {
         display: flex;
-        padding: 0 var(--homey-su-5) var(--homey-su-3);
+        padding: 0 var(--homey-su-4) var(--homey-su-3);
         flex-flow: column;
         gap: var(--homey-su-3);
     }
@@ -112,7 +142,7 @@
         font-weight: 600;
         letter-spacing: .02em;
         text-transform: uppercase;
-        color: var(--homey-color-mono-400);
+        color: var(--homey-color-mono-600);
     }
 
     .listFilterChips {
@@ -122,7 +152,7 @@
     }
 
     .listFilterChip {
-        --chip-color: var(--homey-color-mono-025);
+        --chip-color: var(--homey-color-mono-600);
 
         display: flex;
         padding: var(--homey-su-2) var(--homey-su-3);
@@ -142,18 +172,13 @@
         opacity: .7;
     }
 
-    .listFilterChip.isActive {
-        background: var(--chip-color);
-        color: white;
-    }
-
     .listFilterClear {
         display: flex;
         align-self: flex-start;
         padding: 0;
         background: transparent;
         border: 0;
-        color: var(--homey-color-mono-400);
+        color: var(--homey-color-mono-600);
         font-size: 12px;
         font-weight: 500;
         outline: 0;
@@ -164,7 +189,9 @@
         background: rgb(from var(--homey-color-mono-100) r g b / .5);
     }
 
-    :global(.homey-dark-mode) .listFilterChip.isActive {
-        background: var(--chip-color);
+    // The list color is picked freely, so its lightness is capped to keep the white label readable.
+    .listFilterChip.isActive {
+        background: oklch(from var(--chip-color) min(l, .52) c h);
+        color: white;
     }
 </style>

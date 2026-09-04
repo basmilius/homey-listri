@@ -4008,7 +4008,7 @@
                 "es": "Todos",
                 "da": "Alle",
                 "ru": "Все",
-                "pl": "Wszystko",
+                "pl": "Wszystkie",
                 "ko": "전체",
                 "ar": "الكل"
               }
@@ -4096,33 +4096,33 @@
                 "nl": "Alles",
                 "de": "Alle",
                 "fr": "Tout",
-                "it": "Tutti",
+                "it": "Tutte",
                 "sv": "Alla",
                 "no": "Alle",
-                "es": "Todos",
+                "es": "Todas",
                 "da": "Alle",
                 "ru": "Все",
-                "pl": "Wszystko",
+                "pl": "Wszystkie",
                 "ko": "전체",
                 "ar": "الكل"
               }
             },
             {
-              "id": "overdue",
+              "id": "due_by_today",
               "label": {
-                "en": "Overdue",
-                "nl": "Verlopen",
-                "de": "Überfällig",
-                "fr": "En retard",
-                "it": "Scadute",
-                "sv": "Försenade",
-                "no": "Forfalt",
-                "es": "Vencidas",
-                "da": "Forfaldne",
-                "ru": "Просроченные",
-                "pl": "Zaległe",
-                "ko": "기한 초과",
-                "ar": "متأخرة"
+                "en": "Due today or earlier",
+                "nl": "Vandaag of eerder",
+                "de": "Heute oder früher",
+                "fr": "Aujourd'hui ou avant",
+                "it": "Oggi o prima",
+                "sv": "Idag eller tidigare",
+                "no": "I dag eller tidligere",
+                "es": "Hoy o antes",
+                "da": "I dag eller tidligere",
+                "ru": "Сегодня или раньше",
+                "pl": "Dzisiaj lub wcześniej",
+                "ko": "오늘까지",
+                "ar": "اليوم أو قبله"
               }
             },
             {

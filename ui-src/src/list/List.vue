@@ -1,6 +1,7 @@
 <template>
     <ListHeader
         v-if="look"
+        :can-filter="hasItems"
         :color="look.color"
         :has-active-filters="hasActiveFilters"
         :icon="look.icon"
@@ -16,12 +17,14 @@
         <ListLoading v-if="isLoading && !hasItems"/>
 
         <ListItems v-else-if="hasItems">
-            <Transition name="filter-slide">
+            <Transition
+                name="filter-slide"
+                @after-leave="updateHeight()"
+                @enter="updateHeight()">
                 <ListFilter v-if="showFilters"/>
             </Transition>
 
             <TransitionGroup
-                v-if="hasFilteredItems"
                 name="items"
                 @after-enter="updateHeight()"
                 @after-leave="updateHeight()">
@@ -62,7 +65,7 @@
 
             <ListItemEmpty
                 v-if="!hasFilteredItems"
-                :filtered="true"/>
+                filtered/>
         </ListItems>
 
         <ListItems v-else>
@@ -114,8 +117,8 @@
         dynamicHeight,
         fixedHeight
     } = defineProps<{
-        readonly defaultDateFilter: string;
-        readonly defaultTypeFilter: string;
+        readonly defaultDateFilter: ListDateFilter;
+        readonly defaultTypeFilter: ListTypeFilter;
         readonly deviceId: string;
         readonly dynamicHeight: boolean;
         readonly fixedHeight: number;
@@ -123,14 +126,15 @@
 
     const t = useTranslate();
     const {
+        availableTypeFilters,
         categories,
         filteredCategorizedItems,
-        filters,
         hasActiveFilters,
         hasFilteredItems,
         hasItems,
         isLoading,
         look,
+        persons,
         changeChecked,
         changeQuantity,
         initFilters,
@@ -199,19 +203,17 @@
 
     Homey.on('list-look-changed', async listDeviceId => listDeviceId === deviceId && await loadLook(deviceId));
 
-    watch([addingType, editingItem, filteredCategorizedItems, showFilters], async () => {
+    watch([addingType, availableTypeFilters, editingItem, filteredCategorizedItems, persons], async () => {
         await updateHeight();
     }, {flush: 'post'});
 
     watch(() => deviceId, async () => {
-        initFilters(
-            defaultTypeFilter as ListTypeFilter,
-            defaultDateFilter as ListDateFilter
-        );
+        initFilters(defaultTypeFilter, defaultDateFilter);
 
+        // The look decides which filters apply, so it lands before the items it would filter.
+        await loadLook(deviceId);
         await Promise.allSettled([
             loadCategories(deviceId),
-            loadLook(deviceId),
             loadItems(deviceId),
             loadPersons(deviceId)
         ]);

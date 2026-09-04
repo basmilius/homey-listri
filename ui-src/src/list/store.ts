@@ -1,79 +1,94 @@
-import { DateTime } from 'luxon';
 import { computed, readonly, ref, unref } from 'vue';
+import { useToday } from '../composables';
 import type { ListItemCategoryType, ListItemType, ListLookType, PersonType, ProductListItemType, TaskListItemType, Writable } from '../types';
 import { defineStore, dueDateTime } from '../util';
 
-export type ListDateFilter = 'all' | 'overdue' | 'upcoming' | 'no_date';
+export type ListDateFilter = 'all' | 'due_by_today' | 'upcoming' | 'no_date';
 export type ListTypeFilter = 'all' | 'note' | 'product' | 'task';
 
-export type ListFilterState = {
+type ListFilterState = {
     date: ListDateFilter;
     type: ListTypeFilter;
     personId: string | null;
 };
 
+const NEUTRAL_FILTERS: ListFilterState = {
+    date: 'all',
+    type: 'all',
+    personId: null
+};
+
+export function toDateFilter(value: unknown): ListDateFilter {
+    return value === 'no_date' || value === 'due_by_today' || value === 'upcoming' ? value : 'all';
+}
+
+export function toTypeFilter(value: unknown): ListTypeFilter {
+    return value === 'note' || value === 'product' || value === 'task' ? value : 'all';
+}
+
 export default defineStore('list', () => {
     const categories = ref<ListItemCategoryType<any>[]>([]);
-    const filters = ref<ListFilterState>({
-        date: 'all',
-        type: 'all',
-        personId: null
-    });
+    const filters = ref<ListFilterState>({...NEUTRAL_FILTERS});
     const isLoading = ref(true);
     const items = ref<Writable<ListItemType>[]>([]);
     const look = ref<ListLookType | null>(null);
     const persons = ref<PersonType[]>([]);
 
+    const today = useToday();
+
+    const availableTypeFilters = computed<ListTypeFilter[]>(() => unref(look)?.type === 'grocery_list'
+        ? ['all', 'note', 'product']
+        : ['all', 'note', 'task']);
+
+    const canFilterByTaskFields = computed(() => hasTaskFields(unref(filters).type));
+
     const filteredItems = computed(() => {
         const state = unref(filters);
-        const now = DateTime.now();
+        const startOfToday = unref(today);
+
+        // Only tasks carry a due date and a person, so either filter narrows the list to tasks.
+        const isTaskOnly = state.date !== 'all' || state.personId !== null;
 
         return unref(items).filter(item => {
-            const task = item.type === 'task' ? item : undefined;
-
             if (state.type !== 'all' && item.type !== state.type) {
                 return false;
             }
 
-            if (state.date !== 'all') {
-                const due = task?.dueDate
-                    ? dueDateTime(task.dueDate, task.dueTime)
-                    : undefined;
-
-                if (state.date === 'no_date') {
-                    if (due) {
-                        return false;
-                    }
-                } else {
-                    if (!due) {
-                        return false;
-                    }
-
-                    if (state.date === 'overdue' && due >= now) {
-                        return false;
-                    }
-
-                    if (state.date === 'upcoming' && due < now) {
-                        return false;
-                    }
-                }
+            if (item.type !== 'task') {
+                return !isTaskOnly;
             }
 
-            if (state.personId !== null && task?.person?.id !== state.personId) {
+            if (state.personId !== null && item.person?.id !== state.personId) {
                 return false;
             }
 
-            return true;
+            if (state.date === 'all') {
+                return true;
+            }
+
+            const due = item.dueDate ? dueDateTime(item.dueDate, item.dueTime) : undefined;
+            const dueDay = due?.isValid ? due.startOf('day') : undefined;
+
+            if (state.date === 'no_date') {
+                return dueDay === undefined;
+            }
+
+            if (dueDay === undefined) {
+                return false;
+            }
+
+            return state.date === 'due_by_today'
+                ? dueDay <= startOfToday
+                : dueDay > startOfToday;
         });
     });
-
-    const categorizedItems = computed(() => categorize(unref(items)));
 
     const filteredCategorizedItems = computed(() => categorize(unref(filteredItems)));
 
     const hasActiveFilters = computed(() => {
         const state = unref(filters);
-        return state.date !== 'all' || state.type !== 'all' || state.personId !== null;
+
+        return state.date !== NEUTRAL_FILTERS.date || state.type !== NEUTRAL_FILTERS.type || state.personId !== NEUTRAL_FILTERS.personId;
     });
 
     const hasFilteredItems = computed(() => unref(filteredItems).length > 0);
@@ -127,10 +142,15 @@ export default defineStore('list', () => {
         });
     }
 
-    function initFilters(defaultTypeFilter?: ListTypeFilter, defaultDateFilter?: ListDateFilter): void {
+    function hasTaskFields(type: ListTypeFilter): boolean {
+        return unref(availableTypeFilters).includes('task') && (type === 'all' || type === 'task');
+    }
+
+    // Runs before the look is known, so the defaults are only sanitized once loadLook has the list type.
+    function initFilters(defaultTypeFilter: ListTypeFilter, defaultDateFilter: ListDateFilter): void {
         filters.value = {
-            date: defaultDateFilter ?? 'all',
-            type: defaultTypeFilter ?? 'all',
+            date: defaultDateFilter,
+            type: defaultTypeFilter,
             personId: null
         };
     }
@@ -154,6 +174,9 @@ export default defineStore('list', () => {
     async function loadLook(deviceId: string): Promise<void> {
         isLoading.value = true;
         look.value = await Homey.api('GET', `/${deviceId}`) as ListLookType;
+
+        setFilters(unref(filters));
+
         isLoading.value = false;
     }
 
@@ -176,13 +199,24 @@ export default defineStore('list', () => {
     }
 
     function resetFilters(): void {
-        initFilters();
+        filters.value = {...NEUTRAL_FILTERS};
     }
 
     function setFilter<K extends keyof ListFilterState>(key: K, value: ListFilterState[K]): void {
-        filters.value = {
+        setFilters({
             ...unref(filters),
             [key]: value
+        });
+    }
+
+    function setFilters(state: ListFilterState): void {
+        const type = unref(availableTypeFilters).includes(state.type) ? state.type : 'all';
+        const canFilterByTask = hasTaskFields(type);
+
+        filters.value = {
+            date: canFilterByTask ? state.date : 'all',
+            type,
+            personId: canFilterByTask ? state.personId : null
         };
     }
 
@@ -198,9 +232,9 @@ export default defineStore('list', () => {
         look: readonly(look),
         persons: readonly(persons),
 
-        categorizedItems,
+        availableTypeFilters,
+        canFilterByTaskFields,
         filteredCategorizedItems,
-        filteredItems,
         hasActiveFilters,
         hasFilteredItems,
         hasItems,
