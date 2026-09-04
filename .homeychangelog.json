@@ -97,7 +97,7 @@
         "nl": "Bug opgelost die de verloopdatum van taken niet opsloeg."
     },
     "1.4.0": {
-        "en": "Lists are now available over the app API, so other dashboards can show and change them too.",
-        "nl": "Lijsten zijn nu bereikbaar via de app-API, zodat andere dashboards ze ook kunnen tonen en wijzigen."
+        "en": "Lists are now available over the app API, so other dashboards can show and change them too. Added eleven new languages. Fixed swiping a list item in the widget scrolling the dashboard, and the due date not being saved on a new task.",
+        "nl": "Lijsten zijn nu bereikbaar via de app-API, zodat andere dashboards ze ook kunnen tonen en wijzigen. Elf nieuwe talen toegevoegd. Opgelost dat het wegswipen van een item in de widget het dashboard liet scrollen, en dat de verloopdatum van een nieuwe taak niet werd opgeslagen."
     }
 }
