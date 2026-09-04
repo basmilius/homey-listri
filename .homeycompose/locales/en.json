@@ -54,6 +54,23 @@
                 "quantity": "Quantity",
                 "task": "Task"
             },
+            "filter": {
+                "title": "Filter",
+                "type": "Type",
+                "date": "Date",
+                "person": "Person",
+                "all_types": "All",
+                "all_dates": "All",
+                "notes": "Notes",
+                "products": "Products",
+                "tasks": "Tasks",
+                "due_by_today": "Due today or earlier",
+                "upcoming": "Upcoming",
+                "no_date": "No date",
+                "anyone": "Anyone",
+                "no_results": "No items match the current filters.",
+                "clear": "Clear filters"
+            },
             "edit": {
                 "title": {
                     "note": "Edit note",

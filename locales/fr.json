@@ -60,6 +60,23 @@
           "product": "Modifier le produit",
           "task": "Modifier la tâche"
         }
+      },
+      "filter": {
+        "title": "Filtre",
+        "type": "Type",
+        "date": "Date",
+        "person": "Personne",
+        "notes": "Notes",
+        "products": "Produits",
+        "tasks": "Tâches",
+        "upcoming": "À venir",
+        "no_date": "Sans date",
+        "anyone": "Tout le monde",
+        "no_results": "Aucun élément ne correspond aux filtres actuels.",
+        "clear": "Effacer les filtres",
+        "all_types": "Tout",
+        "all_dates": "Tout",
+        "due_by_today": "Aujourd'hui ou avant"
       }
     }
   },

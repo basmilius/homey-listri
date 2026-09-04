@@ -7,8 +7,9 @@
 <script
     lang="ts"
     setup>
-    import { DateTime } from 'luxon';
-    import { computed } from 'vue';
+    import { computed, unref } from 'vue';
+    import { useToday } from '../composables';
+    import { dueDateTime } from '../util';
 
     const {
         date,
@@ -29,30 +30,34 @@
         day: 'numeric'
     });
 
+    const today = useToday();
+
     const value = computed(() => {
-        const now = DateTime.now();
+        const _today = unref(today);
+        const _date = dueDateTime(date, time);
+
+        if (!_date.isValid) {
+            return date;
+        }
 
         if (time) {
-            const _date = DateTime.fromFormat(`${date} ${time}`, 'yyyy-MM-dd HH:mm:ss');
             const _time = _date.toFormat('HH:mm');
 
-            if (now.toISODate() === _date.toISODate()) {
+            if (_today.toISODate() === _date.toISODate()) {
                 return `${Homey.__('widget.list.today_at')} ${_time}`;
             }
 
-            if (now.year === _date.year) {
+            if (_today.year === _date.year) {
                 return `${formatter.format(_date.toJSDate())} ${_time}`;
             }
 
             return `${formatterYear.format(_date.toJSDate())} ${_time}`;
         } else {
-            const _date = DateTime.fromFormat(date, 'yyyy-MM-dd');
-
-            if (now.toISODate() === _date.toISODate()) {
+            if (_today.toISODate() === _date.toISODate()) {
                 return Homey.__('widget.list.today');
             }
 
-            if (now.year === _date.year) {
+            if (_today.year === _date.year) {
                 return formatter.format(_date.toJSDate());
             }
 

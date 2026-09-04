@@ -81,7 +81,24 @@
           "task": "Taak bewerken"
         }
       },
-      "today": "Vandaag"
+      "today": "Vandaag",
+      "filter": {
+        "title": "Filter",
+        "type": "Type",
+        "date": "Datum",
+        "person": "Persoon",
+        "notes": "Notities",
+        "products": "Producten",
+        "tasks": "Taken",
+        "upcoming": "Aankomend",
+        "no_date": "Geen datum",
+        "anyone": "Iedereen",
+        "no_results": "Geen items gevonden voor de huidige filters.",
+        "clear": "Filters wissen",
+        "all_types": "Alles",
+        "all_dates": "Alles",
+        "due_by_today": "Vandaag of eerder"
+      }
     }
   },
   "grocery": {

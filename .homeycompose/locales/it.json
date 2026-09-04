@@ -54,6 +54,23 @@
                 "quantity": "Quantità",
                 "task": "Attività"
             },
+            "filter": {
+                "title": "Filtro",
+                "type": "Tipo",
+                "date": "Data",
+                "person": "Persona",
+                "all_types": "Tutti",
+                "all_dates": "Tutte",
+                "notes": "Note",
+                "products": "Prodotti",
+                "tasks": "Attività",
+                "due_by_today": "Oggi o prima",
+                "upcoming": "Prossime",
+                "no_date": "Senza data",
+                "anyone": "Chiunque",
+                "no_results": "Nessun elemento corrisponde ai filtri attuali.",
+                "clear": "Cancella filtri"
+            },
             "edit": {
                 "title": {
                     "note": "Modifica nota",

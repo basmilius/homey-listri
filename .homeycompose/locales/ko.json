@@ -54,6 +54,23 @@
                 "quantity": "수량",
                 "task": "작업"
             },
+            "filter": {
+                "title": "필터",
+                "type": "유형",
+                "date": "날짜",
+                "person": "담당자",
+                "all_types": "전체",
+                "all_dates": "전체",
+                "notes": "메모",
+                "products": "제품",
+                "tasks": "작업",
+                "due_by_today": "오늘까지",
+                "upcoming": "예정",
+                "no_date": "날짜 없음",
+                "anyone": "모두",
+                "no_results": "현재 필터와 일치하는 항목이 없습니다.",
+                "clear": "필터 지우기"
+            },
             "edit": {
                 "title": {
                     "note": "메모 수정",

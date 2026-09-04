@@ -1,11 +1,14 @@
 <template>
     <ListHeader
         v-if="look"
+        :can-filter="hasItems"
         :color="look.color"
+        :has-active-filters="hasActiveFilters"
         :icon="look.icon"
         :name="look.name"
         @add="onAddTap()"
-        @addNote="onAddNoteTap()"/>
+        @add-note="onAddNoteTap()"
+        @filter="showFilters = !showFilters"/>
 
     <Transition
         mode="out-in"
@@ -14,12 +17,19 @@
         <ListLoading v-if="isLoading && !hasItems"/>
 
         <ListItems v-else-if="hasItems">
+            <Transition
+                name="filter-slide"
+                @after-leave="updateHeight()"
+                @enter="updateHeight()">
+                <ListFilter v-if="showFilters"/>
+            </Transition>
+
             <TransitionGroup
                 name="items"
                 @after-enter="updateHeight()"
                 @after-leave="updateHeight()">
                 <template
-                    v-for="(items, category, index) of categorizedItems"
+                    v-for="(items, category, index) of filteredCategorizedItems"
                     :key="category">
                     <ListItemCategory
                         v-if="category !== '__other__'"
@@ -52,6 +62,10 @@
                     </ListItemMount>
                 </template>
             </TransitionGroup>
+
+            <ListItemEmpty
+                v-if="!hasFilteredItems"
+                filtered/>
         </ListItems>
 
         <ListItems v-else>
@@ -81,9 +95,11 @@
     import { ref, unref, watch } from 'vue';
     import { useTranslate } from '../composables';
     import type { ListItemType, ListItemTypeField, NoteListItemType, ProductListItemType, TaskListItemType } from '../types';
+    import type { ListDateFilter, ListTypeFilter } from './store';
     import useStore from './store';
     import ListAdd from './ListAdd.vue';
     import ListEdit from './ListEdit.vue';
+    import ListFilter from './ListFilter.vue';
     import ListHeader from './ListHeader.vue';
     import ListLoading from './ListLoading.vue';
     import ListItemCategory from './ListItemCategory.vue';
@@ -95,10 +111,14 @@
     import ListItemTask from './ListItemTask.vue';
 
     const {
+        defaultDateFilter,
+        defaultTypeFilter,
         deviceId,
         dynamicHeight,
         fixedHeight
     } = defineProps<{
+        readonly defaultDateFilter: ListDateFilter;
+        readonly defaultTypeFilter: ListTypeFilter;
         readonly deviceId: string;
         readonly dynamicHeight: boolean;
         readonly fixedHeight: number;
@@ -106,22 +126,29 @@
 
     const t = useTranslate();
     const {
+        availableTypeFilters,
         categories,
-        categorizedItems,
+        filteredCategorizedItems,
+        hasActiveFilters,
+        hasFilteredItems,
         hasItems,
         isLoading,
         look,
+        persons,
         changeChecked,
         changeQuantity,
+        initFilters,
         loadCategories,
         loadItems,
         loadLook,
+        loadPersons,
         removeItem,
         setItems
     } = useStore();
 
     const addingType = ref<ListItemTypeField | null>(null);
     const editingItem = ref<ListItemType | null>(null);
+    const showFilters = ref(false);
 
     async function onAddTap(): Promise<void> {
         switch (unref(look)?.type) {
@@ -176,15 +203,19 @@
 
     Homey.on('list-look-changed', async listDeviceId => listDeviceId === deviceId && await loadLook(deviceId));
 
-    watch([addingType, editingItem, categorizedItems], async () => {
+    watch([addingType, availableTypeFilters, editingItem, filteredCategorizedItems, persons], async () => {
         await updateHeight();
     }, {flush: 'post'});
 
     watch(() => deviceId, async () => {
+        initFilters(defaultTypeFilter, defaultDateFilter);
+
+        // The look decides which filters apply, so it lands before the items it would filter.
+        await loadLook(deviceId);
         await Promise.allSettled([
             loadCategories(deviceId),
-            loadLook(deviceId),
-            loadItems(deviceId)
+            loadItems(deviceId),
+            loadPersons(deviceId)
         ]);
     }, {immediate: true});
 </script>

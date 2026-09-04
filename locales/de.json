@@ -60,6 +60,23 @@
           "product": "Produkt bearbeiten",
           "task": "Aufgabe bearbeiten"
         }
+      },
+      "filter": {
+        "title": "Filter",
+        "type": "Typ",
+        "date": "Datum",
+        "person": "Person",
+        "notes": "Notizen",
+        "products": "Produkte",
+        "tasks": "Aufgaben",
+        "upcoming": "Anstehend",
+        "no_date": "Kein Datum",
+        "anyone": "Jeder",
+        "no_results": "Keine Elemente entsprechen den aktuellen Filtern.",
+        "clear": "Filter zurücksetzen",
+        "all_types": "Alle",
+        "all_dates": "Alle",
+        "due_by_today": "Heute oder früher"
       }
     }
   },

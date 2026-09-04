@@ -54,6 +54,23 @@
                 "quantity": "Antal",
                 "task": "Opgave"
             },
+            "filter": {
+                "title": "Filter",
+                "type": "Type",
+                "date": "Dato",
+                "person": "Person",
+                "all_types": "Alle",
+                "all_dates": "Alle",
+                "notes": "Noter",
+                "products": "Produkter",
+                "tasks": "Opgaver",
+                "due_by_today": "I dag eller tidligere",
+                "upcoming": "Kommende",
+                "no_date": "Ingen dato",
+                "anyone": "Alle",
+                "no_results": "Ingen elementer matcher de aktuelle filtre.",
+                "clear": "Ryd filtre"
+            },
             "edit": {
                 "title": {
                     "note": "Rediger note",
