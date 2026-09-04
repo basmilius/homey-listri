@@ -1,0 +1,109 @@
+{
+  "device": {
+    "list": {
+      "pair": {
+        "title": "Crea un nuovo elenco",
+        "subtitle": "Gli elementi possono essere creati tramite widget o flussi.",
+        "submit": "Crea elenco",
+        "name": {
+          "title": "Nome",
+          "description": "Un nome univoco per il tuo elenco."
+        },
+        "icon": {
+          "title": "Icona",
+          "description": "L'icona viene mostrata solo nel widget elenco."
+        },
+        "color": {
+          "title": "Colore",
+          "description": "Il colore viene mostrato solo nel widget elenco."
+        }
+      },
+      "repair": {
+        "title": "Modifica elenco",
+        "subtitle": "Modifica i dettagli del tuo elenco.",
+        "submit": "Salva elenco"
+      }
+    }
+  },
+  "element": {
+    "search_icon": "Cerca un'icona..."
+  },
+  "widget": {
+    "list": {
+      "no_items": "Non ci sono elementi in questo elenco.",
+      "today": "Oggi",
+      "today_at": "Oggi alle",
+      "other": "Altro",
+      "add": {
+        "title": {
+          "note": "Aggiungi nota",
+          "product": "Aggiungi prodotto",
+          "task": "Aggiungi attività"
+        },
+        "add": "Aggiungi",
+        "save": "Salva",
+        "cancel": "Annulla",
+        "category": "Categoria",
+        "content": "Contenuto",
+        "due": "Scadenza",
+        "person": "Persona",
+        "anyone": "Chiunque",
+        "type": "Tipo",
+        "note": "Nota",
+        "product": "Prodotto",
+        "quantity": "Quantità",
+        "task": "Attività"
+      },
+      "edit": {
+        "title": {
+          "note": "Modifica nota",
+          "product": "Modifica prodotto",
+          "task": "Modifica attività"
+        }
+      }
+    }
+  },
+  "grocery": {
+    "category": {
+      "fruits_vegetables": "Frutta & Verdura",
+      "bakery": "Panetteria",
+      "dairy_eggs": "Latticini & Uova",
+      "meat": "Carne",
+      "fish_seafood": "Pesce & Frutti di mare",
+      "deli": "Gastronomia & Piatti pronti",
+      "frozen": "Surgelati",
+      "beverages": "Bevande",
+      "snacks_sweets": "Snack & Dolci",
+      "breakfast_cereals": "Colazione & Cereali",
+      "pasta_rice_grains": "Pasta, Riso & Cereali",
+      "canned_jarred": "Conserve & Barattoli",
+      "sauces_condiments": "Salse & Condimenti",
+      "herbs_spices": "Erbe & Spezie",
+      "oils_vinegars": "Oli & Aceti",
+      "household": "Casa",
+      "personal_care": "Cura della persona",
+      "pet_supplies": "Animali domestici",
+      "baby_products": "Prodotti per bambini",
+      "health_vitamins": "Salute & Vitamine"
+    }
+  },
+  "color": {
+    "red": "Rosso",
+    "orange": "Arancione",
+    "amber": "Ambra",
+    "yellow": "Giallo",
+    "lime": "Lime",
+    "green": "Verde",
+    "emerald": "Smeraldo",
+    "teal": "Verde acqua",
+    "cyan": "Ciano",
+    "sky": "Celeste",
+    "blue": "Blu",
+    "indigo": "Indaco",
+    "violet": "Viola",
+    "purple": "Porpora",
+    "fuchsia": "Fucsia",
+    "pink": "Rosa",
+    "rose": "Rosa tenue"
+  }
+}

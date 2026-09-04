@@ -2,11 +2,33 @@
     "id": "product_has_quantity",
     "title": {
         "en": "Product has quantity",
-        "nl": "Product heeft aantal"
+        "nl": "Product heeft aantal",
+        "de": "Produkt hat Menge",
+        "fr": "Le produit a une quantité",
+        "it": "Il prodotto ha quantità",
+        "sv": "Produkten har antal",
+        "no": "Produktet har antall",
+        "es": "El producto tiene cantidad",
+        "da": "Produktet har antal",
+        "ru": "Количество продукта",
+        "pl": "Produkt ma ilość",
+        "ko": "제품 수량",
+        "ar": "المنتج له كمية"
     },
     "titleFormatted": {
         "en": "Product [[product]] has quantity [[quantity]]",
-        "nl": "Product [[product]] heeft aantal [[quantity]]"
+        "nl": "Product [[product]] heeft aantal [[quantity]]",
+        "de": "Produkt [[product]] hat die Menge [[quantity]]",
+        "fr": "Le produit [[product]] a la quantité [[quantity]]",
+        "it": "Il prodotto [[product]] ha quantità [[quantity]]",
+        "sv": "Produkten [[product]] har antalet [[quantity]]",
+        "no": "Produktet [[product]] har antallet [[quantity]]",
+        "es": "El producto [[product]] tiene la cantidad [[quantity]]",
+        "da": "Produktet [[product]] har antallet [[quantity]]",
+        "ru": "Количество продукта [[product]] равно [[quantity]]",
+        "pl": "Produkt [[product]] ma ilość [[quantity]]",
+        "ko": "제품 [[product]]의 수량이 [[quantity]]임",
+        "ar": "المنتج [[product]] كميته [[quantity]]"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
         },
@@ -23,7 +56,18 @@
             "name": "product",
             "title": {
                 "en": "Product",
-                "nl": "Product"
+                "nl": "Product",
+                "de": "Produkt",
+                "fr": "Produit",
+                "it": "Prodotto",
+                "sv": "Produkt",
+                "no": "Produkt",
+                "es": "Producto",
+                "da": "Produkt",
+                "ru": "Продукт",
+                "pl": "Produkt",
+                "ko": "제품",
+                "ar": "منتج"
             }
         },
         {
@@ -31,7 +75,18 @@
             "name": "quantity",
             "title": {
                 "en": "Quantity",
-                "nl": "Aantal"
+                "nl": "Aantal",
+                "de": "Menge",
+                "fr": "Quantité",
+                "it": "Quantità",
+                "sv": "Antal",
+                "no": "Antall",
+                "es": "Cantidad",
+                "da": "Antal",
+                "ru": "Количество",
+                "pl": "Ilość",
+                "ko": "수량",
+                "ar": "الكمية"
             }
         }
     ]

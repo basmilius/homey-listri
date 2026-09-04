@@ -2,11 +2,33 @@
     "id": "task_removed",
     "title": {
         "en": "A task is removed",
-        "nl": "Er is een taak verwijderd"
+        "nl": "Er is een taak verwijderd",
+        "de": "Eine Aufgabe wurde entfernt",
+        "fr": "Une tâche est supprimée",
+        "it": "Un'attività è stata rimossa",
+        "sv": "En uppgift har tagits bort",
+        "no": "En oppgave er fjernet",
+        "es": "Se ha eliminado una tarea",
+        "da": "En opgave er fjernet",
+        "ru": "Задача удалена",
+        "pl": "Zadanie zostało usunięte",
+        "ko": "작업이 제거됨",
+        "ar": "تمت إزالة مهمة"
     },
     "titleFormatted": {
         "en": "A task is removed",
-        "nl": "Er is een taak verwijderd"
+        "nl": "Er is een taak verwijderd",
+        "de": "Eine Aufgabe wurde entfernt",
+        "fr": "Une tâche est supprimée",
+        "it": "Un'attività è stata rimossa",
+        "sv": "En uppgift har tagits bort",
+        "no": "En oppgave er fjernet",
+        "es": "Se ha eliminado una tarea",
+        "da": "En opgave er fjernet",
+        "ru": "Задача удалена",
+        "pl": "Zadanie zostało usunięte",
+        "ko": "작업이 제거됨",
+        "ar": "تمت إزالة مهمة"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list"
         }
@@ -25,7 +58,18 @@
             "type": "string",
             "title": {
                 "en": "Task",
-                "nl": "Taak"
+                "nl": "Taak",
+                "de": "Aufgabe",
+                "fr": "Tâche",
+                "it": "Attività",
+                "sv": "Uppgift",
+                "no": "Oppgave",
+                "es": "Tarea",
+                "da": "Opgave",
+                "ru": "Задача",
+                "pl": "Zadanie",
+                "ko": "작업",
+                "ar": "مهمة"
             }
         }
     ]

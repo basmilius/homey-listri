@@ -1,0 +1,109 @@
+{
+    "device": {
+        "list": {
+            "pair": {
+                "title": "Neue Liste erstellen",
+                "subtitle": "Elemente können über Widgets oder Flows erstellt werden.",
+                "submit": "Liste erstellen",
+                "name": {
+                    "title": "Name",
+                    "description": "Ein eindeutiger Name für Ihre Liste."
+                },
+                "icon": {
+                    "title": "Symbol",
+                    "description": "Das Symbol wird nur im Listen-Widget angezeigt."
+                },
+                "color": {
+                    "title": "Farbe",
+                    "description": "Die Farbe wird nur im Listen-Widget angezeigt."
+                }
+            },
+            "repair": {
+                "title": "Liste bearbeiten",
+                "subtitle": "Bearbeiten Sie die Details Ihrer Liste.",
+                "submit": "Liste speichern"
+            }
+        }
+    },
+    "element": {
+        "search_icon": "Nach einem Symbol suchen..."
+    },
+    "widget": {
+        "list": {
+            "no_items": "In dieser Liste sind keine Elemente.",
+            "today": "Heute",
+            "today_at": "Heute um",
+            "other": "Sonstiges",
+            "add": {
+                "title": {
+                    "note": "Notiz hinzufügen",
+                    "product": "Produkt hinzufügen",
+                    "task": "Aufgabe hinzufügen"
+                },
+                "add": "Hinzufügen",
+                "save": "Speichern",
+                "cancel": "Abbrechen",
+                "category": "Kategorie",
+                "content": "Inhalt",
+                "due": "Fällig",
+                "person": "Person",
+                "anyone": "Jeder",
+                "type": "Typ",
+                "note": "Notiz",
+                "product": "Produkt",
+                "quantity": "Menge",
+                "task": "Aufgabe"
+            },
+            "edit": {
+                "title": {
+                    "note": "Notiz bearbeiten",
+                    "product": "Produkt bearbeiten",
+                    "task": "Aufgabe bearbeiten"
+                }
+            }
+        }
+    },
+    "grocery": {
+        "category": {
+            "fruits_vegetables": "Obst & Gemüse",
+            "bakery": "Backwaren",
+            "dairy_eggs": "Milchprodukte & Eier",
+            "meat": "Fleisch",
+            "fish_seafood": "Fisch & Meeresfrüchte",
+            "deli": "Feinkost & Fertiggerichte",
+            "frozen": "Tiefkühlkost",
+            "beverages": "Getränke",
+            "snacks_sweets": "Snacks & Süßigkeiten",
+            "breakfast_cereals": "Frühstück & Müsli",
+            "pasta_rice_grains": "Nudeln, Reis & Getreide",
+            "canned_jarred": "Konserven & Gläser",
+            "sauces_condiments": "Saucen & Würzmittel",
+            "herbs_spices": "Kräuter & Gewürze",
+            "oils_vinegars": "Öle & Essige",
+            "household": "Haushalt",
+            "personal_care": "Körperpflege",
+            "pet_supplies": "Tierbedarf",
+            "baby_products": "Babyprodukte",
+            "health_vitamins": "Gesundheit & Vitamine"
+        }
+    },
+    "color": {
+        "red": "Rot",
+        "orange": "Orange",
+        "amber": "Bernstein",
+        "yellow": "Gelb",
+        "lime": "Limette",
+        "green": "Grün",
+        "emerald": "Smaragd",
+        "teal": "Blaugrün",
+        "cyan": "Cyan",
+        "sky": "Himmelblau",
+        "blue": "Blau",
+        "indigo": "Indigo",
+        "violet": "Violett",
+        "purple": "Lila",
+        "fuchsia": "Fuchsie",
+        "pink": "Rosa",
+        "rose": "Rosé"
+    }
+}

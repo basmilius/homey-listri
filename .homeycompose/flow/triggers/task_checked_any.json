@@ -2,11 +2,33 @@
     "id": "task_checked_any",
     "title": {
         "en": "A task was checked",
-        "nl": "Een taak is aangevinkt"
+        "nl": "Een taak is aangevinkt",
+        "de": "Eine Aufgabe wurde abgehakt",
+        "fr": "Une tâche a été cochée",
+        "it": "Un'attività è stata spuntata",
+        "sv": "En uppgift har bockats av",
+        "no": "En oppgave er krysset av",
+        "es": "Se ha marcado una tarea",
+        "da": "En opgave er afkrydset",
+        "ru": "Задача отмечена",
+        "pl": "Zadanie zostało zaznaczone",
+        "ko": "작업이 완료 표시됨",
+        "ar": "تم تحديد مهمة"
     },
     "titleFormatted": {
         "en": "A task was checked",
-        "nl": "Een taak is aangevinkt"
+        "nl": "Een taak is aangevinkt",
+        "de": "Eine Aufgabe wurde abgehakt",
+        "fr": "Une tâche a été cochée",
+        "it": "Un'attività è stata spuntata",
+        "sv": "En uppgift har bockats av",
+        "no": "En oppgave er krysset av",
+        "es": "Se ha marcado una tarea",
+        "da": "En opgave er afkrydset",
+        "ru": "Задача отмечена",
+        "pl": "Zadanie zostało zaznaczone",
+        "ko": "작업이 완료 표시됨",
+        "ar": "تم تحديد مهمة"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list"
         }
@@ -25,7 +58,18 @@
             "type": "string",
             "title": {
                 "en": "Task",
-                "nl": "Taak"
+                "nl": "Taak",
+                "de": "Aufgabe",
+                "fr": "Tâche",
+                "it": "Attività",
+                "sv": "Uppgift",
+                "no": "Oppgave",
+                "es": "Tarea",
+                "da": "Opgave",
+                "ru": "Задача",
+                "pl": "Zadanie",
+                "ko": "작업",
+                "ar": "مهمة"
             }
         }
     ]

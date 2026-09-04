@@ -1,0 +1,109 @@
+{
+    "device": {
+        "list": {
+            "pair": {
+                "title": "Opprett en ny liste",
+                "subtitle": "Elementer kan opprettes via widgets eller flyter.",
+                "submit": "Opprett liste",
+                "name": {
+                    "title": "Navn",
+                    "description": "Et unikt navn for listen din."
+                },
+                "icon": {
+                    "title": "Ikon",
+                    "description": "Ikonet vises kun i listewidgeten."
+                },
+                "color": {
+                    "title": "Farge",
+                    "description": "Fargen vises kun i listewidgeten."
+                }
+            },
+            "repair": {
+                "title": "Oppdater liste",
+                "subtitle": "Rediger detaljene for listen din.",
+                "submit": "Lagre liste"
+            }
+        }
+    },
+    "element": {
+        "search_icon": "Søk etter et ikon..."
+    },
+    "widget": {
+        "list": {
+            "no_items": "Det er ingen elementer i denne listen.",
+            "today": "I dag",
+            "today_at": "I dag kl.",
+            "other": "Annet",
+            "add": {
+                "title": {
+                    "note": "Legg til notat",
+                    "product": "Legg til produkt",
+                    "task": "Legg til oppgave"
+                },
+                "add": "Legg til",
+                "save": "Lagre",
+                "cancel": "Avbryt",
+                "category": "Kategori",
+                "content": "Innhold",
+                "due": "Forfallsdato",
+                "person": "Person",
+                "anyone": "Hvem som helst",
+                "type": "Type",
+                "note": "Notat",
+                "product": "Produkt",
+                "quantity": "Antall",
+                "task": "Oppgave"
+            },
+            "edit": {
+                "title": {
+                    "note": "Rediger notat",
+                    "product": "Rediger produkt",
+                    "task": "Rediger oppgave"
+                }
+            }
+        }
+    },
+    "grocery": {
+        "category": {
+            "fruits_vegetables": "Frukt & Grønt",
+            "bakery": "Bakeri",
+            "dairy_eggs": "Meieri & Egg",
+            "meat": "Kjøtt",
+            "fish_seafood": "Fisk & Sjømat",
+            "deli": "Delikatesse & Ferdigmat",
+            "frozen": "Frysevarer",
+            "beverages": "Drikke",
+            "snacks_sweets": "Snacks & Godteri",
+            "breakfast_cereals": "Frokost & Frokostblandinger",
+            "pasta_rice_grains": "Pasta, Ris & Korn",
+            "canned_jarred": "Hermetikk & Glass",
+            "sauces_condiments": "Sauser & Dressing",
+            "herbs_spices": "Urter & Krydder",
+            "oils_vinegars": "Oljer & Eddik",
+            "household": "Husholdning",
+            "personal_care": "Personlig pleie",
+            "pet_supplies": "Kjæledyr",
+            "baby_products": "Babyprodukter",
+            "health_vitamins": "Helse & Vitaminer"
+        }
+    },
+    "color": {
+        "red": "Rød",
+        "orange": "Oransje",
+        "amber": "Rav",
+        "yellow": "Gul",
+        "lime": "Lime",
+        "green": "Grønn",
+        "emerald": "Smaragd",
+        "teal": "Turkisgrønn",
+        "cyan": "Cyan",
+        "sky": "Himmelblå",
+        "blue": "Blå",
+        "indigo": "Indigo",
+        "violet": "Fiolett",
+        "purple": "Lilla",
+        "fuchsia": "Fuksia",
+        "pink": "Rosa",
+        "rose": "Roserosa"
+    }
+}

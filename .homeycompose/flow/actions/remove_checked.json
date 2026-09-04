@@ -2,11 +2,33 @@
     "id": "remove_checked",
     "title": {
         "en": "Remove checked",
-        "nl": "Verwijder afgevinkte items"
+        "nl": "Verwijder afgevinkte items",
+        "de": "Abgehakte Elemente entfernen",
+        "fr": "Supprimer les éléments cochés",
+        "it": "Rimuovi elementi spuntati",
+        "sv": "Ta bort avbockade objekt",
+        "no": "Fjern avkryssede elementer",
+        "es": "Eliminar elementos marcados",
+        "da": "Fjern afkrydsede elementer",
+        "ru": "Удалить отмеченные элементы",
+        "pl": "Usuń zaznaczone elementy",
+        "ko": "완료된 항목 제거",
+        "ar": "إزالة العناصر المحددة"
     },
     "titleFormatted": {
         "en": "Remove checked",
-        "nl": "Verwijder afgevinkte items"
+        "nl": "Verwijder afgevinkte items",
+        "de": "Abgehakte Elemente entfernen",
+        "fr": "Supprimer les éléments cochés",
+        "it": "Rimuovi elementi spuntati",
+        "sv": "Ta bort avbockade objekt",
+        "no": "Fjern avkryssede elementer",
+        "es": "Eliminar elementos marcados",
+        "da": "Fjern afkrydsede elementer",
+        "ru": "Удалить отмеченные элементы",
+        "pl": "Usuń zaznaczone elementy",
+        "ko": "완료된 항목 제거",
+        "ar": "إزالة العناصر المحددة"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
         }

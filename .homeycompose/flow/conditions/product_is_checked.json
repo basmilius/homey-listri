@@ -2,11 +2,33 @@
     "id": "product_is_checked",
     "title": {
         "en": "Product is checked",
-        "nl": "Product is aangevinkt"
+        "nl": "Product is aangevinkt",
+        "de": "Produkt ist abgehakt",
+        "fr": "Le produit est coché",
+        "it": "Il prodotto è spuntato",
+        "sv": "Produkten är avbockad",
+        "no": "Produktet er avkrysset",
+        "es": "El producto está marcado",
+        "da": "Produktet er afkrydset",
+        "ru": "Продукт отмечен",
+        "pl": "Produkt jest zaznaczony",
+        "ko": "제품이 완료됨",
+        "ar": "المنتج محدد"
     },
     "titleFormatted": {
-        "en": "Product [[product]] is !{{checked|un}}",
-        "nl": "Product [[product]] is !{{aangevinkt|uitgevinkt}}"
+        "en": "Product [[product]] is !{{checked|unchecked}}",
+        "nl": "Product [[product]] is !{{aangevinkt|uitgevinkt}}",
+        "de": "Produkt [[product]] ist !{{abgehakt|nicht abgehakt}}",
+        "fr": "Le produit [[product]] est !{{coché|décoché}}",
+        "it": "Il prodotto [[product]] è !{{spuntato|non spuntato}}",
+        "sv": "Produkten [[product]] är !{{avbockad|inte avbockad}}",
+        "no": "Produktet [[product]] er !{{avkrysset|ikke avkrysset}}",
+        "es": "El producto [[product]] está !{{marcado|sin marcar}}",
+        "da": "Produktet [[product]] er !{{afkrydset|ikke afkrydset}}",
+        "ru": "Продукт [[product]] !{{отмечен|не отмечен}}",
+        "pl": "Produkt [[product]] jest !{{zaznaczony|niezaznaczony}}",
+        "ko": "제품 [[product]]가 !{{완료됨|완료되지 않음}}",
+        "ar": "المنتج [[product]] !{{محدد|غير محدد}}"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
         },
@@ -23,7 +56,18 @@
             "name": "product",
             "title": {
                 "en": "Product",
-                "nl": "Product"
+                "nl": "Product",
+                "de": "Produkt",
+                "fr": "Produit",
+                "it": "Prodotto",
+                "sv": "Produkt",
+                "no": "Produkt",
+                "es": "Producto",
+                "da": "Produkt",
+                "ru": "Продукт",
+                "pl": "Produkt",
+                "ko": "제품",
+                "ar": "منتج"
             }
         }
     ]

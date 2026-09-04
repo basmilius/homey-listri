@@ -2,11 +2,33 @@
     "id": "task_unchecked_any",
     "title": {
         "en": "A task was unchecked",
-        "nl": "Een taak is uitgevinkt"
+        "nl": "Een taak is uitgevinkt",
+        "de": "Bei einer Aufgabe wurde das Häkchen entfernt",
+        "fr": "Une tâche a été décochée",
+        "it": "Un'attività è stata deselezionata",
+        "sv": "En uppgift har avbockats",
+        "no": "Avkryssingen for en oppgave er fjernet",
+        "es": "Se ha desmarcado una tarea",
+        "da": "Afkrydsningen for en opgave er fjernet",
+        "ru": "С задачи снята отметка",
+        "pl": "Zadanie zostało odznaczone",
+        "ko": "작업의 완료 표시가 해제됨",
+        "ar": "تم إلغاء تحديد مهمة"
     },
     "titleFormatted": {
         "en": "A task was unchecked",
-        "nl": "Een taak is uitgevinkt"
+        "nl": "Een taak is uitgevinkt",
+        "de": "Bei einer Aufgabe wurde das Häkchen entfernt",
+        "fr": "Une tâche a été décochée",
+        "it": "Un'attività è stata deselezionata",
+        "sv": "En uppgift har avbockats",
+        "no": "Avkryssingen for en oppgave er fjernet",
+        "es": "Se ha desmarcado una tarea",
+        "da": "Afkrydsningen for en opgave er fjernet",
+        "ru": "С задачи снята отметка",
+        "pl": "Zadanie zostało odznaczone",
+        "ko": "작업의 완료 표시가 해제됨",
+        "ar": "تم إلغاء تحديد مهمة"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list"
         }
@@ -25,7 +58,18 @@
             "type": "string",
             "title": {
                 "en": "Task",
-                "nl": "Taak"
+                "nl": "Taak",
+                "de": "Aufgabe",
+                "fr": "Tâche",
+                "it": "Attività",
+                "sv": "Uppgift",
+                "no": "Oppgave",
+                "es": "Tarea",
+                "da": "Opgave",
+                "ru": "Задача",
+                "pl": "Zadanie",
+                "ko": "작업",
+                "ar": "مهمة"
             }
         }
     ]

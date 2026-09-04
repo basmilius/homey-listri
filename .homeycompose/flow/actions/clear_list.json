@@ -2,11 +2,33 @@
     "id": "clear_list",
     "title": {
         "en": "Clear",
-        "nl": "Maak leeg"
+        "nl": "Maak leeg",
+        "de": "Leeren",
+        "fr": "Vider",
+        "it": "Svuota",
+        "sv": "Töm",
+        "no": "Tøm",
+        "es": "Vaciar",
+        "da": "Ryd",
+        "ru": "Очистить",
+        "pl": "Wyczyść",
+        "ko": "비우기",
+        "ar": "إفراغ"
     },
     "titleFormatted": {
         "en": "Clear",
-        "nl": "Maak leeg"
+        "nl": "Maak leeg",
+        "de": "Leeren",
+        "fr": "Vider",
+        "it": "Svuota",
+        "sv": "Töm",
+        "no": "Tøm",
+        "es": "Vaciar",
+        "da": "Ryd",
+        "ru": "Очистить",
+        "pl": "Wyczyść",
+        "ko": "비우기",
+        "ar": "إفراغ"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
         }

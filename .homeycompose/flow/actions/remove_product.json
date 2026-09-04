@@ -2,11 +2,33 @@
     "id": "remove_product",
     "title": {
         "en": "Remove product",
-        "nl": "Product verwijderen"
+        "nl": "Product verwijderen",
+        "de": "Produkt entfernen",
+        "fr": "Supprimer un produit",
+        "it": "Rimuovi prodotto",
+        "sv": "Ta bort produkt",
+        "no": "Fjern produkt",
+        "es": "Eliminar producto",
+        "da": "Fjern produkt",
+        "ru": "Удалить продукт",
+        "pl": "Usuń produkt",
+        "ko": "제품 제거",
+        "ar": "إزالة منتج"
     },
     "titleFormatted": {
         "en": "Remove product [[product]]",
-        "nl": "Product [[product]] verwijderen"
+        "nl": "Product [[product]] verwijderen",
+        "de": "Produkt [[product]] entfernen",
+        "fr": "Supprimer le produit [[product]]",
+        "it": "Rimuovi prodotto [[product]]",
+        "sv": "Ta bort produkt [[product]]",
+        "no": "Fjern produkt [[product]]",
+        "es": "Eliminar producto [[product]]",
+        "da": "Fjern produkt [[product]]",
+        "ru": "Удалить продукт [[product]]",
+        "pl": "Usuń produkt [[product]]",
+        "ko": "제품 [[product]] 제거",
+        "ar": "إزالة المنتج [[product]]"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
         },
@@ -23,7 +56,18 @@
             "name": "product",
             "title": {
                 "en": "Product",
-                "nl": "Product"
+                "nl": "Product",
+                "de": "Produkt",
+                "fr": "Produit",
+                "it": "Prodotto",
+                "sv": "Produkt",
+                "no": "Produkt",
+                "es": "Producto",
+                "da": "Produkt",
+                "ru": "Продукт",
+                "pl": "Produkt",
+                "ko": "제품",
+                "ar": "منتج"
             }
         }
     ]

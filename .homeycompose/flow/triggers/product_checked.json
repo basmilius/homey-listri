@@ -2,11 +2,33 @@
     "id": "product_checked",
     "title": {
         "en": "Product was checked",
-        "nl": "Product is aangevinkt"
+        "nl": "Product is aangevinkt",
+        "de": "Produkt wurde abgehakt",
+        "fr": "Le produit a été coché",
+        "it": "Il prodotto è stato spuntato",
+        "sv": "Produkten har bockats av",
+        "no": "Produktet er krysset av",
+        "es": "Se ha marcado el producto",
+        "da": "Produktet er afkrydset",
+        "ru": "Продукт отмечен",
+        "pl": "Produkt został zaznaczony",
+        "ko": "제품이 완료 표시됨",
+        "ar": "تم تحديد المنتج"
     },
     "titleFormatted": {
         "en": "Product [[product]] was checked",
-        "nl": "Product [[product]] is aangevinkt"
+        "nl": "Product [[product]] is aangevinkt",
+        "de": "Produkt [[product]] wurde abgehakt",
+        "fr": "Le produit [[product]] a été coché",
+        "it": "Il prodotto [[product]] è stato spuntato",
+        "sv": "Produkten [[product]] har bockats av",
+        "no": "Produktet [[product]] er krysset av",
+        "es": "Se ha marcado el producto [[product]]",
+        "da": "Produktet [[product]] er afkrydset",
+        "ru": "Продукт [[product]] отмечен",
+        "pl": "Produkt [[product]] został zaznaczony",
+        "ko": "제품 [[product]]가 완료 표시됨",
+        "ar": "تم تحديد المنتج [[product]]"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
         },
@@ -23,7 +56,18 @@
             "name": "product",
             "title": {
                 "en": "Product",
-                "nl": "Product"
+                "nl": "Product",
+                "de": "Produkt",
+                "fr": "Produit",
+                "it": "Prodotto",
+                "sv": "Produkt",
+                "no": "Produkt",
+                "es": "Producto",
+                "da": "Produkt",
+                "ru": "Продукт",
+                "pl": "Produkt",
+                "ko": "제품",
+                "ar": "منتج"
             }
         }
     ]

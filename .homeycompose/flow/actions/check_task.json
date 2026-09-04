@@ -2,11 +2,33 @@
     "id": "check_task",
     "title": {
         "en": "Check task",
-        "nl": "Vink taak aan"
+        "nl": "Vink taak aan",
+        "de": "Aufgabe abhaken",
+        "fr": "Cocher une tâche",
+        "it": "Spunta attività",
+        "sv": "Bocka av uppgift",
+        "no": "Kryss av oppgave",
+        "es": "Marcar tarea",
+        "da": "Afkryds opgave",
+        "ru": "Отметить задачу",
+        "pl": "Zaznacz zadanie",
+        "ko": "작업 완료 표시",
+        "ar": "تحديد مهمة"
     },
     "titleFormatted": {
         "en": "Check task [[task]]",
-        "nl": "Vink taak [[task]] aan"
+        "nl": "Vink taak [[task]] aan",
+        "de": "Aufgabe [[task]] abhaken",
+        "fr": "Cocher la tâche [[task]]",
+        "it": "Spunta attività [[task]]",
+        "sv": "Bocka av uppgift [[task]]",
+        "no": "Kryss av oppgave [[task]]",
+        "es": "Marcar tarea [[task]]",
+        "da": "Afkryds opgave [[task]]",
+        "ru": "Отметить задачу [[task]]",
+        "pl": "Zaznacz zadanie [[task]]",
+        "ko": "작업 [[task]] 완료 표시",
+        "ar": "تحديد المهمة [[task]]"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list"
         },
@@ -23,7 +56,18 @@
             "name": "task",
             "title": {
                 "en": "Task",
-                "nl": "Taak"
+                "nl": "Taak",
+                "de": "Aufgabe",
+                "fr": "Tâche",
+                "it": "Attività",
+                "sv": "Uppgift",
+                "no": "Oppgave",
+                "es": "Tarea",
+                "da": "Opgave",
+                "ru": "Задача",
+                "pl": "Zadanie",
+                "ko": "작업",
+                "ar": "مهمة"
             }
         }
     ]

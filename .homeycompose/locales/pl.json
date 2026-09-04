@@ -1,0 +1,109 @@
+{
+    "device": {
+        "list": {
+            "pair": {
+                "title": "Utwórz nową listę",
+                "subtitle": "Elementy można tworzyć za pomocą widżetów lub przepływów.",
+                "submit": "Utwórz listę",
+                "name": {
+                    "title": "Nazwa",
+                    "description": "Unikalna nazwa twojej listy."
+                },
+                "icon": {
+                    "title": "Ikona",
+                    "description": "Ikona jest widoczna tylko w widżecie listy."
+                },
+                "color": {
+                    "title": "Kolor",
+                    "description": "Kolor jest widoczny tylko w widżecie listy."
+                }
+            },
+            "repair": {
+                "title": "Zaktualizuj listę",
+                "subtitle": "Edytuj szczegóły swojej listy.",
+                "submit": "Zapisz listę"
+            }
+        }
+    },
+    "element": {
+        "search_icon": "Szukaj ikony..."
+    },
+    "widget": {
+        "list": {
+            "no_items": "Na tej liście nie ma elementów.",
+            "today": "Dzisiaj",
+            "today_at": "Dzisiaj o",
+            "other": "Inne",
+            "add": {
+                "title": {
+                    "note": "Dodaj notatkę",
+                    "product": "Dodaj produkt",
+                    "task": "Dodaj zadanie"
+                },
+                "add": "Dodaj",
+                "save": "Zapisz",
+                "cancel": "Anuluj",
+                "category": "Kategoria",
+                "content": "Treść",
+                "due": "Termin",
+                "person": "Osoba",
+                "anyone": "Ktokolwiek",
+                "type": "Typ",
+                "note": "Notatka",
+                "product": "Produkt",
+                "quantity": "Ilość",
+                "task": "Zadanie"
+            },
+            "edit": {
+                "title": {
+                    "note": "Edytuj notatkę",
+                    "product": "Edytuj produkt",
+                    "task": "Edytuj zadanie"
+                }
+            }
+        }
+    },
+    "grocery": {
+        "category": {
+            "fruits_vegetables": "Owoce i warzywa",
+            "bakery": "Pieczywo",
+            "dairy_eggs": "Nabiał i jaja",
+            "meat": "Mięso",
+            "fish_seafood": "Ryby i owoce morza",
+            "deli": "Garmażerka i dania gotowe",
+            "frozen": "Mrożonki",
+            "beverages": "Napoje",
+            "snacks_sweets": "Przekąski i słodycze",
+            "breakfast_cereals": "Śniadanie i płatki",
+            "pasta_rice_grains": "Makaron, ryż i kasze",
+            "canned_jarred": "Konserwy i słoiki",
+            "sauces_condiments": "Sosy i dodatki",
+            "herbs_spices": "Zioła i przyprawy",
+            "oils_vinegars": "Oleje i octy",
+            "household": "Gospodarstwo domowe",
+            "personal_care": "Higiena osobista",
+            "pet_supplies": "Artykuły dla zwierząt",
+            "baby_products": "Produkty dla dzieci",
+            "health_vitamins": "Zdrowie i witaminy"
+        }
+    },
+    "color": {
+        "red": "Czerwony",
+        "orange": "Pomarańczowy",
+        "amber": "Bursztynowy",
+        "yellow": "Żółty",
+        "lime": "Limonkowy",
+        "green": "Zielony",
+        "emerald": "Szmaragdowy",
+        "teal": "Morski",
+        "cyan": "Cyjan",
+        "sky": "Niebieski jasny",
+        "blue": "Niebieski",
+        "indigo": "Indygo",
+        "violet": "Fioletowy",
+        "purple": "Purpurowy",
+        "fuchsia": "Fuksja",
+        "pink": "Różowy",
+        "rose": "Róż jasny"
+    }
+}

@@ -1,0 +1,109 @@
+{
+  "device": {
+    "list": {
+      "pair": {
+        "title": "Skapa en ny lista",
+        "subtitle": "Objekt kan skapas via widgetar eller flöden.",
+        "submit": "Skapa lista",
+        "name": {
+          "title": "Namn",
+          "description": "Ett unikt namn för din lista."
+        },
+        "icon": {
+          "title": "Ikon",
+          "description": "Ikonen visas endast i listwidgeten."
+        },
+        "color": {
+          "title": "Färg",
+          "description": "Färgen visas endast i listwidgeten."
+        }
+      },
+      "repair": {
+        "title": "Uppdatera lista",
+        "subtitle": "Redigera detaljerna för din lista.",
+        "submit": "Spara lista"
+      }
+    }
+  },
+  "element": {
+    "search_icon": "Sök efter en ikon..."
+  },
+  "widget": {
+    "list": {
+      "no_items": "Det finns inga objekt i den här listan.",
+      "today": "Idag",
+      "today_at": "Idag kl.",
+      "other": "Övrigt",
+      "add": {
+        "title": {
+          "note": "Lägg till anteckning",
+          "product": "Lägg till produkt",
+          "task": "Lägg till uppgift"
+        },
+        "add": "Lägg till",
+        "save": "Spara",
+        "cancel": "Avbryt",
+        "category": "Kategori",
+        "content": "Innehåll",
+        "due": "Förfallodatum",
+        "person": "Person",
+        "anyone": "Vem som helst",
+        "type": "Typ",
+        "note": "Anteckning",
+        "product": "Produkt",
+        "quantity": "Antal",
+        "task": "Uppgift"
+      },
+      "edit": {
+        "title": {
+          "note": "Redigera anteckning",
+          "product": "Redigera produkt",
+          "task": "Redigera uppgift"
+        }
+      }
+    }
+  },
+  "grocery": {
+    "category": {
+      "fruits_vegetables": "Frukt & Grönt",
+      "bakery": "Bageri",
+      "dairy_eggs": "Mejeri & Ägg",
+      "meat": "Kött",
+      "fish_seafood": "Fisk & Skaldjur",
+      "deli": "Delikatesser & Färdigmat",
+      "frozen": "Frysvaror",
+      "beverages": "Drycker",
+      "snacks_sweets": "Snacks & Godis",
+      "breakfast_cereals": "Frukost & Flingor",
+      "pasta_rice_grains": "Pasta, Ris & Gryn",
+      "canned_jarred": "Konserver & Burkar",
+      "sauces_condiments": "Såser & Smaksättare",
+      "herbs_spices": "Örter & Kryddor",
+      "oils_vinegars": "Oljor & Vinäger",
+      "household": "Hushåll",
+      "personal_care": "Personlig vård",
+      "pet_supplies": "Husdjur",
+      "baby_products": "Barnprodukter",
+      "health_vitamins": "Hälsa & Vitaminer"
+    }
+  },
+  "color": {
+    "red": "Röd",
+    "orange": "Orange",
+    "amber": "Bärnsten",
+    "yellow": "Gul",
+    "lime": "Lime",
+    "green": "Grön",
+    "emerald": "Smaragd",
+    "teal": "Teal",
+    "cyan": "Cyan",
+    "sky": "Himmelsblå",
+    "blue": "Blå",
+    "indigo": "Indigo",
+    "violet": "Violett",
+    "purple": "Lila",
+    "fuchsia": "Fuchsia",
+    "pink": "Rosa",
+    "rose": "Rosé"
+  }
+}

@@ -2,11 +2,33 @@
     "id": "set_product_category",
     "title": {
         "en": "Set product category",
-        "nl": "Stel categorie in"
+        "nl": "Stel categorie in",
+        "de": "Produktkategorie festlegen",
+        "fr": "Définir la catégorie du produit",
+        "it": "Imposta categoria prodotto",
+        "sv": "Ställ in produktkategori",
+        "no": "Sett produktkategori",
+        "es": "Establecer categoría del producto",
+        "da": "Angiv produktkategori",
+        "ru": "Установить категорию продукта",
+        "pl": "Ustaw kategorię produktu",
+        "ko": "제품 카테고리 설정",
+        "ar": "تعيين فئة المنتج"
     },
     "titleFormatted": {
         "en": "Set category of [[product]] to [[category]]",
-        "nl": "Stel categorie van [[product]] in op [[category]]"
+        "nl": "Stel categorie van [[product]] in op [[category]]",
+        "de": "Kategorie von [[product]] auf [[category]] setzen",
+        "fr": "Définir la catégorie de [[product]] sur [[category]]",
+        "it": "Imposta la categoria di [[product]] su [[category]]",
+        "sv": "Ställ in kategorin för [[product]] till [[category]]",
+        "no": "Sett kategorien for [[product]] til [[category]]",
+        "es": "Establecer la categoría de [[product]] en [[category]]",
+        "da": "Angiv kategorien for [[product]] til [[category]]",
+        "ru": "Установить категорию [[product]] на [[category]]",
+        "pl": "Ustaw kategorię [[product]] na [[category]]",
+        "ko": "[[product]]의 카테고리를 [[category]]로 설정",
+        "ar": "تعيين فئة [[product]] إلى [[category]]"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
         },
@@ -23,7 +56,18 @@
             "name": "product",
             "title": {
                 "en": "Product",
-                "nl": "Product"
+                "nl": "Product",
+                "de": "Produkt",
+                "fr": "Produit",
+                "it": "Prodotto",
+                "sv": "Produkt",
+                "no": "Produkt",
+                "es": "Producto",
+                "da": "Produkt",
+                "ru": "Продукт",
+                "pl": "Produkt",
+                "ko": "제품",
+                "ar": "منتج"
             }
         },
         {
@@ -31,7 +75,18 @@
             "name": "category",
             "title": {
                 "en": "Category",
-                "nl": "Categorie"
+                "nl": "Categorie",
+                "de": "Kategorie",
+                "fr": "Catégorie",
+                "it": "Categoria",
+                "sv": "Kategori",
+                "no": "Kategori",
+                "es": "Categoría",
+                "da": "Kategori",
+                "ru": "Категория",
+                "pl": "Kategoria",
+                "ko": "카테고리",
+                "ar": "الفئة"
             }
         }
     ]

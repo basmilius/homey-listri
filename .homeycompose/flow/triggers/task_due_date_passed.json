@@ -2,11 +2,33 @@
     "id": "task_due_date_passed",
     "title": {
         "en": "A task due date has passed",
-        "nl": "Een taak is verlopen"
+        "nl": "Een taak is verlopen",
+        "de": "Das Fälligkeitsdatum einer Aufgabe ist abgelaufen",
+        "fr": "L'échéance d'une tâche est dépassée",
+        "it": "La scadenza di un'attività è passata",
+        "sv": "En uppgifts förfallodatum har passerat",
+        "no": "En oppgaves forfallsdato har passert",
+        "es": "Ha vencido la fecha límite de una tarea",
+        "da": "En opgaves forfaldsdato er overskredet",
+        "ru": "Срок выполнения задачи истёк",
+        "pl": "Termin zadania minął",
+        "ko": "작업 기한이 지남",
+        "ar": "انقضى موعد استحقاق مهمة"
     },
     "titleFormatted": {
         "en": "A task due date has passed",
-        "nl": "Een taak is verlopen"
+        "nl": "Een taak is verlopen",
+        "de": "Das Fälligkeitsdatum einer Aufgabe ist abgelaufen",
+        "fr": "L'échéance d'une tâche est dépassée",
+        "it": "La scadenza di un'attività è passata",
+        "sv": "En uppgifts förfallodatum har passerat",
+        "no": "En oppgaves forfallsdato har passert",
+        "es": "Ha vencido la fecha límite de una tarea",
+        "da": "En opgaves forfaldsdato er overskredet",
+        "ru": "Срок выполнения задачи истёк",
+        "pl": "Termin zadania minął",
+        "ko": "작업 기한이 지남",
+        "ar": "انقضى موعد استحقاق مهمة"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list"
         }
@@ -25,7 +58,18 @@
             "type": "string",
             "title": {
                 "en": "Task",
-                "nl": "Taak"
+                "nl": "Taak",
+                "de": "Aufgabe",
+                "fr": "Tâche",
+                "it": "Attività",
+                "sv": "Uppgift",
+                "no": "Oppgave",
+                "es": "Tarea",
+                "da": "Opgave",
+                "ru": "Задача",
+                "pl": "Zadanie",
+                "ko": "작업",
+                "ar": "مهمة"
             }
         },
         {
@@ -33,7 +77,18 @@
             "type": "string",
             "title": {
                 "en": "Person",
-                "nl": "Persoon"
+                "nl": "Persoon",
+                "de": "Person",
+                "fr": "Personne",
+                "it": "Persona",
+                "sv": "Person",
+                "no": "Person",
+                "es": "Persona",
+                "da": "Person",
+                "ru": "Человек",
+                "pl": "Osoba",
+                "ko": "담당자",
+                "ar": "شخص"
             }
         },
         {
@@ -41,7 +96,18 @@
             "type": "string",
             "title": {
                 "en": "Due",
-                "nl": "Vervaldatum"
+                "nl": "Vervaldatum",
+                "de": "Fällig",
+                "fr": "Échéance",
+                "it": "Scadenza",
+                "sv": "Förfallodatum",
+                "no": "Forfallsdato",
+                "es": "Vencimiento",
+                "da": "Forfaldsdato",
+                "ru": "Срок",
+                "pl": "Termin",
+                "ko": "기한",
+                "ar": "تاريخ الاستحقاق"
             }
         }
     ]

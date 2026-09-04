@@ -2,11 +2,33 @@
     "id": "product_removed",
     "title": {
         "en": "A product is removed",
-        "nl": "Er is een product verwijderd"
+        "nl": "Er is een product verwijderd",
+        "de": "Ein Produkt wurde entfernt",
+        "fr": "Un produit est supprimé",
+        "it": "Un prodotto è stato rimosso",
+        "sv": "En produkt har tagits bort",
+        "no": "Et produkt er fjernet",
+        "es": "Se ha eliminado un producto",
+        "da": "Et produkt er fjernet",
+        "ru": "Продукт удалён",
+        "pl": "Produkt został usunięty",
+        "ko": "제품이 제거됨",
+        "ar": "تمت إزالة منتج"
     },
     "titleFormatted": {
         "en": "A product is removed",
-        "nl": "Er is een product verwijderd"
+        "nl": "Er is een product verwijderd",
+        "de": "Ein Produkt wurde entfernt",
+        "fr": "Un produit est supprimé",
+        "it": "Un prodotto è stato rimosso",
+        "sv": "En produkt har tagits bort",
+        "no": "Et produkt er fjernet",
+        "es": "Se ha eliminado un producto",
+        "da": "Et produkt er fjernet",
+        "ru": "Продукт удалён",
+        "pl": "Produkt został usunięty",
+        "ko": "제품이 제거됨",
+        "ar": "تمت إزالة منتج"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
         }
@@ -25,7 +58,18 @@
             "type": "string",
             "title": {
                 "en": "Product",
-                "nl": "Product"
+                "nl": "Product",
+                "de": "Produkt",
+                "fr": "Produit",
+                "it": "Prodotto",
+                "sv": "Produkt",
+                "no": "Produkt",
+                "es": "Producto",
+                "da": "Produkt",
+                "ru": "Продукт",
+                "pl": "Produkt",
+                "ko": "제품",
+                "ar": "منتج"
             }
         },
         {
@@ -33,7 +77,18 @@
             "type": "number",
             "title": {
                 "en": "Quantity",
-                "nl": "Aantal"
+                "nl": "Aantal",
+                "de": "Menge",
+                "fr": "Quantité",
+                "it": "Quantità",
+                "sv": "Antal",
+                "no": "Antall",
+                "es": "Cantidad",
+                "da": "Antal",
+                "ru": "Количество",
+                "pl": "Ilość",
+                "ko": "수량",
+                "ar": "الكمية"
             }
         }
     ]

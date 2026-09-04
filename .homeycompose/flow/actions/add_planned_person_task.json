@@ -2,11 +2,33 @@
     "id": "add_planned_person_task",
     "title": {
         "en": "Add planned person task",
-        "nl": "Geplande taak voor persoon toevoegen"
+        "nl": "Geplande taak voor persoon toevoegen",
+        "de": "Geplante Aufgabe für Person hinzufügen",
+        "fr": "Ajouter une tâche planifiée pour une personne",
+        "it": "Aggiungi attività pianificata per persona",
+        "sv": "Lägg till planerad uppgift för person",
+        "no": "Legg til planlagt oppgave for person",
+        "es": "Añadir tarea planificada para una persona",
+        "da": "Tilføj planlagt opgave for person",
+        "ru": "Добавить запланированную задачу для человека",
+        "pl": "Dodaj zaplanowane zadanie dla osoby",
+        "ko": "예정된 담당자 작업 추가",
+        "ar": "إضافة مهمة مجدولة لشخص"
     },
     "titleFormatted": {
         "en": "Add task [[task]] for [[person]] due on [[date]] at [[time]]",
-        "nl": "Taak [[task]] voor [[person]] met deadline op [[date]] om [[time]] toevoegen"
+        "nl": "Taak [[task]] voor [[person]] met deadline op [[date]] om [[time]] toevoegen",
+        "de": "Aufgabe [[task]] für [[person]] mit Fälligkeit am [[date]] um [[time]] hinzufügen",
+        "fr": "Ajouter la tâche [[task]] pour [[person]] à échéance le [[date]] à [[time]]",
+        "it": "Aggiungi attività [[task]] per [[person]] con scadenza il [[date]] alle [[time]]",
+        "sv": "Lägg till uppgift [[task]] för [[person]] som förfaller [[date]] kl. [[time]]",
+        "no": "Legg til oppgave [[task]] for [[person]] med frist [[date]] kl. [[time]]",
+        "es": "Añadir tarea [[task]] para [[person]] con vencimiento el [[date]] a las [[time]]",
+        "da": "Tilføj opgave [[task]] for [[person]] med forfald den [[date]] kl. [[time]]",
+        "ru": "Добавить задачу [[task]] для [[person]] со сроком [[date]] в [[time]]",
+        "pl": "Dodaj zadanie [[task]] dla [[person]] z terminem [[date]] o [[time]]",
+        "ko": "[[person]]의 작업 [[task]]를 기한 [[date]] [[time]]으로 추가",
+        "ar": "إضافة المهمة [[task]] لـ [[person]] المستحقة في [[date]] الساعة [[time]]"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list"
         },
@@ -23,7 +56,18 @@
             "name": "task",
             "title": {
                 "en": "Task",
-                "nl": "Taak"
+                "nl": "Taak",
+                "de": "Aufgabe",
+                "fr": "Tâche",
+                "it": "Attività",
+                "sv": "Uppgift",
+                "no": "Oppgave",
+                "es": "Tarea",
+                "da": "Opgave",
+                "ru": "Задача",
+                "pl": "Zadanie",
+                "ko": "작업",
+                "ar": "مهمة"
             }
         },
         {
@@ -31,7 +75,18 @@
             "name": "person",
             "title": {
                 "en": "Person",
-                "nl": "Persoon"
+                "nl": "Persoon",
+                "de": "Person",
+                "fr": "Personne",
+                "it": "Persona",
+                "sv": "Person",
+                "no": "Person",
+                "es": "Persona",
+                "da": "Person",
+                "ru": "Человек",
+                "pl": "Osoba",
+                "ko": "담당자",
+                "ar": "شخص"
             }
         },
         {
@@ -39,7 +94,18 @@
             "name": "date",
             "title": {
                 "en": "Date",
-                "nl": "Datum"
+                "nl": "Datum",
+                "de": "Datum",
+                "fr": "Date",
+                "it": "Data",
+                "sv": "Datum",
+                "no": "Dato",
+                "es": "Fecha",
+                "da": "Dato",
+                "ru": "Дата",
+                "pl": "Data",
+                "ko": "날짜",
+                "ar": "التاريخ"
             }
         },
         {
@@ -48,7 +114,18 @@
             "required": false,
             "title": {
                 "en": "Time",
-                "nl": "Tijd"
+                "nl": "Tijd",
+                "de": "Uhrzeit",
+                "fr": "Heure",
+                "it": "Ora",
+                "sv": "Tid",
+                "no": "Tid",
+                "es": "Hora",
+                "da": "Tidspunkt",
+                "ru": "Время",
+                "pl": "Godzina",
+                "ko": "시간",
+                "ar": "الوقت"
             }
         }
     ]

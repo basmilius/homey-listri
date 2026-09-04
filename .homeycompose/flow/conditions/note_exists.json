@@ -2,11 +2,33 @@
     "id": "note_exists",
     "title": {
         "en": "Note exists",
-        "nl": "Notitie bestaat"
+        "nl": "Notitie bestaat",
+        "de": "Notiz existiert",
+        "fr": "La note existe",
+        "it": "La nota esiste",
+        "sv": "Anteckningen finns",
+        "no": "Notatet finnes",
+        "es": "La nota existe",
+        "da": "Noten findes",
+        "ru": "Заметка существует",
+        "pl": "Notatka istnieje",
+        "ko": "메모 존재",
+        "ar": "الملاحظة موجودة"
     },
     "titleFormatted": {
         "en": "Note [[note]] !{{exists|does not exist}} on the list",
-        "nl": "Notitie [[note]] !{{staat|staat niet}} op de lijst"
+        "nl": "Notitie [[note]] !{{staat|staat niet}} op de lijst",
+        "de": "Notiz [[note]] !{{steht|steht nicht}} auf der Liste",
+        "fr": "La note [[note]] !{{est|n'est pas}} dans la liste",
+        "it": "La nota [[note]] !{{è|non è}} nell'elenco",
+        "sv": "Anteckningen [[note]] !{{finns|finns inte}} i listan",
+        "no": "Notatet [[note]] !{{finnes|finnes ikke}} i listen",
+        "es": "La nota [[note]] !{{está|no está}} en la lista",
+        "da": "Noten [[note]] !{{findes|findes ikke}} på listen",
+        "ru": "Заметка [[note]] !{{есть|отсутствует}} в списке",
+        "pl": "Notatka [[note]] !{{jest|nie jest}} na liście",
+        "ko": "메모 [[note]]가 목록에 !{{있음|없음}}",
+        "ar": "الملاحظة [[note]] !{{موجودة|غير موجودة}} في القائمة"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
         },
@@ -23,7 +56,18 @@
             "name": "note",
             "title": {
                 "en": "Note",
-                "nl": "Notitie"
+                "nl": "Notitie",
+                "de": "Notiz",
+                "fr": "Note",
+                "it": "Nota",
+                "sv": "Anteckning",
+                "no": "Notat",
+                "es": "Nota",
+                "da": "Note",
+                "ru": "Заметка",
+                "pl": "Notatka",
+                "ko": "메모",
+                "ar": "ملاحظة"
             }
         }
     ]
