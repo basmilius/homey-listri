@@ -7,15 +7,16 @@
         "dev": "vite build --watch"
     },
     "dependencies": {
-        "@flux-ui/components": "3.0.0-next.26",
+        "@flux-ui/components": "3.0.0-next.28",
         "@fortawesome/pro-regular-svg-icons": "^7.1.0",
         "luxon": "^3.7.2",
         "pinia": "^3.0.4",
-        "vue": "^3.5.25"
+        "vue": "^3.5.25",
+        "vue-router": "^5.3.1"
     },
     "devDependencies": {
         "@basmilius/vite-preset": "^2.19.0",
-        "@flux-ui/types": "3.0.0-next.26",
+        "@flux-ui/types": "3.0.0-next.28",
         "@types/luxon": "^3.7.1",
         "@vitejs/plugin-vue": "^6.0.3",
         "@vue/tsconfig": "^0.8.1",
