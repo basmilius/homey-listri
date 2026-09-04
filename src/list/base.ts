@@ -7,6 +7,8 @@ import type { ListLook, ListriApp, Writable } from '../types';
 import type { ListItem, NoteListItem } from './item';
 import { decode, dueDateTime, encode } from './item';
 
+const ICON_IDS = new Map(icons.map(icon => [icon.unicode, icon.id]));
+
 export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<ListriApp, TDriver> {
 
     get categorizedItems(): Record<string, ListItem[]> {
@@ -149,6 +151,21 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         return false;
     }
 
+    /** Removes by id and lets the item type decide which trigger fires; `remove` itself fires none. */
+    async removeItem(id: string): Promise<boolean> {
+        const item = await this.find(id);
+
+        if (!item) {
+            return false;
+        }
+
+        if (item.type === 'note') {
+            return await this.removeNoteById(item.id);
+        }
+
+        return await this.remove(item.id);
+    }
+
     async remove(id: string): Promise<boolean> {
         const index = await this.findIndex(id);
 
@@ -219,6 +236,16 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
             return false;
         }
 
+        return await this.removeNoteById(note.id);
+    }
+
+    async removeNoteById(id: string): Promise<boolean> {
+        const note = await this.find(id);
+
+        if (note?.type !== 'note') {
+            return false;
+        }
+
         const result = await this.remove(note.id);
 
         if (!result) {
@@ -236,7 +263,8 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
 
         return {
             color,
-            icon
+            icon,
+            iconId: ICON_IDS.get(icon) ?? null
         };
     }
 

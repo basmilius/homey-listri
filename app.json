@@ -63,6 +63,64 @@
       }
     }
   },
+  "api": {
+    "getLists": {
+      "method": "GET",
+      "path": "/lists"
+    },
+    "getList": {
+      "method": "GET",
+      "path": "/lists/:deviceId"
+    },
+    "getItems": {
+      "method": "GET",
+      "path": "/lists/:deviceId/items"
+    },
+    "getItem": {
+      "method": "GET",
+      "path": "/lists/:deviceId/items/:id"
+    },
+    "getCategories": {
+      "method": "GET",
+      "path": "/categories"
+    },
+    "getPersons": {
+      "method": "GET",
+      "path": "/persons"
+    },
+    "addItem": {
+      "method": "POST",
+      "path": "/lists/:deviceId/items"
+    },
+    "editItem": {
+      "method": "POST",
+      "path": "/lists/:deviceId/items/:id"
+    },
+    "checkItem": {
+      "method": "POST",
+      "path": "/lists/:deviceId/items/:id/checked"
+    },
+    "uncheckItem": {
+      "method": "POST",
+      "path": "/lists/:deviceId/items/:id/unchecked"
+    },
+    "changeQuantity": {
+      "method": "POST",
+      "path": "/lists/:deviceId/items/:id/quantity"
+    },
+    "removeItem": {
+      "method": "DELETE",
+      "path": "/lists/:deviceId/items/:id"
+    },
+    "removeChecked": {
+      "method": "POST",
+      "path": "/lists/:deviceId/remove-checked"
+    },
+    "clearList": {
+      "method": "POST",
+      "path": "/lists/:deviceId/clear"
+    }
+  },
   "flow": {
     "triggers": [
       {

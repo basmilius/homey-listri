@@ -74,10 +74,30 @@ export class GroceryListDevice extends ListDevice<GroceryListDriver> {
         return this.products.find(item => item.content === content)?.id ?? null;
     }
 
+    async removeItem(id: string): Promise<boolean> {
+        const item = await this.find(id);
+
+        if (item?.type === 'product') {
+            return await this.removeProductById(item.id);
+        }
+
+        return await super.removeItem(id);
+    }
+
     async removeProduct(content: string): Promise<boolean> {
         const product = await this.findProduct(content);
 
         if (!product) {
+            return false;
+        }
+
+        return await this.removeProductById(product.id);
+    }
+
+    async removeProductById(id: string): Promise<boolean> {
+        const product = await this.find(id);
+
+        if (product?.type !== 'product') {
             return false;
         }
 
@@ -126,6 +146,16 @@ export class GroceryListDevice extends ListDevice<GroceryListDriver> {
         const product = await this.findProduct(content);
 
         if (!product) {
+            return false;
+        }
+
+        return await this.setProductQuantityById(product.id, quantity);
+    }
+
+    async setProductQuantityById(id: string, quantity: number): Promise<boolean> {
+        const product = await this.find(id);
+
+        if (product?.type !== 'product') {
             return false;
         }
 
