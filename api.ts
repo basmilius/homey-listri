@@ -33,6 +33,7 @@ export async function addItem({homey: {app}, params, body}: ApiRequest<ListriApp
     return await lists.addItem(app, params.deviceId, body);
 }
 
+/** Replaces the item, so send the whole thing: a field left out of the body is cleared, not kept. */
 export async function editItem({homey: {app}, params, body}: ApiRequest<ListriApp, EditItemBody, ItemParams>): Promise<boolean> {
     return await lists.editItem(app, params.deviceId, params.id, body);
 }

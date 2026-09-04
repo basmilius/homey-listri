@@ -142,6 +142,18 @@ export class GroceryListDevice extends ListDevice<GroceryListDriver> {
         return product.quantity;
     }
 
+    async changeProductQuantityById(id: string, change: number): Promise<boolean> {
+        return await this.serialize(async () => {
+            const product = await this.find(id);
+
+            if (product?.type !== 'product') {
+                return false;
+            }
+
+            return await this.setProductQuantityById(product.id, Math.max(1, product.quantity + change));
+        });
+    }
+
     async setProductQuantity(content: string, quantity: number): Promise<boolean> {
         const product = await this.findProduct(content);
 

@@ -33,6 +33,7 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     }
 
     #items: ListItem[] = [];
+    #queue: Promise<unknown> = Promise.resolve();
 
     async add<TItem extends ListItem>(item: Omit<TItem, 'id' | 'created'>): Promise<ListItem> {
         const listItem: TItem = {
@@ -64,7 +65,18 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     }
 
     async findIndex(id: string): Promise<number | null> {
-        return this.#items.findIndex(item => item.id === id);
+        const index = this.#items.findIndex(item => item.id === id);
+
+        return index === -1 ? null : index;
+    }
+
+    /** Runs read-modify-write work one at a time; two taps at once otherwise read the same value and one of them is lost. */
+    async serialize<T>(task: () => Promise<T>): Promise<T> {
+        const result = this.#queue.then(task, task);
+
+        this.#queue = result.catch(() => undefined);
+
+        return await result;
     }
 
     async getContents(items: 'all' | 'open' | 'checked'): Promise<string> {

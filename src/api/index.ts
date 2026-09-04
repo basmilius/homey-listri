@@ -6,7 +6,7 @@ import type { ListriApp, ListView } from '../types';
 export async function addItem(app: ListriApp, deviceId: string, body: AddItemBody): Promise<boolean> {
     const device = await app.getDevice<ListDevice>(deviceId);
 
-    if (!device || body.content.trim().length === 0) {
+    if (!device || !isContent(body?.content) || !isQuantity(body.quantity)) {
         return false;
     }
 
@@ -34,17 +34,11 @@ export async function addItem(app: ListriApp, deviceId: string, body: AddItemBod
 export async function changeQuantity(app: ListriApp, deviceId: string, id: string, change: number): Promise<boolean> {
     const device = await app.getDevice<ListDevice>(deviceId);
 
-    if (!(device instanceof GroceryListDevice)) {
+    if (!(device instanceof GroceryListDevice) || !Number.isFinite(change)) {
         return false;
     }
 
-    const product = await device.find(id);
-
-    if (product?.type !== 'product') {
-        return false;
-    }
-
-    return await device.setProductQuantityById(product.id, Math.max(1, product.quantity + change));
+    return await device.changeProductQuantityById(id, change);
 }
 
 export async function checkItem(app: ListriApp, deviceId: string, id: string, checked: boolean): Promise<boolean> {
@@ -69,10 +63,11 @@ export async function clearList(app: ListriApp, deviceId: string): Promise<boole
     return true;
 }
 
+/** Replaces the item: a field the body leaves out is cleared, not kept. */
 export async function editItem(app: ListriApp, deviceId: string, id: string, body: EditItemBody): Promise<boolean> {
     const device = await app.getDevice<ListDevice>(deviceId);
 
-    if (!device || body.content.trim().length === 0) {
+    if (!device || !isContent(body?.content) || !isQuantity(body.quantity)) {
         return false;
     }
 
@@ -140,9 +135,9 @@ export async function getLists(app: ListriApp): Promise<ListView[]> {
 }
 
 export async function getPersons(app: ListriApp): Promise<ListItemPerson[]> {
-    return await app.registry
-        .findAutocompleteProvider(AutocompleteProviders.Person)!
-        .find('') as ListItemPerson[];
+    const provider = app.registry.findAutocompleteProvider(AutocompleteProviders.Person);
+
+    return (await provider?.find('') ?? []) as ListItemPerson[];
 }
 
 export async function removeChecked(app: ListriApp, deviceId: string): Promise<boolean> {
@@ -165,6 +160,14 @@ export async function removeItem(app: ListriApp, deviceId: string, id: string): 
     }
 
     return await device.removeItem(id);
+}
+
+function isContent(value: unknown): value is string {
+    return typeof value === 'string' && value.trim().length > 0;
+}
+
+function isQuantity(value: unknown): boolean {
+    return value === undefined || (typeof value === 'number' && Number.isFinite(value) && value >= 1);
 }
 
 async function findPerson(app: ListriApp, personId?: string): Promise<ListItemPerson | undefined> {
