@@ -7,6 +7,8 @@ import type { ListLook, ListriApp, Writable } from '../types';
 import type { ListItem, NoteListItem } from './item';
 import { decode, dueDateTime, encode } from './item';
 
+const ICON_IDS = new Map(icons.map(icon => [icon.unicode, icon.id]));
+
 export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<ListriApp, TDriver> {
 
     get categorizedItems(): Record<string, ListItem[]> {
@@ -31,6 +33,7 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     }
 
     #items: ListItem[] = [];
+    #queue: Promise<unknown> = Promise.resolve();
 
     async add<TItem extends ListItem>(item: Omit<TItem, 'id' | 'created'>): Promise<ListItem> {
         const listItem: TItem = {
@@ -62,7 +65,18 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
     }
 
     async findIndex(id: string): Promise<number | null> {
-        return this.#items.findIndex(item => item.id === id);
+        const index = this.#items.findIndex(item => item.id === id);
+
+        return index === -1 ? null : index;
+    }
+
+    /** Runs read-modify-write work one at a time; two taps at once otherwise read the same value and one of them is lost. */
+    async serialize<T>(task: () => Promise<T>): Promise<T> {
+        const result = this.#queue.then(task, task);
+
+        this.#queue = result.catch(() => undefined);
+
+        return await result;
     }
 
     async getContents(items: 'all' | 'open' | 'checked'): Promise<string> {
@@ -149,6 +163,21 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
         return false;
     }
 
+    /** Removes by id and lets the item type decide which trigger fires; `remove` itself fires none. */
+    async removeItem(id: string): Promise<boolean> {
+        const item = await this.find(id);
+
+        if (!item) {
+            return false;
+        }
+
+        if (item.type === 'note') {
+            return await this.removeNoteById(item.id);
+        }
+
+        return await this.remove(item.id);
+    }
+
     async remove(id: string): Promise<boolean> {
         const index = await this.findIndex(id);
 
@@ -219,6 +248,16 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
             return false;
         }
 
+        return await this.removeNoteById(note.id);
+    }
+
+    async removeNoteById(id: string): Promise<boolean> {
+        const note = await this.find(id);
+
+        if (note?.type !== 'note') {
+            return false;
+        }
+
         const result = await this.remove(note.id);
 
         if (!result) {
@@ -236,7 +275,8 @@ export class ListDevice<TDriver extends ListDriver = ListDriver> extends Device<
 
         return {
             color,
-            icon
+            icon,
+            iconId: ICON_IDS.get(icon) ?? null
         };
     }
 

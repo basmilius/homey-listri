@@ -80,10 +80,30 @@ export class BasicListDevice extends ListDevice<BasicListDriver> {
         return this.tasks.find(item => item.content === content)?.id ?? null;
     }
 
+    async removeItem(id: string): Promise<boolean> {
+        const item = await this.find(id);
+
+        if (item?.type === 'task') {
+            return await this.removeTaskById(item.id);
+        }
+
+        return await super.removeItem(id);
+    }
+
     async removeTask(content: string): Promise<boolean> {
         const task = await this.findTask(content);
 
         if (!task) {
+            return false;
+        }
+
+        return await this.removeTaskById(task.id);
+    }
+
+    async removeTaskById(id: string): Promise<boolean> {
+        const task = await this.find(id);
+
+        if (task?.type !== 'task') {
             return false;
         }
 
