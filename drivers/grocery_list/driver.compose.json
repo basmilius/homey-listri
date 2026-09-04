@@ -1,7 +1,18 @@
 {
     "name": {
         "en": "Grocery list",
-        "nl": "Boodschappenlijst"
+        "nl": "Boodschappenlijst",
+        "de": "Einkaufsliste",
+        "fr": "Liste de courses",
+        "it": "Lista della spesa",
+        "sv": "Inköpslista",
+        "no": "Handleliste",
+        "es": "Lista de la compra",
+        "da": "Indkøbsliste",
+        "ru": "Список покупок",
+        "pl": "Lista zakupów",
+        "ko": "장보기 목록",
+        "ar": "قائمة التسوق"
     },
     "class": "other",
     "capabilities": [],

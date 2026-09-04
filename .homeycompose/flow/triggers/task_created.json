@@ -2,11 +2,33 @@
     "id": "task_created",
     "title": {
         "en": "A task is created",
-        "nl": "Er is een taak aangemaakt"
+        "nl": "Er is een taak aangemaakt",
+        "de": "Eine Aufgabe wurde erstellt",
+        "fr": "Une tâche est créée",
+        "it": "Un'attività è stata creata",
+        "sv": "En uppgift har skapats",
+        "no": "En oppgave er opprettet",
+        "es": "Se ha creado una tarea",
+        "da": "En opgave er oprettet",
+        "ru": "Задача создана",
+        "pl": "Zadanie zostało utworzone",
+        "ko": "작업이 생성됨",
+        "ar": "تم إنشاء مهمة"
     },
     "titleFormatted": {
         "en": "A task is created",
-        "nl": "Er is een taak aangemaakt"
+        "nl": "Er is een taak aangemaakt",
+        "de": "Eine Aufgabe wurde erstellt",
+        "fr": "Une tâche est créée",
+        "it": "Un'attività è stata creata",
+        "sv": "En uppgift har skapats",
+        "no": "En oppgave er opprettet",
+        "es": "Se ha creado una tarea",
+        "da": "En opgave er oprettet",
+        "ru": "Задача создана",
+        "pl": "Zadanie zostało utworzone",
+        "ko": "작업이 생성됨",
+        "ar": "تم إنشاء مهمة"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list"
         }
@@ -25,7 +58,18 @@
             "type": "string",
             "title": {
                 "en": "Task",
-                "nl": "Taak"
+                "nl": "Taak",
+                "de": "Aufgabe",
+                "fr": "Tâche",
+                "it": "Attività",
+                "sv": "Uppgift",
+                "no": "Oppgave",
+                "es": "Tarea",
+                "da": "Opgave",
+                "ru": "Задача",
+                "pl": "Zadanie",
+                "ko": "작업",
+                "ar": "مهمة"
             }
         },
         {
@@ -33,7 +77,18 @@
             "type": "string",
             "title": {
                 "en": "Person",
-                "nl": "Persoon"
+                "nl": "Persoon",
+                "de": "Person",
+                "fr": "Personne",
+                "it": "Persona",
+                "sv": "Person",
+                "no": "Person",
+                "es": "Persona",
+                "da": "Person",
+                "ru": "Человек",
+                "pl": "Osoba",
+                "ko": "담당자",
+                "ar": "شخص"
             }
         },
         {
@@ -41,7 +96,18 @@
             "type": "string",
             "title": {
                 "en": "Due",
-                "nl": "Vervaldatum"
+                "nl": "Vervaldatum",
+                "de": "Fällig",
+                "fr": "Échéance",
+                "it": "Scadenza",
+                "sv": "Förfallodatum",
+                "no": "Forfallsdato",
+                "es": "Vencimiento",
+                "da": "Forfaldsdato",
+                "ru": "Срок",
+                "pl": "Termin",
+                "ko": "기한",
+                "ar": "تاريخ الاستحقاق"
             }
         }
     ]

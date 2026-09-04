@@ -2,11 +2,33 @@
     "id": "task_exists",
     "title": {
         "en": "Task exists",
-        "nl": "Taak bestaat"
+        "nl": "Taak bestaat",
+        "de": "Aufgabe existiert",
+        "fr": "La tâche existe",
+        "it": "L'attività esiste",
+        "sv": "Uppgiften finns",
+        "no": "Oppgaven finnes",
+        "es": "La tarea existe",
+        "da": "Opgaven findes",
+        "ru": "Задача существует",
+        "pl": "Zadanie istnieje",
+        "ko": "작업 존재",
+        "ar": "المهمة موجودة"
     },
     "titleFormatted": {
         "en": "Task [[task]] !{{exists|does not exist}} on the list",
-        "nl": "Taak [[task]] !{{staat|staat niet}} op de lijst"
+        "nl": "Taak [[task]] !{{staat|staat niet}} op de lijst",
+        "de": "Aufgabe [[task]] !{{steht|steht nicht}} auf der Liste",
+        "fr": "La tâche [[task]] !{{est|n'est pas}} dans la liste",
+        "it": "L'attività [[task]] !{{è|non è}} nell'elenco",
+        "sv": "Uppgiften [[task]] !{{finns|finns inte}} i listan",
+        "no": "Oppgaven [[task]] !{{finnes|finnes ikke}} i listen",
+        "es": "La tarea [[task]] !{{está|no está}} en la lista",
+        "da": "Opgaven [[task]] !{{findes|findes ikke}} på listen",
+        "ru": "Задача [[task]] !{{есть|отсутствует}} в списке",
+        "pl": "Zadanie [[task]] !{{jest|nie jest}} na liście",
+        "ko": "작업 [[task]]가 목록에 !{{있음|없음}}",
+        "ar": "المهمة [[task]] !{{موجودة|غير موجودة}} في القائمة"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list"
         },
@@ -23,7 +56,18 @@
             "name": "task",
             "title": {
                 "en": "Task",
-                "nl": "Taak"
+                "nl": "Taak",
+                "de": "Aufgabe",
+                "fr": "Tâche",
+                "it": "Attività",
+                "sv": "Uppgift",
+                "no": "Oppgave",
+                "es": "Tarea",
+                "da": "Opgave",
+                "ru": "Задача",
+                "pl": "Zadanie",
+                "ko": "작업",
+                "ar": "مهمة"
             }
         }
     ]

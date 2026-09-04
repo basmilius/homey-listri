@@ -2,11 +2,33 @@
     "id": "add_person_task",
     "title": {
         "en": "Add person task",
-        "nl": "Taak voor persoon toevoegen"
+        "nl": "Taak voor persoon toevoegen",
+        "de": "Aufgabe für Person hinzufügen",
+        "fr": "Ajouter une tâche pour une personne",
+        "it": "Aggiungi attività per persona",
+        "sv": "Lägg till uppgift för person",
+        "no": "Legg til oppgave for person",
+        "es": "Añadir tarea para una persona",
+        "da": "Tilføj opgave for person",
+        "ru": "Добавить задачу для человека",
+        "pl": "Dodaj zadanie dla osoby",
+        "ko": "담당자 작업 추가",
+        "ar": "إضافة مهمة لشخص"
     },
     "titleFormatted": {
         "en": "Add task [[task]] for [[person]]",
-        "nl": "Taak [[task]] voor [[person]] toevoegen"
+        "nl": "Taak [[task]] voor [[person]] toevoegen",
+        "de": "Aufgabe [[task]] für [[person]] hinzufügen",
+        "fr": "Ajouter la tâche [[task]] pour [[person]]",
+        "it": "Aggiungi attività [[task]] per [[person]]",
+        "sv": "Lägg till uppgift [[task]] för [[person]]",
+        "no": "Legg til oppgave [[task]] for [[person]]",
+        "es": "Añadir tarea [[task]] para [[person]]",
+        "da": "Tilføj opgave [[task]] for [[person]]",
+        "ru": "Добавить задачу [[task]] для [[person]]",
+        "pl": "Dodaj zadanie [[task]] dla [[person]]",
+        "ko": "[[person]]의 작업 [[task]] 추가",
+        "ar": "إضافة المهمة [[task]] لـ [[person]]"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list"
         },
@@ -23,7 +56,18 @@
             "name": "person",
             "title": {
                 "en": "Person",
-                "nl": "Persoon"
+                "nl": "Persoon",
+                "de": "Person",
+                "fr": "Personne",
+                "it": "Persona",
+                "sv": "Person",
+                "no": "Person",
+                "es": "Persona",
+                "da": "Person",
+                "ru": "Человек",
+                "pl": "Osoba",
+                "ko": "담당자",
+                "ar": "شخص"
             }
         },
         {
@@ -31,7 +75,18 @@
             "name": "task",
             "title": {
                 "en": "Task",
-                "nl": "Taak"
+                "nl": "Taak",
+                "de": "Aufgabe",
+                "fr": "Tâche",
+                "it": "Attività",
+                "sv": "Uppgift",
+                "no": "Oppgave",
+                "es": "Tarea",
+                "da": "Opgave",
+                "ru": "Задача",
+                "pl": "Zadanie",
+                "ko": "작업",
+                "ar": "مهمة"
             }
         }
     ]

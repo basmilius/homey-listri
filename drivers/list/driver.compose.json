@@ -1,7 +1,18 @@
 {
     "name": {
         "en": "List",
-        "nl": "Lijst"
+        "nl": "Lijst",
+        "de": "Liste",
+        "fr": "Liste",
+        "it": "Elenco",
+        "sv": "Lista",
+        "no": "Liste",
+        "es": "Lista",
+        "da": "Liste",
+        "ru": "Список",
+        "pl": "Lista",
+        "ko": "목록",
+        "ar": "قائمة"
     },
     "class": "other",
     "capabilities": [],

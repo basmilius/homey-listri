@@ -1,7 +1,18 @@
 {
     "name": {
         "en": "List",
-        "nl": "Lijst"
+        "nl": "Lijst",
+        "de": "Liste",
+        "fr": "Liste",
+        "it": "Elenco",
+        "sv": "Lista",
+        "no": "Liste",
+        "es": "Lista",
+        "da": "Liste",
+        "ru": "Список",
+        "pl": "Lista",
+        "ko": "목록",
+        "ar": "قائمة"
     },
     "height": 120,
     "devices": {
@@ -15,7 +26,18 @@
             "type": "checkbox",
             "label": {
                 "en": "Dynamic height",
-                "nl": "Dynamische hoogte"
+                "nl": "Dynamische hoogte",
+                "de": "Dynamische Höhe",
+                "fr": "Hauteur dynamique",
+                "it": "Altezza dinamica",
+                "sv": "Dynamisk höjd",
+                "no": "Dynamisk høyde",
+                "es": "Altura dinámica",
+                "da": "Dynamisk højde",
+                "ru": "Динамическая высота",
+                "pl": "Dynamiczna wysokość",
+                "ko": "동적 높이",
+                "ar": "ارتفاع ديناميكي"
             },
             "value": true
         },
@@ -24,7 +46,18 @@
             "type": "number",
             "label": {
                 "en": "Fixed height",
-                "nl": "Vaste hoogte"
+                "nl": "Vaste hoogte",
+                "de": "Feste Höhe",
+                "fr": "Hauteur fixe",
+                "it": "Altezza fissa",
+                "sv": "Fast höjd",
+                "no": "Fast høyde",
+                "es": "Altura fija",
+                "da": "Fast højde",
+                "ru": "Фиксированная высота",
+                "pl": "Stała wysokość",
+                "ko": "고정 높이",
+                "ar": "ارتفاع ثابت"
             },
             "value": 400,
             "min": 120

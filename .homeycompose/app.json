@@ -9,11 +9,33 @@
   ],
   "name": {
     "en": "Lists",
-    "nl": "Lijsten"
+    "nl": "Lijsten",
+    "de": "Listen",
+    "fr": "Listes",
+    "it": "Elenchi",
+    "sv": "Listor",
+    "no": "Lister",
+    "es": "Listas",
+    "da": "Lister",
+    "ru": "Списки",
+    "pl": "Listy",
+    "ko": "목록",
+    "ar": "القوائم"
   },
   "description": {
     "en": "Create and manage shopping lists, tasks, and notes—right from your dashboard.",
-    "nl": "Maak en beheer boodschappenlijstjes, taken en notities—rechtstreeks vanuit je dashboard."
+    "nl": "Maak en beheer boodschappenlijstjes, taken en notities—rechtstreeks vanuit je dashboard.",
+    "de": "Einkaufslisten, Aufgaben und Notizen erstellen und verwalten—direkt von Ihrem Dashboard aus.",
+    "fr": "Créez et gérez des listes de courses, des tâches et des notes—directement depuis votre tableau de bord.",
+    "it": "Crea e gestisci liste della spesa, attività e note—direttamente dalla tua dashboard.",
+    "sv": "Skapa och hantera inköpslistor, uppgifter och anteckningar—direkt från din instrumentpanel.",
+    "no": "Opprett og administrer handlelister, oppgaver og notater—rett fra dashbordet ditt.",
+    "es": "Crea y gestiona listas de la compra, tareas y notas—directamente desde tu panel.",
+    "da": "Opret og administrer indkøbslister, opgaver og noter—direkte fra dit dashboard.",
+    "ru": "Создавайте списки покупок, задачи и заметки и управляйте ими—прямо с панели управления.",
+    "pl": "Twórz listy zakupów, zadania i notatki oraz zarządzaj nimi—bezpośrednio z pulpitu.",
+    "ko": "장보기 목록, 작업, 메모를 대시보드에서 바로 만들고 관리하세요.",
+    "ar": "أنشئ قوائم التسوق والمهام والملاحظات وأدرها—مباشرة من لوحة التحكم."
   },
   "category": [
     "tools"
@@ -31,6 +53,72 @@
       "boodschappen",
       "boodschappenlijst",
       "taken"
+    ],
+    "de": [
+      "liste",
+      "notizen",
+      "einkaufsliste",
+      "aufgaben"
+    ],
+    "fr": [
+      "liste",
+      "notes",
+      "liste de courses",
+      "tâches"
+    ],
+    "it": [
+      "elenco",
+      "note",
+      "lista della spesa",
+      "attività"
+    ],
+    "sv": [
+      "lista",
+      "anteckningar",
+      "inköpslista",
+      "uppgifter"
+    ],
+    "no": [
+      "liste",
+      "notater",
+      "handleliste",
+      "oppgaver"
+    ],
+    "es": [
+      "lista",
+      "notas",
+      "lista de la compra",
+      "tareas"
+    ],
+    "da": [
+      "liste",
+      "noter",
+      "indkøbsliste",
+      "opgaver"
+    ],
+    "ru": [
+      "список",
+      "заметки",
+      "список покупок",
+      "задачи"
+    ],
+    "pl": [
+      "lista",
+      "notatki",
+      "lista zakupów",
+      "zadania"
+    ],
+    "ko": [
+      "목록",
+      "메모",
+      "장보기 목록",
+      "작업"
+    ],
+    "ar": [
+      "قائمة",
+      "ملاحظات",
+      "قائمة التسوق",
+      "مهام"
     ]
   },
   "permissions": [

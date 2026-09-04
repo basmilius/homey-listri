@@ -10,11 +10,33 @@
   ],
   "name": {
     "en": "Lists",
-    "nl": "Lijsten"
+    "nl": "Lijsten",
+    "de": "Listen",
+    "fr": "Listes",
+    "it": "Elenchi",
+    "sv": "Listor",
+    "no": "Lister",
+    "es": "Listas",
+    "da": "Lister",
+    "ru": "Списки",
+    "pl": "Listy",
+    "ko": "목록",
+    "ar": "القوائم"
   },
   "description": {
     "en": "Create and manage shopping lists, tasks, and notes—right from your dashboard.",
-    "nl": "Maak en beheer boodschappenlijstjes, taken en notities—rechtstreeks vanuit je dashboard."
+    "nl": "Maak en beheer boodschappenlijstjes, taken en notities—rechtstreeks vanuit je dashboard.",
+    "de": "Einkaufslisten, Aufgaben und Notizen erstellen und verwalten—direkt von Ihrem Dashboard aus.",
+    "fr": "Créez et gérez des listes de courses, des tâches et des notes—directement depuis votre tableau de bord.",
+    "it": "Crea e gestisci liste della spesa, attività e note—direttamente dalla tua dashboard.",
+    "sv": "Skapa och hantera inköpslistor, uppgifter och anteckningar—direkt från din instrumentpanel.",
+    "no": "Opprett og administrer handlelister, oppgaver og notater—rett fra dashbordet ditt.",
+    "es": "Crea y gestiona listas de la compra, tareas y notas—directamente desde tu panel.",
+    "da": "Opret og administrer indkøbslister, opgaver og noter—direkte fra dit dashboard.",
+    "ru": "Создавайте списки покупок, задачи и заметки и управляйте ими—прямо с панели управления.",
+    "pl": "Twórz listy zakupów, zadania i notatki oraz zarządzaj nimi—bezpośrednio z pulpitu.",
+    "ko": "장보기 목록, 작업, 메모를 대시보드에서 바로 만들고 관리하세요.",
+    "ar": "أنشئ قوائم التسوق والمهام والملاحظات وأدرها—مباشرة من لوحة التحكم."
   },
   "category": [
     "tools"
@@ -32,6 +54,72 @@
       "boodschappen",
       "boodschappenlijst",
       "taken"
+    ],
+    "de": [
+      "liste",
+      "notizen",
+      "einkaufsliste",
+      "aufgaben"
+    ],
+    "fr": [
+      "liste",
+      "notes",
+      "liste de courses",
+      "tâches"
+    ],
+    "it": [
+      "elenco",
+      "note",
+      "lista della spesa",
+      "attività"
+    ],
+    "sv": [
+      "lista",
+      "anteckningar",
+      "inköpslista",
+      "uppgifter"
+    ],
+    "no": [
+      "liste",
+      "notater",
+      "handleliste",
+      "oppgaver"
+    ],
+    "es": [
+      "lista",
+      "notas",
+      "lista de la compra",
+      "tareas"
+    ],
+    "da": [
+      "liste",
+      "noter",
+      "indkøbsliste",
+      "opgaver"
+    ],
+    "ru": [
+      "список",
+      "заметки",
+      "список покупок",
+      "задачи"
+    ],
+    "pl": [
+      "lista",
+      "notatki",
+      "lista zakupów",
+      "zadania"
+    ],
+    "ko": [
+      "목록",
+      "메모",
+      "장보기 목록",
+      "작업"
+    ],
+    "ar": [
+      "قائمة",
+      "ملاحظات",
+      "قائمة التسوق",
+      "مهام"
     ]
   },
   "permissions": [
@@ -127,11 +215,33 @@
         "id": "note_created",
         "title": {
           "en": "A note is created",
-          "nl": "Er is een notitie aangemaakt"
+          "nl": "Er is een notitie aangemaakt",
+          "de": "Eine Notiz wurde erstellt",
+          "fr": "Une note est créée",
+          "it": "Una nota è stata creata",
+          "sv": "En anteckning har skapats",
+          "no": "Et notat er opprettet",
+          "es": "Se ha creado una nota",
+          "da": "En note er oprettet",
+          "ru": "Заметка создана",
+          "pl": "Notatka została utworzona",
+          "ko": "메모가 생성됨",
+          "ar": "تم إنشاء ملاحظة"
         },
         "titleFormatted": {
           "en": "A note is created",
-          "nl": "Er is een notitie aangemaakt"
+          "nl": "Er is een notitie aangemaakt",
+          "de": "Eine Notiz wurde erstellt",
+          "fr": "Une note est créée",
+          "it": "Una nota è stata creata",
+          "sv": "En anteckning har skapats",
+          "no": "Et notat er opprettet",
+          "es": "Se ha creado una nota",
+          "da": "En note er oprettet",
+          "ru": "Заметка создана",
+          "pl": "Notatka została utworzona",
+          "ko": "메모가 생성됨",
+          "ar": "تم إنشاء ملاحظة"
         },
         "args": [
           {
@@ -139,7 +249,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
           }
@@ -150,7 +271,18 @@
             "type": "string",
             "title": {
               "en": "Note",
-              "nl": "Notitie"
+              "nl": "Notitie",
+              "de": "Notiz",
+              "fr": "Note",
+              "it": "Nota",
+              "sv": "Anteckning",
+              "no": "Notat",
+              "es": "Nota",
+              "da": "Note",
+              "ru": "Заметка",
+              "pl": "Notatka",
+              "ko": "메모",
+              "ar": "ملاحظة"
             }
           }
         ]
@@ -159,11 +291,33 @@
         "id": "note_removed",
         "title": {
           "en": "A note is removed",
-          "nl": "Er is een notitie verwijderd"
+          "nl": "Er is een notitie verwijderd",
+          "de": "Eine Notiz wurde entfernt",
+          "fr": "Une note est supprimée",
+          "it": "Una nota è stata rimossa",
+          "sv": "En anteckning har tagits bort",
+          "no": "Et notat er fjernet",
+          "es": "Se ha eliminado una nota",
+          "da": "En note er fjernet",
+          "ru": "Заметка удалена",
+          "pl": "Notatka została usunięta",
+          "ko": "메모가 제거됨",
+          "ar": "تمت إزالة ملاحظة"
         },
         "titleFormatted": {
           "en": "A note is removed",
-          "nl": "Er is een notitie verwijderd"
+          "nl": "Er is een notitie verwijderd",
+          "de": "Eine Notiz wurde entfernt",
+          "fr": "Une note est supprimée",
+          "it": "Una nota è stata rimossa",
+          "sv": "En anteckning har tagits bort",
+          "no": "Et notat er fjernet",
+          "es": "Se ha eliminado una nota",
+          "da": "En note er fjernet",
+          "ru": "Заметка удалена",
+          "pl": "Notatka została usunięta",
+          "ko": "메모가 제거됨",
+          "ar": "تمت إزالة ملاحظة"
         },
         "args": [
           {
@@ -171,7 +325,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
           }
@@ -182,7 +347,18 @@
             "type": "string",
             "title": {
               "en": "Note",
-              "nl": "Notitie"
+              "nl": "Notitie",
+              "de": "Notiz",
+              "fr": "Note",
+              "it": "Nota",
+              "sv": "Anteckning",
+              "no": "Notat",
+              "es": "Nota",
+              "da": "Note",
+              "ru": "Заметка",
+              "pl": "Notatka",
+              "ko": "메모",
+              "ar": "ملاحظة"
             }
           }
         ]
@@ -191,11 +367,33 @@
         "id": "product_checked",
         "title": {
           "en": "Product was checked",
-          "nl": "Product is aangevinkt"
+          "nl": "Product is aangevinkt",
+          "de": "Produkt wurde abgehakt",
+          "fr": "Le produit a été coché",
+          "it": "Il prodotto è stato spuntato",
+          "sv": "Produkten har bockats av",
+          "no": "Produktet er krysset av",
+          "es": "Se ha marcado el producto",
+          "da": "Produktet er afkrydset",
+          "ru": "Продукт отмечен",
+          "pl": "Produkt został zaznaczony",
+          "ko": "제품이 완료 표시됨",
+          "ar": "تم تحديد المنتج"
         },
         "titleFormatted": {
           "en": "Product [[product]] was checked",
-          "nl": "Product [[product]] is aangevinkt"
+          "nl": "Product [[product]] is aangevinkt",
+          "de": "Produkt [[product]] wurde abgehakt",
+          "fr": "Le produit [[product]] a été coché",
+          "it": "Il prodotto [[product]] è stato spuntato",
+          "sv": "Produkten [[product]] har bockats av",
+          "no": "Produktet [[product]] er krysset av",
+          "es": "Se ha marcado el producto [[product]]",
+          "da": "Produktet [[product]] er afkrydset",
+          "ru": "Продукт [[product]] отмечен",
+          "pl": "Produkt [[product]] został zaznaczony",
+          "ko": "제품 [[product]]가 완료 표시됨",
+          "ar": "تم تحديد المنتج [[product]]"
         },
         "args": [
           {
@@ -203,7 +401,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -212,7 +421,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           }
         ]
@@ -221,11 +441,33 @@
         "id": "product_checked_any",
         "title": {
           "en": "A product was checked",
-          "nl": "Een product is aangevinkt"
+          "nl": "Een product is aangevinkt",
+          "de": "Ein Produkt wurde abgehakt",
+          "fr": "Un produit a été coché",
+          "it": "Un prodotto è stato spuntato",
+          "sv": "En produkt har bockats av",
+          "no": "Et produkt er krysset av",
+          "es": "Se ha marcado un producto",
+          "da": "Et produkt er afkrydset",
+          "ru": "Продукт отмечен",
+          "pl": "Produkt został zaznaczony",
+          "ko": "제품이 완료 표시됨",
+          "ar": "تم تحديد منتج"
         },
         "titleFormatted": {
           "en": "A product was checked",
-          "nl": "Een product is aangevinkt"
+          "nl": "Een product is aangevinkt",
+          "de": "Ein Produkt wurde abgehakt",
+          "fr": "Un produit a été coché",
+          "it": "Un prodotto è stato spuntato",
+          "sv": "En produkt har bockats av",
+          "no": "Et produkt er krysset av",
+          "es": "Se ha marcado un producto",
+          "da": "Et produkt er afkrydset",
+          "ru": "Продукт отмечен",
+          "pl": "Produkt został zaznaczony",
+          "ko": "제품이 완료 표시됨",
+          "ar": "تم تحديد منتج"
         },
         "args": [
           {
@@ -233,7 +475,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           }
@@ -244,7 +497,18 @@
             "type": "string",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           },
           {
@@ -252,7 +516,18 @@
             "type": "number",
             "title": {
               "en": "Quantity",
-              "nl": "Aantal"
+              "nl": "Aantal",
+              "de": "Menge",
+              "fr": "Quantité",
+              "it": "Quantità",
+              "sv": "Antal",
+              "no": "Antall",
+              "es": "Cantidad",
+              "da": "Antal",
+              "ru": "Количество",
+              "pl": "Ilość",
+              "ko": "수량",
+              "ar": "الكمية"
             }
           }
         ]
@@ -261,11 +536,33 @@
         "id": "product_created",
         "title": {
           "en": "A product is added",
-          "nl": "Er is een product toegevoegd"
+          "nl": "Er is een product toegevoegd",
+          "de": "Ein Produkt wurde hinzugefügt",
+          "fr": "Un produit est ajouté",
+          "it": "Un prodotto è stato aggiunto",
+          "sv": "En produkt har lagts till",
+          "no": "Et produkt er lagt til",
+          "es": "Se ha añadido un producto",
+          "da": "Et produkt er tilføjet",
+          "ru": "Продукт добавлен",
+          "pl": "Produkt został dodany",
+          "ko": "제품이 추가됨",
+          "ar": "تمت إضافة منتج"
         },
         "titleFormatted": {
           "en": "A product is added",
-          "nl": "Er is een product toegevoegd"
+          "nl": "Er is een product toegevoegd",
+          "de": "Ein Produkt wurde hinzugefügt",
+          "fr": "Un produit est ajouté",
+          "it": "Un prodotto è stato aggiunto",
+          "sv": "En produkt har lagts till",
+          "no": "Et produkt er lagt til",
+          "es": "Se ha añadido un producto",
+          "da": "Et produkt er tilføjet",
+          "ru": "Продукт добавлен",
+          "pl": "Produkt został dodany",
+          "ko": "제품이 추가됨",
+          "ar": "تمت إضافة منتج"
         },
         "args": [
           {
@@ -273,7 +570,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           }
@@ -284,7 +592,18 @@
             "type": "string",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           },
           {
@@ -292,7 +611,18 @@
             "type": "number",
             "title": {
               "en": "Quantity",
-              "nl": "Aantal"
+              "nl": "Aantal",
+              "de": "Menge",
+              "fr": "Quantité",
+              "it": "Quantità",
+              "sv": "Antal",
+              "no": "Antall",
+              "es": "Cantidad",
+              "da": "Antal",
+              "ru": "Количество",
+              "pl": "Ilość",
+              "ko": "수량",
+              "ar": "الكمية"
             }
           }
         ]
@@ -301,11 +631,33 @@
         "id": "product_quantity_changed",
         "title": {
           "en": "The quantity of a product was changed",
-          "nl": "Het aantal van een product is gewijzigd"
+          "nl": "Het aantal van een product is gewijzigd",
+          "de": "Die Menge eines Produkts wurde geändert",
+          "fr": "La quantité d'un produit a été modifiée",
+          "it": "La quantità di un prodotto è cambiata",
+          "sv": "Antalet för en produkt har ändrats",
+          "no": "Antallet for et produkt er endret",
+          "es": "La cantidad de un producto ha cambiado",
+          "da": "Antallet for et produkt er ændret",
+          "ru": "Количество продукта изменилось",
+          "pl": "Ilość produktu uległa zmianie",
+          "ko": "제품의 수량이 변경됨",
+          "ar": "تم تغيير كمية منتج"
         },
         "titleFormatted": {
           "en": "The quantity of [[product]] was changed",
-          "nl": "Het aantal van [[product]] is gewijzigd"
+          "nl": "Het aantal van [[product]] is gewijzigd",
+          "de": "Die Menge von [[product]] wurde geändert",
+          "fr": "La quantité de [[product]] a été modifiée",
+          "it": "La quantità di [[product]] è cambiata",
+          "sv": "Antalet för [[product]] har ändrats",
+          "no": "Antallet for [[product]] er endret",
+          "es": "La cantidad de [[product]] ha cambiado",
+          "da": "Antallet for [[product]] er ændret",
+          "ru": "Количество [[product]] изменилось",
+          "pl": "Ilość [[product]] uległa zmianie",
+          "ko": "[[product]]의 수량이 변경됨",
+          "ar": "تم تغيير كمية [[product]]"
         },
         "args": [
           {
@@ -313,7 +665,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -322,7 +685,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           }
         ],
@@ -332,7 +706,18 @@
             "type": "number",
             "title": {
               "en": "Quantity",
-              "nl": "Aantal"
+              "nl": "Aantal",
+              "de": "Menge",
+              "fr": "Quantité",
+              "it": "Quantità",
+              "sv": "Antal",
+              "no": "Antall",
+              "es": "Cantidad",
+              "da": "Antal",
+              "ru": "Количество",
+              "pl": "Ilość",
+              "ko": "수량",
+              "ar": "الكمية"
             }
           }
         ]
@@ -341,11 +726,33 @@
         "id": "product_removed",
         "title": {
           "en": "A product is removed",
-          "nl": "Er is een product verwijderd"
+          "nl": "Er is een product verwijderd",
+          "de": "Ein Produkt wurde entfernt",
+          "fr": "Un produit est supprimé",
+          "it": "Un prodotto è stato rimosso",
+          "sv": "En produkt har tagits bort",
+          "no": "Et produkt er fjernet",
+          "es": "Se ha eliminado un producto",
+          "da": "Et produkt er fjernet",
+          "ru": "Продукт удалён",
+          "pl": "Produkt został usunięty",
+          "ko": "제품이 제거됨",
+          "ar": "تمت إزالة منتج"
         },
         "titleFormatted": {
           "en": "A product is removed",
-          "nl": "Er is een product verwijderd"
+          "nl": "Er is een product verwijderd",
+          "de": "Ein Produkt wurde entfernt",
+          "fr": "Un produit est supprimé",
+          "it": "Un prodotto è stato rimosso",
+          "sv": "En produkt har tagits bort",
+          "no": "Et produkt er fjernet",
+          "es": "Se ha eliminado un producto",
+          "da": "Et produkt er fjernet",
+          "ru": "Продукт удалён",
+          "pl": "Produkt został usunięty",
+          "ko": "제품이 제거됨",
+          "ar": "تمت إزالة منتج"
         },
         "args": [
           {
@@ -353,7 +760,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           }
@@ -364,7 +782,18 @@
             "type": "string",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           },
           {
@@ -372,7 +801,18 @@
             "type": "number",
             "title": {
               "en": "Quantity",
-              "nl": "Aantal"
+              "nl": "Aantal",
+              "de": "Menge",
+              "fr": "Quantité",
+              "it": "Quantità",
+              "sv": "Antal",
+              "no": "Antall",
+              "es": "Cantidad",
+              "da": "Antal",
+              "ru": "Количество",
+              "pl": "Ilość",
+              "ko": "수량",
+              "ar": "الكمية"
             }
           }
         ]
@@ -381,11 +821,33 @@
         "id": "product_unchecked",
         "title": {
           "en": "Product was unchecked",
-          "nl": "Product is uitgevinkt"
+          "nl": "Product is uitgevinkt",
+          "de": "Bei Produkt wurde das Häkchen entfernt",
+          "fr": "Le produit a été décoché",
+          "it": "Il prodotto è stato deselezionato",
+          "sv": "Produkten har avbockats",
+          "no": "Avkryssingen for produktet er fjernet",
+          "es": "Se ha desmarcado el producto",
+          "da": "Afkrydsningen for produktet er fjernet",
+          "ru": "С продукта снята отметка",
+          "pl": "Produkt został odznaczony",
+          "ko": "제품의 완료 표시가 해제됨",
+          "ar": "تم إلغاء تحديد المنتج"
         },
         "titleFormatted": {
           "en": "Product [[product]] was unchecked",
-          "nl": "Product [[product]] is uitgevinkt"
+          "nl": "Product [[product]] is uitgevinkt",
+          "de": "Bei Produkt [[product]] wurde das Häkchen entfernt",
+          "fr": "Le produit [[product]] a été décoché",
+          "it": "Il prodotto [[product]] è stato deselezionato",
+          "sv": "Produkten [[product]] har avbockats",
+          "no": "Avkryssingen for produktet [[product]] er fjernet",
+          "es": "Se ha desmarcado el producto [[product]]",
+          "da": "Afkrydsningen for produktet [[product]] er fjernet",
+          "ru": "С продукта [[product]] снята отметка",
+          "pl": "Produkt [[product]] został odznaczony",
+          "ko": "제품 [[product]]의 완료 표시가 해제됨",
+          "ar": "تم إلغاء تحديد المنتج [[product]]"
         },
         "args": [
           {
@@ -393,7 +855,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -402,7 +875,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           }
         ]
@@ -411,11 +895,33 @@
         "id": "product_unchecked_any",
         "title": {
           "en": "A product was unchecked",
-          "nl": "Een product is uitgevinkt"
+          "nl": "Een product is uitgevinkt",
+          "de": "Bei einem Produkt wurde das Häkchen entfernt",
+          "fr": "Un produit a été décoché",
+          "it": "Un prodotto è stato deselezionato",
+          "sv": "En produkt har avbockats",
+          "no": "Avkryssingen for et produkt er fjernet",
+          "es": "Se ha desmarcado un producto",
+          "da": "Afkrydsningen for et produkt er fjernet",
+          "ru": "С продукта снята отметка",
+          "pl": "Produkt został odznaczony",
+          "ko": "제품의 완료 표시가 해제됨",
+          "ar": "تم إلغاء تحديد منتج"
         },
         "titleFormatted": {
           "en": "A product was unchecked",
-          "nl": "Een product is uitgevinkt"
+          "nl": "Een product is uitgevinkt",
+          "de": "Bei einem Produkt wurde das Häkchen entfernt",
+          "fr": "Un produit a été décoché",
+          "it": "Un prodotto è stato deselezionato",
+          "sv": "En produkt har avbockats",
+          "no": "Avkryssingen for et produkt er fjernet",
+          "es": "Se ha desmarcado un producto",
+          "da": "Afkrydsningen for et produkt er fjernet",
+          "ru": "С продукта снята отметка",
+          "pl": "Produkt został odznaczony",
+          "ko": "제품의 완료 표시가 해제됨",
+          "ar": "تم إلغاء تحديد منتج"
         },
         "args": [
           {
@@ -423,7 +929,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           }
@@ -434,7 +951,18 @@
             "type": "string",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           },
           {
@@ -442,7 +970,18 @@
             "type": "number",
             "title": {
               "en": "Quantity",
-              "nl": "Aantal"
+              "nl": "Aantal",
+              "de": "Menge",
+              "fr": "Quantité",
+              "it": "Quantità",
+              "sv": "Antal",
+              "no": "Antall",
+              "es": "Cantidad",
+              "da": "Antal",
+              "ru": "Количество",
+              "pl": "Ilość",
+              "ko": "수량",
+              "ar": "الكمية"
             }
           }
         ]
@@ -451,11 +990,33 @@
         "id": "task_checked",
         "title": {
           "en": "Task was checked",
-          "nl": "Taak is aangevinkt"
+          "nl": "Taak is aangevinkt",
+          "de": "Aufgabe wurde abgehakt",
+          "fr": "La tâche a été cochée",
+          "it": "L'attività è stata spuntata",
+          "sv": "Uppgiften har bockats av",
+          "no": "Oppgaven er krysset av",
+          "es": "Se ha marcado la tarea",
+          "da": "Opgaven er afkrydset",
+          "ru": "Задача отмечена",
+          "pl": "Zadanie zostało zaznaczone",
+          "ko": "작업이 완료 표시됨",
+          "ar": "تم تحديد المهمة"
         },
         "titleFormatted": {
           "en": "Task [[task]] was checked",
-          "nl": "Taak [[task]] is aangevinkt"
+          "nl": "Taak [[task]] is aangevinkt",
+          "de": "Aufgabe [[task]] wurde abgehakt",
+          "fr": "La tâche [[task]] a été cochée",
+          "it": "L'attività [[task]] è stata spuntata",
+          "sv": "Uppgiften [[task]] har bockats av",
+          "no": "Oppgaven [[task]] er krysset av",
+          "es": "Se ha marcado la tarea [[task]]",
+          "da": "Opgaven [[task]] er afkrydset",
+          "ru": "Задача [[task]] отмечена",
+          "pl": "Zadanie [[task]] zostało zaznaczone",
+          "ko": "작업 [[task]]가 완료 표시됨",
+          "ar": "تم تحديد المهمة [[task]]"
         },
         "args": [
           {
@@ -463,7 +1024,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           },
@@ -472,7 +1044,18 @@
             "name": "task",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           }
         ]
@@ -481,11 +1064,33 @@
         "id": "task_checked_any",
         "title": {
           "en": "A task was checked",
-          "nl": "Een taak is aangevinkt"
+          "nl": "Een taak is aangevinkt",
+          "de": "Eine Aufgabe wurde abgehakt",
+          "fr": "Une tâche a été cochée",
+          "it": "Un'attività è stata spuntata",
+          "sv": "En uppgift har bockats av",
+          "no": "En oppgave er krysset av",
+          "es": "Se ha marcado una tarea",
+          "da": "En opgave er afkrydset",
+          "ru": "Задача отмечена",
+          "pl": "Zadanie zostało zaznaczone",
+          "ko": "작업이 완료 표시됨",
+          "ar": "تم تحديد مهمة"
         },
         "titleFormatted": {
           "en": "A task was checked",
-          "nl": "Een taak is aangevinkt"
+          "nl": "Een taak is aangevinkt",
+          "de": "Eine Aufgabe wurde abgehakt",
+          "fr": "Une tâche a été cochée",
+          "it": "Un'attività è stata spuntata",
+          "sv": "En uppgift har bockats av",
+          "no": "En oppgave er krysset av",
+          "es": "Se ha marcado una tarea",
+          "da": "En opgave er afkrydset",
+          "ru": "Задача отмечена",
+          "pl": "Zadanie zostało zaznaczone",
+          "ko": "작업이 완료 표시됨",
+          "ar": "تم تحديد مهمة"
         },
         "args": [
           {
@@ -493,7 +1098,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           }
@@ -504,7 +1120,18 @@
             "type": "string",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           }
         ]
@@ -513,11 +1140,33 @@
         "id": "task_created",
         "title": {
           "en": "A task is created",
-          "nl": "Er is een taak aangemaakt"
+          "nl": "Er is een taak aangemaakt",
+          "de": "Eine Aufgabe wurde erstellt",
+          "fr": "Une tâche est créée",
+          "it": "Un'attività è stata creata",
+          "sv": "En uppgift har skapats",
+          "no": "En oppgave er opprettet",
+          "es": "Se ha creado una tarea",
+          "da": "En opgave er oprettet",
+          "ru": "Задача создана",
+          "pl": "Zadanie zostało utworzone",
+          "ko": "작업이 생성됨",
+          "ar": "تم إنشاء مهمة"
         },
         "titleFormatted": {
           "en": "A task is created",
-          "nl": "Er is een taak aangemaakt"
+          "nl": "Er is een taak aangemaakt",
+          "de": "Eine Aufgabe wurde erstellt",
+          "fr": "Une tâche est créée",
+          "it": "Un'attività è stata creata",
+          "sv": "En uppgift har skapats",
+          "no": "En oppgave er opprettet",
+          "es": "Se ha creado una tarea",
+          "da": "En opgave er oprettet",
+          "ru": "Задача создана",
+          "pl": "Zadanie zostało utworzone",
+          "ko": "작업이 생성됨",
+          "ar": "تم إنشاء مهمة"
         },
         "args": [
           {
@@ -525,7 +1174,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           }
@@ -536,7 +1196,18 @@
             "type": "string",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           },
           {
@@ -544,7 +1215,18 @@
             "type": "string",
             "title": {
               "en": "Person",
-              "nl": "Persoon"
+              "nl": "Persoon",
+              "de": "Person",
+              "fr": "Personne",
+              "it": "Persona",
+              "sv": "Person",
+              "no": "Person",
+              "es": "Persona",
+              "da": "Person",
+              "ru": "Человек",
+              "pl": "Osoba",
+              "ko": "담당자",
+              "ar": "شخص"
             }
           },
           {
@@ -552,7 +1234,18 @@
             "type": "string",
             "title": {
               "en": "Due",
-              "nl": "Vervaldatum"
+              "nl": "Vervaldatum",
+              "de": "Fällig",
+              "fr": "Échéance",
+              "it": "Scadenza",
+              "sv": "Förfallodatum",
+              "no": "Forfallsdato",
+              "es": "Vencimiento",
+              "da": "Forfaldsdato",
+              "ru": "Срок",
+              "pl": "Termin",
+              "ko": "기한",
+              "ar": "تاريخ الاستحقاق"
             }
           }
         ]
@@ -561,11 +1254,33 @@
         "id": "task_due_date_passed",
         "title": {
           "en": "A task due date has passed",
-          "nl": "Een taak is verlopen"
+          "nl": "Een taak is verlopen",
+          "de": "Das Fälligkeitsdatum einer Aufgabe ist abgelaufen",
+          "fr": "L'échéance d'une tâche est dépassée",
+          "it": "La scadenza di un'attività è passata",
+          "sv": "En uppgifts förfallodatum har passerat",
+          "no": "En oppgaves forfallsdato har passert",
+          "es": "Ha vencido la fecha límite de una tarea",
+          "da": "En opgaves forfaldsdato er overskredet",
+          "ru": "Срок выполнения задачи истёк",
+          "pl": "Termin zadania minął",
+          "ko": "작업 기한이 지남",
+          "ar": "انقضى موعد استحقاق مهمة"
         },
         "titleFormatted": {
           "en": "A task due date has passed",
-          "nl": "Een taak is verlopen"
+          "nl": "Een taak is verlopen",
+          "de": "Das Fälligkeitsdatum einer Aufgabe ist abgelaufen",
+          "fr": "L'échéance d'une tâche est dépassée",
+          "it": "La scadenza di un'attività è passata",
+          "sv": "En uppgifts förfallodatum har passerat",
+          "no": "En oppgaves forfallsdato har passert",
+          "es": "Ha vencido la fecha límite de una tarea",
+          "da": "En opgaves forfaldsdato er overskredet",
+          "ru": "Срок выполнения задачи истёк",
+          "pl": "Termin zadania minął",
+          "ko": "작업 기한이 지남",
+          "ar": "انقضى موعد استحقاق مهمة"
         },
         "args": [
           {
@@ -573,7 +1288,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           }
@@ -584,7 +1310,18 @@
             "type": "string",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           },
           {
@@ -592,7 +1329,18 @@
             "type": "string",
             "title": {
               "en": "Person",
-              "nl": "Persoon"
+              "nl": "Persoon",
+              "de": "Person",
+              "fr": "Personne",
+              "it": "Persona",
+              "sv": "Person",
+              "no": "Person",
+              "es": "Persona",
+              "da": "Person",
+              "ru": "Человек",
+              "pl": "Osoba",
+              "ko": "담당자",
+              "ar": "شخص"
             }
           },
           {
@@ -600,7 +1348,18 @@
             "type": "string",
             "title": {
               "en": "Due",
-              "nl": "Vervaldatum"
+              "nl": "Vervaldatum",
+              "de": "Fällig",
+              "fr": "Échéance",
+              "it": "Scadenza",
+              "sv": "Förfallodatum",
+              "no": "Forfallsdato",
+              "es": "Vencimiento",
+              "da": "Forfaldsdato",
+              "ru": "Срок",
+              "pl": "Termin",
+              "ko": "기한",
+              "ar": "تاريخ الاستحقاق"
             }
           }
         ]
@@ -609,11 +1368,33 @@
         "id": "task_removed",
         "title": {
           "en": "A task is removed",
-          "nl": "Er is een taak verwijderd"
+          "nl": "Er is een taak verwijderd",
+          "de": "Eine Aufgabe wurde entfernt",
+          "fr": "Une tâche est supprimée",
+          "it": "Un'attività è stata rimossa",
+          "sv": "En uppgift har tagits bort",
+          "no": "En oppgave er fjernet",
+          "es": "Se ha eliminado una tarea",
+          "da": "En opgave er fjernet",
+          "ru": "Задача удалена",
+          "pl": "Zadanie zostało usunięte",
+          "ko": "작업이 제거됨",
+          "ar": "تمت إزالة مهمة"
         },
         "titleFormatted": {
           "en": "A task is removed",
-          "nl": "Er is een taak verwijderd"
+          "nl": "Er is een taak verwijderd",
+          "de": "Eine Aufgabe wurde entfernt",
+          "fr": "Une tâche est supprimée",
+          "it": "Un'attività è stata rimossa",
+          "sv": "En uppgift har tagits bort",
+          "no": "En oppgave er fjernet",
+          "es": "Se ha eliminado una tarea",
+          "da": "En opgave er fjernet",
+          "ru": "Задача удалена",
+          "pl": "Zadanie zostało usunięte",
+          "ko": "작업이 제거됨",
+          "ar": "تمت إزالة مهمة"
         },
         "args": [
           {
@@ -621,7 +1402,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           }
@@ -632,7 +1424,18 @@
             "type": "string",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           }
         ]
@@ -640,12 +1443,34 @@
       {
         "id": "task_unchecked",
         "title": {
-          "en": "Task was checked",
-          "nl": "Taak is uitgevinkt"
+          "en": "Task was unchecked",
+          "nl": "Taak is uitgevinkt",
+          "de": "Bei Aufgabe wurde das Häkchen entfernt",
+          "fr": "La tâche a été décochée",
+          "it": "L'attività è stata deselezionata",
+          "sv": "Uppgiften har avbockats",
+          "no": "Avkryssingen for oppgaven er fjernet",
+          "es": "Se ha desmarcado la tarea",
+          "da": "Afkrydsningen for opgaven er fjernet",
+          "ru": "С задачи снята отметка",
+          "pl": "Zadanie zostało odznaczone",
+          "ko": "작업의 완료 표시가 해제됨",
+          "ar": "تم إلغاء تحديد المهمة"
         },
         "titleFormatted": {
-          "en": "Task [[task]] was checked",
-          "nl": "Taak [[task]] is uitgevinkt"
+          "en": "Task [[task]] was unchecked",
+          "nl": "Taak [[task]] is uitgevinkt",
+          "de": "Bei Aufgabe [[task]] wurde das Häkchen entfernt",
+          "fr": "La tâche [[task]] a été décochée",
+          "it": "L'attività [[task]] è stata deselezionata",
+          "sv": "Uppgiften [[task]] har avbockats",
+          "no": "Avkryssingen for oppgaven [[task]] er fjernet",
+          "es": "Se ha desmarcado la tarea [[task]]",
+          "da": "Afkrydsningen for opgaven [[task]] er fjernet",
+          "ru": "С задачи [[task]] снята отметка",
+          "pl": "Zadanie [[task]] zostało odznaczone",
+          "ko": "작업 [[task]]의 완료 표시가 해제됨",
+          "ar": "تم إلغاء تحديد المهمة [[task]]"
         },
         "args": [
           {
@@ -653,7 +1478,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           },
@@ -662,7 +1498,18 @@
             "name": "task",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           }
         ]
@@ -671,11 +1518,33 @@
         "id": "task_unchecked_any",
         "title": {
           "en": "A task was unchecked",
-          "nl": "Een taak is uitgevinkt"
+          "nl": "Een taak is uitgevinkt",
+          "de": "Bei einer Aufgabe wurde das Häkchen entfernt",
+          "fr": "Une tâche a été décochée",
+          "it": "Un'attività è stata deselezionata",
+          "sv": "En uppgift har avbockats",
+          "no": "Avkryssingen for en oppgave er fjernet",
+          "es": "Se ha desmarcado una tarea",
+          "da": "Afkrydsningen for en opgave er fjernet",
+          "ru": "С задачи снята отметка",
+          "pl": "Zadanie zostało odznaczone",
+          "ko": "작업의 완료 표시가 해제됨",
+          "ar": "تم إلغاء تحديد مهمة"
         },
         "titleFormatted": {
           "en": "A task was unchecked",
-          "nl": "Een taak is uitgevinkt"
+          "nl": "Een taak is uitgevinkt",
+          "de": "Bei einer Aufgabe wurde das Häkchen entfernt",
+          "fr": "Une tâche a été décochée",
+          "it": "Un'attività è stata deselezionata",
+          "sv": "En uppgift har avbockats",
+          "no": "Avkryssingen for en oppgave er fjernet",
+          "es": "Se ha desmarcado una tarea",
+          "da": "Afkrydsningen for en opgave er fjernet",
+          "ru": "С задачи снята отметка",
+          "pl": "Zadanie zostało odznaczone",
+          "ko": "작업의 완료 표시가 해제됨",
+          "ar": "تم إلغاء تحديد مهمة"
         },
         "args": [
           {
@@ -683,7 +1552,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           }
@@ -694,7 +1574,18 @@
             "type": "string",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           }
         ]
@@ -705,11 +1596,33 @@
         "id": "note_exists",
         "title": {
           "en": "Note exists",
-          "nl": "Notitie bestaat"
+          "nl": "Notitie bestaat",
+          "de": "Notiz existiert",
+          "fr": "La note existe",
+          "it": "La nota esiste",
+          "sv": "Anteckningen finns",
+          "no": "Notatet finnes",
+          "es": "La nota existe",
+          "da": "Noten findes",
+          "ru": "Заметка существует",
+          "pl": "Notatka istnieje",
+          "ko": "메모 존재",
+          "ar": "الملاحظة موجودة"
         },
         "titleFormatted": {
           "en": "Note [[note]] !{{exists|does not exist}} on the list",
-          "nl": "Notitie [[note]] !{{staat|staat niet}} op de lijst"
+          "nl": "Notitie [[note]] !{{staat|staat niet}} op de lijst",
+          "de": "Notiz [[note]] !{{steht|steht nicht}} auf der Liste",
+          "fr": "La note [[note]] !{{est|n'est pas}} dans la liste",
+          "it": "La nota [[note]] !{{è|non è}} nell'elenco",
+          "sv": "Anteckningen [[note]] !{{finns|finns inte}} i listan",
+          "no": "Notatet [[note]] !{{finnes|finnes ikke}} i listen",
+          "es": "La nota [[note]] !{{está|no está}} en la lista",
+          "da": "Noten [[note]] !{{findes|findes ikke}} på listen",
+          "ru": "Заметка [[note]] !{{есть|отсутствует}} в списке",
+          "pl": "Notatka [[note]] !{{jest|nie jest}} na liście",
+          "ko": "메모 [[note]]가 목록에 !{{있음|없음}}",
+          "ar": "الملاحظة [[note]] !{{موجودة|غير موجودة}} في القائمة"
         },
         "args": [
           {
@@ -717,7 +1630,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
           },
@@ -726,7 +1650,18 @@
             "name": "note",
             "title": {
               "en": "Note",
-              "nl": "Notitie"
+              "nl": "Notitie",
+              "de": "Notiz",
+              "fr": "Note",
+              "it": "Nota",
+              "sv": "Anteckning",
+              "no": "Notat",
+              "es": "Nota",
+              "da": "Note",
+              "ru": "Заметка",
+              "pl": "Notatka",
+              "ko": "메모",
+              "ar": "ملاحظة"
             }
           }
         ]
@@ -735,11 +1670,33 @@
         "id": "product_exists",
         "title": {
           "en": "Product exists",
-          "nl": "Product bestaat"
+          "nl": "Product bestaat",
+          "de": "Produkt existiert",
+          "fr": "Le produit existe",
+          "it": "Il prodotto esiste",
+          "sv": "Produkten finns",
+          "no": "Produktet finnes",
+          "es": "El producto existe",
+          "da": "Produktet findes",
+          "ru": "Продукт существует",
+          "pl": "Produkt istnieje",
+          "ko": "제품 존재",
+          "ar": "المنتج موجود"
         },
         "titleFormatted": {
           "en": "Product [[product]] !{{exists|does not exist}} on the list",
-          "nl": "Product [[product]] !{{staat|staat niet}} op de lijst"
+          "nl": "Product [[product]] !{{staat|staat niet}} op de lijst",
+          "de": "Produkt [[product]] !{{steht|steht nicht}} auf der Liste",
+          "fr": "Le produit [[product]] !{{est|n'est pas}} dans la liste",
+          "it": "Il prodotto [[product]] !{{è|non è}} nell'elenco",
+          "sv": "Produkten [[product]] !{{finns|finns inte}} i listan",
+          "no": "Produktet [[product]] !{{finnes|finnes ikke}} i listen",
+          "es": "El producto [[product]] !{{está|no está}} en la lista",
+          "da": "Produktet [[product]] !{{findes|findes ikke}} på listen",
+          "ru": "Продукт [[product]] !{{есть|отсутствует}} в списке",
+          "pl": "Produkt [[product]] !{{jest|nie jest}} na liście",
+          "ko": "제품 [[product]]가 목록에 !{{있음|없음}}",
+          "ar": "المنتج [[product]] !{{موجود|غير موجود}} في القائمة"
         },
         "args": [
           {
@@ -747,7 +1704,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -756,7 +1724,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           }
         ]
@@ -765,11 +1744,33 @@
         "id": "product_has_quantity",
         "title": {
           "en": "Product has quantity",
-          "nl": "Product heeft aantal"
+          "nl": "Product heeft aantal",
+          "de": "Produkt hat Menge",
+          "fr": "Le produit a une quantité",
+          "it": "Il prodotto ha quantità",
+          "sv": "Produkten har antal",
+          "no": "Produktet har antall",
+          "es": "El producto tiene cantidad",
+          "da": "Produktet har antal",
+          "ru": "Количество продукта",
+          "pl": "Produkt ma ilość",
+          "ko": "제품 수량",
+          "ar": "المنتج له كمية"
         },
         "titleFormatted": {
           "en": "Product [[product]] has quantity [[quantity]]",
-          "nl": "Product [[product]] heeft aantal [[quantity]]"
+          "nl": "Product [[product]] heeft aantal [[quantity]]",
+          "de": "Produkt [[product]] hat die Menge [[quantity]]",
+          "fr": "Le produit [[product]] a la quantité [[quantity]]",
+          "it": "Il prodotto [[product]] ha quantità [[quantity]]",
+          "sv": "Produkten [[product]] har antalet [[quantity]]",
+          "no": "Produktet [[product]] har antallet [[quantity]]",
+          "es": "El producto [[product]] tiene la cantidad [[quantity]]",
+          "da": "Produktet [[product]] har antallet [[quantity]]",
+          "ru": "Количество продукта [[product]] равно [[quantity]]",
+          "pl": "Produkt [[product]] ma ilość [[quantity]]",
+          "ko": "제품 [[product]]의 수량이 [[quantity]]임",
+          "ar": "المنتج [[product]] كميته [[quantity]]"
         },
         "args": [
           {
@@ -777,7 +1778,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -786,7 +1798,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           },
           {
@@ -794,7 +1817,18 @@
             "name": "quantity",
             "title": {
               "en": "Quantity",
-              "nl": "Aantal"
+              "nl": "Aantal",
+              "de": "Menge",
+              "fr": "Quantité",
+              "it": "Quantità",
+              "sv": "Antal",
+              "no": "Antall",
+              "es": "Cantidad",
+              "da": "Antal",
+              "ru": "Количество",
+              "pl": "Ilość",
+              "ko": "수량",
+              "ar": "الكمية"
             }
           }
         ]
@@ -803,11 +1837,33 @@
         "id": "product_is_checked",
         "title": {
           "en": "Product is checked",
-          "nl": "Product is aangevinkt"
+          "nl": "Product is aangevinkt",
+          "de": "Produkt ist abgehakt",
+          "fr": "Le produit est coché",
+          "it": "Il prodotto è spuntato",
+          "sv": "Produkten är avbockad",
+          "no": "Produktet er avkrysset",
+          "es": "El producto está marcado",
+          "da": "Produktet er afkrydset",
+          "ru": "Продукт отмечен",
+          "pl": "Produkt jest zaznaczony",
+          "ko": "제품이 완료됨",
+          "ar": "المنتج محدد"
         },
         "titleFormatted": {
-          "en": "Product [[product]] is !{{checked|un}}",
-          "nl": "Product [[product]] is !{{aangevinkt|uitgevinkt}}"
+          "en": "Product [[product]] is !{{checked|unchecked}}",
+          "nl": "Product [[product]] is !{{aangevinkt|uitgevinkt}}",
+          "de": "Produkt [[product]] ist !{{abgehakt|nicht abgehakt}}",
+          "fr": "Le produit [[product]] est !{{coché|décoché}}",
+          "it": "Il prodotto [[product]] è !{{spuntato|non spuntato}}",
+          "sv": "Produkten [[product]] är !{{avbockad|inte avbockad}}",
+          "no": "Produktet [[product]] er !{{avkrysset|ikke avkrysset}}",
+          "es": "El producto [[product]] está !{{marcado|sin marcar}}",
+          "da": "Produktet [[product]] er !{{afkrydset|ikke afkrydset}}",
+          "ru": "Продукт [[product]] !{{отмечен|не отмечен}}",
+          "pl": "Produkt [[product]] jest !{{zaznaczony|niezaznaczony}}",
+          "ko": "제품 [[product]]가 !{{완료됨|완료되지 않음}}",
+          "ar": "المنتج [[product]] !{{محدد|غير محدد}}"
         },
         "args": [
           {
@@ -815,7 +1871,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -824,7 +1891,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           }
         ]
@@ -833,11 +1911,33 @@
         "id": "task_exists",
         "title": {
           "en": "Task exists",
-          "nl": "Taak bestaat"
+          "nl": "Taak bestaat",
+          "de": "Aufgabe existiert",
+          "fr": "La tâche existe",
+          "it": "L'attività esiste",
+          "sv": "Uppgiften finns",
+          "no": "Oppgaven finnes",
+          "es": "La tarea existe",
+          "da": "Opgaven findes",
+          "ru": "Задача существует",
+          "pl": "Zadanie istnieje",
+          "ko": "작업 존재",
+          "ar": "المهمة موجودة"
         },
         "titleFormatted": {
           "en": "Task [[task]] !{{exists|does not exist}} on the list",
-          "nl": "Taak [[task]] !{{staat|staat niet}} op de lijst"
+          "nl": "Taak [[task]] !{{staat|staat niet}} op de lijst",
+          "de": "Aufgabe [[task]] !{{steht|steht nicht}} auf der Liste",
+          "fr": "La tâche [[task]] !{{est|n'est pas}} dans la liste",
+          "it": "L'attività [[task]] !{{è|non è}} nell'elenco",
+          "sv": "Uppgiften [[task]] !{{finns|finns inte}} i listan",
+          "no": "Oppgaven [[task]] !{{finnes|finnes ikke}} i listen",
+          "es": "La tarea [[task]] !{{está|no está}} en la lista",
+          "da": "Opgaven [[task]] !{{findes|findes ikke}} på listen",
+          "ru": "Задача [[task]] !{{есть|отсутствует}} в списке",
+          "pl": "Zadanie [[task]] !{{jest|nie jest}} na liście",
+          "ko": "작업 [[task]]가 목록에 !{{있음|없음}}",
+          "ar": "المهمة [[task]] !{{موجودة|غير موجودة}} في القائمة"
         },
         "args": [
           {
@@ -845,7 +1945,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           },
@@ -854,7 +1965,18 @@
             "name": "task",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           }
         ]
@@ -863,11 +1985,33 @@
         "id": "task_is_checked",
         "title": {
           "en": "Task is checked",
-          "nl": "Taak is aangevinkt"
+          "nl": "Taak is aangevinkt",
+          "de": "Aufgabe ist abgehakt",
+          "fr": "La tâche est cochée",
+          "it": "L'attività è spuntata",
+          "sv": "Uppgiften är avbockad",
+          "no": "Oppgaven er avkrysset",
+          "es": "La tarea está marcada",
+          "da": "Opgaven er afkrydset",
+          "ru": "Задача отмечена",
+          "pl": "Zadanie jest zaznaczone",
+          "ko": "작업이 완료됨",
+          "ar": "المهمة محددة"
         },
         "titleFormatted": {
           "en": "Task [[task]] is !{{checked|unchecked}}",
-          "nl": "Taak [[task]] is !{{aangevinkt|uitgevinkt}}"
+          "nl": "Taak [[task]] is !{{aangevinkt|uitgevinkt}}",
+          "de": "Aufgabe [[task]] ist !{{abgehakt|nicht abgehakt}}",
+          "fr": "La tâche [[task]] est !{{cochée|décochée}}",
+          "it": "L'attività [[task]] è !{{spuntata|non spuntata}}",
+          "sv": "Uppgiften [[task]] är !{{avbockad|inte avbockad}}",
+          "no": "Oppgaven [[task]] er !{{avkrysset|ikke avkrysset}}",
+          "es": "La tarea [[task]] está !{{marcada|sin marcar}}",
+          "da": "Opgaven [[task]] er !{{afkrydset|ikke afkrydset}}",
+          "ru": "Задача [[task]] !{{отмечена|не отмечена}}",
+          "pl": "Zadanie [[task]] jest !{{zaznaczone|niezaznaczone}}",
+          "ko": "작업 [[task]]가 !{{완료됨|완료되지 않음}}",
+          "ar": "المهمة [[task]] !{{محددة|غير محددة}}"
         },
         "args": [
           {
@@ -875,7 +2019,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           },
@@ -884,7 +2039,18 @@
             "name": "task",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           }
         ]
@@ -895,11 +2061,33 @@
         "id": "add_note",
         "title": {
           "en": "Add note",
-          "nl": "Notitie toevoegen"
+          "nl": "Notitie toevoegen",
+          "de": "Notiz hinzufügen",
+          "fr": "Ajouter une note",
+          "it": "Aggiungi nota",
+          "sv": "Lägg till anteckning",
+          "no": "Legg til notat",
+          "es": "Añadir nota",
+          "da": "Tilføj note",
+          "ru": "Добавить заметку",
+          "pl": "Dodaj notatkę",
+          "ko": "메모 추가",
+          "ar": "إضافة ملاحظة"
         },
         "titleFormatted": {
           "en": "Add note [[note]]",
-          "nl": "Notitie toevoegen [[note]]"
+          "nl": "Notitie toevoegen [[note]]",
+          "de": "Notiz [[note]] hinzufügen",
+          "fr": "Ajouter la note [[note]]",
+          "it": "Aggiungi nota [[note]]",
+          "sv": "Lägg till anteckning [[note]]",
+          "no": "Legg til notat [[note]]",
+          "es": "Añadir nota [[note]]",
+          "da": "Tilføj note [[note]]",
+          "ru": "Добавить заметку [[note]]",
+          "pl": "Dodaj notatkę [[note]]",
+          "ko": "메모 [[note]] 추가",
+          "ar": "إضافة الملاحظة [[note]]"
         },
         "args": [
           {
@@ -907,7 +2095,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
           },
@@ -916,7 +2115,18 @@
             "name": "note",
             "title": {
               "en": "Note",
-              "nl": "Notitie"
+              "nl": "Notitie",
+              "de": "Notiz",
+              "fr": "Note",
+              "it": "Nota",
+              "sv": "Anteckning",
+              "no": "Notat",
+              "es": "Nota",
+              "da": "Note",
+              "ru": "Заметка",
+              "pl": "Notatka",
+              "ko": "메모",
+              "ar": "ملاحظة"
             }
           }
         ]
@@ -925,11 +2135,33 @@
         "id": "add_person_task",
         "title": {
           "en": "Add person task",
-          "nl": "Taak voor persoon toevoegen"
+          "nl": "Taak voor persoon toevoegen",
+          "de": "Aufgabe für Person hinzufügen",
+          "fr": "Ajouter une tâche pour une personne",
+          "it": "Aggiungi attività per persona",
+          "sv": "Lägg till uppgift för person",
+          "no": "Legg til oppgave for person",
+          "es": "Añadir tarea para una persona",
+          "da": "Tilføj opgave for person",
+          "ru": "Добавить задачу для человека",
+          "pl": "Dodaj zadanie dla osoby",
+          "ko": "담당자 작업 추가",
+          "ar": "إضافة مهمة لشخص"
         },
         "titleFormatted": {
           "en": "Add task [[task]] for [[person]]",
-          "nl": "Taak [[task]] voor [[person]] toevoegen"
+          "nl": "Taak [[task]] voor [[person]] toevoegen",
+          "de": "Aufgabe [[task]] für [[person]] hinzufügen",
+          "fr": "Ajouter la tâche [[task]] pour [[person]]",
+          "it": "Aggiungi attività [[task]] per [[person]]",
+          "sv": "Lägg till uppgift [[task]] för [[person]]",
+          "no": "Legg til oppgave [[task]] for [[person]]",
+          "es": "Añadir tarea [[task]] para [[person]]",
+          "da": "Tilføj opgave [[task]] for [[person]]",
+          "ru": "Добавить задачу [[task]] для [[person]]",
+          "pl": "Dodaj zadanie [[task]] dla [[person]]",
+          "ko": "[[person]]의 작업 [[task]] 추가",
+          "ar": "إضافة المهمة [[task]] لـ [[person]]"
         },
         "args": [
           {
@@ -937,7 +2169,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           },
@@ -946,7 +2189,18 @@
             "name": "person",
             "title": {
               "en": "Person",
-              "nl": "Persoon"
+              "nl": "Persoon",
+              "de": "Person",
+              "fr": "Personne",
+              "it": "Persona",
+              "sv": "Person",
+              "no": "Person",
+              "es": "Persona",
+              "da": "Person",
+              "ru": "Человек",
+              "pl": "Osoba",
+              "ko": "담당자",
+              "ar": "شخص"
             }
           },
           {
@@ -954,7 +2208,18 @@
             "name": "task",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           }
         ]
@@ -963,11 +2228,33 @@
         "id": "add_planned_person_task",
         "title": {
           "en": "Add planned person task",
-          "nl": "Geplande taak voor persoon toevoegen"
+          "nl": "Geplande taak voor persoon toevoegen",
+          "de": "Geplante Aufgabe für Person hinzufügen",
+          "fr": "Ajouter une tâche planifiée pour une personne",
+          "it": "Aggiungi attività pianificata per persona",
+          "sv": "Lägg till planerad uppgift för person",
+          "no": "Legg til planlagt oppgave for person",
+          "es": "Añadir tarea planificada para una persona",
+          "da": "Tilføj planlagt opgave for person",
+          "ru": "Добавить запланированную задачу для человека",
+          "pl": "Dodaj zaplanowane zadanie dla osoby",
+          "ko": "예정된 담당자 작업 추가",
+          "ar": "إضافة مهمة مجدولة لشخص"
         },
         "titleFormatted": {
           "en": "Add task [[task]] for [[person]] due on [[date]] at [[time]]",
-          "nl": "Taak [[task]] voor [[person]] met deadline op [[date]] om [[time]] toevoegen"
+          "nl": "Taak [[task]] voor [[person]] met deadline op [[date]] om [[time]] toevoegen",
+          "de": "Aufgabe [[task]] für [[person]] mit Fälligkeit am [[date]] um [[time]] hinzufügen",
+          "fr": "Ajouter la tâche [[task]] pour [[person]] à échéance le [[date]] à [[time]]",
+          "it": "Aggiungi attività [[task]] per [[person]] con scadenza il [[date]] alle [[time]]",
+          "sv": "Lägg till uppgift [[task]] för [[person]] som förfaller [[date]] kl. [[time]]",
+          "no": "Legg til oppgave [[task]] for [[person]] med frist [[date]] kl. [[time]]",
+          "es": "Añadir tarea [[task]] para [[person]] con vencimiento el [[date]] a las [[time]]",
+          "da": "Tilføj opgave [[task]] for [[person]] med forfald den [[date]] kl. [[time]]",
+          "ru": "Добавить задачу [[task]] для [[person]] со сроком [[date]] в [[time]]",
+          "pl": "Dodaj zadanie [[task]] dla [[person]] z terminem [[date]] o [[time]]",
+          "ko": "[[person]]의 작업 [[task]]를 기한 [[date]] [[time]]으로 추가",
+          "ar": "إضافة المهمة [[task]] لـ [[person]] المستحقة في [[date]] الساعة [[time]]"
         },
         "args": [
           {
@@ -975,7 +2262,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           },
@@ -984,7 +2282,18 @@
             "name": "task",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           },
           {
@@ -992,7 +2301,18 @@
             "name": "person",
             "title": {
               "en": "Person",
-              "nl": "Persoon"
+              "nl": "Persoon",
+              "de": "Person",
+              "fr": "Personne",
+              "it": "Persona",
+              "sv": "Person",
+              "no": "Person",
+              "es": "Persona",
+              "da": "Person",
+              "ru": "Человек",
+              "pl": "Osoba",
+              "ko": "담당자",
+              "ar": "شخص"
             }
           },
           {
@@ -1000,7 +2320,18 @@
             "name": "date",
             "title": {
               "en": "Date",
-              "nl": "Datum"
+              "nl": "Datum",
+              "de": "Datum",
+              "fr": "Date",
+              "it": "Data",
+              "sv": "Datum",
+              "no": "Dato",
+              "es": "Fecha",
+              "da": "Dato",
+              "ru": "Дата",
+              "pl": "Data",
+              "ko": "날짜",
+              "ar": "التاريخ"
             }
           },
           {
@@ -1009,7 +2340,18 @@
             "required": false,
             "title": {
               "en": "Time",
-              "nl": "Tijd"
+              "nl": "Tijd",
+              "de": "Uhrzeit",
+              "fr": "Heure",
+              "it": "Ora",
+              "sv": "Tid",
+              "no": "Tid",
+              "es": "Hora",
+              "da": "Tidspunkt",
+              "ru": "Время",
+              "pl": "Godzina",
+              "ko": "시간",
+              "ar": "الوقت"
             }
           }
         ]
@@ -1018,11 +2360,33 @@
         "id": "add_planned_task",
         "title": {
           "en": "Add planned task",
-          "nl": "Geplande taak toevoegen"
+          "nl": "Geplande taak toevoegen",
+          "de": "Geplante Aufgabe hinzufügen",
+          "fr": "Ajouter une tâche planifiée",
+          "it": "Aggiungi attività pianificata",
+          "sv": "Lägg till planerad uppgift",
+          "no": "Legg til planlagt oppgave",
+          "es": "Añadir tarea planificada",
+          "da": "Tilføj planlagt opgave",
+          "ru": "Добавить запланированную задачу",
+          "pl": "Dodaj zaplanowane zadanie",
+          "ko": "예정된 작업 추가",
+          "ar": "إضافة مهمة مجدولة"
         },
         "titleFormatted": {
           "en": "Add task [[task]] due on [[date]] at [[time]]",
-          "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]]"
+          "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]]",
+          "de": "Aufgabe [[task]] mit Fälligkeit am [[date]] um [[time]] hinzufügen",
+          "fr": "Ajouter la tâche [[task]] à échéance le [[date]] à [[time]]",
+          "it": "Aggiungi attività [[task]] con scadenza il [[date]] alle [[time]]",
+          "sv": "Lägg till uppgift [[task]] som förfaller [[date]] kl. [[time]]",
+          "no": "Legg til oppgave [[task]] med frist [[date]] kl. [[time]]",
+          "es": "Añadir tarea [[task]] con vencimiento el [[date]] a las [[time]]",
+          "da": "Tilføj opgave [[task]] med forfald den [[date]] kl. [[time]]",
+          "ru": "Добавить задачу [[task]] со сроком [[date]] в [[time]]",
+          "pl": "Dodaj zadanie [[task]] z terminem [[date]] o [[time]]",
+          "ko": "작업 [[task]]를 기한 [[date]] [[time]]으로 추가",
+          "ar": "إضافة المهمة [[task]] المستحقة في [[date]] الساعة [[time]]"
         },
         "args": [
           {
@@ -1030,7 +2394,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           },
@@ -1039,7 +2414,18 @@
             "name": "task",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           },
           {
@@ -1047,7 +2433,18 @@
             "name": "date",
             "title": {
               "en": "Date",
-              "nl": "Datum"
+              "nl": "Datum",
+              "de": "Datum",
+              "fr": "Date",
+              "it": "Data",
+              "sv": "Datum",
+              "no": "Dato",
+              "es": "Fecha",
+              "da": "Dato",
+              "ru": "Дата",
+              "pl": "Data",
+              "ko": "날짜",
+              "ar": "التاريخ"
             }
           },
           {
@@ -1056,7 +2453,18 @@
             "required": false,
             "title": {
               "en": "Time",
-              "nl": "Tijd"
+              "nl": "Tijd",
+              "de": "Uhrzeit",
+              "fr": "Heure",
+              "it": "Ora",
+              "sv": "Tid",
+              "no": "Tid",
+              "es": "Hora",
+              "da": "Tidspunkt",
+              "ru": "Время",
+              "pl": "Godzina",
+              "ko": "시간",
+              "ar": "الوقت"
             }
           }
         ]
@@ -1065,11 +2473,33 @@
         "id": "add_product",
         "title": {
           "en": "Add product",
-          "nl": "Product toevoegen"
+          "nl": "Product toevoegen",
+          "de": "Produkt hinzufügen",
+          "fr": "Ajouter un produit",
+          "it": "Aggiungi prodotto",
+          "sv": "Lägg till produkt",
+          "no": "Legg til produkt",
+          "es": "Añadir producto",
+          "da": "Tilføj produkt",
+          "ru": "Добавить продукт",
+          "pl": "Dodaj produkt",
+          "ko": "제품 추가",
+          "ar": "إضافة منتج"
         },
         "titleFormatted": {
           "en": "Add product [[product]]",
-          "nl": "Product [[product]] toevoegen"
+          "nl": "Product [[product]] toevoegen",
+          "de": "Produkt [[product]] hinzufügen",
+          "fr": "Ajouter le produit [[product]]",
+          "it": "Aggiungi prodotto [[product]]",
+          "sv": "Lägg till produkt [[product]]",
+          "no": "Legg til produkt [[product]]",
+          "es": "Añadir producto [[product]]",
+          "da": "Tilføj produkt [[product]]",
+          "ru": "Добавить продукт [[product]]",
+          "pl": "Dodaj produkt [[product]]",
+          "ko": "제품 [[product]] 추가",
+          "ar": "إضافة المنتج [[product]]"
         },
         "args": [
           {
@@ -1077,7 +2507,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -1086,7 +2527,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           }
         ]
@@ -1095,11 +2547,33 @@
         "id": "add_product_quantity",
         "title": {
           "en": "Add product with quantity",
-          "nl": "Product met aantal toevoegen"
+          "nl": "Product met aantal toevoegen",
+          "de": "Produkt mit Menge hinzufügen",
+          "fr": "Ajouter un produit avec une quantité",
+          "it": "Aggiungi prodotto con quantità",
+          "sv": "Lägg till produkt med antal",
+          "no": "Legg til produkt med antall",
+          "es": "Añadir producto con cantidad",
+          "da": "Tilføj produkt med antal",
+          "ru": "Добавить продукт с количеством",
+          "pl": "Dodaj produkt z ilością",
+          "ko": "수량과 함께 제품 추가",
+          "ar": "إضافة منتج مع الكمية"
         },
         "titleFormatted": {
           "en": "Add product [[product]] with quantity [[quantity]]",
-          "nl": "Product [[product]] toevoegen met aantal [[quantity]]"
+          "nl": "Product [[product]] toevoegen met aantal [[quantity]]",
+          "de": "Produkt [[product]] mit Menge [[quantity]] hinzufügen",
+          "fr": "Ajouter le produit [[product]] avec la quantité [[quantity]]",
+          "it": "Aggiungi prodotto [[product]] con quantità [[quantity]]",
+          "sv": "Lägg till produkt [[product]] med antal [[quantity]]",
+          "no": "Legg til produkt [[product]] med antall [[quantity]]",
+          "es": "Añadir producto [[product]] con cantidad [[quantity]]",
+          "da": "Tilføj produkt [[product]] med antal [[quantity]]",
+          "ru": "Добавить продукт [[product]] в количестве [[quantity]]",
+          "pl": "Dodaj produkt [[product]] w ilości [[quantity]]",
+          "ko": "제품 [[product]]를 수량 [[quantity]]로 추가",
+          "ar": "إضافة المنتج [[product]] بالكمية [[quantity]]"
         },
         "args": [
           {
@@ -1107,7 +2581,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -1116,7 +2601,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           },
           {
@@ -1124,7 +2620,18 @@
             "name": "quantity",
             "title": {
               "en": "Quantity",
-              "nl": "Aantal"
+              "nl": "Aantal",
+              "de": "Menge",
+              "fr": "Quantité",
+              "it": "Quantità",
+              "sv": "Antal",
+              "no": "Antall",
+              "es": "Cantidad",
+              "da": "Antal",
+              "ru": "Количество",
+              "pl": "Ilość",
+              "ko": "수량",
+              "ar": "الكمية"
             }
           }
         ]
@@ -1133,11 +2640,33 @@
         "id": "add_task",
         "title": {
           "en": "Add task",
-          "nl": "Taak toevoegen"
+          "nl": "Taak toevoegen",
+          "de": "Aufgabe hinzufügen",
+          "fr": "Ajouter une tâche",
+          "it": "Aggiungi attività",
+          "sv": "Lägg till uppgift",
+          "no": "Legg til oppgave",
+          "es": "Añadir tarea",
+          "da": "Tilføj opgave",
+          "ru": "Добавить задачу",
+          "pl": "Dodaj zadanie",
+          "ko": "작업 추가",
+          "ar": "إضافة مهمة"
         },
         "titleFormatted": {
           "en": "Add task [[task]]",
-          "nl": "Taak [[task]] toevoegen"
+          "nl": "Taak [[task]] toevoegen",
+          "de": "Aufgabe [[task]] hinzufügen",
+          "fr": "Ajouter la tâche [[task]]",
+          "it": "Aggiungi attività [[task]]",
+          "sv": "Lägg till uppgift [[task]]",
+          "no": "Legg til oppgave [[task]]",
+          "es": "Añadir tarea [[task]]",
+          "da": "Tilføj opgave [[task]]",
+          "ru": "Добавить задачу [[task]]",
+          "pl": "Dodaj zadanie [[task]]",
+          "ko": "작업 [[task]] 추가",
+          "ar": "إضافة المهمة [[task]]"
         },
         "args": [
           {
@@ -1145,7 +2674,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           },
@@ -1154,7 +2694,18 @@
             "name": "task",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           }
         ]
@@ -1163,11 +2714,33 @@
         "id": "check_product",
         "title": {
           "en": "Check product",
-          "nl": "Vink product aan"
+          "nl": "Vink product aan",
+          "de": "Produkt abhaken",
+          "fr": "Cocher un produit",
+          "it": "Spunta prodotto",
+          "sv": "Bocka av produkt",
+          "no": "Kryss av produkt",
+          "es": "Marcar producto",
+          "da": "Afkryds produkt",
+          "ru": "Отметить продукт",
+          "pl": "Zaznacz produkt",
+          "ko": "제품 완료 표시",
+          "ar": "تحديد منتج"
         },
         "titleFormatted": {
           "en": "Check product [[product]]",
-          "nl": "Vink product [[product]] aan"
+          "nl": "Vink product [[product]] aan",
+          "de": "Produkt [[product]] abhaken",
+          "fr": "Cocher le produit [[product]]",
+          "it": "Spunta prodotto [[product]]",
+          "sv": "Bocka av produkt [[product]]",
+          "no": "Kryss av produkt [[product]]",
+          "es": "Marcar producto [[product]]",
+          "da": "Afkryds produkt [[product]]",
+          "ru": "Отметить продукт [[product]]",
+          "pl": "Zaznacz produkt [[product]]",
+          "ko": "제품 [[product]] 완료 표시",
+          "ar": "تحديد المنتج [[product]]"
         },
         "args": [
           {
@@ -1175,7 +2748,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -1184,7 +2768,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           }
         ]
@@ -1193,11 +2788,33 @@
         "id": "check_task",
         "title": {
           "en": "Check task",
-          "nl": "Vink taak aan"
+          "nl": "Vink taak aan",
+          "de": "Aufgabe abhaken",
+          "fr": "Cocher une tâche",
+          "it": "Spunta attività",
+          "sv": "Bocka av uppgift",
+          "no": "Kryss av oppgave",
+          "es": "Marcar tarea",
+          "da": "Afkryds opgave",
+          "ru": "Отметить задачу",
+          "pl": "Zaznacz zadanie",
+          "ko": "작업 완료 표시",
+          "ar": "تحديد مهمة"
         },
         "titleFormatted": {
           "en": "Check task [[task]]",
-          "nl": "Vink taak [[task]] aan"
+          "nl": "Vink taak [[task]] aan",
+          "de": "Aufgabe [[task]] abhaken",
+          "fr": "Cocher la tâche [[task]]",
+          "it": "Spunta attività [[task]]",
+          "sv": "Bocka av uppgift [[task]]",
+          "no": "Kryss av oppgave [[task]]",
+          "es": "Marcar tarea [[task]]",
+          "da": "Afkryds opgave [[task]]",
+          "ru": "Отметить задачу [[task]]",
+          "pl": "Zaznacz zadanie [[task]]",
+          "ko": "작업 [[task]] 완료 표시",
+          "ar": "تحديد المهمة [[task]]"
         },
         "args": [
           {
@@ -1205,7 +2822,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           },
@@ -1214,7 +2842,18 @@
             "name": "task",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           }
         ]
@@ -1223,11 +2862,33 @@
         "id": "clear_list",
         "title": {
           "en": "Clear",
-          "nl": "Maak leeg"
+          "nl": "Maak leeg",
+          "de": "Leeren",
+          "fr": "Vider",
+          "it": "Svuota",
+          "sv": "Töm",
+          "no": "Tøm",
+          "es": "Vaciar",
+          "da": "Ryd",
+          "ru": "Очистить",
+          "pl": "Wyczyść",
+          "ko": "비우기",
+          "ar": "إفراغ"
         },
         "titleFormatted": {
           "en": "Clear",
-          "nl": "Maak leeg"
+          "nl": "Maak leeg",
+          "de": "Leeren",
+          "fr": "Vider",
+          "it": "Svuota",
+          "sv": "Töm",
+          "no": "Tøm",
+          "es": "Vaciar",
+          "da": "Ryd",
+          "ru": "Очистить",
+          "pl": "Wyczyść",
+          "ko": "비우기",
+          "ar": "إفراغ"
         },
         "args": [
           {
@@ -1235,7 +2896,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
           }
@@ -1245,11 +2917,33 @@
         "id": "get_contents",
         "title": {
           "en": "Get items as text",
-          "nl": "Haal items op als tekst"
+          "nl": "Haal items op als tekst",
+          "de": "Elemente als Text abrufen",
+          "fr": "Obtenir les éléments au format texte",
+          "it": "Ottieni elementi come testo",
+          "sv": "Hämta objekt som text",
+          "no": "Hent elementer som tekst",
+          "es": "Obtener elementos como texto",
+          "da": "Hent elementer som tekst",
+          "ru": "Получить элементы в виде текста",
+          "pl": "Pobierz elementy jako tekst",
+          "ko": "항목을 텍스트로 가져오기",
+          "ar": "الحصول على العناصر كنص"
         },
         "titleFormatted": {
           "en": "Get [[items]] as text",
-          "nl": "Haal [[items]] op als tekst"
+          "nl": "Haal [[items]] op als tekst",
+          "de": "[[items]] als Text abrufen",
+          "fr": "Obtenir [[items]] au format texte",
+          "it": "Ottieni [[items]] come testo",
+          "sv": "Hämta [[items]] som text",
+          "no": "Hent [[items]] som tekst",
+          "es": "Obtener [[items]] como texto",
+          "da": "Hent [[items]] som tekst",
+          "ru": "Получить [[items]] в виде текста",
+          "pl": "Pobierz [[items]] jako tekst",
+          "ko": "[[items]]를 텍스트로 가져오기",
+          "ar": "الحصول على [[items]] كنص"
         },
         "args": [
           {
@@ -1257,7 +2951,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
           },
@@ -1266,28 +2971,72 @@
             "name": "items",
             "title": {
               "en": "Items",
-              "nl": "Items"
+              "nl": "Items",
+              "de": "Elemente",
+              "fr": "Éléments",
+              "it": "Elementi",
+              "sv": "Objekt",
+              "no": "Elementer",
+              "es": "Elementos",
+              "da": "Elementer",
+              "ru": "Элементы",
+              "pl": "Elementy",
+              "ko": "항목",
+              "ar": "العناصر"
             },
             "values": [
               {
                 "id": "all",
                 "title": {
                   "en": "All items",
-                  "nl": "Alle items"
+                  "nl": "Alle items",
+                  "de": "Alle Elemente",
+                  "fr": "Tous les éléments",
+                  "it": "Tutti gli elementi",
+                  "sv": "Alla objekt",
+                  "no": "Alle elementer",
+                  "es": "Todos los elementos",
+                  "da": "Alle elementer",
+                  "ru": "Все элементы",
+                  "pl": "Wszystkie elementy",
+                  "ko": "모든 항목",
+                  "ar": "كل العناصر"
                 }
               },
               {
                 "id": "open",
                 "title": {
                   "en": "Unchecked items",
-                  "nl": "Uitgevinkte items"
+                  "nl": "Uitgevinkte items",
+                  "de": "Nicht abgehakte Elemente",
+                  "fr": "Éléments non cochés",
+                  "it": "Elementi non spuntati",
+                  "sv": "Ej avbockade objekt",
+                  "no": "Ikke avkryssede elementer",
+                  "es": "Elementos sin marcar",
+                  "da": "Ikke-afkrydsede elementer",
+                  "ru": "Неотмеченные элементы",
+                  "pl": "Niezaznaczone elementy",
+                  "ko": "완료되지 않은 항목",
+                  "ar": "العناصر غير المحددة"
                 }
               },
               {
                 "id": "checked",
                 "title": {
                   "en": "Checked items",
-                  "nl": "Aangevinkte items"
+                  "nl": "Aangevinkte items",
+                  "de": "Abgehakte Elemente",
+                  "fr": "Éléments cochés",
+                  "it": "Elementi spuntati",
+                  "sv": "Avbockade objekt",
+                  "no": "Avkryssede elementer",
+                  "es": "Elementos marcados",
+                  "da": "Afkrydsede elementer",
+                  "ru": "Отмеченные элементы",
+                  "pl": "Zaznaczone elementy",
+                  "ko": "완료된 항목",
+                  "ar": "العناصر المحددة"
                 }
               }
             ]
@@ -1299,7 +3048,18 @@
             "type": "string",
             "title": {
               "en": "Content",
-              "nl": "Inhoud"
+              "nl": "Inhoud",
+              "de": "Inhalt",
+              "fr": "Contenu",
+              "it": "Contenuto",
+              "sv": "Innehåll",
+              "no": "Innhold",
+              "es": "Contenido",
+              "da": "Indhold",
+              "ru": "Содержимое",
+              "pl": "Treść",
+              "ko": "내용",
+              "ar": "المحتوى"
             }
           }
         ]
@@ -1308,11 +3068,33 @@
         "id": "get_contents_markdown",
         "title": {
           "en": "Get items as markdown",
-          "nl": "Haal items op als markdown"
+          "nl": "Haal items op als markdown",
+          "de": "Elemente als Markdown abrufen",
+          "fr": "Obtenir les éléments au format markdown",
+          "it": "Ottieni elementi come markdown",
+          "sv": "Hämta objekt som markdown",
+          "no": "Hent elementer som markdown",
+          "es": "Obtener elementos como markdown",
+          "da": "Hent elementer som markdown",
+          "ru": "Получить элементы в формате markdown",
+          "pl": "Pobierz elementy jako markdown",
+          "ko": "항목을 마크다운으로 가져오기",
+          "ar": "الحصول على العناصر بتنسيق markdown"
         },
         "titleFormatted": {
           "en": "Get [[items]] as markdown",
-          "nl": "Haal [[items]] op als markdown"
+          "nl": "Haal [[items]] op als markdown",
+          "de": "[[items]] als Markdown abrufen",
+          "fr": "Obtenir [[items]] au format markdown",
+          "it": "Ottieni [[items]] come markdown",
+          "sv": "Hämta [[items]] som markdown",
+          "no": "Hent [[items]] som markdown",
+          "es": "Obtener [[items]] como markdown",
+          "da": "Hent [[items]] som markdown",
+          "ru": "Получить [[items]] в формате markdown",
+          "pl": "Pobierz [[items]] jako markdown",
+          "ko": "[[items]]를 마크다운으로 가져오기",
+          "ar": "الحصول على [[items]] بتنسيق markdown"
         },
         "args": [
           {
@@ -1320,7 +3102,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
           },
@@ -1329,28 +3122,72 @@
             "name": "items",
             "title": {
               "en": "Items",
-              "nl": "Items"
+              "nl": "Items",
+              "de": "Elemente",
+              "fr": "Éléments",
+              "it": "Elementi",
+              "sv": "Objekt",
+              "no": "Elementer",
+              "es": "Elementos",
+              "da": "Elementer",
+              "ru": "Элементы",
+              "pl": "Elementy",
+              "ko": "항목",
+              "ar": "العناصر"
             },
             "values": [
               {
                 "id": "all",
                 "title": {
                   "en": "All items",
-                  "nl": "Alle items"
+                  "nl": "Alle items",
+                  "de": "Alle Elemente",
+                  "fr": "Tous les éléments",
+                  "it": "Tutti gli elementi",
+                  "sv": "Alla objekt",
+                  "no": "Alle elementer",
+                  "es": "Todos los elementos",
+                  "da": "Alle elementer",
+                  "ru": "Все элементы",
+                  "pl": "Wszystkie elementy",
+                  "ko": "모든 항목",
+                  "ar": "كل العناصر"
                 }
               },
               {
                 "id": "open",
                 "title": {
                   "en": "Unchecked items",
-                  "nl": "Uitgevinkte items"
+                  "nl": "Uitgevinkte items",
+                  "de": "Nicht abgehakte Elemente",
+                  "fr": "Éléments non cochés",
+                  "it": "Elementi non spuntati",
+                  "sv": "Ej avbockade objekt",
+                  "no": "Ikke avkryssede elementer",
+                  "es": "Elementos sin marcar",
+                  "da": "Ikke-afkrydsede elementer",
+                  "ru": "Неотмеченные элементы",
+                  "pl": "Niezaznaczone elementy",
+                  "ko": "완료되지 않은 항목",
+                  "ar": "العناصر غير المحددة"
                 }
               },
               {
                 "id": "checked",
                 "title": {
                   "en": "Checked items",
-                  "nl": "Aangevinkte items"
+                  "nl": "Aangevinkte items",
+                  "de": "Abgehakte Elemente",
+                  "fr": "Éléments cochés",
+                  "it": "Elementi spuntati",
+                  "sv": "Avbockade objekt",
+                  "no": "Avkryssede elementer",
+                  "es": "Elementos marcados",
+                  "da": "Afkrydsede elementer",
+                  "ru": "Отмеченные элементы",
+                  "pl": "Zaznaczone elementy",
+                  "ko": "완료된 항목",
+                  "ar": "العناصر المحددة"
                 }
               }
             ]
@@ -1362,7 +3199,18 @@
             "type": "string",
             "title": {
               "en": "Content",
-              "nl": "Inhoud"
+              "nl": "Inhoud",
+              "de": "Inhalt",
+              "fr": "Contenu",
+              "it": "Contenuto",
+              "sv": "Innehåll",
+              "no": "Innhold",
+              "es": "Contenido",
+              "da": "Indhold",
+              "ru": "Содержимое",
+              "pl": "Treść",
+              "ko": "내용",
+              "ar": "المحتوى"
             }
           }
         ]
@@ -1371,11 +3219,33 @@
         "id": "remove_checked",
         "title": {
           "en": "Remove checked",
-          "nl": "Verwijder afgevinkte items"
+          "nl": "Verwijder afgevinkte items",
+          "de": "Abgehakte Elemente entfernen",
+          "fr": "Supprimer les éléments cochés",
+          "it": "Rimuovi elementi spuntati",
+          "sv": "Ta bort avbockade objekt",
+          "no": "Fjern avkryssede elementer",
+          "es": "Eliminar elementos marcados",
+          "da": "Fjern afkrydsede elementer",
+          "ru": "Удалить отмеченные элементы",
+          "pl": "Usuń zaznaczone elementy",
+          "ko": "완료된 항목 제거",
+          "ar": "إزالة العناصر المحددة"
         },
         "titleFormatted": {
           "en": "Remove checked",
-          "nl": "Verwijder afgevinkte items"
+          "nl": "Verwijder afgevinkte items",
+          "de": "Abgehakte Elemente entfernen",
+          "fr": "Supprimer les éléments cochés",
+          "it": "Rimuovi elementi spuntati",
+          "sv": "Ta bort avbockade objekt",
+          "no": "Fjern avkryssede elementer",
+          "es": "Eliminar elementos marcados",
+          "da": "Fjern afkrydsede elementer",
+          "ru": "Удалить отмеченные элементы",
+          "pl": "Usuń zaznaczone elementy",
+          "ko": "완료된 항목 제거",
+          "ar": "إزالة العناصر المحددة"
         },
         "args": [
           {
@@ -1383,7 +3253,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
           }
@@ -1393,11 +3274,33 @@
         "id": "remove_note",
         "title": {
           "en": "Remove note",
-          "nl": "Verwijder notitie"
+          "nl": "Verwijder notitie",
+          "de": "Notiz entfernen",
+          "fr": "Supprimer une note",
+          "it": "Rimuovi nota",
+          "sv": "Ta bort anteckning",
+          "no": "Fjern notat",
+          "es": "Eliminar nota",
+          "da": "Fjern note",
+          "ru": "Удалить заметку",
+          "pl": "Usuń notatkę",
+          "ko": "메모 제거",
+          "ar": "إزالة ملاحظة"
         },
         "titleFormatted": {
           "en": "Remove note [[note]]",
-          "nl": "Verwijder notitie [[note]]"
+          "nl": "Verwijder notitie [[note]]",
+          "de": "Notiz [[note]] entfernen",
+          "fr": "Supprimer la note [[note]]",
+          "it": "Rimuovi nota [[note]]",
+          "sv": "Ta bort anteckning [[note]]",
+          "no": "Fjern notat [[note]]",
+          "es": "Eliminar nota [[note]]",
+          "da": "Fjern note [[note]]",
+          "ru": "Удалить заметку [[note]]",
+          "pl": "Usuń notatkę [[note]]",
+          "ko": "메모 [[note]] 제거",
+          "ar": "إزالة الملاحظة [[note]]"
         },
         "args": [
           {
@@ -1405,7 +3308,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
           },
@@ -1414,7 +3328,18 @@
             "name": "note",
             "title": {
               "en": "Note",
-              "nl": "Notitie"
+              "nl": "Notitie",
+              "de": "Notiz",
+              "fr": "Note",
+              "it": "Nota",
+              "sv": "Anteckning",
+              "no": "Notat",
+              "es": "Nota",
+              "da": "Note",
+              "ru": "Заметка",
+              "pl": "Notatka",
+              "ko": "메모",
+              "ar": "ملاحظة"
             }
           }
         ]
@@ -1423,11 +3348,33 @@
         "id": "remove_product",
         "title": {
           "en": "Remove product",
-          "nl": "Product verwijderen"
+          "nl": "Product verwijderen",
+          "de": "Produkt entfernen",
+          "fr": "Supprimer un produit",
+          "it": "Rimuovi prodotto",
+          "sv": "Ta bort produkt",
+          "no": "Fjern produkt",
+          "es": "Eliminar producto",
+          "da": "Fjern produkt",
+          "ru": "Удалить продукт",
+          "pl": "Usuń produkt",
+          "ko": "제품 제거",
+          "ar": "إزالة منتج"
         },
         "titleFormatted": {
           "en": "Remove product [[product]]",
-          "nl": "Product [[product]] verwijderen"
+          "nl": "Product [[product]] verwijderen",
+          "de": "Produkt [[product]] entfernen",
+          "fr": "Supprimer le produit [[product]]",
+          "it": "Rimuovi prodotto [[product]]",
+          "sv": "Ta bort produkt [[product]]",
+          "no": "Fjern produkt [[product]]",
+          "es": "Eliminar producto [[product]]",
+          "da": "Fjern produkt [[product]]",
+          "ru": "Удалить продукт [[product]]",
+          "pl": "Usuń produkt [[product]]",
+          "ko": "제품 [[product]] 제거",
+          "ar": "إزالة المنتج [[product]]"
         },
         "args": [
           {
@@ -1435,7 +3382,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -1444,7 +3402,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           }
         ]
@@ -1453,11 +3422,33 @@
         "id": "remove_task",
         "title": {
           "en": "Remove task",
-          "nl": "Verwijder taak"
+          "nl": "Verwijder taak",
+          "de": "Aufgabe entfernen",
+          "fr": "Supprimer une tâche",
+          "it": "Rimuovi attività",
+          "sv": "Ta bort uppgift",
+          "no": "Fjern oppgave",
+          "es": "Eliminar tarea",
+          "da": "Fjern opgave",
+          "ru": "Удалить задачу",
+          "pl": "Usuń zadanie",
+          "ko": "작업 제거",
+          "ar": "إزالة مهمة"
         },
         "titleFormatted": {
           "en": "Remove task [[task]]",
-          "nl": "Verwijder taak [[task]]"
+          "nl": "Verwijder taak [[task]]",
+          "de": "Aufgabe [[task]] entfernen",
+          "fr": "Supprimer la tâche [[task]]",
+          "it": "Rimuovi attività [[task]]",
+          "sv": "Ta bort uppgift [[task]]",
+          "no": "Fjern oppgave [[task]]",
+          "es": "Eliminar tarea [[task]]",
+          "da": "Fjern opgave [[task]]",
+          "ru": "Удалить задачу [[task]]",
+          "pl": "Usuń zadanie [[task]]",
+          "ko": "작업 [[task]] 제거",
+          "ar": "إزالة المهمة [[task]]"
         },
         "args": [
           {
@@ -1465,7 +3456,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           },
@@ -1474,7 +3476,18 @@
             "name": "task",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           }
         ]
@@ -1483,11 +3496,33 @@
         "id": "set_product_category",
         "title": {
           "en": "Set product category",
-          "nl": "Stel categorie in"
+          "nl": "Stel categorie in",
+          "de": "Produktkategorie festlegen",
+          "fr": "Définir la catégorie du produit",
+          "it": "Imposta categoria prodotto",
+          "sv": "Ställ in produktkategori",
+          "no": "Sett produktkategori",
+          "es": "Establecer categoría del producto",
+          "da": "Angiv produktkategori",
+          "ru": "Установить категорию продукта",
+          "pl": "Ustaw kategorię produktu",
+          "ko": "제품 카테고리 설정",
+          "ar": "تعيين فئة المنتج"
         },
         "titleFormatted": {
           "en": "Set category of [[product]] to [[category]]",
-          "nl": "Stel categorie van [[product]] in op [[category]]"
+          "nl": "Stel categorie van [[product]] in op [[category]]",
+          "de": "Kategorie von [[product]] auf [[category]] setzen",
+          "fr": "Définir la catégorie de [[product]] sur [[category]]",
+          "it": "Imposta la categoria di [[product]] su [[category]]",
+          "sv": "Ställ in kategorin för [[product]] till [[category]]",
+          "no": "Sett kategorien for [[product]] til [[category]]",
+          "es": "Establecer la categoría de [[product]] en [[category]]",
+          "da": "Angiv kategorien for [[product]] til [[category]]",
+          "ru": "Установить категорию [[product]] на [[category]]",
+          "pl": "Ustaw kategorię [[product]] na [[category]]",
+          "ko": "[[product]]의 카테고리를 [[category]]로 설정",
+          "ar": "تعيين فئة [[product]] إلى [[category]]"
         },
         "args": [
           {
@@ -1495,7 +3530,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -1504,7 +3550,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           },
           {
@@ -1512,7 +3569,18 @@
             "name": "category",
             "title": {
               "en": "Category",
-              "nl": "Categorie"
+              "nl": "Categorie",
+              "de": "Kategorie",
+              "fr": "Catégorie",
+              "it": "Categoria",
+              "sv": "Kategori",
+              "no": "Kategori",
+              "es": "Categoría",
+              "da": "Kategori",
+              "ru": "Категория",
+              "pl": "Kategoria",
+              "ko": "카테고리",
+              "ar": "الفئة"
             }
           }
         ]
@@ -1521,11 +3589,33 @@
         "id": "set_product_quantity",
         "title": {
           "en": "Set product quantity",
-          "nl": "Stel productaantal in"
+          "nl": "Stel productaantal in",
+          "de": "Produktmenge festlegen",
+          "fr": "Définir la quantité du produit",
+          "it": "Imposta quantità prodotto",
+          "sv": "Ställ in produktantal",
+          "no": "Sett produktantall",
+          "es": "Establecer cantidad del producto",
+          "da": "Angiv produktantal",
+          "ru": "Установить количество продукта",
+          "pl": "Ustaw ilość produktu",
+          "ko": "제품 수량 설정",
+          "ar": "تعيين كمية المنتج"
         },
         "titleFormatted": {
           "en": "Set quantity of [[product]] to [[quantity]]",
-          "nl": "Stel aantal van [[product]] in op [[quantity]]"
+          "nl": "Stel aantal van [[product]] in op [[quantity]]",
+          "de": "Menge von [[product]] auf [[quantity]] setzen",
+          "fr": "Définir la quantité de [[product]] sur [[quantity]]",
+          "it": "Imposta la quantità di [[product]] su [[quantity]]",
+          "sv": "Ställ in antalet för [[product]] till [[quantity]]",
+          "no": "Sett antallet for [[product]] til [[quantity]]",
+          "es": "Establecer la cantidad de [[product]] en [[quantity]]",
+          "da": "Angiv antallet for [[product]] til [[quantity]]",
+          "ru": "Установить количество [[product]] на [[quantity]]",
+          "pl": "Ustaw ilość [[product]] na [[quantity]]",
+          "ko": "[[product]]의 수량을 [[quantity]]로 설정",
+          "ar": "تعيين كمية [[product]] إلى [[quantity]]"
         },
         "args": [
           {
@@ -1533,7 +3623,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -1542,7 +3643,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           },
           {
@@ -1550,7 +3662,18 @@
             "name": "quantity",
             "title": {
               "en": "Quantity",
-              "nl": "Aantal"
+              "nl": "Aantal",
+              "de": "Menge",
+              "fr": "Quantité",
+              "it": "Quantità",
+              "sv": "Antal",
+              "no": "Antall",
+              "es": "Cantidad",
+              "da": "Antal",
+              "ru": "Количество",
+              "pl": "Ilość",
+              "ko": "수량",
+              "ar": "الكمية"
             }
           }
         ]
@@ -1559,11 +3682,33 @@
         "id": "uncheck_product",
         "title": {
           "en": "Uncheck product",
-          "nl": "Vink product uit"
+          "nl": "Vink product uit",
+          "de": "Häkchen bei Produkt entfernen",
+          "fr": "Décocher un produit",
+          "it": "Rimuovi spunta dal prodotto",
+          "sv": "Avbocka produkt",
+          "no": "Fjern avkryssing for produkt",
+          "es": "Desmarcar producto",
+          "da": "Fjern afkrydsning for produkt",
+          "ru": "Снять отметку с продукта",
+          "pl": "Odznacz produkt",
+          "ko": "제품 완료 표시 해제",
+          "ar": "إلغاء تحديد منتج"
         },
         "titleFormatted": {
           "en": "Uncheck product [[product]]",
-          "nl": "Vink product [[product]] uit"
+          "nl": "Vink product [[product]] uit",
+          "de": "Häkchen bei Produkt [[product]] entfernen",
+          "fr": "Décocher le produit [[product]]",
+          "it": "Rimuovi spunta dal prodotto [[product]]",
+          "sv": "Avbocka produkt [[product]]",
+          "no": "Fjern avkryssing for produkt [[product]]",
+          "es": "Desmarcar producto [[product]]",
+          "da": "Fjern afkrydsning for produkt [[product]]",
+          "ru": "Снять отметку с продукта [[product]]",
+          "pl": "Odznacz produkt [[product]]",
+          "ko": "제품 [[product]] 완료 표시 해제",
+          "ar": "إلغاء تحديد المنتج [[product]]"
         },
         "args": [
           {
@@ -1571,7 +3716,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
           },
@@ -1580,7 +3736,18 @@
             "name": "product",
             "title": {
               "en": "Product",
-              "nl": "Product"
+              "nl": "Product",
+              "de": "Produkt",
+              "fr": "Produit",
+              "it": "Prodotto",
+              "sv": "Produkt",
+              "no": "Produkt",
+              "es": "Producto",
+              "da": "Produkt",
+              "ru": "Продукт",
+              "pl": "Produkt",
+              "ko": "제품",
+              "ar": "منتج"
             }
           }
         ]
@@ -1589,11 +3756,33 @@
         "id": "uncheck_task",
         "title": {
           "en": "Uncheck task",
-          "nl": "Vink taak uit"
+          "nl": "Vink taak uit",
+          "de": "Häkchen bei Aufgabe entfernen",
+          "fr": "Décocher une tâche",
+          "it": "Rimuovi spunta dall'attività",
+          "sv": "Avbocka uppgift",
+          "no": "Fjern avkryssing for oppgave",
+          "es": "Desmarcar tarea",
+          "da": "Fjern afkrydsning for opgave",
+          "ru": "Снять отметку с задачи",
+          "pl": "Odznacz zadanie",
+          "ko": "작업 완료 표시 해제",
+          "ar": "إلغاء تحديد مهمة"
         },
         "titleFormatted": {
           "en": "Uncheck task [[task]]",
-          "nl": "Vink taak [[task]] uit"
+          "nl": "Vink taak [[task]] uit",
+          "de": "Häkchen bei Aufgabe [[task]] entfernen",
+          "fr": "Décocher la tâche [[task]]",
+          "it": "Rimuovi spunta dall'attività [[task]]",
+          "sv": "Avbocka uppgift [[task]]",
+          "no": "Fjern avkryssing for oppgave [[task]]",
+          "es": "Desmarcar tarea [[task]]",
+          "da": "Fjern afkrydsning for opgave [[task]]",
+          "ru": "Снять отметку с задачи [[task]]",
+          "pl": "Odznacz zadanie [[task]]",
+          "ko": "작업 [[task]] 완료 표시 해제",
+          "ar": "إلغاء تحديد المهمة [[task]]"
         },
         "args": [
           {
@@ -1601,7 +3790,18 @@
             "name": "list",
             "title": {
               "en": "List",
-              "nl": "Lijst"
+              "nl": "Lijst",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "sv": "Lista",
+              "no": "Liste",
+              "es": "Lista",
+              "da": "Liste",
+              "ru": "Список",
+              "pl": "Lista",
+              "ko": "목록",
+              "ar": "قائمة"
             },
             "filter": "driver_id=list"
           },
@@ -1610,7 +3810,18 @@
             "name": "task",
             "title": {
               "en": "Task",
-              "nl": "Taak"
+              "nl": "Taak",
+              "de": "Aufgabe",
+              "fr": "Tâche",
+              "it": "Attività",
+              "sv": "Uppgift",
+              "no": "Oppgave",
+              "es": "Tarea",
+              "da": "Opgave",
+              "ru": "Задача",
+              "pl": "Zadanie",
+              "ko": "작업",
+              "ar": "مهمة"
             }
           }
         ]
@@ -1621,7 +3832,18 @@
     {
       "name": {
         "en": "Grocery list",
-        "nl": "Boodschappenlijst"
+        "nl": "Boodschappenlijst",
+        "de": "Einkaufsliste",
+        "fr": "Liste de courses",
+        "it": "Lista della spesa",
+        "sv": "Inköpslista",
+        "no": "Handleliste",
+        "es": "Lista de la compra",
+        "da": "Indkøbsliste",
+        "ru": "Список покупок",
+        "pl": "Lista zakupów",
+        "ko": "장보기 목록",
+        "ar": "قائمة التسوق"
       },
       "class": "other",
       "capabilities": [],
@@ -1650,7 +3872,18 @@
     {
       "name": {
         "en": "List",
-        "nl": "Lijst"
+        "nl": "Lijst",
+        "de": "Liste",
+        "fr": "Liste",
+        "it": "Elenco",
+        "sv": "Lista",
+        "no": "Liste",
+        "es": "Lista",
+        "da": "Liste",
+        "ru": "Список",
+        "pl": "Lista",
+        "ko": "목록",
+        "ar": "قائمة"
       },
       "class": "other",
       "capabilities": [],
@@ -1681,7 +3914,18 @@
     "list": {
       "name": {
         "en": "List",
-        "nl": "Lijst"
+        "nl": "Lijst",
+        "de": "Liste",
+        "fr": "Liste",
+        "it": "Elenco",
+        "sv": "Lista",
+        "no": "Liste",
+        "es": "Lista",
+        "da": "Liste",
+        "ru": "Список",
+        "pl": "Lista",
+        "ko": "목록",
+        "ar": "قائمة"
       },
       "height": 120,
       "devices": {
@@ -1695,7 +3939,18 @@
           "type": "checkbox",
           "label": {
             "en": "Dynamic height",
-            "nl": "Dynamische hoogte"
+            "nl": "Dynamische hoogte",
+            "de": "Dynamische Höhe",
+            "fr": "Hauteur dynamique",
+            "it": "Altezza dinamica",
+            "sv": "Dynamisk höjd",
+            "no": "Dynamisk høyde",
+            "es": "Altura dinámica",
+            "da": "Dynamisk højde",
+            "ru": "Динамическая высота",
+            "pl": "Dynamiczna wysokość",
+            "ko": "동적 높이",
+            "ar": "ارتفاع ديناميكي"
           },
           "value": true
         },
@@ -1704,7 +3959,18 @@
           "type": "number",
           "label": {
             "en": "Fixed height",
-            "nl": "Vaste hoogte"
+            "nl": "Vaste hoogte",
+            "de": "Feste Höhe",
+            "fr": "Hauteur fixe",
+            "it": "Altezza fissa",
+            "sv": "Fast höjd",
+            "no": "Fast høyde",
+            "es": "Altura fija",
+            "da": "Fast højde",
+            "ru": "Фиксированная высота",
+            "pl": "Stała wysokość",
+            "ko": "고정 높이",
+            "ar": "ارتفاع ثابت"
           },
           "value": 400,
           "min": 120

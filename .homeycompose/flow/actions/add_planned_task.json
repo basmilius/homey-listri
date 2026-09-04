@@ -2,11 +2,33 @@
     "id": "add_planned_task",
     "title": {
         "en": "Add planned task",
-        "nl": "Geplande taak toevoegen"
+        "nl": "Geplande taak toevoegen",
+        "de": "Geplante Aufgabe hinzufügen",
+        "fr": "Ajouter une tâche planifiée",
+        "it": "Aggiungi attività pianificata",
+        "sv": "Lägg till planerad uppgift",
+        "no": "Legg til planlagt oppgave",
+        "es": "Añadir tarea planificada",
+        "da": "Tilføj planlagt opgave",
+        "ru": "Добавить запланированную задачу",
+        "pl": "Dodaj zaplanowane zadanie",
+        "ko": "예정된 작업 추가",
+        "ar": "إضافة مهمة مجدولة"
     },
     "titleFormatted": {
         "en": "Add task [[task]] due on [[date]] at [[time]]",
-        "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]]"
+        "nl": "Maak taak [[task]] met deadline op [[date]] om [[time]]",
+        "de": "Aufgabe [[task]] mit Fälligkeit am [[date]] um [[time]] hinzufügen",
+        "fr": "Ajouter la tâche [[task]] à échéance le [[date]] à [[time]]",
+        "it": "Aggiungi attività [[task]] con scadenza il [[date]] alle [[time]]",
+        "sv": "Lägg till uppgift [[task]] som förfaller [[date]] kl. [[time]]",
+        "no": "Legg til oppgave [[task]] med frist [[date]] kl. [[time]]",
+        "es": "Añadir tarea [[task]] con vencimiento el [[date]] a las [[time]]",
+        "da": "Tilføj opgave [[task]] med forfald den [[date]] kl. [[time]]",
+        "ru": "Добавить задачу [[task]] со сроком [[date]] в [[time]]",
+        "pl": "Dodaj zadanie [[task]] z terminem [[date]] o [[time]]",
+        "ko": "작업 [[task]]를 기한 [[date]] [[time]]으로 추가",
+        "ar": "إضافة المهمة [[task]] المستحقة في [[date]] الساعة [[time]]"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list"
         },
@@ -23,7 +56,18 @@
             "name": "task",
             "title": {
                 "en": "Task",
-                "nl": "Taak"
+                "nl": "Taak",
+                "de": "Aufgabe",
+                "fr": "Tâche",
+                "it": "Attività",
+                "sv": "Uppgift",
+                "no": "Oppgave",
+                "es": "Tarea",
+                "da": "Opgave",
+                "ru": "Задача",
+                "pl": "Zadanie",
+                "ko": "작업",
+                "ar": "مهمة"
             }
         },
         {
@@ -31,7 +75,18 @@
             "name": "date",
             "title": {
                 "en": "Date",
-                "nl": "Datum"
+                "nl": "Datum",
+                "de": "Datum",
+                "fr": "Date",
+                "it": "Data",
+                "sv": "Datum",
+                "no": "Dato",
+                "es": "Fecha",
+                "da": "Dato",
+                "ru": "Дата",
+                "pl": "Data",
+                "ko": "날짜",
+                "ar": "التاريخ"
             }
         },
         {
@@ -40,7 +95,18 @@
             "required": false,
             "title": {
                 "en": "Time",
-                "nl": "Tijd"
+                "nl": "Tijd",
+                "de": "Uhrzeit",
+                "fr": "Heure",
+                "it": "Ora",
+                "sv": "Tid",
+                "no": "Tid",
+                "es": "Hora",
+                "da": "Tidspunkt",
+                "ru": "Время",
+                "pl": "Godzina",
+                "ko": "시간",
+                "ar": "الوقت"
             }
         }
     ]

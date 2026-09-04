@@ -1,0 +1,109 @@
+{
+    "device": {
+        "list": {
+            "pair": {
+                "title": "Opret en ny liste",
+                "subtitle": "Elementer kan oprettes via widgets eller flows.",
+                "submit": "Opret liste",
+                "name": {
+                    "title": "Navn",
+                    "description": "Et unikt navn til din liste."
+                },
+                "icon": {
+                    "title": "Ikon",
+                    "description": "Ikonet vises kun i listewidgetten."
+                },
+                "color": {
+                    "title": "Farve",
+                    "description": "Farven vises kun i listewidgetten."
+                }
+            },
+            "repair": {
+                "title": "Opdater liste",
+                "subtitle": "Rediger detaljerne for din liste.",
+                "submit": "Gem liste"
+            }
+        }
+    },
+    "element": {
+        "search_icon": "Søg efter et ikon..."
+    },
+    "widget": {
+        "list": {
+            "no_items": "Der er ingen elementer på denne liste.",
+            "today": "I dag",
+            "today_at": "I dag kl.",
+            "other": "Andet",
+            "add": {
+                "title": {
+                    "note": "Tilføj note",
+                    "product": "Tilføj produkt",
+                    "task": "Tilføj opgave"
+                },
+                "add": "Tilføj",
+                "save": "Gem",
+                "cancel": "Annuller",
+                "category": "Kategori",
+                "content": "Indhold",
+                "due": "Forfaldsdato",
+                "person": "Person",
+                "anyone": "Alle",
+                "type": "Type",
+                "note": "Note",
+                "product": "Produkt",
+                "quantity": "Antal",
+                "task": "Opgave"
+            },
+            "edit": {
+                "title": {
+                    "note": "Rediger note",
+                    "product": "Rediger produkt",
+                    "task": "Rediger opgave"
+                }
+            }
+        }
+    },
+    "grocery": {
+        "category": {
+            "fruits_vegetables": "Frugt & Grønt",
+            "bakery": "Bageri",
+            "dairy_eggs": "Mejeri & Æg",
+            "meat": "Kød",
+            "fish_seafood": "Fisk & Skaldyr",
+            "deli": "Delikatesser & Færdigretter",
+            "frozen": "Frostvarer",
+            "beverages": "Drikkevarer",
+            "snacks_sweets": "Snacks & Slik",
+            "breakfast_cereals": "Morgenmad & Cerealier",
+            "pasta_rice_grains": "Pasta, Ris & Korn",
+            "canned_jarred": "Konserves & Glas",
+            "sauces_condiments": "Saucer & Dressinger",
+            "herbs_spices": "Krydderurter & Krydderier",
+            "oils_vinegars": "Olier & Eddike",
+            "household": "Husholdning",
+            "personal_care": "Personlig pleje",
+            "pet_supplies": "Kæledyr",
+            "baby_products": "Babyprodukter",
+            "health_vitamins": "Sundhed & Vitaminer"
+        }
+    },
+    "color": {
+        "red": "Rød",
+        "orange": "Orange",
+        "amber": "Rav",
+        "yellow": "Gul",
+        "lime": "Lime",
+        "green": "Grøn",
+        "emerald": "Smaragd",
+        "teal": "Teal",
+        "cyan": "Cyan",
+        "sky": "Himmelblå",
+        "blue": "Blå",
+        "indigo": "Indigo",
+        "violet": "Violet",
+        "purple": "Lilla",
+        "fuchsia": "Fuchsia",
+        "pink": "Pink",
+        "rose": "Rosa"
+    }
+}

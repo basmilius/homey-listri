@@ -2,11 +2,33 @@
     "id": "note_removed",
     "title": {
         "en": "A note is removed",
-        "nl": "Er is een notitie verwijderd"
+        "nl": "Er is een notitie verwijderd",
+        "de": "Eine Notiz wurde entfernt",
+        "fr": "Une note est supprimée",
+        "it": "Una nota è stata rimossa",
+        "sv": "En anteckning har tagits bort",
+        "no": "Et notat er fjernet",
+        "es": "Se ha eliminado una nota",
+        "da": "En note er fjernet",
+        "ru": "Заметка удалена",
+        "pl": "Notatka została usunięta",
+        "ko": "메모가 제거됨",
+        "ar": "تمت إزالة ملاحظة"
     },
     "titleFormatted": {
         "en": "A note is removed",
-        "nl": "Er is een notitie verwijderd"
+        "nl": "Er is een notitie verwijderd",
+        "de": "Eine Notiz wurde entfernt",
+        "fr": "Une note est supprimée",
+        "it": "Una nota è stata rimossa",
+        "sv": "En anteckning har tagits bort",
+        "no": "Et notat er fjernet",
+        "es": "Se ha eliminado una nota",
+        "da": "En note er fjernet",
+        "ru": "Заметка удалена",
+        "pl": "Notatka została usunięta",
+        "ko": "메모가 제거됨",
+        "ar": "تمت إزالة ملاحظة"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
         }
@@ -25,7 +58,18 @@
             "type": "string",
             "title": {
                 "en": "Note",
-                "nl": "Notitie"
+                "nl": "Notitie",
+                "de": "Notiz",
+                "fr": "Note",
+                "it": "Nota",
+                "sv": "Anteckning",
+                "no": "Notat",
+                "es": "Nota",
+                "da": "Note",
+                "ru": "Заметка",
+                "pl": "Notatka",
+                "ko": "메모",
+                "ar": "ملاحظة"
             }
         }
     ]

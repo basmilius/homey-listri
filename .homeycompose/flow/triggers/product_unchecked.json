@@ -2,11 +2,33 @@
     "id": "product_unchecked",
     "title": {
         "en": "Product was unchecked",
-        "nl": "Product is uitgevinkt"
+        "nl": "Product is uitgevinkt",
+        "de": "Bei Produkt wurde das Häkchen entfernt",
+        "fr": "Le produit a été décoché",
+        "it": "Il prodotto è stato deselezionato",
+        "sv": "Produkten har avbockats",
+        "no": "Avkryssingen for produktet er fjernet",
+        "es": "Se ha desmarcado el producto",
+        "da": "Afkrydsningen for produktet er fjernet",
+        "ru": "С продукта снята отметка",
+        "pl": "Produkt został odznaczony",
+        "ko": "제품의 완료 표시가 해제됨",
+        "ar": "تم إلغاء تحديد المنتج"
     },
     "titleFormatted": {
         "en": "Product [[product]] was unchecked",
-        "nl": "Product [[product]] is uitgevinkt"
+        "nl": "Product [[product]] is uitgevinkt",
+        "de": "Bei Produkt [[product]] wurde das Häkchen entfernt",
+        "fr": "Le produit [[product]] a été décoché",
+        "it": "Il prodotto [[product]] è stato deselezionato",
+        "sv": "Produkten [[product]] har avbockats",
+        "no": "Avkryssingen for produktet [[product]] er fjernet",
+        "es": "Se ha desmarcado el producto [[product]]",
+        "da": "Afkrydsningen for produktet [[product]] er fjernet",
+        "ru": "С продукта [[product]] снята отметка",
+        "pl": "Produkt [[product]] został odznaczony",
+        "ko": "제품 [[product]]의 완료 표시가 해제됨",
+        "ar": "تم إلغاء تحديد المنتج [[product]]"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=grocery_list"
         },
@@ -23,7 +56,18 @@
             "name": "product",
             "title": {
                 "en": "Product",
-                "nl": "Product"
+                "nl": "Product",
+                "de": "Produkt",
+                "fr": "Produit",
+                "it": "Prodotto",
+                "sv": "Produkt",
+                "no": "Produkt",
+                "es": "Producto",
+                "da": "Produkt",
+                "ru": "Продукт",
+                "pl": "Produkt",
+                "ko": "제품",
+                "ar": "منتج"
             }
         }
     ]

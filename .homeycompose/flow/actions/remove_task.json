@@ -2,11 +2,33 @@
     "id": "remove_task",
     "title": {
         "en": "Remove task",
-        "nl": "Verwijder taak"
+        "nl": "Verwijder taak",
+        "de": "Aufgabe entfernen",
+        "fr": "Supprimer une tâche",
+        "it": "Rimuovi attività",
+        "sv": "Ta bort uppgift",
+        "no": "Fjern oppgave",
+        "es": "Eliminar tarea",
+        "da": "Fjern opgave",
+        "ru": "Удалить задачу",
+        "pl": "Usuń zadanie",
+        "ko": "작업 제거",
+        "ar": "إزالة مهمة"
     },
     "titleFormatted": {
         "en": "Remove task [[task]]",
-        "nl": "Verwijder taak [[task]]"
+        "nl": "Verwijder taak [[task]]",
+        "de": "Aufgabe [[task]] entfernen",
+        "fr": "Supprimer la tâche [[task]]",
+        "it": "Rimuovi attività [[task]]",
+        "sv": "Ta bort uppgift [[task]]",
+        "no": "Fjern oppgave [[task]]",
+        "es": "Eliminar tarea [[task]]",
+        "da": "Fjern opgave [[task]]",
+        "ru": "Удалить задачу [[task]]",
+        "pl": "Usuń zadanie [[task]]",
+        "ko": "작업 [[task]] 제거",
+        "ar": "إزالة المهمة [[task]]"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list"
         },
@@ -23,7 +56,18 @@
             "name": "task",
             "title": {
                 "en": "Task",
-                "nl": "Taak"
+                "nl": "Taak",
+                "de": "Aufgabe",
+                "fr": "Tâche",
+                "it": "Attività",
+                "sv": "Uppgift",
+                "no": "Oppgave",
+                "es": "Tarea",
+                "da": "Opgave",
+                "ru": "Задача",
+                "pl": "Zadanie",
+                "ko": "작업",
+                "ar": "مهمة"
             }
         }
     ]

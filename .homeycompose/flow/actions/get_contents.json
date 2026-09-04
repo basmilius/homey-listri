@@ -2,11 +2,33 @@
     "id": "get_contents",
     "title": {
         "en": "Get items as text",
-        "nl": "Haal items op als tekst"
+        "nl": "Haal items op als tekst",
+        "de": "Elemente als Text abrufen",
+        "fr": "Obtenir les éléments au format texte",
+        "it": "Ottieni elementi come testo",
+        "sv": "Hämta objekt som text",
+        "no": "Hent elementer som tekst",
+        "es": "Obtener elementos como texto",
+        "da": "Hent elementer som tekst",
+        "ru": "Получить элементы в виде текста",
+        "pl": "Pobierz elementy jako tekst",
+        "ko": "항목을 텍스트로 가져오기",
+        "ar": "الحصول على العناصر كنص"
     },
     "titleFormatted": {
         "en": "Get [[items]] as text",
-        "nl": "Haal [[items]] op als tekst"
+        "nl": "Haal [[items]] op als tekst",
+        "de": "[[items]] als Text abrufen",
+        "fr": "Obtenir [[items]] au format texte",
+        "it": "Ottieni [[items]] come testo",
+        "sv": "Hämta [[items]] som text",
+        "no": "Hent [[items]] som tekst",
+        "es": "Obtener [[items]] como texto",
+        "da": "Hent [[items]] som tekst",
+        "ru": "Получить [[items]] в виде текста",
+        "pl": "Pobierz [[items]] jako tekst",
+        "ko": "[[items]]를 텍스트로 가져오기",
+        "ar": "الحصول على [[items]] كنص"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "list",
             "title": {
                 "en": "List",
-                "nl": "Lijst"
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
             },
             "filter": "driver_id=list|grocery_list"
         },
@@ -23,28 +56,72 @@
             "name": "items",
             "title": {
                 "en": "Items",
-                "nl": "Items"
+                "nl": "Items",
+                "de": "Elemente",
+                "fr": "Éléments",
+                "it": "Elementi",
+                "sv": "Objekt",
+                "no": "Elementer",
+                "es": "Elementos",
+                "da": "Elementer",
+                "ru": "Элементы",
+                "pl": "Elementy",
+                "ko": "항목",
+                "ar": "العناصر"
             },
             "values": [
                 {
                     "id": "all",
                     "title": {
                         "en": "All items",
-                        "nl": "Alle items"
+                        "nl": "Alle items",
+                        "de": "Alle Elemente",
+                        "fr": "Tous les éléments",
+                        "it": "Tutti gli elementi",
+                        "sv": "Alla objekt",
+                        "no": "Alle elementer",
+                        "es": "Todos los elementos",
+                        "da": "Alle elementer",
+                        "ru": "Все элементы",
+                        "pl": "Wszystkie elementy",
+                        "ko": "모든 항목",
+                        "ar": "كل العناصر"
                     }
                 },
                 {
                     "id": "open",
                     "title": {
                         "en": "Unchecked items",
-                        "nl": "Uitgevinkte items"
+                        "nl": "Uitgevinkte items",
+                        "de": "Nicht abgehakte Elemente",
+                        "fr": "Éléments non cochés",
+                        "it": "Elementi non spuntati",
+                        "sv": "Ej avbockade objekt",
+                        "no": "Ikke avkryssede elementer",
+                        "es": "Elementos sin marcar",
+                        "da": "Ikke-afkrydsede elementer",
+                        "ru": "Неотмеченные элементы",
+                        "pl": "Niezaznaczone elementy",
+                        "ko": "완료되지 않은 항목",
+                        "ar": "العناصر غير المحددة"
                     }
                 },
                 {
                     "id": "checked",
                     "title": {
                         "en": "Checked items",
-                        "nl": "Aangevinkte items"
+                        "nl": "Aangevinkte items",
+                        "de": "Abgehakte Elemente",
+                        "fr": "Éléments cochés",
+                        "it": "Elementi spuntati",
+                        "sv": "Avbockade objekt",
+                        "no": "Avkryssede elementer",
+                        "es": "Elementos marcados",
+                        "da": "Afkrydsede elementer",
+                        "ru": "Отмеченные элементы",
+                        "pl": "Zaznaczone elementy",
+                        "ko": "완료된 항목",
+                        "ar": "العناصر المحددة"
                     }
                 }
             ]
@@ -56,7 +133,18 @@
             "type": "string",
             "title": {
                 "en": "Content",
-                "nl": "Inhoud"
+                "nl": "Inhoud",
+                "de": "Inhalt",
+                "fr": "Contenu",
+                "it": "Contenuto",
+                "sv": "Innehåll",
+                "no": "Innhold",
+                "es": "Contenido",
+                "da": "Indhold",
+                "ru": "Содержимое",
+                "pl": "Treść",
+                "ko": "내용",
+                "ar": "المحتوى"
             }
         }
     ]
