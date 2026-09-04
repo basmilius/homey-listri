@@ -60,6 +60,22 @@
           "product": "제품 수정",
           "task": "작업 수정"
         }
+      },
+      "filter": {
+        "title": "필터",
+        "type": "유형",
+        "date": "날짜",
+        "person": "담당자",
+        "all": "전체",
+        "notes": "메모",
+        "products": "제품",
+        "tasks": "작업",
+        "overdue": "기한 초과",
+        "upcoming": "예정",
+        "no_date": "날짜 없음",
+        "anyone": "모두",
+        "no_results": "현재 필터와 일치하는 항목이 없습니다.",
+        "clear": "필터 지우기"
       }
     }
   },

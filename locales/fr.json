@@ -60,6 +60,22 @@
           "product": "Modifier le produit",
           "task": "Modifier la tâche"
         }
+      },
+      "filter": {
+        "title": "Filtre",
+        "type": "Type",
+        "date": "Date",
+        "person": "Personne",
+        "all": "Tout",
+        "notes": "Notes",
+        "products": "Produits",
+        "tasks": "Tâches",
+        "overdue": "En retard",
+        "upcoming": "À venir",
+        "no_date": "Sans date",
+        "anyone": "Tout le monde",
+        "no_results": "Aucun élément ne correspond aux filtres actuels.",
+        "clear": "Effacer les filtres"
       }
     }
   },

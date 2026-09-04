@@ -60,6 +60,22 @@
           "product": "Rediger produkt",
           "task": "Rediger opgave"
         }
+      },
+      "filter": {
+        "title": "Filter",
+        "type": "Type",
+        "date": "Dato",
+        "person": "Person",
+        "all": "Alle",
+        "notes": "Noter",
+        "products": "Produkter",
+        "tasks": "Opgaver",
+        "overdue": "Forfaldne",
+        "upcoming": "Kommende",
+        "no_date": "Ingen dato",
+        "anyone": "Alle",
+        "no_results": "Ingen elementer matcher de aktuelle filtre.",
+        "clear": "Ryd filtre"
       }
     }
   },

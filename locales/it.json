@@ -60,6 +60,22 @@
           "product": "Modifica prodotto",
           "task": "Modifica attività"
         }
+      },
+      "filter": {
+        "title": "Filtro",
+        "type": "Tipo",
+        "date": "Data",
+        "person": "Persona",
+        "all": "Tutti",
+        "notes": "Note",
+        "products": "Prodotti",
+        "tasks": "Attività",
+        "overdue": "Scadute",
+        "upcoming": "Prossime",
+        "no_date": "Senza data",
+        "anyone": "Chiunque",
+        "no_results": "Nessun elemento corrisponde ai filtri attuali.",
+        "clear": "Cancella filtri"
       }
     }
   },

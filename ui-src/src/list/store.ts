@@ -1,6 +1,7 @@
+import { DateTime } from 'luxon';
 import { computed, readonly, ref, unref } from 'vue';
 import type { ListItemCategoryType, ListItemType, ListLookType, PersonType, ProductListItemType, TaskListItemType, Writable } from '../types';
-import { defineStore } from '../util';
+import { defineStore, dueDateTime } from '../util';
 
 export type ListDateFilter = 'all' | 'overdue' | 'upcoming' | 'no_date';
 export type ListTypeFilter = 'all' | 'note' | 'product' | 'task';
@@ -10,11 +11,6 @@ export type ListFilterState = {
     type: ListTypeFilter;
     personId: string | null;
 };
-
-function todayString(): string {
-    const now = new Date();
-    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-}
 
 export default defineStore('list', () => {
     const categories = ref<ListItemCategoryType<any>[]>([]);
@@ -30,43 +26,41 @@ export default defineStore('list', () => {
 
     const filteredItems = computed(() => {
         const state = unref(filters);
-        const today = todayString();
+        const now = DateTime.now();
 
         return unref(items).filter(item => {
+            const task = item.type === 'task' ? item : undefined;
+
             if (state.type !== 'all' && item.type !== state.type) {
                 return false;
             }
 
             if (state.date !== 'all') {
-                const dueDate = item.type === 'task' ? (item as TaskListItemType).dueDate : undefined;
+                const due = task?.dueDate
+                    ? dueDateTime(task.dueDate, task.dueTime)
+                    : undefined;
 
                 if (state.date === 'no_date') {
-                    if (dueDate) {
+                    if (due) {
                         return false;
                     }
                 } else {
-                    if (!dueDate) {
+                    if (!due) {
                         return false;
                     }
 
-                    if (state.date === 'overdue' && dueDate >= today) {
+                    if (state.date === 'overdue' && due >= now) {
                         return false;
                     }
 
-                    if (state.date === 'upcoming' && dueDate < today) {
+                    if (state.date === 'upcoming' && due < now) {
                         return false;
                     }
                 }
             }
 
-            if (state.personId !== null) {
-                if (item.type !== 'task') {
-                    return false;
-                }
-
-                if ((item as TaskListItemType).person?.id !== state.personId) {
-                    return false;
-                }
+            if (state.personId !== null && task?.person?.id !== state.personId) {
+                return false;
             }
 
             return true;
@@ -182,11 +176,7 @@ export default defineStore('list', () => {
     }
 
     function resetFilters(): void {
-        filters.value = {
-            date: 'all',
-            type: 'all',
-            personId: null
-        };
+        initFilters();
     }
 
     function setFilter<K extends keyof ListFilterState>(key: K, value: ListFilterState[K]): void {

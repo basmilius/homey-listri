@@ -60,6 +60,22 @@
           "product": "Editar producto",
           "task": "Editar tarea"
         }
+      },
+      "filter": {
+        "title": "Filtro",
+        "type": "Tipo",
+        "date": "Fecha",
+        "person": "Persona",
+        "all": "Todos",
+        "notes": "Notas",
+        "products": "Productos",
+        "tasks": "Tareas",
+        "overdue": "Vencidas",
+        "upcoming": "Próximas",
+        "no_date": "Sin fecha",
+        "anyone": "Cualquiera",
+        "no_results": "Ningún elemento coincide con los filtros actuales.",
+        "clear": "Borrar filtros"
       }
     }
   },

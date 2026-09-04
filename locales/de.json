@@ -60,6 +60,22 @@
           "product": "Produkt bearbeiten",
           "task": "Aufgabe bearbeiten"
         }
+      },
+      "filter": {
+        "title": "Filter",
+        "type": "Typ",
+        "date": "Datum",
+        "person": "Person",
+        "all": "Alle",
+        "notes": "Notizen",
+        "products": "Produkte",
+        "tasks": "Aufgaben",
+        "overdue": "Überfällig",
+        "upcoming": "Anstehend",
+        "no_date": "Kein Datum",
+        "anyone": "Jeder",
+        "no_results": "Keine Elemente entsprechen den aktuellen Filtern.",
+        "clear": "Filter zurücksetzen"
       }
     }
   },

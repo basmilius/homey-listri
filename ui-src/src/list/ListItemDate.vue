@@ -9,6 +9,7 @@
     setup>
     import { DateTime } from 'luxon';
     import { computed } from 'vue';
+    import { dueDateTime } from '../util';
 
     const {
         date,
@@ -31,9 +32,9 @@
 
     const value = computed(() => {
         const now = DateTime.now();
+        const _date = dueDateTime(date, time);
 
         if (time) {
-            const _date = DateTime.fromFormat(`${date} ${time}`, 'yyyy-MM-dd HH:mm:ss');
             const _time = _date.toFormat('HH:mm');
 
             if (now.toISODate() === _date.toISODate()) {
@@ -46,8 +47,6 @@
 
             return `${formatterYear.format(_date.toJSDate())} ${_time}`;
         } else {
-            const _date = DateTime.fromFormat(date, 'yyyy-MM-dd');
-
             if (now.toISODate() === _date.toISODate()) {
                 return Homey.__('widget.list.today');
             }

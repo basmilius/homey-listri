@@ -54,6 +54,22 @@
                 "quantity": "Antal",
                 "task": "Uppgift"
             },
+            "filter": {
+                "title": "Filter",
+                "type": "Typ",
+                "date": "Datum",
+                "person": "Person",
+                "all": "Alla",
+                "notes": "Anteckningar",
+                "products": "Produkter",
+                "tasks": "Uppgifter",
+                "overdue": "Försenade",
+                "upcoming": "Kommande",
+                "no_date": "Inget datum",
+                "anyone": "Vem som helst",
+                "no_results": "Inga objekt matchar de aktuella filtren.",
+                "clear": "Rensa filter"
+            },
             "edit": {
                 "title": {
                     "note": "Redigera anteckning",
