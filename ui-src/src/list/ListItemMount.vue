@@ -60,6 +60,7 @@
     const currentX = ref(0);
     const currentY = ref(0);
     const isTap = ref(true);
+    const direction = ref<'horizontal' | 'vertical' | null>(null);
     const touchedInteractive = ref(false);
     const longPressTimer = ref<ReturnType<typeof setTimeout> | null>(null);
     const didLongPress = ref(false);
@@ -74,7 +75,7 @@
     });
 
     const x = computed(() => {
-        if (!isDragging.value) {
+        if (!isDragging.value || direction.value === 'vertical') {
             return isOpen.value ? -90 : 0;
         }
 
@@ -122,6 +123,7 @@
         isDragging.value = true;
         isTap.value = true;
         didLongPress.value = false;
+        direction.value = null;
 
         touchedInteractive.value = (evt.target as HTMLElement).closest('[data-interactive]') !== null;
 
@@ -155,7 +157,11 @@
             clearLongPressTimer();
         }
 
-        if (deltaX > deltaY && deltaX > 15) {
+        if (unref(direction) === null && (deltaX > 4 || deltaY > 4)) {
+            direction.value = deltaX > deltaY ? 'horizontal' : 'vertical';
+        }
+
+        if (unref(direction) === 'horizontal' && evt.cancelable) {
             evt.preventDefault();
         }
     }
@@ -164,17 +170,12 @@
         clearLongPressTimer();
 
         if (unref(isOpen)) {
-            // Check if the touch target is the delete button or its child
             const target = evt.target as HTMLElement;
-            const isDeleteButton = target.closest('[data-delete-button]') !== null;
-            
-            if (isDeleteButton) {
-                // Delete button has its own event handler with .stop.prevent
-                // Let it handle the event
+
+            if (target.closest('[data-delete-button]') !== null) {
                 return;
             }
-            
-            // Close the swipe if user tapped elsewhere
+
             setTimeout(() => isOpen.value = false, 50);
             evt.stopPropagation();
             return;
@@ -190,6 +191,10 @@
 
         if (unref(isTap) && !unref(touchedInteractive) && !unref(didLongPress)) {
             emit('tap');
+            return;
+        }
+
+        if (unref(direction) !== 'horizontal') {
             return;
         }
 
@@ -225,6 +230,7 @@
 
     .listItemMountBody {
         position: relative;
+        touch-action: pan-y;
         translate: var(--x) 0;
     }
 

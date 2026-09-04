@@ -13741,8 +13741,8 @@ var ST = /* @__PURE__ */ je(vT, [["__cssModules", wT]]), TT = /* @__PURE__ */ H(
   },
   emits: ["longPress", "remove", "tap"],
   setup(t, { emit: e }) {
-    const n = e, s = te(!1), i = te(!1), r = te(0), a = te(0), o = te(0), l = te(0), u = te(!0), c = te(!1), f = te(null), m = te(!1), h = xe(() => s.value ? r.value - o.value > 180 : !1), p = xe(() => {
-      if (!s.value)
+    const n = e, s = te(!1), i = te(!1), r = te(0), a = te(0), o = te(0), l = te(0), u = te(!0), _dir = te(null), c = te(!1), f = te(null), m = te(!1), h = xe(() => s.value ? r.value - o.value > 180 : !1), p = xe(() => {
+      if (!s.value || _dir.value === "vertical")
         return i.value ? -90 : 0;
       const D = r.value - o.value, w = 90, E = 0.3;
       if (D <= 0)
@@ -13762,7 +13762,7 @@ var ST = /* @__PURE__ */ je(vT, [["__cssModules", wT]]), TT = /* @__PURE__ */ H(
       if (d(i))
         return;
       const w = D.touches[0];
-      r.value = w.clientX, a.value = w.clientY, o.value = w.clientX, l.value = w.clientY, s.value = !0, u.value = !0, m.value = !1, c.value = D.target.closest("[data-interactive]") !== null, k(), f.value = setTimeout(() => {
+      r.value = w.clientX, a.value = w.clientY, o.value = w.clientX, l.value = w.clientY, s.value = !0, u.value = !0, m.value = !1, _dir.value = null, c.value = D.target.closest("[data-interactive]") !== null, k(), f.value = setTimeout(() => {
         d(u) && !d(c) && (m.value = !0, n("longPress"));
       }, t.longPressDuration);
     }
@@ -13772,7 +13772,7 @@ var ST = /* @__PURE__ */ je(vT, [["__cssModules", wT]]), TT = /* @__PURE__ */ H(
       const w = D.touches[0];
       o.value = w.clientX, l.value = w.clientY;
       const E = Math.abs(o.value - r.value), U = Math.abs(l.value - a.value);
-      (E > 10 || U > 10) && (u.value = !1, k()), E > U && E > 15 && D.preventDefault();
+      (E > 10 || U > 10) && (u.value = !1, k()), d(_dir) === null && (E > 4 || U > 4) && (_dir.value = E > U ? "horizontal" : "vertical"), d(_dir) === "horizontal" && D.cancelable && D.preventDefault();
     }
     function T(D) {
       if (k(), d(i)) {
@@ -13789,6 +13789,8 @@ var ST = /* @__PURE__ */ je(vT, [["__cssModules", wT]]), TT = /* @__PURE__ */ H(
         n("tap");
         return;
       }
+      if (d(_dir) !== "horizontal")
+        return;
       if (w > 180) {
         n("remove");
         return;
