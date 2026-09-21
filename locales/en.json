@@ -105,7 +105,24 @@
           "task": "Edit task"
         }
       },
-      "today": "Today"
+      "today": "Today",
+      "filter": {
+        "title": "Filter",
+        "type": "Type",
+        "date": "Date",
+        "person": "Person",
+        "notes": "Notes",
+        "products": "Products",
+        "tasks": "Tasks",
+        "upcoming": "Upcoming",
+        "no_date": "No date",
+        "anyone": "Anyone",
+        "no_results": "No items match the current filters.",
+        "clear": "Clear filters",
+        "all_types": "All",
+        "all_dates": "All",
+        "due_by_today": "Due today or earlier"
+      }
     }
   },
   "grocery": {

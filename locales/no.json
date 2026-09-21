@@ -60,6 +60,23 @@
           "product": "Rediger produkt",
           "task": "Rediger oppgave"
         }
+      },
+      "filter": {
+        "title": "Filter",
+        "type": "Type",
+        "date": "Dato",
+        "person": "Person",
+        "notes": "Notater",
+        "products": "Produkter",
+        "tasks": "Oppgaver",
+        "upcoming": "Kommende",
+        "no_date": "Ingen dato",
+        "anyone": "Hvem som helst",
+        "no_results": "Ingen elementer samsvarer med de gjeldende filtrene.",
+        "clear": "Fjern filtre",
+        "all_types": "Alle",
+        "all_dates": "Alle",
+        "due_by_today": "I dag eller tidligere"
       }
     }
   },

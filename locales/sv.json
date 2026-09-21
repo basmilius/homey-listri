@@ -60,6 +60,23 @@
           "product": "Redigera produkt",
           "task": "Redigera uppgift"
         }
+      },
+      "filter": {
+        "title": "Filter",
+        "type": "Typ",
+        "date": "Datum",
+        "person": "Person",
+        "notes": "Anteckningar",
+        "products": "Produkter",
+        "tasks": "Uppgifter",
+        "upcoming": "Kommande",
+        "no_date": "Inget datum",
+        "anyone": "Vem som helst",
+        "no_results": "Inga objekt matchar de aktuella filtren.",
+        "clear": "Rensa filter",
+        "all_types": "Alla",
+        "all_dates": "Alla",
+        "due_by_today": "Idag eller tidigare"
       }
     }
   },

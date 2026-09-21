@@ -3974,6 +3974,194 @@
           },
           "value": 400,
           "min": 120
+        },
+        {
+          "id": "defaultTypeFilter",
+          "type": "dropdown",
+          "label": {
+            "en": "Default type filter",
+            "nl": "Standaard typefilter",
+            "de": "Standard-Typfilter",
+            "fr": "Filtre de type par défaut",
+            "it": "Filtro tipo predefinito",
+            "sv": "Standardfilter för typ",
+            "no": "Standardfilter for type",
+            "es": "Filtro de tipo predeterminado",
+            "da": "Standardfilter for type",
+            "ru": "Фильтр по типу по умолчанию",
+            "pl": "Domyślny filtr typu",
+            "ko": "기본 유형 필터",
+            "ar": "عامل تصفية النوع الافتراضي"
+          },
+          "value": "all",
+          "values": [
+            {
+              "id": "all",
+              "label": {
+                "en": "All",
+                "nl": "Alles",
+                "de": "Alle",
+                "fr": "Tout",
+                "it": "Tutti",
+                "sv": "Alla",
+                "no": "Alle",
+                "es": "Todos",
+                "da": "Alle",
+                "ru": "Все",
+                "pl": "Wszystkie",
+                "ko": "전체",
+                "ar": "الكل"
+              }
+            },
+            {
+              "id": "note",
+              "label": {
+                "en": "Notes",
+                "nl": "Notities",
+                "de": "Notizen",
+                "fr": "Notes",
+                "it": "Note",
+                "sv": "Anteckningar",
+                "no": "Notater",
+                "es": "Notas",
+                "da": "Noter",
+                "ru": "Заметки",
+                "pl": "Notatki",
+                "ko": "메모",
+                "ar": "الملاحظات"
+              }
+            },
+            {
+              "id": "product",
+              "label": {
+                "en": "Products",
+                "nl": "Producten",
+                "de": "Produkte",
+                "fr": "Produits",
+                "it": "Prodotti",
+                "sv": "Produkter",
+                "no": "Produkter",
+                "es": "Productos",
+                "da": "Produkter",
+                "ru": "Продукты",
+                "pl": "Produkty",
+                "ko": "제품",
+                "ar": "المنتجات"
+              }
+            },
+            {
+              "id": "task",
+              "label": {
+                "en": "Tasks",
+                "nl": "Taken",
+                "de": "Aufgaben",
+                "fr": "Tâches",
+                "it": "Attività",
+                "sv": "Uppgifter",
+                "no": "Oppgaver",
+                "es": "Tareas",
+                "da": "Opgaver",
+                "ru": "Задачи",
+                "pl": "Zadania",
+                "ko": "작업",
+                "ar": "المهام"
+              }
+            }
+          ]
+        },
+        {
+          "id": "defaultDateFilter",
+          "type": "dropdown",
+          "label": {
+            "en": "Default date filter",
+            "nl": "Standaard datumfilter",
+            "de": "Standard-Datumsfilter",
+            "fr": "Filtre de date par défaut",
+            "it": "Filtro data predefinito",
+            "sv": "Standardfilter för datum",
+            "no": "Standardfilter for dato",
+            "es": "Filtro de fecha predeterminado",
+            "da": "Standardfilter for dato",
+            "ru": "Фильтр по дате по умолчанию",
+            "pl": "Domyślny filtr daty",
+            "ko": "기본 날짜 필터",
+            "ar": "عامل تصفية التاريخ الافتراضي"
+          },
+          "value": "all",
+          "values": [
+            {
+              "id": "all",
+              "label": {
+                "en": "All",
+                "nl": "Alles",
+                "de": "Alle",
+                "fr": "Tout",
+                "it": "Tutte",
+                "sv": "Alla",
+                "no": "Alle",
+                "es": "Todas",
+                "da": "Alle",
+                "ru": "Все",
+                "pl": "Wszystkie",
+                "ko": "전체",
+                "ar": "الكل"
+              }
+            },
+            {
+              "id": "due_by_today",
+              "label": {
+                "en": "Due today or earlier",
+                "nl": "Vandaag of eerder",
+                "de": "Heute oder früher",
+                "fr": "Aujourd'hui ou avant",
+                "it": "Oggi o prima",
+                "sv": "Idag eller tidigare",
+                "no": "I dag eller tidligere",
+                "es": "Hoy o antes",
+                "da": "I dag eller tidligere",
+                "ru": "Сегодня или раньше",
+                "pl": "Dzisiaj lub wcześniej",
+                "ko": "오늘까지",
+                "ar": "اليوم أو قبله"
+              }
+            },
+            {
+              "id": "upcoming",
+              "label": {
+                "en": "Upcoming",
+                "nl": "Aankomend",
+                "de": "Anstehend",
+                "fr": "À venir",
+                "it": "Prossime",
+                "sv": "Kommande",
+                "no": "Kommende",
+                "es": "Próximas",
+                "da": "Kommende",
+                "ru": "Предстоящие",
+                "pl": "Nadchodzące",
+                "ko": "예정",
+                "ar": "قادمة"
+              }
+            },
+            {
+              "id": "no_date",
+              "label": {
+                "en": "No date",
+                "nl": "Geen datum",
+                "de": "Kein Datum",
+                "fr": "Sans date",
+                "it": "Senza data",
+                "sv": "Inget datum",
+                "no": "Ingen dato",
+                "es": "Sin fecha",
+                "da": "Ingen dato",
+                "ru": "Без даты",
+                "pl": "Bez daty",
+                "ko": "날짜 없음",
+                "ar": "بدون تاريخ"
+              }
+            }
+          ]
         }
       ],
       "api": {

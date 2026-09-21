@@ -54,6 +54,23 @@
                 "quantity": "Antall",
                 "task": "Oppgave"
             },
+            "filter": {
+                "title": "Filter",
+                "type": "Type",
+                "date": "Dato",
+                "person": "Person",
+                "all_types": "Alle",
+                "all_dates": "Alle",
+                "notes": "Notater",
+                "products": "Produkter",
+                "tasks": "Oppgaver",
+                "due_by_today": "I dag eller tidligere",
+                "upcoming": "Kommende",
+                "no_date": "Ingen dato",
+                "anyone": "Hvem som helst",
+                "no_results": "Ingen elementer samsvarer med de gjeldende filtrene.",
+                "clear": "Fjern filtre"
+            },
             "edit": {
                 "title": {
                     "note": "Rediger notat",

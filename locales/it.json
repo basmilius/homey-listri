@@ -60,6 +60,23 @@
           "product": "Modifica prodotto",
           "task": "Modifica attività"
         }
+      },
+      "filter": {
+        "title": "Filtro",
+        "type": "Tipo",
+        "date": "Data",
+        "person": "Persona",
+        "notes": "Note",
+        "products": "Prodotti",
+        "tasks": "Attività",
+        "upcoming": "Prossime",
+        "no_date": "Senza data",
+        "anyone": "Chiunque",
+        "no_results": "Nessun elemento corrisponde ai filtri attuali.",
+        "clear": "Cancella filtri",
+        "all_types": "Tutti",
+        "all_dates": "Tutte",
+        "due_by_today": "Oggi o prima"
       }
     }
   },

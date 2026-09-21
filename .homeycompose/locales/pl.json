@@ -54,6 +54,23 @@
                 "quantity": "Ilość",
                 "task": "Zadanie"
             },
+            "filter": {
+                "title": "Filtr",
+                "type": "Typ",
+                "date": "Data",
+                "person": "Osoba",
+                "all_types": "Wszystkie",
+                "all_dates": "Wszystkie",
+                "notes": "Notatki",
+                "products": "Produkty",
+                "tasks": "Zadania",
+                "due_by_today": "Dzisiaj lub wcześniej",
+                "upcoming": "Nadchodzące",
+                "no_date": "Bez daty",
+                "anyone": "Ktokolwiek",
+                "no_results": "Żaden element nie pasuje do bieżących filtrów.",
+                "clear": "Wyczyść filtry"
+            },
             "edit": {
                 "title": {
                     "note": "Edytuj notatkę",

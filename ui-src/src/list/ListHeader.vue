@@ -14,18 +14,29 @@
         </div>
 
         <button
-            :class="$style.listHeaderAdd"
+            v-if="canFilter"
+            :aria-label="t('widget.list.filter.title')"
+            :class="$style.listHeaderAction"
+            @click="onFilterTap()">
+            <Icon
+                :class="$style.listHeaderActionIcon"
+                icon=""
+                :style="hasActiveFilters ? {'--color': color} : undefined"/>
+        </button>
+
+        <button
+            :class="$style.listHeaderAction"
             @click="onAddNoteTap()">
             <Icon
-                :class="$style.listHeaderAddIcon"
+                :class="$style.listHeaderActionIcon"
                 icon=""/>
         </button>
 
         <button
-            :class="$style.listHeaderAdd"
+            :class="$style.listHeaderAction"
             @click="onAddTap()">
             <Icon
-                :class="$style.listHeaderAddIcon"
+                :class="$style.listHeaderActionIcon"
                 icon=""/>
         </button>
     </div>
@@ -35,17 +46,23 @@
     lang="ts"
     setup>
     import { Icon } from '../components';
+    import { useTranslate } from '../composables';
 
     const emit = defineEmits<{
         add: [];
         addNote: [];
+        filter: [];
     }>();
 
     defineProps<{
+        readonly canFilter: boolean;
         readonly color: string;
+        readonly hasActiveFilters: boolean;
         readonly icon: string;
         readonly name: string;
     }>();
+
+    const t = useTranslate();
 
     function onAddTap(): void {
         emit('add');
@@ -53,6 +70,10 @@
 
     function onAddNoteTap(): void {
         emit('addNote');
+    }
+
+    function onFilterTap(): void {
+        emit('filter');
     }
 </script>
 
@@ -82,7 +103,7 @@
         flex-grow: 1;
     }
 
-    .listHeaderAdd {
+    .listHeaderAction {
         display: flex;
         margin: -11px;
         height: 42px;
@@ -96,11 +117,11 @@
         transition: background 150ms var(--swift-out);
     }
 
-    .listHeaderAdd:active {
+    .listHeaderAction:active {
         background: var(--homey-color-mono-100);
     }
 
-    .listHeaderAddIcon {
+    .listHeaderActionIcon {
         --color: var(--homey-color-mono-600);
         --size: 20px;
     }
